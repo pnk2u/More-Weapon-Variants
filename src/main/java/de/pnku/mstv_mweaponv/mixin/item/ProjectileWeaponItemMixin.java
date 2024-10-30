@@ -8,6 +8,7 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ProjectileWeaponItem;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
@@ -23,8 +24,11 @@ public abstract class ProjectileWeaponItemMixin implements IArrow {
     @Inject(method = "createProjectile", at = @At(value = "RETURN", shift = At.Shift.BEFORE), cancellable = true)
     protected void injectedCreateProjectile(Level level, LivingEntity shooter, ItemStack weapon, ItemStack ammo, boolean isCrit, CallbackInfoReturnable<Projectile> cir, @Local AbstractArrow abstractArrow) {
         Item arrowVariantItem = ammo.getItem();
+        Item stickItem;
+        String arrowVariant;
         if (more_arrows.contains(arrowVariantItem)){
-            String arrowVariant = ((MoreStickVariantItem) (more_weapon_sticks.get(arrowVariantItem))).mstvWoodType;
+            stickItem = more_weapon_sticks.get(arrowVariantItem);
+            if (stickItem.equals(Items.BAMBOO)) {arrowVariant = "bamboo";} else if (stickItem.equals(Items.STICK)) {arrowVariant = "oak";} else { arrowVariant = ((MoreStickVariantItem) stickItem).mstvWoodType;}
             ((IArrow) abstractArrow).mweaponv$setVariant(arrowVariant);
             cir.setReturnValue(abstractArrow);
         }
