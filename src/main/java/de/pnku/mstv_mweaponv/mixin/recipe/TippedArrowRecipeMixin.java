@@ -1,12 +1,12 @@
 package de.pnku.mstv_mweaponv.mixin.recipe;
 
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.PotionContents;
+import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.CustomRecipe;
 import net.minecraft.world.item.crafting.TippedArrowRecipe;
@@ -53,7 +53,7 @@ public abstract class TippedArrowRecipeMixin extends CustomRecipe {
     }
 
     @Inject(method = "assemble*", at = @At("HEAD"), cancellable = true)
-    private void injectAssemble(CraftingContainer craftingContainer, HolderLookup.Provider provider, CallbackInfoReturnable<ItemStack> cir) {
+    private void injectAssemble(CraftingContainer craftingContainer, RegistryAccess registryAccess, CallbackInfoReturnable<ItemStack> cir) {
         Item tippableArrowItem = craftingContainer.getItem(0).getItem();
         if (more_tippable_arrows.containsKey(tippableArrowItem)) {
             ItemStack lingeringPotionStack = craftingContainer.getItem(1 + craftingContainer.getWidth());
@@ -62,7 +62,8 @@ public abstract class TippedArrowRecipeMixin extends CustomRecipe {
             } else {
                 Item tippedArrowItem = more_tippable_arrows.get(tippableArrowItem);
                 ItemStack tippedArrowStack = new ItemStack(tippedArrowItem, 8);
-                tippedArrowStack.set(DataComponents.POTION_CONTENTS, (PotionContents) lingeringPotionStack.get(DataComponents.POTION_CONTENTS));
+                PotionUtils.setPotion(tippedArrowStack, PotionUtils.getPotion(lingeringPotionStack));
+                PotionUtils.setCustomEffects(tippedArrowStack, PotionUtils.getCustomEffects(lingeringPotionStack));
                 cir.setReturnValue(tippedArrowStack);
             }
         }

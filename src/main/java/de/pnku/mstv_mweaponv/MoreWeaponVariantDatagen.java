@@ -1,8 +1,8 @@
 package de.pnku.mstv_mweaponv;
 
-import de.pnku.mstv_mweaponv.datagen.MoreWeaponVariantLangGenerator;
-import de.pnku.mstv_mweaponv.datagen.MoreWeaponVariantModelGenerator;
-import de.pnku.mstv_mweaponv.datagen.MoreWeaponVariantRecipeGenerator;
+//import de.pnku.mstv_mweaponv.datagen.MoreWeaponVariantLangGenerator;
+//import de.pnku.mstv_mweaponv.datagen.MoreWeaponVariantModelGenerator;
+//import de.pnku.mstv_mweaponv.datagen.MoreWeaponVariantRecipeGenerator;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 

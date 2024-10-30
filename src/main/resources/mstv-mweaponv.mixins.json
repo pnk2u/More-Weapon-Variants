@@ -2,11 +2,11 @@
   "required": false ,
   "minVersion": "0.8" ,
   "package": "de.pnku.mstv_mweaponv.mixin" ,
-  "compatibilityLevel": "JAVA_21" ,
+  "compatibilityLevel": "JAVA_17" ,
   "mixins": [
     "entity.AbstractArrowMixin" ,
     "entity.ArrowMixin" ,
-    "item.ProjectileWeaponItemMixin" ,
+    "item.ArrowItemMixin" ,
     "recipe.TippedArrowRecipeMixin"
   ] ,
   "injectors": {

@@ -3,18 +3,12 @@ package de.pnku.mstv_mweaponv.client.renderer;
 import de.pnku.mstv_base.item.MoreStickVariantItem;
 import de.pnku.mstv_mweaponv.MoreWeaponVariants;
 import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.component.ChargedProjectiles;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.*;
-import static de.pnku.mstv_mweaponv.MoreWeaponVariants.*;
 
 public class MweaponvModelPredicates {
 
@@ -62,25 +56,27 @@ public class MweaponvModelPredicates {
                 if (more_arrows.contains(arrowItem)) {
                     Item stickItem = more_weapon_sticks.get(arrowItem);
                     if (stickItem.equals(Items.BAMBOO)) {arrowStickWood = "bamboo";}
-                    if (stickItem.equals(Items.STICK)) {arrowStickWood = "oak";}
+                    else if (stickItem.equals(Items.STICK)) {arrowStickWood = "oak";}
                     else { arrowStickWood = ((MoreStickVariantItem) (more_weapon_sticks.get(arrowItem))).mstvWoodType;
                     }
                 } else {arrowStickWood = null;}
             } else {arrowStickWood = null;}
-            switch (arrowStickWood) {
-                case ("acacia") -> {return 0.01F;}
-                case ("bamboo") -> {return 0.02F;}
-                case ("birch") -> {return 0.03F;}
-                case ("cherry") -> {return 0.04F;}
-                case ("crimson") -> {return 0.05F;}
-                case ("dark_oak") -> {return 0.06F;}
-                case ("jungle") -> {return 0.07F;}
-                case ("mangrove") -> {return 0.08F;}
-                case ("oak") -> {return 0.09F;}
-                case ("spruce") -> {return 0.10F;}
-                case ("warped") -> {return 0.11F;}
-                case null, default -> {return 0.0F;}
-            }
+                if (arrowStickWood == null) {return 0.0F;} else {
+                    switch (arrowStickWood) {
+                        case ("acacia") -> {return 0.01F;}
+                        case ("bamboo") -> {return 0.02F;}
+                        case ("birch") -> {return 0.03F;}
+                        case ("cherry") -> {return 0.04F;}
+                        case ("crimson") -> {return 0.05F;}
+                        case ("dark_oak") -> {return 0.06F;}
+                        case ("jungle") -> {return 0.07F;}
+                        case ("mangrove") -> {return 0.08F;}
+                        case ("oak") -> {return 0.09F;}
+                        case ("spruce") -> {return 0.10F;}
+                        case ("warped") -> {return 0.11F;}
+                        default -> {return 0.0F;}
+                    }
+                }
             });
     }
     private static void registerCrossbowPullPredicate(Item crossbowItem) {
@@ -109,23 +105,20 @@ public class MweaponvModelPredicates {
         ItemProperties.register(crossbowItem, new ResourceLocation("charged_projectiles"),
                 (itemStack, clientLevel, livingEntity, i) -> {
             if (CrossbowItem.isCharged(itemStack)) {
-                ChargedProjectiles chargedProjectiles = (ChargedProjectiles) itemStack.get(DataComponents.CHARGED_PROJECTILES);
-                if (chargedProjectiles != null) {
-                if (chargedProjectiles.contains(ACACIA_ARROW) || chargedProjectiles.contains(ACACIA_TIPPED_ARROW)) {return 0.01F;}
-                else if (chargedProjectiles.contains(BAMBOO_ARROW) || chargedProjectiles.contains(BAMBOO_TIPPED_ARROW)) {return 0.02F;}
-                else if (chargedProjectiles.contains(BIRCH_ARROW) || chargedProjectiles.contains(BIRCH_TIPPED_ARROW)) {return 0.03F;}
-                else if (chargedProjectiles.contains(CHERRY_ARROW) || chargedProjectiles.contains(CHERRY_TIPPED_ARROW)) {return 0.04F;}
-                else if (chargedProjectiles.contains(CRIMSON_ARROW) || chargedProjectiles.contains(CRIMSON_TIPPED_ARROW)) {return 0.05F;}
-                else if (chargedProjectiles.contains(DARK_OAK_ARROW) || chargedProjectiles.contains(DARK_OAK_TIPPED_ARROW)) {return 0.06F;}
-                else if (chargedProjectiles.contains(JUNGLE_ARROW) || chargedProjectiles.contains(JUNGLE_TIPPED_ARROW)) {return 0.07F;}
-                else if (chargedProjectiles.contains(MANGROVE_ARROW) || chargedProjectiles.contains(MANGROVE_TIPPED_ARROW)) {return 0.08F;}
-                else if (chargedProjectiles.contains(Items.ARROW) || chargedProjectiles.contains(Items.TIPPED_ARROW)) {return 0.09F;}
-                else if (chargedProjectiles.contains(SPRUCE_ARROW) || chargedProjectiles.contains(SPRUCE_TIPPED_ARROW)) {return 0.10F;}
-                else if (chargedProjectiles.contains(WARPED_ARROW) || chargedProjectiles.contains(WARPED_TIPPED_ARROW)) {return 0.11F;}
-                else if (chargedProjectiles.contains(Items.FIREWORK_ROCKET)) {return 0.12F;}
+                if (CrossbowItem.containsChargedProjectile(itemStack, ACACIA_ARROW) || CrossbowItem.containsChargedProjectile(itemStack, ACACIA_TIPPED_ARROW)) {return 0.01F;}
+                else if (CrossbowItem.containsChargedProjectile(itemStack, BAMBOO_ARROW) || CrossbowItem.containsChargedProjectile(itemStack, BAMBOO_TIPPED_ARROW)) {return 0.02F;}
+                else if (CrossbowItem.containsChargedProjectile(itemStack, BIRCH_ARROW) || CrossbowItem.containsChargedProjectile(itemStack, BIRCH_TIPPED_ARROW)) {return 0.03F;}
+                else if (CrossbowItem.containsChargedProjectile(itemStack, CHERRY_ARROW) || CrossbowItem.containsChargedProjectile(itemStack, CHERRY_TIPPED_ARROW)) {return 0.04F;}
+                else if (CrossbowItem.containsChargedProjectile(itemStack, CRIMSON_ARROW) || CrossbowItem.containsChargedProjectile(itemStack, CRIMSON_TIPPED_ARROW)) {return 0.05F;}
+                else if (CrossbowItem.containsChargedProjectile(itemStack, DARK_OAK_ARROW) || CrossbowItem.containsChargedProjectile(itemStack, DARK_OAK_TIPPED_ARROW)) {return 0.06F;}
+                else if (CrossbowItem.containsChargedProjectile(itemStack, JUNGLE_ARROW) || CrossbowItem.containsChargedProjectile(itemStack, JUNGLE_TIPPED_ARROW)) {return 0.07F;}
+                else if (CrossbowItem.containsChargedProjectile(itemStack, MANGROVE_ARROW) || CrossbowItem.containsChargedProjectile(itemStack, MANGROVE_TIPPED_ARROW)) {return 0.08F;}
+                else if (CrossbowItem.containsChargedProjectile(itemStack, Items.ARROW) || CrossbowItem.containsChargedProjectile(itemStack, Items.TIPPED_ARROW)) {return 0.09F;}
+                else if (CrossbowItem.containsChargedProjectile(itemStack, SPRUCE_ARROW) || CrossbowItem.containsChargedProjectile(itemStack, SPRUCE_TIPPED_ARROW)) {return 0.10F;}
+                else if (CrossbowItem.containsChargedProjectile(itemStack, WARPED_ARROW) || CrossbowItem.containsChargedProjectile(itemStack, WARPED_TIPPED_ARROW)) {return 0.11F;}
+                else if (CrossbowItem.containsChargedProjectile(itemStack, Items.FIREWORK_ROCKET)) {return 0.12F;}
                 }
-            }
-            return 0.0F;
-        });
+            return 0.0f;}
+        );
     }
 }

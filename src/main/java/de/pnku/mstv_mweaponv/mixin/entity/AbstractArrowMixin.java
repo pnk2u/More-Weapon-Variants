@@ -4,6 +4,8 @@ import de.pnku.mstv_mweaponv.util.IArrow;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Arrow;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.alchemy.Potions;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,7 +21,13 @@ public abstract class AbstractArrowMixin implements IArrow {
     @Inject(method = "addAdditionalSaveData", at = @At("TAIL"))
     protected void injectedAddAdditionalSaveData(CompoundTag compound, CallbackInfo ci) {
         if (abstractArrow instanceof Arrow) {
-            compound.putString("Type", this.mweaponv$getVariant());
+            if (!this.mweaponv$getVariant().equals("oak")) {
+                boolean isTipped = (((Arrow) abstractArrow).potion == Potions.EMPTY);
+                String woodVariant = this.mweaponv$getVariant();
+                ItemStack arrowStack = mweaponv$arrowItemStackFromVariant(woodVariant, isTipped);
+                compound.putString("Type", woodVariant);
+                compound.put("item", arrowStack.save(new CompoundTag()));
+            }
     }
     }
 

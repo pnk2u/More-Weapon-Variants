@@ -2,12 +2,9 @@ package de.pnku.mstv_mweaponv.item;
 
 import de.pnku.mstv_base.item.MoreStickVariantItem;
 import de.pnku.mstv_mweaponv.MoreWeaponVariants;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.*;
 import net.minecraft.core.Registry;
-import net.minecraft.world.item.alchemy.PotionContents;
-import net.minecraft.world.item.component.ChargedProjectiles;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,11 +22,11 @@ public class MoreWeaponVariantItems {
 
     public static SwordItem createSwordVariantItem (Tier tier, String woodType){
         int AD = 3; float AS = -2.4F;
-        Item.Properties swordVariantProperties = (new Item.Properties()).attributes(SwordItem.createAttributes(tier, AD, AS));
+        Item.Properties swordVariantProperties = new Item.Properties();
         if (woodType.matches("crimson|warped") || tier.equals(NETHERITE)) {
             swordVariantProperties.fireResistant();
         }
-        SwordItem swordItem = new SwordItem(tier, swordVariantProperties);
+        SwordItem swordItem = new SwordItem(tier, AD, AS, swordVariantProperties);
         more_sword_tiers.put(swordItem, tier);
         return swordItem;
     }
@@ -43,7 +40,7 @@ public class MoreWeaponVariantItems {
     }
 
     public static CrossbowItem createCrossbowVariantItem (String woodType){
-        Item.Properties crossbowVariantProperties = (new Item.Properties()).durability(465).component(DataComponents.CHARGED_PROJECTILES, ChargedProjectiles.EMPTY);
+        Item.Properties crossbowVariantProperties = (new Item.Properties()).stacksTo(1).durability(465);
         if (woodType.matches("crimson|warped")) {
             crossbowVariantProperties.fireResistant();
         }
@@ -56,7 +53,6 @@ public class MoreWeaponVariantItems {
 
     public static ArrowItem createArrowVariantItem (String woodType, Boolean isTipped){
         Item.Properties arrowVariantProperties = (new Item.Properties());
-        if (isTipped) {arrowVariantProperties.component(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);}
         if (woodType.matches("crimson|warped")) {
             arrowVariantProperties.fireResistant();
         }
