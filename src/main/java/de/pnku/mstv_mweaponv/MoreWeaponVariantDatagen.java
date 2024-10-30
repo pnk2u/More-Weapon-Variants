@@ -13,9 +13,9 @@ public class MoreWeaponVariantDatagen implements DataGeneratorEntrypoint {
 	public void onInitializeDataGenerator(FabricDataGenerator generator) {
 		FabricDataGenerator.Pack pack = generator.createPack();
 
-		pack.addProvider(MoreWeaponVariantRecipeGenerator::new);
-		pack.addProvider(MoreWeaponVariantLangGenerator::new);
-		pack.addProvider(MoreWeaponVariantModelGenerator::new);
+		//pack.addProvider(MoreWeaponVariantRecipeGenerator::new);
+		//pack.addProvider(MoreWeaponVariantLangGenerator::new);
+		//pack.addProvider(MoreWeaponVariantModelGenerator::new);
 	}
 
 }

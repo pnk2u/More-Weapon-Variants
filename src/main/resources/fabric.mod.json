@@ -22,9 +22,6 @@
     ],
     "client": [
       "de.pnku.mstv_mweaponv.MoreWeaponVariantsClient"
-    ],
-    "fabric-datagen": [
-      "de.pnku.mstv_mweaponv.MoreWeaponVariantDatagen"
     ]
   },
   "mixins": [
