@@ -1,0 +1,6 @@
+{
+  "parent": "mstv-mweaponv:item/jungle_bow",
+  "textures": {
+    "layer0": "mstv-mweaponv:item/jungle_bow_pulling_1_mangrove_arrow"
+  }
+}

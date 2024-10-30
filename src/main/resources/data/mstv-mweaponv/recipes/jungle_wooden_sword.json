@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "wooden_swords",
+  "key": {
+    "/": {
+      "item": "mstv-base:jungle_stick"
+    },
+    "<": {
+      "item": "minecraft:jungle_planks"
+    }
+  },
+  "pattern": [
+    "<",
+    "<",
+    "/"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:jungle_wooden_sword"
+  }
+}

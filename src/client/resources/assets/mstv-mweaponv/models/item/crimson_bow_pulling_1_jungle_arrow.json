@@ -1,0 +1,6 @@
+{
+  "parent": "mstv-mweaponv:item/crimson_bow",
+  "textures": {
+    "layer0": "mstv-mweaponv:item/crimson_bow_pulling_1_jungle_arrow"
+  }
+}

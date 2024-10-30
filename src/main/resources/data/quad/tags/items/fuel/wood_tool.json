@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    "mstv-mweaponv:spruce_wooden_sword",
+    "mstv-mweaponv:birch_wooden_sword",
+    "mstv-mweaponv:jungle_wooden_sword",
+    "mstv-mweaponv:acacia_wooden_sword",
+    "mstv-mweaponv:dark_oak_wooden_sword",
+    "mstv-mweaponv:mangrove_wooden_sword",
+    "mstv-mweaponv:cherry_wooden_sword",
+    "mstv-mweaponv:bamboo_wooden_sword",
+    "mstv-mweaponv:spruce_bow",
+    "mstv-mweaponv:birch_bow",
+    "mstv-mweaponv:jungle_bow",
+    "mstv-mweaponv:acacia_bow",
+    "mstv-mweaponv:dark_oak_bow",
+    "mstv-mweaponv:mangrove_bow",
+    "mstv-mweaponv:cherry_bow",
+    "mstv-mweaponv:bamboo_bow",
+    "mstv-mweaponv:spruce_crossbow",
+    "mstv-mweaponv:birch_crossbow",
+    "mstv-mweaponv:jungle_crossbow",
+    "mstv-mweaponv:acacia_crossbow",
+    "mstv-mweaponv:oak_crossbow",
+    "mstv-mweaponv:mangrove_crossbow",
+    "mstv-mweaponv:cherry_crossbow",
+    "mstv-mweaponv:bamboo_crossbow"
+  ]
+}

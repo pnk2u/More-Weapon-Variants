@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "blackstone_swords",
+  "key": {
+    "/": {
+      "item": "mstv-base:cherry_stick"
+    },
+    "<": {
+      "item": "minecraft:blackstone"
+    }
+  },
+  "pattern": [
+    "<",
+    "<",
+    "/"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:cherry_blackstone_sword"
+  }
+}

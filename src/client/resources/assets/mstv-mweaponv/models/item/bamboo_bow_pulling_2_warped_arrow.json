@@ -1,0 +1,6 @@
+{
+  "parent": "mstv-mweaponv:item/bamboo_bow",
+  "textures": {
+    "layer0": "mstv-mweaponv:item/bamboo_bow_pulling_2_warped_arrow"
+  }
+}

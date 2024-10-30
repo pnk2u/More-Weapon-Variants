@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "deepslate_swords",
+  "key": {
+    "/": {
+      "item": "mstv-base:mangrove_stick"
+    },
+    "<": {
+      "item": "minecraft:deepslate"
+    }
+  },
+  "pattern": [
+    "<",
+    "<",
+    "/"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:mangrove_deepslate_sword"
+  }
+}

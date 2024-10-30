@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "/": {
+      "item": "mstv-base:spruce_stick"
+    },
+    "H": {
+      "item": "minecraft:tripwire_hook"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "/I/",
+    "SHS",
+    " / "
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:spruce_crossbow"
+  }
+}

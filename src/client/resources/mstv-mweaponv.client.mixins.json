@@ -1,0 +1,13 @@
+{
+  "required": false ,
+  "package": "de.pnku.mstv_mweaponv.mixin.client" ,
+  "compatibilityLevel": "JAVA_21" ,
+  "client": [
+    "color.ItemColorsMixin" ,
+    "renderer.ItemInHandRendererMixin" ,
+    "renderer.TippableArrowRendererMixin"
+  ] ,
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

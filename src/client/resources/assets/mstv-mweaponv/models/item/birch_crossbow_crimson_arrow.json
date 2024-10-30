@@ -1,0 +1,6 @@
+{
+  "parent": "mstv-mweaponv:item/birch_crossbow",
+  "textures": {
+    "layer0": "mstv-mweaponv:item/birch_crossbow_crimson_arrow"
+  }
+}

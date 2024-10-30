@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mstv-mweaponv:item/acacia_crossbow_warped_arrow"
+  }
+}

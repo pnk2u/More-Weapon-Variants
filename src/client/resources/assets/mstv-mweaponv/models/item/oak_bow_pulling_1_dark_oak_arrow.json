@@ -1,0 +1,6 @@
+{
+  "parent": "item/bow",
+  "textures": {
+    "layer0": "mstv-mweaponv:item/oak_bow_pulling_1_dark_oak_arrow"
+  }
+}

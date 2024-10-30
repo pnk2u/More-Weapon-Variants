@@ -1,0 +1,6 @@
+{
+  "parent": "mstv-mweaponv:item/warped_bow",
+  "textures": {
+    "layer0": "mstv-mweaponv:item/warped_bow_pulling_0_acacia_arrow"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "deepslate_swords",
+  "key": {
+    "/": {
+      "item": "minecraft:stick"
+    },
+    "<": {
+      "item": "minecraft:deepslate"
+    }
+  },
+  "pattern": [
+    "<",
+    "<",
+    "/"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:oak_deepslate_sword"
+  }
+}

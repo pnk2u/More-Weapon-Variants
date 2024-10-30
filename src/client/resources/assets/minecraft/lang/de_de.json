@@ -1,0 +1,12 @@
+{
+  "item.minecraft.bow": "Eichenholzbogen",
+  "item.minecraft.crossbow": "Eichenholzarmbrust",
+  "item.minecraft.arrow": "Eichenholzpfeil",
+  "item.minecraft.tipped_arrow": "Getränkter Eichenholzpfeil",
+  "item.minecraft.diamond_sword": "Eichenholzdiamantschwert",
+  "item.minecraft.golden_sword": "Eichenholzgoldschwert",
+  "item.minecraft.iron_sword": "Eichenholzeisenschwert",
+  "item.minecraft.netherite_sword": "Eichenholznetheritschwert",
+  "item.minecraft.stone_sword": "Eichenholzsteinschwert",
+  "item.minecraft.wooden_sword": "Eichenholzschwert"
+}

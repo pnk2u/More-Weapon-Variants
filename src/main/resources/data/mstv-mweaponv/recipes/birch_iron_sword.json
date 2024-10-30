@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "iron_swords",
+  "key": {
+    "/": {
+      "item": "mstv-base:birch_stick"
+    },
+    "<": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "<",
+    "<",
+    "/"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:birch_iron_sword"
+  }
+}

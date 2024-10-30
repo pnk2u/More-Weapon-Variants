@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "blackstone_swords",
+  "key": {
+    "/": {
+      "item": "mstv-base:jungle_stick"
+    },
+    "<": {
+      "item": "minecraft:blackstone"
+    }
+  },
+  "pattern": [
+    "<",
+    "<",
+    "/"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:jungle_blackstone_sword"
+  }
+}

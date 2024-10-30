@@ -1,0 +1,6 @@
+{
+  "parent": "mstv-mweaponv:item/birch_bow",
+  "textures": {
+    "layer0": "mstv-mweaponv:item/birch_bow_pulling_1_spruce_arrow"
+  }
+}

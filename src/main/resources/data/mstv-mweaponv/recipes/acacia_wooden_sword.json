@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "wooden_swords",
+  "key": {
+    "/": {
+      "item": "mstv-base:acacia_stick"
+    },
+    "<": {
+      "item": "minecraft:acacia_planks"
+    }
+  },
+  "pattern": [
+    "<",
+    "<",
+    "/"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:acacia_wooden_sword"
+  }
+}

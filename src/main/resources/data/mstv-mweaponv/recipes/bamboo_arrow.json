@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:flint"
+    },
+    "/": {
+      "item": "minecraft:bamboo"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    }
+  },
+  "pattern": [
+    "#",
+    "/",
+    "F"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:bamboo_arrow"
+  }
+}

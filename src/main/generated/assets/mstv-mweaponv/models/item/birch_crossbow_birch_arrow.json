@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mstv-mweaponv:item/birch_crossbow_birch_arrow"
+  }
+}

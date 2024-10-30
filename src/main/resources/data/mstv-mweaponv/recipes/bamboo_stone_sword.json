@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "stone_swords",
+  "key": {
+    "/": {
+      "item": "minecraft:bamboo"
+    },
+    "<": {
+      "item": "minecraft:cobblestone"
+    }
+  },
+  "pattern": [
+    "<",
+    "<",
+    "/"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:bamboo_stone_sword"
+  }
+}

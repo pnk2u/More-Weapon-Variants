@@ -1,0 +1,6 @@
+{
+  "parent": "mstv-mweaponv:item/dark_oak_bow",
+  "textures": {
+    "layer0": "mstv-mweaponv:item/dark_oak_bow_pulling_1_spruce_arrow"
+  }
+}

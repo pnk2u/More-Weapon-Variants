@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "golden_swords",
+  "key": {
+    "/": {
+      "item": "mstv-base:cherry_stick"
+    },
+    "<": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "pattern": [
+    "<",
+    "<",
+    "/"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:cherry_golden_sword"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "diamond_swords",
+  "key": {
+    "/": {
+      "item": "mstv-base:crimson_stick"
+    },
+    "<": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "pattern": [
+    "<",
+    "<",
+    "/"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:crimson_diamond_sword"
+  }
+}

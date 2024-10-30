@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "/": {
+      "item": "mstv-base:cherry_stick"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    " /S",
+    "/ S",
+    " /S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:cherry_bow"
+  }
+}

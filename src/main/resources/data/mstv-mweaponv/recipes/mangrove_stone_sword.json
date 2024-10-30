@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "stone_swords",
+  "key": {
+    "/": {
+      "item": "mstv-base:mangrove_stick"
+    },
+    "<": {
+      "item": "minecraft:cobblestone"
+    }
+  },
+  "pattern": [
+    "<",
+    "<",
+    "/"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:mangrove_stone_sword"
+  }
+}

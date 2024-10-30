@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "golden_swords",
+  "key": {
+    "/": {
+      "item": "mstv-base:jungle_stick"
+    },
+    "<": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "pattern": [
+    "<",
+    "<",
+    "/"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:jungle_golden_sword"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "diamond_swords",
+  "key": {
+    "/": {
+      "item": "mstv-base:acacia_stick"
+    },
+    "<": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "pattern": [
+    "<",
+    "<",
+    "/"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:acacia_diamond_sword"
+  }
+}

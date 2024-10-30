@@ -1,0 +1,6 @@
+{
+  "parent": "mstv-mweaponv:item/crimson_crossbow",
+  "textures": {
+    "layer0": "mstv-mweaponv:item/crimson_crossbow_pulling_1"
+  }
+}

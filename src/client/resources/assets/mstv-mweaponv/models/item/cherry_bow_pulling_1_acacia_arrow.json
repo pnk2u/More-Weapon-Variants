@@ -1,0 +1,6 @@
+{
+  "parent": "mstv-mweaponv:item/cherry_bow",
+  "textures": {
+    "layer0": "mstv-mweaponv:item/cherry_bow_pulling_1_acacia_arrow"
+  }
+}

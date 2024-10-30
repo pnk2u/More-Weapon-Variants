@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mstv-mweaponv:item/mangrove_crossbow_oak_arrow"
+  }
+}
