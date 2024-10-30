@@ -2,22 +2,11 @@
   "required": false ,
   "minVersion": "0.8" ,
   "package": "de.pnku.mstv_mweaponv.mixin" ,
-  "compatibilityLevel": "JAVA_21" ,
+  "compatibilityLevel": "JAVA_17" ,
   "mixins": [
     "entity.AbstractArrowMixin" ,
     "entity.ArrowMixin" ,
-    "entity.ProjectileUtilMixin" ,
-    "entity.ai.CrossbowAttackMixin" ,
-    "entity.ai.CrossbowAttackMobMixin" ,
-    "entity.ai.RangedBowAttackGoalMixin" ,
-    "entity.ai.RangedCrossbowAttackGoalMixin" ,
-    "entity.ai.monster.MonsterMixin" ,
-    "entity.ai.piglin.PiglinAiMixin" ,
-    "entity.ai.piglin.PiglinMixin" ,
-    "entity.ai.skeleton.AbstractSkeletonMixin" ,
-    "entity.ai.skeleton.WitherSkeletonMixin" ,
     "item.ArrowItemMixin" ,
-    "item.ProjectileWeaponItemMixin" ,
     "recipe.TippedArrowRecipeMixin"
   ] ,
   "injectors": {

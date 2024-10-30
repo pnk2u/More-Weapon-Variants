@@ -8,7 +8,7 @@
   },
   "result": {
     "count": 1,
-    "id": "mstv-mweaponv:acacia_netherite_sword"
+    "item": "mstv-mweaponv:acacia_netherite_sword"
   },
   "template": {
     "item": "minecraft:netherite_upgrade_smithing_template"
