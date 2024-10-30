@@ -7,7 +7,7 @@
       "item": "mstv-base:mangrove_stick"
     },
     "<": {
-      "item": "minecraft:deepslate"
+      "item": "minecraft:cobbled_deepslate"
     }
   },
   "pattern": [
