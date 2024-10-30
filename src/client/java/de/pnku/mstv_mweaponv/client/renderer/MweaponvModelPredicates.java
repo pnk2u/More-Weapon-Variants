@@ -58,7 +58,7 @@ public class MweaponvModelPredicates {
             // Check from PullingPredicate
             if (livingEntity != null && livingEntity.isUsingItem() && livingEntity.getUseItem() == itemStack) {
                 Item arrowItem = livingEntity.getProjectile(itemStack).getItem();
-                if (arrowItem.equals(Items.ARROW)) {return 0.09F;}
+                if (arrowItem.equals(Items.ARROW)||arrowItem.equals(Items.TIPPED_ARROW)) {return 0.09F;}
                 if (more_arrows.contains(arrowItem)) {
                     Item stickItem = more_weapon_sticks.get(arrowItem);
                     if (stickItem.equals(Items.BAMBOO)) {arrowStickWood = "bamboo";}
