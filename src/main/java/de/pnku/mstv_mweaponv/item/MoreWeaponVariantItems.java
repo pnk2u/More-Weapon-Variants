@@ -2,9 +2,17 @@ package de.pnku.mstv_mweaponv.item;
 
 import de.pnku.mstv_base.item.MoreStickVariantItem;
 import de.pnku.mstv_mweaponv.MoreWeaponVariants;
+import de.pnku.mstv_mweaponv.util.IArrow;
+import net.minecraft.core.Position;
+import net.minecraft.core.dispenser.AbstractProjectileDispenseBehavior;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.Arrow;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.*;
 import net.minecraft.core.Registry;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.DispenserBlock;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -418,6 +426,31 @@ public class MoreWeaponVariantItems {
         Registry.register(BuiltInRegistries.ITEM, MoreWeaponVariants.asId(weaponName), weaponItem);
     }
 
-
+    public static void registerDispenseArrowBehavior(Item arrowItem){
+        registerDispenseArrowBehavior(arrowItem, false);
+    }
+    public static void registerDispenseArrowBehavior(Item arrowItem, boolean isTipped){
+        DispenserBlock.registerBehavior(arrowItem, new AbstractProjectileDispenseBehavior() {
+            protected Projectile getProjectile(Level level, Position position, ItemStack ammo) {
+                Arrow arrow = new Arrow(level, position.x(), position.y(), position.z(), ammo.copyWithCount(1));
+                Item arrowVariantItem = ammo.getItem();
+                Item stickItem;
+                String arrowVariant;
+                if (more_arrows.contains(arrowVariantItem)) {
+                    stickItem = more_weapon_sticks.get(arrowVariantItem);
+                    if (stickItem.equals(Items.BAMBOO)) {
+                        arrowVariant = "bamboo";
+                    } else if (stickItem.equals(Items.STICK)) {
+                        arrowVariant = "oak";
+                    } else {
+                        arrowVariant = ((MoreStickVariantItem) stickItem).mstvWoodType;
+                    }
+                    ((IArrow) arrow).mweaponv$setVariant(arrowVariant);
+                }
+                if (isTipped) {arrow.setEffectsFromItem(ammo);}
+                arrow.pickup = AbstractArrow.Pickup.ALLOWED;
+                return arrow;}
+        });
+    }
 
 }
