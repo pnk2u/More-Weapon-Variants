@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "stone_swords",
   "key": {
-    "/": {
-      "item": "mstv-base:jungle_stick"
-    },
-    "<": {
-      "item": "minecraft:cobblestone"
-    }
+    "/": "mstv-base:jungle_stick",
+    "<": "minecraft:cobblestone"
   },
   "pattern": [
     "<",

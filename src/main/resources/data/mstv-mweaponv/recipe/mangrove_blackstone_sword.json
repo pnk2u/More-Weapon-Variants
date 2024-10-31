@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "blackstone_swords",
   "key": {
-    "/": {
-      "item": "mstv-base:mangrove_stick"
-    },
-    "<": {
-      "item": "minecraft:blackstone"
-    }
+    "/": "mstv-base:mangrove_stick",
+    "<": "minecraft:blackstone"
   },
   "pattern": [
     "<",

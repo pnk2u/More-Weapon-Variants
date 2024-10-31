@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "blackstone_swords",
   "key": {
-    "/": {
-      "item": "mstv-base:spruce_stick"
-    },
-    "<": {
-      "item": "minecraft:blackstone"
-    }
+    "/": "mstv-base:spruce_stick",
+    "<": "minecraft:blackstone"
   },
   "pattern": [
     "<",

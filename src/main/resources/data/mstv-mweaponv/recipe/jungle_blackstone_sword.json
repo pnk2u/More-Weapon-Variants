@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "blackstone_swords",
   "key": {
-    "/": {
-      "item": "mstv-base:jungle_stick"
-    },
-    "<": {
-      "item": "minecraft:blackstone"
-    }
+    "/": "mstv-base:jungle_stick",
+    "<": "minecraft:blackstone"
   },
   "pattern": [
     "<",

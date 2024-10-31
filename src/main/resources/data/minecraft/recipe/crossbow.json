@@ -3,18 +3,10 @@
   "group": "crossbows",
   "category": "equipment",
   "key": {
-    "#": {
-      "item": "mstv-base:dark_oak_stick"
-    },
-    "$": {
-      "item": "minecraft:tripwire_hook"
-    },
-    "&": {
-      "item": "minecraft:iron_ingot"
-    },
-    "~": {
-      "item": "minecraft:string"
-    }
+    "#": "mstv-base:dark_oak_stick",
+    "$": "minecraft:tripwire_hook",
+    "&": "minecraft:iron_ingot",
+    "~": "minecraft:string"
   },
   "pattern": [
     "#&#",

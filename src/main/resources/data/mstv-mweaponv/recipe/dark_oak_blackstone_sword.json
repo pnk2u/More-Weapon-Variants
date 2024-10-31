@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "blackstone_swords",
   "key": {
-    "/": {
-      "item": "mstv-base:dark_oak_stick"
-    },
-    "<": {
-      "item": "minecraft:blackstone"
-    }
+    "/": "mstv-base:dark_oak_stick",
+    "<": "minecraft:blackstone"
   },
   "pattern": [
     "<",

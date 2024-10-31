@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "wooden_swords",
   "key": {
-    "/": {
-      "item": "mstv-base:warped_stick"
-    },
-    "<": {
-      "item": "minecraft:warped_planks"
-    }
+    "/": "mstv-base:warped_stick",
+    "<": "minecraft:warped_planks"
   },
   "pattern": [
     "<",

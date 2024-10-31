@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "diamond_swords",
   "key": {
-    "/": {
-      "item": "mstv-base:crimson_stick"
-    },
-    "<": {
-      "item": "minecraft:diamond"
-    }
+    "/": "mstv-base:crimson_stick",
+    "<": "minecraft:diamond"
   },
   "pattern": [
     "<",

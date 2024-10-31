@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "golden_swords",
   "key": {
-    "/": {
-      "item": "mstv-base:birch_stick"
-    },
-    "<": {
-      "item": "minecraft:gold_ingot"
-    }
+    "/": "mstv-base:birch_stick",
+    "<": "minecraft:gold_ingot"
   },
   "pattern": [
     "<",

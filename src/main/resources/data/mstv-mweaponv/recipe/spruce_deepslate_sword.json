@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "deepslate_swords",
   "key": {
-    "/": {
-      "item": "mstv-base:spruce_stick"
-    },
-    "<": {
-      "item": "minecraft:cobbled_deepslate"
-    }
+    "/": "mstv-base:spruce_stick",
+    "<": "minecraft:cobbled_deepslate"
   },
   "pattern": [
     "<",

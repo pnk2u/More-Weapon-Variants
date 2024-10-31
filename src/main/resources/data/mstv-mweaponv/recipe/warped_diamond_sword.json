@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "diamond_swords",
   "key": {
-    "/": {
-      "item": "mstv-base:warped_stick"
-    },
-    "<": {
-      "item": "minecraft:diamond"
-    }
+    "/": "mstv-base:warped_stick",
+    "<": "minecraft:diamond"
   },
   "pattern": [
     "<",

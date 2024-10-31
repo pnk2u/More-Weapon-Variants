@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "wooden_swords",
   "key": {
-    "/": {
-      "item": "mstv-base:birch_stick"
-    },
-    "<": {
-      "item": "minecraft:birch_planks"
-    }
+    "/": "mstv-base:birch_stick",
+    "<": "minecraft:birch_planks"
   },
   "pattern": [
     "<",

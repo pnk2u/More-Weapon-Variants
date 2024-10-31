@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "diamond_swords",
   "key": {
-    "/": {
-      "item": "mstv-base:mangrove_stick"
-    },
-    "<": {
-      "item": "minecraft:diamond"
-    }
+    "/": "mstv-base:mangrove_stick",
+    "<": "minecraft:diamond"
   },
   "pattern": [
     "<",

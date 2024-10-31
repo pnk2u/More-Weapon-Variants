@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "diamond_swords",
   "key": {
-    "/": {
-      "item": "minecraft:bamboo"
-    },
-    "<": {
-      "item": "minecraft:diamond"
-    }
+    "/": "minecraft:bamboo",
+    "<": "minecraft:diamond"
   },
   "pattern": [
     "<",
