@@ -8,6 +8,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.crafting.CraftingBookCategory;
+import net.minecraft.world.item.crafting.CraftingInput;
 import net.minecraft.world.item.crafting.CustomRecipe;
 import net.minecraft.world.item.crafting.TippedArrowRecipe;
 import net.minecraft.world.level.Level;
@@ -25,12 +26,12 @@ public abstract class TippedArrowRecipeMixin extends CustomRecipe {
     }
 
     @Inject(method = "matches*", at = @At("HEAD"), cancellable = true)
-    private void injectedMatches(CraftingContainer craftingContainer, Level level, CallbackInfoReturnable<Boolean> cir) {
-        if (more_tippable_arrows.containsKey(craftingContainer.getItem(0).getItem())) {
-            if (craftingContainer.getWidth() == 3 && craftingContainer.getHeight() == 3) {
-                for (int i = 0; i < craftingContainer.getWidth(); ++i) {
-                    for (int j = 0; j < craftingContainer.getHeight(); ++j) {
-                        ItemStack itemStack = craftingContainer.getItem(i + j * craftingContainer.getWidth());
+    private void injectedMatches(CraftingInput craftingInput, Level level, CallbackInfoReturnable<Boolean> cir) {
+        if (more_tippable_arrows.containsKey(craftingInput.getItem(0).getItem())) {
+            if (craftingInput.width() == 3 && craftingInput.height() == 3) {
+                for (int i = 0; i < craftingInput.width(); ++i) {
+                    for (int j = 0; j < craftingInput.height(); ++j) {
+                        ItemStack itemStack = craftingInput.getItem(i + j * craftingInput.width());
                         if (itemStack.isEmpty()) {
                             cir.setReturnValue(false);
                         }
@@ -53,10 +54,10 @@ public abstract class TippedArrowRecipeMixin extends CustomRecipe {
     }
 
     @Inject(method = "assemble*", at = @At("HEAD"), cancellable = true)
-    private void injectAssemble(CraftingContainer craftingContainer, HolderLookup.Provider provider, CallbackInfoReturnable<ItemStack> cir) {
-        Item tippableArrowItem = craftingContainer.getItem(0).getItem();
+    private void injectAssemble(CraftingInput craftingInput, HolderLookup.Provider provider, CallbackInfoReturnable<ItemStack> cir) {
+        Item tippableArrowItem = craftingInput.getItem(0).getItem();
         if (more_tippable_arrows.containsKey(tippableArrowItem)) {
-            ItemStack lingeringPotionStack = craftingContainer.getItem(1 + craftingContainer.getWidth());
+            ItemStack lingeringPotionStack = craftingInput.getItem(1 + craftingInput.width());
             if (!lingeringPotionStack.is(Items.LINGERING_POTION)) {
                 cir.setReturnValue(ItemStack.EMPTY);
             } else {

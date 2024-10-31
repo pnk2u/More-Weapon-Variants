@@ -25,11 +25,11 @@ import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.more_weapon_stic
 @Mixin(ArrowItem.class)
 public class ArrowItemMixin {
     @Inject(method = "createArrow", at = @At("HEAD"), cancellable = true)
-    public void injectedCreateArrow(Level level, ItemStack ammo, LivingEntity shooter, CallbackInfoReturnable<AbstractArrow> cir) {
+    public void injectedCreateArrow(Level level, ItemStack ammo, LivingEntity shooter, ItemStack weapon, CallbackInfoReturnable<AbstractArrow> cir) {
         Item arrowVariantItem = ammo.getItem();
         Item stickItem;
         String arrowVariant;
-        AbstractArrow abstractArrow = new Arrow(level, shooter, ammo.copyWithCount(1));
+        AbstractArrow abstractArrow = new Arrow(level, shooter, ammo.copyWithCount(1), weapon);
         if (more_arrows.contains(arrowVariantItem)) {
             stickItem = more_weapon_sticks.get(arrowVariantItem);
             if (stickItem.equals(Items.BAMBOO)) {
