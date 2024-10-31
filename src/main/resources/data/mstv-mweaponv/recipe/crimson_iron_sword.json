@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "iron_swords",
   "key": {
-    "/": {
-      "item": "mstv-base:crimson_stick"
-    },
-    "<": {
-      "item": "minecraft:iron_ingot"
-    }
+    "/": "mstv-base:crimson_stick",
+    "<": "minecraft:iron_ingot"
   },
   "pattern": [
     "<",

@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "wooden_swords",
   "key": {
-    "/": {
-      "item": "mstv-base:cherry_stick"
-    },
-    "<": {
-      "item": "minecraft:cherry_planks"
-    }
+    "/": "mstv-base:cherry_stick",
+    "<": "minecraft:cherry_planks"
   },
   "pattern": [
     "<",

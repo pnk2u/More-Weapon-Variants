@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "deepslate_swords",
   "key": {
-    "/": {
-      "item": "minecraft:stick"
-    },
-    "<": {
-      "item": "minecraft:cobbled_deepslate"
-    }
+    "/": "minecraft:stick",
+    "<": "minecraft:cobbled_deepslate"
   },
   "pattern": [
     "<",

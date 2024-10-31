@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "#": {
-      "item": "minecraft:flint"
-    },
-    "/": {
-      "item": "minecraft:bamboo"
-    },
-    "F": {
-      "item": "minecraft:feather"
-    }
+    "#": "minecraft:flint",
+    "/": "minecraft:bamboo",
+    "F": "minecraft:feather"
   },
   "pattern": [
     "#",

@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "diamond_swords",
   "key": {
-    "/": {
-      "item": "mstv-base:dark_oak_stick"
-    },
-    "<": {
-      "item": "minecraft:diamond"
-    }
+    "/": "mstv-base:dark_oak_stick",
+    "<": "minecraft:diamond"
   },
   "pattern": [
     "<",

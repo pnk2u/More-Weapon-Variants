@@ -3,15 +3,9 @@
   "group": "arrows",
   "category": "equipment",
   "key": {
-    "#": {
-      "item": "minecraft:stick"
-    },
-    "X": {
-      "item": "minecraft:flint"
-    },
-    "Y": {
-      "item": "minecraft:feather"
-    }
+    "#": "minecraft:stick",
+    "X": "minecraft:flint",
+    "Y": "minecraft:feather"
   },
   "pattern": [
     "X",

@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "stone_swords",
   "key": {
-    "/": {
-      "item": "mstv-base:birch_stick"
-    },
-    "<": {
-      "item": "minecraft:cobblestone"
-    }
+    "/": "mstv-base:birch_stick",
+    "<": "minecraft:cobblestone"
   },
   "pattern": [
     "<",

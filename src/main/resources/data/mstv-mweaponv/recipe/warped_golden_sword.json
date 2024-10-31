@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "golden_swords",
   "key": {
-    "/": {
-      "item": "mstv-base:warped_stick"
-    },
-    "<": {
-      "item": "minecraft:gold_ingot"
-    }
+    "/": "mstv-base:warped_stick",
+    "<": "minecraft:gold_ingot"
   },
   "pattern": [
     "<",

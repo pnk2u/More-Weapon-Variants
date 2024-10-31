@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "#": {
-      "item": "minecraft:flint"
-    },
-    "/": {
-      "item": "mstv-base:cherry_stick"
-    },
-    "F": {
-      "item": "minecraft:feather"
-    }
+    "#": "minecraft:flint",
+    "/": "mstv-base:cherry_stick",
+    "F": "minecraft:feather"
   },
   "pattern": [
     "#",

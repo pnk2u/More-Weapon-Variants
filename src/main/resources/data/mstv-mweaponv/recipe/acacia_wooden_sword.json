@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "wooden_swords",
   "key": {
-    "/": {
-      "item": "mstv-base:acacia_stick"
-    },
-    "<": {
-      "item": "minecraft:acacia_planks"
-    }
+    "/": "mstv-base:acacia_stick",
+    "<": "minecraft:acacia_planks"
   },
   "pattern": [
     "<",

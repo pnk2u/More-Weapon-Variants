@@ -3,12 +3,8 @@
   "group": "bows",
   "category": "equipment",
   "key": {
-    "#": {
-      "item": "minecraft:stick"
-    },
-    "X": {
-      "item": "minecraft:string"
-    }
+    "#": "minecraft:stick",
+    "X": "minecraft:string"
   },
   "pattern": [
     " #X",

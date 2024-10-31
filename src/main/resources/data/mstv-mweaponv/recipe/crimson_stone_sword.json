@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "stone_swords",
   "key": {
-    "/": {
-      "item": "mstv-base:crimson_stick"
-    },
-    "<": {
-      "item": "minecraft:cobblestone"
-    }
+    "/": "mstv-base:crimson_stick",
+    "<": "minecraft:cobblestone"
   },
   "pattern": [
     "<",

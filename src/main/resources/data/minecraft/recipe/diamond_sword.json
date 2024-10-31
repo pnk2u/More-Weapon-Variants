@@ -3,12 +3,8 @@
   "group": "diamond_swords",
   "category": "equipment",
   "key": {
-    "#": {
-      "item": "minecraft:stick"
-    },
-    "X": {
-      "item": "minecraft:diamond"
-    }
+    "#": "minecraft:stick",
+    "X": "minecraft:diamond"
   },
   "pattern": [
     "X",

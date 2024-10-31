@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "/": {
-      "item": "mstv-base:spruce_stick"
-    },
-    "S": {
-      "item": "minecraft:string"
-    }
+    "/": "mstv-base:spruce_stick",
+    "S": "minecraft:string"
   },
   "pattern": [
     " /S",

@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "stone_swords",
   "key": {
-    "/": {
-      "item": "mstv-base:acacia_stick"
-    },
-    "<": {
-      "item": "minecraft:cobblestone"
-    }
+    "/": "mstv-base:acacia_stick",
+    "<": "minecraft:cobblestone"
   },
   "pattern": [
     "<",

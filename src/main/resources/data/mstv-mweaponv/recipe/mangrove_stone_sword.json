@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "stone_swords",
   "key": {
-    "/": {
-      "item": "mstv-base:mangrove_stick"
-    },
-    "<": {
-      "item": "minecraft:cobblestone"
-    }
+    "/": "mstv-base:mangrove_stick",
+    "<": "minecraft:cobblestone"
   },
   "pattern": [
     "<",

@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "deepslate_swords",
   "key": {
-    "/": {
-      "item": "minecraft:bamboo"
-    },
-    "<": {
-      "item": "minecraft:cobbled_deepslate"
-    }
+    "/": "minecraft:bamboo",
+    "<": "minecraft:cobbled_deepslate"
   },
   "pattern": [
     "<",

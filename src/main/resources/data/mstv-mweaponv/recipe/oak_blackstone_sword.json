@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "blackstone_swords",
   "key": {
-    "/": {
-      "item": "minecraft:stick"
-    },
-    "<": {
-      "item": "minecraft:blackstone"
-    }
+    "/": "minecraft:stick",
+    "<": "minecraft:blackstone"
   },
   "pattern": [
     "<",
