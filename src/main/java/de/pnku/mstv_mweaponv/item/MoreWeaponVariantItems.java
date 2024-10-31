@@ -432,7 +432,7 @@ public class MoreWeaponVariantItems {
     public static void registerDispenseArrowBehavior(Item arrowItem, boolean isTipped){
         DispenserBlock.registerBehavior(arrowItem, new AbstractProjectileDispenseBehavior() {
             protected Projectile getProjectile(Level level, Position position, ItemStack ammo) {
-                Arrow arrow = new Arrow(level, position.x(), position.y(), position.z(), ammo.copyWithCount(1));
+                Arrow arrow = new Arrow(level, position.x(), position.y(), position.z());
                 Item arrowVariantItem = ammo.getItem();
                 Item stickItem;
                 String arrowVariant;

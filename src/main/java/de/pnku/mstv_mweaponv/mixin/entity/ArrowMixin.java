@@ -4,6 +4,7 @@ import de.pnku.mstv_mweaponv.util.IArrow;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Arrow;
@@ -11,6 +12,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Final;
@@ -21,21 +23,30 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.Set;
 
 import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.*;
 
 @Mixin(Arrow.class)
 public abstract class ArrowMixin extends AbstractArrow implements IArrow {
 
-    @Shadow @Final private static ItemStack DEFAULT_ARROW_STACK;
-
     @Shadow public Potion potion;
+
+    @Shadow private boolean fixedColor;
+
+    @Shadow @Final private Set<MobEffectInstance> effects;
+
+    @Shadow
+    @Final
+    public abstract int getColor();
 
     @Unique
     private static final EntityDataAccessor<String> DATA_ID_TYPE;
 
     protected ArrowMixin(EntityType<? extends AbstractArrow> entityType, Level level) {
-        super(entityType, level, DEFAULT_ARROW_STACK);
+        super(entityType, level);
     }
 
     @Inject(method = "defineSynchedData", at = @At("TAIL"))
@@ -90,14 +101,19 @@ public abstract class ArrowMixin extends AbstractArrow implements IArrow {
         }
     }
 
-    @Redirect(method = "getPickupItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/projectile/AbstractArrow;getPickupItem()Lnet/minecraft/world/item/ItemStack;"))
-    protected ItemStack redirectedGetPickupItem(AbstractArrow instance) {
+    @Inject(method = "getPickupItem", at = @At(value = "HEAD"), cancellable = true)
+    protected void injectedGetPickupItem(CallbackInfoReturnable<ItemStack> cir) {
         String arrowVariant = this.mweaponv$getVariant();
         if (!arrowVariant.equals("oak")) {
-            boolean isTipped = (this.potion != Potions.EMPTY);
-            return mweaponv$arrowItemStackFromVariant(this.mweaponv$getVariant(), isTipped);
-        } else {
-            return super.getPickupItem();
+            boolean isTipped = (this.potion != Potions.EMPTY && this.effects.isEmpty());
+            ItemStack pickupArrowStack = mweaponv$arrowItemStackFromVariant(this.mweaponv$getVariant(), isTipped);
+            if (isTipped) {
+                PotionUtils.setPotion(pickupArrowStack, this.potion);
+                PotionUtils.setCustomEffects(pickupArrowStack, this.effects);
+                if (this.fixedColor) {
+                    pickupArrowStack.getOrCreateTag().putInt("CustomPotionColor", this.getColor());
+                }}
+            cir.setReturnValue(pickupArrowStack);
         }
     }
 
