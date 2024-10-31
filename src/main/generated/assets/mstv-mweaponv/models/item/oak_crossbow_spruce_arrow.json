@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "mstv-mweaponv:item/oak_crossbow_spruce_arrow"
-  }
-}

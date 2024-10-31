@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "mstv-mweaponv:item/jungle_crossbow_bamboo_arrow"
-  }
-}
