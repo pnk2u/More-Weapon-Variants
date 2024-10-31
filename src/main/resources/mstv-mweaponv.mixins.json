@@ -6,6 +6,7 @@
   "mixins": [
     "entity.AbstractArrowMixin" ,
     "entity.ArrowMixin" ,
+    "item.ArrowItemMixin" ,
     "item.ProjectileWeaponItemMixin" ,
     "recipe.TippedArrowRecipeMixin"
   ] ,

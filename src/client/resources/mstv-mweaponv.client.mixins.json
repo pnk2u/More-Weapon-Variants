@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_21" ,
   "client": [
     "color.ItemColorsMixin" ,
+    "player.AbstractClientPlayerMixin" ,
     "renderer.ItemInHandRendererMixin" ,
     "renderer.TippableArrowRendererMixin"
   ] ,
