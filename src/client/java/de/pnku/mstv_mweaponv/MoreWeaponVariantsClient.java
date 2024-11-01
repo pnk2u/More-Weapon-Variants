@@ -12,6 +12,7 @@ public class MoreWeaponVariantsClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		MweaponvCreativeTab.registerMweaponvCreativeTab();
+		MweaponvCreativeTab.addWeaponItemListsToVanillaCMT();
 		MweaponvModelPredicates.registerWeaponVariantPredicates();
 	}
 }
