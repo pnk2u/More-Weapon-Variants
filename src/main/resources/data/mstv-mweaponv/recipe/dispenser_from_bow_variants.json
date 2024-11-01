@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
   "key": {
-    "#": {
-      "item": "minecraft:cobblestone"
-    },
-    "R": {
-      "item": "minecraft:redstone"
-    },
-    "X": {
-      "tag": "mstv-mweaponv:variant_bows"
-    }
+    "#": "minecraft:cobblestone",
+    "R": "minecraft:redstone",
+    "X": "#mstv-mweaponv:variant_bows"
   },
   "pattern": [
     "###",

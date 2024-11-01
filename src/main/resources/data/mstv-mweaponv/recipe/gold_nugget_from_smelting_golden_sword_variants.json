@@ -4,36 +4,16 @@
   "cookingtime": 200,
   "experience": 0.1,
   "ingredient": [
-    {
-      "item": "mstv-mweaponv:acacia_golden_sword"
-    },
-    {
-      "item": "mstv-mweaponv:bamboo_golden_sword"
-    },
-    {
-      "item": "mstv-mweaponv:birch_golden_sword"
-    },
-    {
-      "item": "mstv-mweaponv:cherry_golden_sword"
-    },
-    {
-      "item": "mstv-mweaponv:crimson_golden_sword"
-    },
-    {
-      "item": "mstv-mweaponv:dark_oak_golden_sword"
-    },
-    {
-      "item": "mstv-mweaponv:jungle_golden_sword"
-    },
-    {
-      "item": "mstv-mweaponv:mangrove_golden_sword"
-    },
-    {
-      "item": "mstv-mweaponv:spruce_golden_sword"
-    },
-    {
-      "item": "mstv-mweaponv:warped_golden_sword"
-    }
+    "mstv-mweaponv:acacia_golden_sword",
+    "mstv-mweaponv:bamboo_golden_sword",
+    "mstv-mweaponv:birch_golden_sword",
+    "mstv-mweaponv:cherry_golden_sword",
+    "mstv-mweaponv:crimson_golden_sword",
+    "mstv-mweaponv:dark_oak_golden_sword",
+    "mstv-mweaponv:jungle_golden_sword",
+    "mstv-mweaponv:mangrove_golden_sword",
+    "mstv-mweaponv:spruce_golden_sword",
+    "mstv-mweaponv:warped_golden_sword"
   ],
   "result": {
     "id": "minecraft:gold_nugget"
