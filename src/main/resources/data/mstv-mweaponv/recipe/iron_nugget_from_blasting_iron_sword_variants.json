@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "ingredient": [
+    {
+      "item": "mstv-mweaponv:acacia_iron_sword"
+    },
+    {
+      "item": "mstv-mweaponv:bamboo_iron_sword"
+    },
+    {
+      "item": "mstv-mweaponv:birch_iron_sword"
+    },
+    {
+      "item": "mstv-mweaponv:cherry_iron_sword"
+    },
+    {
+      "item": "mstv-mweaponv:crimson_iron_sword"
+    },
+    {
+      "item": "mstv-mweaponv:dark_oak_iron_sword"
+    },
+    {
+      "item": "mstv-mweaponv:jungle_iron_sword"
+    },
+    {
+      "item": "mstv-mweaponv:mangrove_iron_sword"
+    },
+    {
+      "item": "mstv-mweaponv:spruce_iron_sword"
+    },
+    {
+      "item": "mstv-mweaponv:warped_iron_sword"
+    }
+  ],
+  "result": {
+    "id": "minecraft:iron_nugget"
+  }
+}
