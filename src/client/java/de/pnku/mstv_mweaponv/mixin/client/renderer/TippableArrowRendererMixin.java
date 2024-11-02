@@ -44,7 +44,6 @@ public abstract class TippableArrowRendererMixin extends EntityRenderer<Abstract
     @Inject(method = "extractRenderState(Lnet/minecraft/world/entity/projectile/Arrow;Lnet/minecraft/client/renderer/entity/state/TippableArrowRenderState;F)V", at = @At("HEAD"))
     public void injectedExtractRenderState(Arrow arrow, TippableArrowRenderState tippableArrowRenderState, float f, CallbackInfo ci) {
         MweaponvTippableArrowRenderState mweaponvTippableArrowRenderState = (MweaponvTippableArrowRenderState) tippableArrowRenderState;
-        super.extractRenderState(arrow, mweaponvTippableArrowRenderState, f);
         mweaponvTippableArrowRenderState.arrowVariant = ((IArrow) arrow).mweaponv$getVariant();
     }
 }

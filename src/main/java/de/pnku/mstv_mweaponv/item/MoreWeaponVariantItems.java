@@ -25,13 +25,13 @@ import static net.minecraft.world.item.ToolMaterial.*;
 public class MoreWeaponVariantItems {
 
 
-    public static SwordItem createSwordVariantItem (ToolMaterial toolMaterial, String woodType){
+    public static SwordItem createSwordVariantItem (ToolMaterial toolMaterial, String toolMaterialString, String woodType){
         int AD = 3; float AS = -2.4F;
         Item.Properties swordVariantProperties = new Item.Properties();
         if (woodType.matches("crimson|warped") || toolMaterial.equals(NETHERITE)) {
             swordVariantProperties.fireResistant();
         }
-        swordVariantProperties.setId(ResourceKey.create(Registries.ITEM, asId(woodType + toolMaterial.toString() + "_sword")));
+        swordVariantProperties.setId(ResourceKey.create(Registries.ITEM, asId(woodType + "_" + toolMaterialString + "_sword")));
         SwordItem swordItem = new SwordItem(toolMaterial, AD, AS, swordVariantProperties);
         more_sword_tiers.put(swordItem, toolMaterial);
         return swordItem;
@@ -65,11 +65,12 @@ public class MoreWeaponVariantItems {
         if (woodType.matches("crimson|warped")) {
             arrowVariantProperties.fireResistant();
         }
+        String arrowName = woodType + "_arrow";
         if (isTipped) {
-            arrowVariantProperties.setId(ResourceKey.create(Registries.ITEM, asId(woodType + "_tipped_arrow")));
+            arrowVariantProperties.setId(ResourceKey.create(Registries.ITEM, asId("tipped_" + arrowName)));
             return new TippedArrowItem(arrowVariantProperties);
         } else {
-            arrowVariantProperties.setId(ResourceKey.create(Registries.ITEM, asId(woodType + "_arrow")));
+            arrowVariantProperties.setId(ResourceKey.create(Registries.ITEM, asId(arrowName)));
             return new ArrowItem(arrowVariantProperties);
         }
     }
@@ -77,95 +78,95 @@ public class MoreWeaponVariantItems {
     public static final Map<Item, ToolMaterial> more_sword_tiers = new HashMap<>();
 
             // Swords
-            public static final Item ACACIA_WOODEN_SWORD = createSwordVariantItem(WOOD, "acacia");
-            public static final Item BAMBOO_WOODEN_SWORD = createSwordVariantItem(WOOD, "bamboo");
-            public static final Item BIRCH_WOODEN_SWORD = createSwordVariantItem(WOOD, "birch");
-            public static final Item CHERRY_WOODEN_SWORD = createSwordVariantItem(WOOD, "cherry");
-            public static final Item CRIMSON_WOODEN_SWORD = createSwordVariantItem(WOOD, "crimson");
-            public static final Item DARK_OAK_WOODEN_SWORD = createSwordVariantItem(WOOD, "dark_oak");
-            public static final Item JUNGLE_WOODEN_SWORD = createSwordVariantItem(WOOD, "jungle");
-            public static final Item MANGROVE_WOODEN_SWORD = createSwordVariantItem(WOOD, "mangrove");
-            public static final Item SPRUCE_WOODEN_SWORD = createSwordVariantItem(WOOD, "spruce");
-            public static final Item WARPED_WOODEN_SWORD = createSwordVariantItem(WOOD, "warped");
+            public static final Item ACACIA_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "acacia");
+            public static final Item BAMBOO_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "bamboo");
+            public static final Item BIRCH_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "birch");
+            public static final Item CHERRY_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "cherry");
+            public static final Item CRIMSON_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "crimson");
+            public static final Item DARK_OAK_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "dark_oak");
+            public static final Item JUNGLE_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "jungle");
+            public static final Item MANGROVE_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "mangrove");
+            public static final Item SPRUCE_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "spruce");
+            public static final Item WARPED_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "warped");
 
-                    public static final Item ACACIA_STONE_SWORD = createSwordVariantItem(STONE, "acacia");
-                    public static final Item BAMBOO_STONE_SWORD = createSwordVariantItem(STONE, "bamboo");
-                    public static final Item BIRCH_STONE_SWORD = createSwordVariantItem(STONE, "birch");
-                    public static final Item CHERRY_STONE_SWORD = createSwordVariantItem(STONE, "cherry");
-                    public static final Item CRIMSON_STONE_SWORD = createSwordVariantItem(STONE, "crimson");
-                    public static final Item DARK_OAK_STONE_SWORD = createSwordVariantItem(STONE, "dark_oak");
-                    public static final Item JUNGLE_STONE_SWORD = createSwordVariantItem(STONE, "jungle");
-                    public static final Item MANGROVE_STONE_SWORD = createSwordVariantItem(STONE, "mangrove");
-                    public static final Item SPRUCE_STONE_SWORD = createSwordVariantItem(STONE, "spruce");
-                    public static final Item WARPED_STONE_SWORD = createSwordVariantItem(STONE, "warped");
+                    public static final Item ACACIA_STONE_SWORD = createSwordVariantItem(STONE, "stone", "acacia");
+                    public static final Item BAMBOO_STONE_SWORD = createSwordVariantItem(STONE, "stone", "bamboo");
+                    public static final Item BIRCH_STONE_SWORD = createSwordVariantItem(STONE, "stone", "birch");
+                    public static final Item CHERRY_STONE_SWORD = createSwordVariantItem(STONE, "stone", "cherry");
+                    public static final Item CRIMSON_STONE_SWORD = createSwordVariantItem(STONE, "stone", "crimson");
+                    public static final Item DARK_OAK_STONE_SWORD = createSwordVariantItem(STONE, "stone", "dark_oak");
+                    public static final Item JUNGLE_STONE_SWORD = createSwordVariantItem(STONE, "stone", "jungle");
+                    public static final Item MANGROVE_STONE_SWORD = createSwordVariantItem(STONE, "stone", "mangrove");
+                    public static final Item SPRUCE_STONE_SWORD = createSwordVariantItem(STONE, "stone", "spruce");
+                    public static final Item WARPED_STONE_SWORD = createSwordVariantItem(STONE, "stone", "warped");
 
-                    public static final Item ACACIA_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "acacia");
-                    public static final Item BAMBOO_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "bamboo");
-                    public static final Item BIRCH_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "birch");
-                    public static final Item CHERRY_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "cherry");
-                    public static final Item CRIMSON_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "crimson");
-                    public static final Item DARK_OAK_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "dark_oak");
-                    public static final Item JUNGLE_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "jungle");
-                    public static final Item MANGROVE_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "mangrove");
-                    public static final Item OAK_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "oak");
-                    public static final Item SPRUCE_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "spruce");
-                    public static final Item WARPED_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "warped");
+                    public static final Item ACACIA_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "acacia");
+                    public static final Item BAMBOO_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "bamboo");
+                    public static final Item BIRCH_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "birch");
+                    public static final Item CHERRY_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "cherry");
+                    public static final Item CRIMSON_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "crimson");
+                    public static final Item DARK_OAK_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "dark_oak");
+                    public static final Item JUNGLE_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "jungle");
+                    public static final Item MANGROVE_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "mangrove");
+                    public static final Item OAK_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "oak");
+                    public static final Item SPRUCE_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "spruce");
+                    public static final Item WARPED_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "warped");
 
-                    public static final Item ACACIA_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "acacia");
-                    public static final Item BAMBOO_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "bamboo");
-                    public static final Item BIRCH_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "birch");
-                    public static final Item CHERRY_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "cherry");
-                    public static final Item CRIMSON_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "crimson");
-                    public static final Item DARK_OAK_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "dark_oak");
-                    public static final Item JUNGLE_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "jungle");
-                    public static final Item MANGROVE_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "mangrove");
-                    public static final Item OAK_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "oak");
-                    public static final Item SPRUCE_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "spruce");
-                    public static final Item WARPED_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "warped");
+                    public static final Item ACACIA_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "acacia");
+                    public static final Item BAMBOO_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "bamboo");
+                    public static final Item BIRCH_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "birch");
+                    public static final Item CHERRY_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "cherry");
+                    public static final Item CRIMSON_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "crimson");
+                    public static final Item DARK_OAK_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "dark_oak");
+                    public static final Item JUNGLE_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "jungle");
+                    public static final Item MANGROVE_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "mangrove");
+                    public static final Item OAK_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "oak");
+                    public static final Item SPRUCE_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "spruce");
+                    public static final Item WARPED_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "warped");
 
-            public static final Item ACACIA_GOLDEN_SWORD = createSwordVariantItem(GOLD, "acacia");
-            public static final Item BAMBOO_GOLDEN_SWORD = createSwordVariantItem(GOLD, "bamboo");
-            public static final Item BIRCH_GOLDEN_SWORD = createSwordVariantItem(GOLD, "birch");
-            public static final Item CHERRY_GOLDEN_SWORD = createSwordVariantItem(GOLD, "cherry");
-            public static final Item CRIMSON_GOLDEN_SWORD = createSwordVariantItem(GOLD, "crimson");
-            public static final Item DARK_OAK_GOLDEN_SWORD = createSwordVariantItem(GOLD, "dark_oak");
-            public static final Item JUNGLE_GOLDEN_SWORD = createSwordVariantItem(GOLD, "jungle");
-            public static final Item MANGROVE_GOLDEN_SWORD = createSwordVariantItem(GOLD, "mangrove");
-            public static final Item SPRUCE_GOLDEN_SWORD = createSwordVariantItem(GOLD, "spruce");
-            public static final Item WARPED_GOLDEN_SWORD = createSwordVariantItem(GOLD, "warped");
+            public static final Item ACACIA_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "acacia");
+            public static final Item BAMBOO_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "bamboo");
+            public static final Item BIRCH_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "birch");
+            public static final Item CHERRY_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "cherry");
+            public static final Item CRIMSON_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "crimson");
+            public static final Item DARK_OAK_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "dark_oak");
+            public static final Item JUNGLE_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "jungle");
+            public static final Item MANGROVE_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "mangrove");
+            public static final Item SPRUCE_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "spruce");
+            public static final Item WARPED_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "warped");
 
-            public static final Item ACACIA_IRON_SWORD = createSwordVariantItem(IRON, "acacia");
-            public static final Item BAMBOO_IRON_SWORD = createSwordVariantItem(IRON, "bamboo");
-            public static final Item BIRCH_IRON_SWORD = createSwordVariantItem(IRON, "birch");
-            public static final Item CHERRY_IRON_SWORD = createSwordVariantItem(IRON, "cherry");
-            public static final Item CRIMSON_IRON_SWORD = createSwordVariantItem(IRON, "crimson");
-            public static final Item DARK_OAK_IRON_SWORD = createSwordVariantItem(IRON, "dark_oak");
-            public static final Item JUNGLE_IRON_SWORD = createSwordVariantItem(IRON, "jungle");
-            public static final Item MANGROVE_IRON_SWORD = createSwordVariantItem(IRON, "mangrove");
-            public static final Item SPRUCE_IRON_SWORD = createSwordVariantItem(IRON, "spruce");
-            public static final Item WARPED_IRON_SWORD = createSwordVariantItem(IRON, "warped");
+            public static final Item ACACIA_IRON_SWORD = createSwordVariantItem(IRON, "iron", "acacia");
+            public static final Item BAMBOO_IRON_SWORD = createSwordVariantItem(IRON, "iron", "bamboo");
+            public static final Item BIRCH_IRON_SWORD = createSwordVariantItem(IRON, "iron", "birch");
+            public static final Item CHERRY_IRON_SWORD = createSwordVariantItem(IRON, "iron", "cherry");
+            public static final Item CRIMSON_IRON_SWORD = createSwordVariantItem(IRON, "iron", "crimson");
+            public static final Item DARK_OAK_IRON_SWORD = createSwordVariantItem(IRON, "iron", "dark_oak");
+            public static final Item JUNGLE_IRON_SWORD = createSwordVariantItem(IRON, "iron", "jungle");
+            public static final Item MANGROVE_IRON_SWORD = createSwordVariantItem(IRON, "iron", "mangrove");
+            public static final Item SPRUCE_IRON_SWORD = createSwordVariantItem(IRON, "iron", "spruce");
+            public static final Item WARPED_IRON_SWORD = createSwordVariantItem(IRON, "iron", "warped");
 
-            public static final Item ACACIA_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "acacia");
-            public static final Item BAMBOO_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "bamboo");
-            public static final Item BIRCH_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "birch");
-            public static final Item CHERRY_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "cherry");
-            public static final Item CRIMSON_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "crimson");
-            public static final Item DARK_OAK_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "dark_oak");
-            public static final Item JUNGLE_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "jungle");
-            public static final Item MANGROVE_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "mangrove");
-            public static final Item SPRUCE_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "spruce");
-            public static final Item WARPED_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "warped");
+            public static final Item ACACIA_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "acacia");
+            public static final Item BAMBOO_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "bamboo");
+            public static final Item BIRCH_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "birch");
+            public static final Item CHERRY_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "cherry");
+            public static final Item CRIMSON_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "crimson");
+            public static final Item DARK_OAK_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "dark_oak");
+            public static final Item JUNGLE_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "jungle");
+            public static final Item MANGROVE_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "mangrove");
+            public static final Item SPRUCE_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "spruce");
+            public static final Item WARPED_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "warped");
 
-            public static final Item ACACIA_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "acacia");
-            public static final Item BAMBOO_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "bamboo");
-            public static final Item BIRCH_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "birch");
-            public static final Item CHERRY_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "cherry");
-            public static final Item CRIMSON_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "crimson");
-            public static final Item DARK_OAK_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "dark_oak");
-            public static final Item JUNGLE_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "jungle");
-            public static final Item MANGROVE_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "mangrove");
-            public static final Item SPRUCE_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "spruce");
-            public static final Item WARPED_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "warped");
+            public static final Item ACACIA_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "acacia");
+            public static final Item BAMBOO_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "bamboo");
+            public static final Item BIRCH_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "birch");
+            public static final Item CHERRY_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "cherry");
+            public static final Item CRIMSON_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "crimson");
+            public static final Item DARK_OAK_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "dark_oak");
+            public static final Item JUNGLE_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "jungle");
+            public static final Item MANGROVE_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "mangrove");
+            public static final Item SPRUCE_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "spruce");
+            public static final Item WARPED_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "warped");
 
 
             // Bows
