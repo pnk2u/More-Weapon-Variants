@@ -62,7 +62,7 @@ public class MweaponvModelPredicates {
                 if (more_arrows.contains(arrowItem)) {
                     Item stickItem = more_weapon_sticks.get(arrowItem);
                     if (stickItem.equals(Items.BAMBOO)) {arrowStickWood = "bamboo";}
-                    if (stickItem.equals(Items.STICK)) {arrowStickWood = "oak";}
+                    else if (stickItem.equals(Items.STICK)) {arrowStickWood = "oak";}
                     else { arrowStickWood = ((MoreStickVariantItem) (more_weapon_sticks.get(arrowItem))).mstvWoodType;
                     }
                 } else {arrowStickWood = null;}
