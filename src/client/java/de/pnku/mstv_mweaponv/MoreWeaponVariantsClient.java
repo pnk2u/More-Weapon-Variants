@@ -1,6 +1,5 @@
 package de.pnku.mstv_mweaponv;
 
-import de.pnku.mstv_mweaponv.client.renderer.MweaponvModelPredicates;
 import de.pnku.mstv_mweaponv.client.ui.MweaponvCreativeTab;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -13,6 +12,5 @@ public class MoreWeaponVariantsClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		MweaponvCreativeTab.registerMweaponvCreativeTab();
 		MweaponvCreativeTab.addWeaponItemListsToVanillaCMT();
-		MweaponvModelPredicates.registerWeaponVariantPredicates();
 	}
 }

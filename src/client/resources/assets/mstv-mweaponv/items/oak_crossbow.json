@@ -1,0 +1,137 @@
+{
+  "model": {
+    "type": "minecraft:condition",
+    "on_false": {
+      "type": "minecraft:select",
+      "cases": [
+        {
+          "model": {
+            "type": "minecraft:select",
+            "cases": [
+              {
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "mstv-mweaponv:item/oak_crossbow_acacia_arrow"
+                },
+                "when": "acacia"
+              },
+              {
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "mstv-mweaponv:item/oak_crossbow_bamboo_arrow"
+                },
+                "when": "bamboo"
+              },
+              {
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "mstv-mweaponv:item/oak_crossbow_birch_arrow"
+                },
+                "when": "birch"
+              },
+              {
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "mstv-mweaponv:item/oak_crossbow_cherry_arrow"
+                },
+                "when": "cherry"
+              },
+              {
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "mstv-mweaponv:item/oak_crossbow_crimson_arrow"
+                },
+                "when": "crimson"
+              },
+              {
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "mstv-mweaponv:item/oak_crossbow_dark_oak_arrow"
+                },
+                "when": "dark_oak"
+              },
+              {
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "mstv-mweaponv:item/oak_crossbow_jungle_arrow"
+                },
+                "when": "jungle"
+              },
+              {
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "mstv-mweaponv:item/oak_crossbow_mangrove_arrow"
+                },
+                "when": "mangrove"
+              },
+              {
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "mstv-mweaponv:item/oak_crossbow_oak_arrow"
+                },
+                "when": "oak"
+              },
+              {
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "mstv-mweaponv:item/oak_crossbow_spruce_arrow"
+                },
+                "when": "spruce"
+              },
+              {
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "mstv-mweaponv:item/oak_crossbow_warped_arrow"
+                },
+                "when": "warped"
+              }
+            ],
+            "fallback": {
+              "type": "minecraft:model",
+              "model": "mstv-mweaponv:item/oak_crossbow_oak_arrow"
+            },
+            "property": "mstv-mweaponv:crossbowarrow"
+          },
+          "when": "arrow"
+        },
+        {
+          "model": {
+            "type": "minecraft:model",
+            "model": "mstv-mweaponv:item/oak_crossbow"
+          },
+          "when": "rocket"
+        }
+      ],
+      "fallback": {
+        "type": "minecraft:model",
+        "model": "mstv-mweaponv:item/oak_crossbow"
+      },
+      "property": "minecraft:charge_type"
+    },
+    "on_true": {
+      "type": "minecraft:range_dispatch",
+      "entries": [
+        {
+          "model": {
+            "type": "minecraft:model",
+            "model": "mstv-mweaponv:item/oak_crossbow_pulling_1"
+          },
+          "threshold": 0.58
+        },
+        {
+          "model": {
+            "type": "minecraft:model",
+            "model": "mstv-mweaponv:item/oak_crossbow_pulling_2"
+          },
+          "threshold": 1.0
+        }
+      ],
+      "fallback": {
+        "type": "minecraft:model",
+        "model": "mstv-mweaponv:item/oak_crossbow_pulling_0"
+      },
+      "property": "minecraft:crossbow/pull"
+    },
+    "property": "minecraft:using_item"
+  }
+}

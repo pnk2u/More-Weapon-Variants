@@ -1,6 +1,0 @@
-{
-  "parent": "mstv-mweaponv:item/acacia_crossbow",
-  "textures": {
-    "layer0": "mstv-mweaponv:item/acacia_crossbow_standby"
-  }
-}

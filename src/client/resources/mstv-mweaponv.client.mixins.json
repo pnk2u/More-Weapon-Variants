@@ -3,9 +3,9 @@
   "package": "de.pnku.mstv_mweaponv.mixin.client" ,
   "compatibilityLevel": "JAVA_21" ,
   "client": [
-    "color.ItemColorsMixin" ,
     "player.AbstractClientPlayerMixin" ,
     "renderer.ItemInHandRendererMixin" ,
+    "renderer.SelectItemModelPropertiesMixin" ,
     "renderer.TippableArrowRendererMixin"
   ] ,
   "injectors": {

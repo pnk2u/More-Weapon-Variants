@@ -1,0 +1,284 @@
+{
+    "model": {
+        "type": "minecraft:condition",
+        "on_false": {
+            "type": "minecraft:model",
+            "model": "mstv-mweaponv:item/spruce_bow"
+        },
+        "on_true": {
+            "type": "minecraft:range_dispatch",
+            "entries": [
+                {
+                    "model": {
+                        "type": "minecraft:select",
+                        "cases": [
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_1_acacia_arrow"
+                                },
+                                "when": "acacia"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_1_bamboo_arrow"
+                                },
+                                "when": "bamboo"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_1_birch_arrow"
+                                },
+                                "when": "birch"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_1_cherry_arrow"
+                                },
+                                "when": "cherry"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_1_crimson_arrow"
+                                },
+                                "when": "crimson"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_1_dark_oak_arrow"
+                                },
+                                "when": "dark_oak"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_1_jungle_arrow"
+                                },
+                                "when": "jungle"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_1_mangrove_arrow"
+                                },
+                                "when": "mangrove"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_1_oak_arrow"
+                                },
+                                "when": "oak"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_1_spruce_arrow"
+                                },
+                                "when": "spruce"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_1_warped_arrow"
+                                },
+                                "when": "warped"
+                            }
+                        ],
+                        "fallback": {
+                            "type": "minecraft:model",
+                            "model": "mstv-mweaponv:item/spruce_bow_pulling_1_oak_arrow"
+                        },
+                        "property": "mstv-mweaponv:bowarrow"
+                    },
+                    "threshold": 0.65
+                },
+                {
+                    "model": {
+                        "type": "minecraft:select",
+                        "cases": [
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_2_acacia_arrow"
+                                },
+                                "when": "acacia"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_2_bamboo_arrow"
+                                },
+                                "when": "bamboo"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_2_birch_arrow"
+                                },
+                                "when": "birch"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_2_cherry_arrow"
+                                },
+                                "when": "cherry"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_2_crimson_arrow"
+                                },
+                                "when": "crimson"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_2_dark_oak_arrow"
+                                },
+                                "when": "dark_oak"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_2_jungle_arrow"
+                                },
+                                "when": "jungle"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_2_mangrove_arrow"
+                                },
+                                "when": "mangrove"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_2_oak_arrow"
+                                },
+                                "when": "oak"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_2_spruce_arrow"
+                                },
+                                "when": "spruce"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/spruce_bow_pulling_2_warped_arrow"
+                                },
+                                "when": "warped"
+                            }
+                        ],
+                        "fallback": {
+                            "type": "minecraft:model",
+                            "model": "mstv-mweaponv:item/spruce_bow_pulling_2_oak_arrow"
+                        },
+                        "property": "mstv-mweaponv:bowarrow"
+                    },
+                    "threshold": 0.9
+                }
+            ],
+            "fallback": {
+                "type": "minecraft:select",
+                "cases": [
+                    {
+                        "model": {
+                            "type": "minecraft:model",
+                            "model": "mstv-mweaponv:item/spruce_bow_pulling_0_acacia_arrow"
+                        },
+                        "when": "acacia"
+                    },
+                    {
+                        "model": {
+                            "type": "minecraft:model",
+                            "model": "mstv-mweaponv:item/spruce_bow_pulling_0_bamboo_arrow"
+                        },
+                        "when": "bamboo"
+                    },
+                    {
+                        "model": {
+                            "type": "minecraft:model",
+                            "model": "mstv-mweaponv:item/spruce_bow_pulling_0_birch_arrow"
+                        },
+                        "when": "birch"
+                    },
+                    {
+                        "model": {
+                            "type": "minecraft:model",
+                            "model": "mstv-mweaponv:item/spruce_bow_pulling_0_cherry_arrow"
+                        },
+                        "when": "cherry"
+                    },
+                    {
+                        "model": {
+                            "type": "minecraft:model",
+                            "model": "mstv-mweaponv:item/spruce_bow_pulling_0_crimson_arrow"
+                        },
+                        "when": "crimson"
+                    },
+                    {
+                        "model": {
+                            "type": "minecraft:model",
+                            "model": "mstv-mweaponv:item/spruce_bow_pulling_0_dark_oak_arrow"
+                        },
+                        "when": "dark_oak"
+                    },
+                    {
+                        "model": {
+                            "type": "minecraft:model",
+                            "model": "mstv-mweaponv:item/spruce_bow_pulling_0_jungle_arrow"
+                        },
+                        "when": "jungle"
+                    },
+                    {
+                        "model": {
+                            "type": "minecraft:model",
+                            "model": "mstv-mweaponv:item/spruce_bow_pulling_0_mangrove_arrow"
+                        },
+                        "when": "mangrove"
+                    },
+                    {
+                        "model": {
+                            "type": "minecraft:model",
+                            "model": "mstv-mweaponv:item/spruce_bow_pulling_0_oak_arrow"
+                        },
+                        "when": "oak"
+                    },
+                    {
+                        "model": {
+                            "type": "minecraft:model",
+                            "model": "mstv-mweaponv:item/spruce_bow_pulling_0_spruce_arrow"
+                        },
+                        "when": "spruce"
+                    },
+                    {
+                        "model": {
+                            "type": "minecraft:model",
+                            "model": "mstv-mweaponv:item/spruce_bow_pulling_0_warped_arrow"
+                        },
+                        "when": "warped"
+                    }
+                ],
+                "fallback": {
+                    "type": "minecraft:model",
+                    "model": "mstv-mweaponv:item/spruce_bow_pulling_0_oak_arrow"
+                },
+                "property": "mstv-mweaponv:bowarrow"
+            },
+            "property": "minecraft:use_duration",
+            "scale": 0.05
+        },
+        "property": "minecraft:using_item"
+    }
+}
