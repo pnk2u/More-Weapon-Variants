@@ -10,7 +10,6 @@ import net.minecraft.world.level.block.DispenserBlock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.ACACIA_ARROW;
 import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.more_arrows;
 
 

@@ -38,7 +38,7 @@ public class MoreWeaponVariantItems {
     }
 
     public static BowItem createBowVariantItem (String woodType){
-        Item.Properties bowVariantProperties = (new Item.Properties()).durability(384);
+        Item.Properties bowVariantProperties = (new Item.Properties().durability(384));
         if (woodType.matches("crimson|warped")) {
             bowVariantProperties.fireResistant();
         }
@@ -47,7 +47,7 @@ public class MoreWeaponVariantItems {
     }
 
     public static CrossbowItem createCrossbowVariantItem (String woodType){
-        Item.Properties crossbowVariantProperties = (new Item.Properties()).durability(465).component(DataComponents.CHARGED_PROJECTILES, ChargedProjectiles.EMPTY);
+        Item.Properties crossbowVariantProperties = (new Item.Properties().durability(465).component(DataComponents.CHARGED_PROJECTILES, ChargedProjectiles.EMPTY));
         if (woodType.matches("crimson|warped")) {
             crossbowVariantProperties.fireResistant();
         }

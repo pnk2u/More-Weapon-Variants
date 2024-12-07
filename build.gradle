@@ -32,7 +32,7 @@ loom {
 			sourceSet sourceSets.client
 		}
 	}
-	// accessWidenerPath = file("src/main/resources/mstv-mweaponv.accesswidener")
+	accessWidenerPath = file("src/main/resources/mstv-mweaponv.accesswidener")
 }
 
 fabricApi {
@@ -52,7 +52,7 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fapi_version}"
 
 	// MStV (modImplementation datagen only -> modCompileOnly for release)
-	modCompileOnly files("./res/MoreStickVariants-${project.mstv_version}+${project.minecraft_version}-Fabric.jar")
+	modCompileOnly "curse.maven:more-stick-variants-1096913:${project.mstv_version_id}"
 
 	// MStV - More Tool Variants
 	modCompileOnly files("./res/MoreToolVariants-${project.mstv_mtoolv_version}+${project.minecraft_version}-Fabric.jar")
