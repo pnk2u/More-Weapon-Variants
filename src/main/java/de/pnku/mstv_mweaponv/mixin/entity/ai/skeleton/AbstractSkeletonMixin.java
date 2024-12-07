@@ -48,7 +48,7 @@ public abstract class AbstractSkeletonMixin extends Monster {
     @Redirect(method = "populateDefaultEquipmentSlots", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/AbstractSkeleton;setItemSlot(Lnet/minecraft/world/entity/EquipmentSlot;Lnet/minecraft/world/item/ItemStack;)V"))
     protected void redirectedPopulateDefaultEquipmentSlots(AbstractSkeleton skeleton, EquipmentSlot slot, ItemStack stack){
         BlockPos skeletonPos = abstractSkeleton.blockPosition();
-        String spawnBiomeName = abstractSkeleton.level().getBiome(skeletonPos).getRegisteredName();
+        String spawnBiomeName = abstractSkeleton.level().getBiome(skeletonPos).unwrapKey().get().location().toString();
         Item spawnBowItem;
         Item spawnBowItemAlt;
         double spawnBowVariantProb;

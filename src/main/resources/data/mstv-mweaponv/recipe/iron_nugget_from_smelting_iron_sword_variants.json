@@ -35,7 +35,5 @@
       "item": "mstv-mweaponv:warped_iron_sword"
     }
   ],
-  "result": {
-    "item": "minecraft:iron_nugget"
-  }
+  "result": "minecraft:iron_nugget"
 }

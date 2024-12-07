@@ -35,7 +35,5 @@
       "item": "mstv-mweaponv:warped_golden_sword"
     }
   ],
-  "result": {
-    "item": "minecraft:gold_nugget"
-  }
+  "result": "minecraft:gold_nugget"
 }
