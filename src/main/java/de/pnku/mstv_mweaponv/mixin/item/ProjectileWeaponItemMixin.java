@@ -16,7 +16,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import static de.pnku.mstv_mweaponv.MoreWeaponVariants.LOGGER;
 import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.*;
 
 @Mixin(ProjectileWeaponItem.class)
@@ -27,7 +26,6 @@ public abstract class ProjectileWeaponItemMixin implements IArrow {
         Item arrowVariantItem = ammo.getItem();
         Item stickItem;
         String arrowVariant;
-        LOGGER.info("Weapon trying to createProjectile: " + weapon.getDescriptionId());
         if (more_arrows.contains(arrowVariantItem)){
             stickItem = more_weapon_sticks.get(arrowVariantItem);
             if (stickItem.equals(Items.BAMBOO)) {arrowVariant = "bamboo";} else if (stickItem.equals(Items.STICK)) {arrowVariant = "oak";} else { arrowVariant = ((MoreStickVariantItem) stickItem).mstvWoodType;}
