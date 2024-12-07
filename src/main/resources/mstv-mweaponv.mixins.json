@@ -6,6 +6,16 @@
   "mixins": [
     "entity.AbstractArrowMixin" ,
     "entity.ArrowMixin" ,
+    "entity.ProjectileUtilMixin" ,
+    "entity.ai.CrossbowAttackMixin" ,
+    "entity.ai.CrossbowAttackMobMixin" ,
+    "entity.ai.RangedBowAttackGoalMixin" ,
+    "entity.ai.RangedCrossbowAttackGoalMixin" ,
+    "entity.ai.monster.MonsterMixin" ,
+    "entity.ai.piglin.PiglinAiMixin" ,
+    "entity.ai.piglin.PiglinMixin" ,
+    "entity.ai.skeleton.AbstractSkeletonMixin" ,
+    "entity.ai.skeleton.WitherSkeletonMixin" ,
     "item.ArrowItemMixin" ,
     "item.ProjectileWeaponItemMixin" ,
     "recipe.TippedArrowRecipeMixin"

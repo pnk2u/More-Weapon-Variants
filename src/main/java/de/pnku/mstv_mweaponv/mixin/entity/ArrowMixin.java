@@ -76,7 +76,8 @@ public abstract class ArrowMixin extends AbstractArrow implements IArrow {
         if (!arrowVariant.equals("oak")) {
             ItemStack pickupVariantItemStack = arrowItemStackFromVariant(this.mweaponv$getVariant());
             super.setPickupItemStack(pickupVariantItemStack);
-        } else {ci.cancel();}
+        }
+
     }
 
     static {
