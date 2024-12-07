@@ -2,3 +2,4 @@ accessWidener v1 named
 
 accessible field net/minecraft/world/entity/ai/behavior/CrossbowAttack crossbowState Lnet/minecraft/world/entity/ai/behavior/CrossbowAttack$CrossbowState;
 accessible class net/minecraft/world/entity/ai/behavior/CrossbowAttack$CrossbowState
+accessible method net/minecraft/world/item/ItemStack transmuteCopyIgnoreEmpty (Lnet/minecraft/world/level/ItemLike;I)Lnet/minecraft/world/item/ItemStack;

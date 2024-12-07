@@ -2,6 +2,9 @@ package de.pnku.mstv_mweaponv.mixin.entity.ai.skeleton;
 
 import de.pnku.mstv_mweaponv.util.ArrowUtil;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
@@ -12,6 +15,9 @@ import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -20,6 +26,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.Objects;
 import java.util.Random;
 
 import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.*;
@@ -101,10 +108,11 @@ public abstract class AbstractSkeletonMixin extends Monster {
 
     @Unique
     @Override
-    protected void dropCustomDeathLoot(DamageSource damageSource, int looting, boolean hitByPlayer) {
-        super.dropCustomDeathLoot(damageSource, looting, hitByPlayer);
+    protected void dropCustomDeathLoot(ServerLevel level, DamageSource damageSource, boolean hitByPlayer) {
+        super.dropCustomDeathLoot(level, damageSource, hitByPlayer);
         Item mainHandItem = abstractSkeleton.getMainHandItem().getItem();
         Item offhandItem = abstractSkeleton.getOffhandItem().getItem();
+        int looting = Objects.requireNonNull(damageSource.getWeaponItem()).getEnchantments().getLevel(level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(Enchantments.LOOTING));
         Random rand = new Random();
         if (!mainHandItem.equals(Items.BOW) && !offhandItem.equals(Items.BOW)) {
             if (mainHandItem instanceof BowItem) {

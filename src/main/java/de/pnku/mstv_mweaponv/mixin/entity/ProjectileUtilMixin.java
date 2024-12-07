@@ -21,7 +21,7 @@ import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.more_weapon_stic
 public abstract class ProjectileUtilMixin {
 
     @Inject(method = "getMobArrow", at = @At(value = "RETURN", shift = At.Shift.BEFORE), cancellable = true)
-    private static void injectedGetMobArrow(LivingEntity shooter, ItemStack arrowStack, float velocity, CallbackInfoReturnable<AbstractArrow> cir, @Local AbstractArrow abstractArrow) {
+    private static void injectedGetMobArrow(LivingEntity shooter, ItemStack arrowStack, float velocity, ItemStack weapon, CallbackInfoReturnable<AbstractArrow> cir, @Local AbstractArrow abstractArrow) {
         Item arrowVariantItem = arrowStack.getItem();
         Item stickItem;
         String arrowVariant;
