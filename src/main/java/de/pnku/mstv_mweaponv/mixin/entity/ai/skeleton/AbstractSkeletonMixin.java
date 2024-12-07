@@ -127,14 +127,14 @@ public abstract class AbstractSkeletonMixin extends Monster {
             if (mainHandItem instanceof BowItem) {
                 arrowStack = new ItemStack(ArrowUtil.arrowFromProjectileWeapon(mainHandItem, isBogged));
                 if (isBogged){arrowStack.set(DataComponents.POTION_CONTENTS, new PotionContents(Potions.POISON));}
-                this.spawnAtLocation(arrowStack, rand.nextInt(3) * (1 + looting));
+                this.spawnAtLocation(level, arrowStack, rand.nextInt(3) * (1 + looting));
             } else if (offhandItem instanceof BowItem) {
                 arrowStack = new ItemStack(ArrowUtil.arrowFromProjectileWeapon(mainHandItem, isBogged));
                 if (isBogged){arrowStack.set(DataComponents.POTION_CONTENTS, new PotionContents(Potions.POISON));}
-                this.spawnAtLocation(arrowStack, rand.nextInt(3) * (1 + looting));
+                this.spawnAtLocation(level, arrowStack, rand.nextInt(3) * (1 + looting));
             }
         } else {
-            this.spawnAtLocation(new ItemStack(Items.ARROW, rand.nextInt(3) * (1 + looting)));
+            this.spawnAtLocation(level, new ItemStack(Items.ARROW, rand.nextInt(3) * (1 + looting)));
         }
     }
 
