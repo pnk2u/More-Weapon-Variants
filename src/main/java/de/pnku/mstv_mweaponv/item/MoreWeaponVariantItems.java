@@ -40,7 +40,7 @@ public class MoreWeaponVariantItems {
     }
 
     public static BowItem createBowVariantItem (String woodType){
-        Item.Properties bowVariantProperties = (new Item.Properties()).durability(384);
+        Item.Properties bowVariantProperties = (new Item.Properties().durability(384));
         if (woodType.matches("crimson|warped")) {
             bowVariantProperties.fireResistant();
         }

@@ -1,3 +1,5 @@
 accessWidener v1 named
 
 accessible field net/minecraft/world/entity/projectile/Arrow potion Lnet/minecraft/world/item/alchemy/Potion;
+accessible field net/minecraft/world/entity/ai/behavior/CrossbowAttack crossbowState Lnet/minecraft/world/entity/ai/behavior/CrossbowAttack$CrossbowState;
+accessible class net/minecraft/world/entity/ai/behavior/CrossbowAttack$CrossbowState
