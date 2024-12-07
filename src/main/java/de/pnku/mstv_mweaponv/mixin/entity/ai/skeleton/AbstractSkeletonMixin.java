@@ -75,13 +75,13 @@ public abstract class AbstractSkeletonMixin extends Monster {
             if (spawnBowItemAlt == null) {
                 if (Math.random() < spawnBowVariantProb) {
                     abstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(spawnBowItem));
-                }
+                } else {abstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));}
             } else {
                 if (Math.random() < spawnBowVariantProb) {
                     abstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(spawnBowItem));
                 } else if (Math.random() < (spawnBowVariantProb + spawnBowVariantAltProb)) {
                     abstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(spawnBowItemAlt));
-                }
+                } else {abstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));}
             }
         } else {abstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));}
     }
