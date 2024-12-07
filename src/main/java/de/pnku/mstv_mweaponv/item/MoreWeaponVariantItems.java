@@ -25,7 +25,7 @@ public class MoreWeaponVariantItems {
 
     public static SwordItem createSwordVariantItem (Tier tier, String woodType){
         int AD = 3; float AS = -2.4F;
-        Item.Properties swordVariantProperties = (new Item.Properties()).attributes(SwordItem.createAttributes(tier, AD, AS));
+        Item.Properties swordVariantProperties = (new Item.Properties().attributes(SwordItem.createAttributes(tier, AD, AS)));
         if (woodType.matches("crimson|warped") || tier.equals(NETHERITE)) {
             swordVariantProperties.fireResistant();
         }
@@ -35,7 +35,7 @@ public class MoreWeaponVariantItems {
     }
 
     public static BowItem createBowVariantItem (String woodType){
-        Item.Properties bowVariantProperties = (new Item.Properties()).durability(384);
+        Item.Properties bowVariantProperties = (new Item.Properties().durability(384));
         if (woodType.matches("crimson|warped")) {
             bowVariantProperties.fireResistant();
         }
@@ -43,7 +43,7 @@ public class MoreWeaponVariantItems {
     }
 
     public static CrossbowItem createCrossbowVariantItem (String woodType){
-        Item.Properties crossbowVariantProperties = (new Item.Properties()).durability(465).component(DataComponents.CHARGED_PROJECTILES, ChargedProjectiles.EMPTY);
+        Item.Properties crossbowVariantProperties = (new Item.Properties().durability(465).component(DataComponents.CHARGED_PROJECTILES, ChargedProjectiles.EMPTY));
         if (woodType.matches("crimson|warped")) {
             crossbowVariantProperties.fireResistant();
         }

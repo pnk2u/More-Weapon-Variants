@@ -14,11 +14,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import static de.pnku.mstv_mweaponv.MoreWeaponVariants.LOGGER;
 import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.more_arrows;
 import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.more_weapon_sticks;
 
