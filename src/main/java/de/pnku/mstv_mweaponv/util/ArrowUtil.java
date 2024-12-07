@@ -3,13 +3,11 @@ package de.pnku.mstv_mweaponv.util;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 
-import static de.pnku.mstv_mweaponv.MoreWeaponVariants.LOGGER;
 import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.*;
 
 public class ArrowUtil {
 
     public static Item arrowFromProjectileWeapon(Item weaponItem, boolean isTipped) {
-        LOGGER.info("Checking weaponItem-descId to get arrow: " + weaponItem.getDescriptionId());
         switch (weaponItem.getDescriptionId()) {
             case ("item.mstv-mweaponv.acacia_bow"), ("item.mstv-mweaponv.acacia_crossbow") -> {return !isTipped ? ACACIA_ARROW : ACACIA_TIPPED_ARROW;}
             case ("item.mstv-mweaponv.bamboo_bow"), ("item.mstv-mweaponv.bamboo_crossbow") -> {return !isTipped ? BAMBOO_ARROW : BAMBOO_TIPPED_ARROW;}
