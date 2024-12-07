@@ -1,6 +1,7 @@
 package de.pnku.mstv_mweaponv.mixin.entity.ai.piglin;
 
 import de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -31,10 +32,5 @@ public class PiglinMixin {
     @Inject(method = "canFireProjectileWeapon", at = @At("HEAD"), cancellable = true)
     public void injectedCanFireProjectileWeapon(ProjectileWeaponItem projectileWeapon, CallbackInfoReturnable<Boolean> cir){
         if (more_crossbows.contains(projectileWeapon)){cir.setReturnValue(true);}
-    }
-
-    @Redirect(method = "canReplaceCurrentItem(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/EquipmentSlot;)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"))
-    public boolean redirectedCanReplaceCurrentItemStackIs(ItemStack itemStack, Item item) {
-        if ((item.equals(MoreWeaponVariantItems.WARPED_CROSSBOW))) {return false;} else {return more_crossbows.contains(item) || item.equals(Items.CROSSBOW);}
     }
 }
