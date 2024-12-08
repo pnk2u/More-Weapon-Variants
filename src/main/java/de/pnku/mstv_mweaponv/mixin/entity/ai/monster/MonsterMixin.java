@@ -17,7 +17,7 @@ public abstract class MonsterMixin {
         ItemStack returnStack = cir.getReturnValue();
         boolean isTipped = returnStack.is(Items.TIPPED_ARROW);
         if (returnStack.is(Items.ARROW) || returnStack.is(Items.TIPPED_ARROW)) {
-            cir.setReturnValue(returnStack.transmuteCopyIgnoreEmpty(ArrowUtil.arrowFromProjectileWeapon(weaponStack.getItem(), isTipped), returnStack.getCount()));
+            cir.setReturnValue(new ItemStack(ArrowUtil.arrowFromProjectileWeapon(weaponStack.getItem(), isTipped), returnStack.getCount()));
         }
     }
 }
