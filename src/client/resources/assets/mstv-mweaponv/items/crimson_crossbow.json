@@ -104,7 +104,7 @@
         {
           "model": {
             "type": "minecraft:model",
-            "model": "mstv-mweaponv:item/crimson_crossbow"
+            "model": "mstv-mweaponv:item/crimson_crossbow_firework"
           },
           "when": "rocket"
         }

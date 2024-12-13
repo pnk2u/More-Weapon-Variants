@@ -104,7 +104,7 @@
         {
           "model": {
             "type": "minecraft:model",
-            "model": "mstv-mweaponv:item/jungle_crossbow"
+            "model": "mstv-mweaponv:item/jungle_crossbow_firework"
           },
           "when": "rocket"
         }
