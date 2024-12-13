@@ -129,6 +129,13 @@
                 "firework": 1
             },
             "model": "item/crossbow_firework"
+        },
+        {
+            "predicate": {
+                "charged": 1,
+                "charged_projectiles": 0.13
+            },
+            "model": "mstv-mweaponv:item/dark_oak_crossbow_pale_oak_arrow"
         }
     ]
 }
