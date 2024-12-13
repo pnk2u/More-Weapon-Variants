@@ -35,6 +35,7 @@ public record CrossbowArrowPredicate() implements SelectItemModelProperty<String
                 else if (chargedProjectiles.contains(CHERRY_ARROW) || chargedProjectiles.contains(CHERRY_TIPPED_ARROW)) {return "cherry";}
                 else if (chargedProjectiles.contains(CRIMSON_ARROW) || chargedProjectiles.contains(CRIMSON_TIPPED_ARROW)) {return "crimson";}
                 else if (chargedProjectiles.contains(DARK_OAK_ARROW) || chargedProjectiles.contains(DARK_OAK_TIPPED_ARROW)) {return "dark_oak";}
+                else if (chargedProjectiles.contains(PALE_OAK_ARROW) || chargedProjectiles.contains(PALE_OAK_TIPPED_ARROW)) {return "pale_oak";}
                 else if (chargedProjectiles.contains(JUNGLE_ARROW) || chargedProjectiles.contains(JUNGLE_TIPPED_ARROW)) {return "jungle";}
                 else if (chargedProjectiles.contains(MANGROVE_ARROW) || chargedProjectiles.contains(MANGROVE_TIPPED_ARROW)) {return "mangrove";}
                 else if (chargedProjectiles.contains(Items.ARROW) || chargedProjectiles.contains(Items.TIPPED_ARROW)) {return "oak";}

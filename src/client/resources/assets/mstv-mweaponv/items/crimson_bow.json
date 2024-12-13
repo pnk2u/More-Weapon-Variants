@@ -57,6 +57,13 @@
                             {
                                 "model": {
                                     "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/crimson_bow_pulling_1_pale_oak_arrow"
+                                },
+                                "when": "pale_oak"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
                                     "model": "mstv-mweaponv:item/crimson_bow_pulling_1_jungle_arrow"
                                 },
                                 "when": "jungle"
@@ -147,6 +154,13 @@
                             {
                                 "model": {
                                     "type": "minecraft:model",
+                                    "model": "mstv-mweaponv:item/crimson_bow_pulling_2_pale_oak_arrow"
+                                },
+                                "when": "pale_oak"
+                            },
+                            {
+                                "model": {
+                                    "type": "minecraft:model",
                                     "model": "mstv-mweaponv:item/crimson_bow_pulling_2_jungle_arrow"
                                 },
                                 "when": "jungle"
@@ -233,6 +247,13 @@
                             "model": "mstv-mweaponv:item/crimson_bow_pulling_0_dark_oak_arrow"
                         },
                         "when": "dark_oak"
+                    },
+                    {
+                        "model": {
+                            "type": "minecraft:model",
+                            "model": "mstv-mweaponv:item/crimson_bow_pulling_0_pale_oak_arrow"
+                        },
+                        "when": "pale_oak"
                     },
                     {
                         "model": {

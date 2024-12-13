@@ -53,6 +53,13 @@
               {
                 "model": {
                   "type": "minecraft:model",
+                  "model": "mstv-mweaponv:item/bamboo_crossbow_pale_oak_arrow"
+                },
+                "when": "pale_oak"
+              },
+              {
+                "model": {
+                  "type": "minecraft:model",
                   "model": "mstv-mweaponv:item/bamboo_crossbow_jungle_arrow"
                 },
                 "when": "jungle"
