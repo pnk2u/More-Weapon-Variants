@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "diamond_swords",
+  "key": {
+    "/": "mstv-base:pale_oak_stick",
+    "<": "minecraft:diamond"
+  },
+  "pattern": [
+    "<",
+    "<",
+    "/"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:pale_oak_diamond_sword"
+  }
+}

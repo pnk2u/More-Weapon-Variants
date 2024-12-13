@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "golden_swords",
+  "key": {
+    "/": "mstv-base:pale_oak_stick",
+    "<": "minecraft:gold_ingot"
+  },
+  "pattern": [
+    "<",
+    "<",
+    "/"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:pale_oak_golden_sword"
+  }
+}

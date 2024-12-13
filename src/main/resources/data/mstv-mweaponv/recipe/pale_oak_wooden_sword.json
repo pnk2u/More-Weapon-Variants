@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "wooden_swords",
+  "key": {
+    "/": "mstv-base:pale_oak_stick",
+    "<": "minecraft:pale_oak_planks"
+  },
+  "pattern": [
+    "<",
+    "<",
+    "/"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:pale_oak_wooden_sword"
+  }
+}
