@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "/": "mstv-base:pale_oak_stick",
+    "H": "minecraft:tripwire_hook",
+    "I": "minecraft:iron_ingot",
+    "S": "minecraft:string"
+  },
+  "pattern": [
+    "/I/",
+    "SHS",
+    " / "
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:pale_oak_crossbow"
+  }
+}

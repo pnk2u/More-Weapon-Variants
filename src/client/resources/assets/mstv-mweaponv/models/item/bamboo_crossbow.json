@@ -142,6 +142,13 @@
         "charged_projectiles": 0.12
       },
       "model": "mstv-mweaponv:item/bamboo_crossbow_firework"
+    },
+    {
+      "predicate": {
+        "charged": 1,
+        "charged_projectiles": 0.13
+      },
+      "model": "mstv-mweaponv:item/bamboo_crossbow_pale_oak_arrow"
     }
   ]
 }

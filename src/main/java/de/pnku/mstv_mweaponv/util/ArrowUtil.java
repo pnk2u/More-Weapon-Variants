@@ -15,6 +15,7 @@ public class ArrowUtil {
             case ("item.mstv-mweaponv.cherry_bow"), ("item.mstv-mweaponv.cherry_crossbow") -> {return !isTipped ? CHERRY_ARROW : CHERRY_TIPPED_ARROW;}
             case ("item.mstv-mweaponv.crimson_bow"), ("item.mstv-mweaponv.crimson_crossbow") -> {return !isTipped ? CRIMSON_ARROW : CRIMSON_TIPPED_ARROW;}
             case ("item.mstv-mweaponv.dark_oak_bow"), ("item.minecraft.crossbow") -> {return !isTipped ? DARK_OAK_ARROW : DARK_OAK_TIPPED_ARROW;}
+            case ("item.mstv-mweaponv.pale_oak_bow"), ("item.mstv-mweaponv.pale_oak_crossbow") -> {return !isTipped ? PALE_OAK_ARROW : PALE_OAK_TIPPED_ARROW;}
             case ("item.mstv-mweaponv.jungle_bow"), ("item.mstv-mweaponv.jungle_crossbow") -> {return !isTipped ? JUNGLE_ARROW : JUNGLE_TIPPED_ARROW;}
             case ("item.mstv-mweaponv.mangrove_bow"), ("item.mstv-mweaponv.mangrove_crossbow") -> {return !isTipped ? MANGROVE_ARROW : MANGROVE_TIPPED_ARROW;}
             case ("item.mstv-mweaponv.spruce_bow"), ("item.mstv-mweaponv.spruce_crossbow") -> {return !isTipped ? SPRUCE_ARROW : SPRUCE_TIPPED_ARROW;}

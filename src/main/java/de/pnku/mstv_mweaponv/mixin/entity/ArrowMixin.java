@@ -54,6 +54,7 @@ public abstract class ArrowMixin extends AbstractArrow implements IArrow {
             case "cherry" -> {return new ItemStack(CHERRY_ARROW);}
             case "crimson" -> {return new ItemStack(CRIMSON_ARROW);}
             case "dark_oak" -> {return new ItemStack(DARK_OAK_ARROW);}
+            case "pale_oak" -> {return new ItemStack(PALE_OAK_ARROW);}
             case "jungle" -> {return new ItemStack(JUNGLE_ARROW);}
             case "mangrove" -> {return new ItemStack(MANGROVE_ARROW);}
             case "spruce" -> {return new ItemStack(SPRUCE_ARROW);}

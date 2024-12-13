@@ -84,6 +84,7 @@ public class MoreWeaponVariantItems {
             public static final Item CHERRY_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "cherry");
             public static final Item CRIMSON_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "crimson");
             public static final Item DARK_OAK_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "dark_oak");
+            public static final Item PALE_OAK_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "pale_oak");
             public static final Item JUNGLE_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "jungle");
             public static final Item MANGROVE_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "mangrove");
             public static final Item SPRUCE_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "spruce");
@@ -95,6 +96,7 @@ public class MoreWeaponVariantItems {
                     public static final Item CHERRY_STONE_SWORD = createSwordVariantItem(STONE, "stone", "cherry");
                     public static final Item CRIMSON_STONE_SWORD = createSwordVariantItem(STONE, "stone", "crimson");
                     public static final Item DARK_OAK_STONE_SWORD = createSwordVariantItem(STONE, "stone", "dark_oak");
+            public static final Item PALE_OAK_STONE_SWORD = createSwordVariantItem(STONE, "stone", "pale_oak");
                     public static final Item JUNGLE_STONE_SWORD = createSwordVariantItem(STONE, "stone", "jungle");
                     public static final Item MANGROVE_STONE_SWORD = createSwordVariantItem(STONE, "stone", "mangrove");
                     public static final Item SPRUCE_STONE_SWORD = createSwordVariantItem(STONE, "stone", "spruce");
@@ -106,6 +108,7 @@ public class MoreWeaponVariantItems {
                     public static final Item CHERRY_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "cherry");
                     public static final Item CRIMSON_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "crimson");
                     public static final Item DARK_OAK_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "dark_oak");
+            public static final Item PALE_OAK_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "pale_oak");
                     public static final Item JUNGLE_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "jungle");
                     public static final Item MANGROVE_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "mangrove");
                     public static final Item OAK_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "oak");
@@ -118,6 +121,7 @@ public class MoreWeaponVariantItems {
                     public static final Item CHERRY_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "cherry");
                     public static final Item CRIMSON_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "crimson");
                     public static final Item DARK_OAK_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "dark_oak");
+            public static final Item PALE_OAK_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "pale_oak");
                     public static final Item JUNGLE_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "jungle");
                     public static final Item MANGROVE_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "mangrove");
                     public static final Item OAK_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "oak");
@@ -130,6 +134,7 @@ public class MoreWeaponVariantItems {
             public static final Item CHERRY_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "cherry");
             public static final Item CRIMSON_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "crimson");
             public static final Item DARK_OAK_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "dark_oak");
+            public static final Item PALE_OAK_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "pale_oak");
             public static final Item JUNGLE_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "jungle");
             public static final Item MANGROVE_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "mangrove");
             public static final Item SPRUCE_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "spruce");
@@ -141,6 +146,7 @@ public class MoreWeaponVariantItems {
             public static final Item CHERRY_IRON_SWORD = createSwordVariantItem(IRON, "iron", "cherry");
             public static final Item CRIMSON_IRON_SWORD = createSwordVariantItem(IRON, "iron", "crimson");
             public static final Item DARK_OAK_IRON_SWORD = createSwordVariantItem(IRON, "iron", "dark_oak");
+            public static final Item PALE_OAK_IRON_SWORD = createSwordVariantItem(IRON, "iron", "pale_oak");
             public static final Item JUNGLE_IRON_SWORD = createSwordVariantItem(IRON, "iron", "jungle");
             public static final Item MANGROVE_IRON_SWORD = createSwordVariantItem(IRON, "iron", "mangrove");
             public static final Item SPRUCE_IRON_SWORD = createSwordVariantItem(IRON, "iron", "spruce");
@@ -152,6 +158,7 @@ public class MoreWeaponVariantItems {
             public static final Item CHERRY_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "cherry");
             public static final Item CRIMSON_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "crimson");
             public static final Item DARK_OAK_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "dark_oak");
+            public static final Item PALE_OAK_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "pale_oak");
             public static final Item JUNGLE_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "jungle");
             public static final Item MANGROVE_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "mangrove");
             public static final Item SPRUCE_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "spruce");
@@ -163,6 +170,7 @@ public class MoreWeaponVariantItems {
             public static final Item CHERRY_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "cherry");
             public static final Item CRIMSON_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "crimson");
             public static final Item DARK_OAK_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "dark_oak");
+            public static final Item PALE_OAK_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "pale_oak");
             public static final Item JUNGLE_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "jungle");
             public static final Item MANGROVE_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "mangrove");
             public static final Item SPRUCE_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "spruce");
@@ -176,6 +184,7 @@ public class MoreWeaponVariantItems {
             public static final Item CHERRY_BOW = createBowVariantItem("cherry");
             public static final Item CRIMSON_BOW = createBowVariantItem("crimson");
             public static final Item DARK_OAK_BOW = createBowVariantItem("dark_oak");
+            public static final Item PALE_OAK_BOW = createBowVariantItem("pale_oak");
             public static final Item JUNGLE_BOW = createBowVariantItem("jungle");
             public static final Item MANGROVE_BOW = createBowVariantItem("mangrove");
             public static final Item SPRUCE_BOW = createBowVariantItem("spruce");
@@ -189,6 +198,7 @@ public class MoreWeaponVariantItems {
             public static final Item JUNGLE_CROSSBOW = createCrossbowVariantItem("jungle");
             public static final Item MANGROVE_CROSSBOW = createCrossbowVariantItem("mangrove");
             public static final Item OAK_CROSSBOW = createCrossbowVariantItem("oak");
+            public static final Item PALE_OAK_CROSSBOW = createCrossbowVariantItem("pale_oak");
             public static final Item SPRUCE_CROSSBOW = createCrossbowVariantItem("spruce");
             public static final Item WARPED_CROSSBOW = createCrossbowVariantItem("warped");
             // Arrows
@@ -198,6 +208,7 @@ public class MoreWeaponVariantItems {
             public static final Item CHERRY_ARROW = createArrowVariantItem("cherry");
             public static final Item CRIMSON_ARROW = createArrowVariantItem("crimson");
             public static final Item DARK_OAK_ARROW = createArrowVariantItem("dark_oak");
+            public static final Item PALE_OAK_ARROW = createArrowVariantItem("pale_oak");
             public static final Item JUNGLE_ARROW = createArrowVariantItem("jungle");
             public static final Item MANGROVE_ARROW = createArrowVariantItem("mangrove");
             public static final Item SPRUCE_ARROW = createArrowVariantItem("spruce");
@@ -209,6 +220,7 @@ public class MoreWeaponVariantItems {
             public static final Item CHERRY_TIPPED_ARROW = createArrowVariantItem("cherry", true);
             public static final Item CRIMSON_TIPPED_ARROW = createArrowVariantItem("crimson", true);
             public static final Item DARK_OAK_TIPPED_ARROW = createArrowVariantItem("dark_oak", true);
+            public static final Item PALE_OAK_TIPPED_ARROW = createArrowVariantItem("pale_oak", true);
             public static final Item JUNGLE_TIPPED_ARROW = createArrowVariantItem("jungle", true);
             public static final Item MANGROVE_TIPPED_ARROW = createArrowVariantItem("mangrove", true);
             public static final Item SPRUCE_TIPPED_ARROW = createArrowVariantItem("spruce", true);
@@ -314,6 +326,21 @@ public class MoreWeaponVariantItems {
         registerBowItem(DARK_OAK_BOW, DARK_OAK_STICK);
         more_weapons.add(Items.CROSSBOW);
         registerArrowItem(DARK_OAK_ARROW, DARK_OAK_STICK, DARK_OAK_TIPPED_ARROW);
+
+
+        //Pale_oak Weapons
+        registerSwordItem(PALE_OAK_WOODEN_SWORD, PALE_OAK_STICK, Items.PALE_OAK_PLANKS, "wooden");
+        registerSwordItem(PALE_OAK_STONE_SWORD, PALE_OAK_STICK, Items.COBBLESTONE, "stone");
+        registerSwordItem(PALE_OAK_DEEPSLATE_SWORD, PALE_OAK_STICK, Items.DEEPSLATE, "deepslate");
+        registerSwordItem(PALE_OAK_BLACKSTONE_SWORD, PALE_OAK_STICK, Items.BLACKSTONE, "blackstone");
+        registerSwordItem(PALE_OAK_IRON_SWORD, PALE_OAK_STICK, Items.IRON_INGOT, "iron");
+        registerSwordItem(PALE_OAK_GOLDEN_SWORD, PALE_OAK_STICK, Items.GOLD_INGOT, "golden");
+        registerSwordItem(PALE_OAK_DIAMOND_SWORD, PALE_OAK_STICK, Items.DIAMOND, "diamond");
+        registerSwordItem(PALE_OAK_NETHERITE_SWORD, PALE_OAK_STICK, PALE_OAK_DIAMOND_SWORD, "netherite");
+        if(isMtoolvLoaded){more_weapons.add(PALE_OAK_WOODEN_AXE); more_weapons.add(PALE_OAK_STONE_AXE); more_weapons.add(PALE_OAK_DEEPSLATE_AXE); more_weapons.add(PALE_OAK_BLACKSTONE_AXE); more_weapons.add(PALE_OAK_IRON_AXE); more_weapons.add(PALE_OAK_GOLDEN_AXE); more_weapons.add(PALE_OAK_DIAMOND_AXE); more_weapons.add(PALE_OAK_NETHERITE_AXE);}
+        registerBowItem(PALE_OAK_BOW, PALE_OAK_STICK);
+        registerCrossbowItem(PALE_OAK_CROSSBOW, PALE_OAK_STICK);
+        registerArrowItem(PALE_OAK_ARROW, PALE_OAK_STICK, PALE_OAK_TIPPED_ARROW);
 
 
       //Jungle Weapons

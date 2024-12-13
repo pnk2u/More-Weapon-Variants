@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "minecraft:flint",
+    "/": "mstv-base:pale_oak_stick",
+    "F": "minecraft:feather"
+  },
+  "pattern": [
+    "#",
+    "/",
+    "F"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:pale_oak_arrow"
+  }
+}

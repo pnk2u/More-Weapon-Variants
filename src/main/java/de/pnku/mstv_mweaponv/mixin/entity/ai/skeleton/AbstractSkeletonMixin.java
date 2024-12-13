@@ -63,7 +63,8 @@ public abstract class AbstractSkeletonMixin extends Monster {
             case ("minecraft:cherry_grove") -> {spawnBowItem = CHERRY_BOW; spawnBowVariantProb = 0.925; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}
             case ("minecraft:crimson_forest") -> {spawnBowItem = CRIMSON_BOW; spawnBowVariantProb = 1; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}
             case ("minecraft:nether_wastes") -> {spawnBowItem = CRIMSON_BOW; spawnBowVariantProb = 0.25; spawnBowItemAlt = WARPED_BOW; spawnBowVariantAltProb = 0.05;}
-            case ("minecraft:dark_forest") -> {spawnBowItem = DARK_OAK_BOW; spawnBowVariantProb = 0.8; spawnBowItemAlt = BIRCH_BOW; spawnBowVariantAltProb = 0.1;}
+            case ("minecraft:dark_forest") -> {spawnBowItem = DARK_OAK_BOW; spawnBowVariantProb = 0.8; spawnBowItemAlt = PALE_OAK_BOW; spawnBowVariantAltProb = 0.1;}
+            case ("minecraft:pale_garden") -> {spawnBowItem = PALE_OAK_BOW; spawnBowVariantProb = 0.95; spawnBowItemAlt = DARK_OAK_BOW; spawnBowVariantAltProb = 0.05;}
             case ("minecraft:mangrove_swamp") -> {spawnBowItem = MANGROVE_BOW; spawnBowVariantProb = 0.975; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}
             case ("minecraft:old_growth_spruce_taiga"), ("minecraft:old_growth_pine_taiga"), ("minecraft:taiga"), ("minecraft:snowy_taiga") -> {spawnBowItem = SPRUCE_BOW; spawnBowVariantProb = 0.85; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}
             case ("minecraft:windswept_forest"), ("minecraft:snowy_plains") -> {spawnBowItem = SPRUCE_BOW; spawnBowVariantProb = 0.3; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}

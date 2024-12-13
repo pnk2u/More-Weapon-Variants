@@ -245,6 +245,26 @@
                 "pull": 0.9
             },
             "model": "mstv-mweaponv:item/birch_bow_pulling_2_warped_arrow"
+        },
+        {
+            "predicate": {
+                "bowarrow": 0.13
+            },
+            "model": "mstv-mweaponv:item/birch_bow_pulling_0_pale_oak_arrow"
+        },
+        {
+            "predicate": {
+                "bowarrow": 0.13,
+                "pull": 0.65
+            },
+            "model": "mstv-mweaponv:item/birch_bow_pulling_1_pale_oak_arrow"
+        },
+        {
+            "predicate": {
+                "bowarrow": 0.13,
+                "pull": 0.9
+            },
+            "model": "mstv-mweaponv:item/birch_bow_pulling_2_pale_oak_arrow"
         }
     ]
 }

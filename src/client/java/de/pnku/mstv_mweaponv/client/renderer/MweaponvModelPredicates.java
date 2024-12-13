@@ -79,6 +79,8 @@ public class MweaponvModelPredicates {
                 case ("oak") -> {return 0.09F;}
                 case ("spruce") -> {return 0.10F;}
                 case ("warped") -> {return 0.11F;}
+                //12=firework
+                case ("pale_oak") -> {return 0.13F;}
                 case null, default -> {return 0.0F;}
             }
             });
@@ -123,6 +125,7 @@ public class MweaponvModelPredicates {
                 else if (chargedProjectiles.contains(SPRUCE_ARROW) || chargedProjectiles.contains(SPRUCE_TIPPED_ARROW)) {return 0.10F;}
                 else if (chargedProjectiles.contains(WARPED_ARROW) || chargedProjectiles.contains(WARPED_TIPPED_ARROW)) {return 0.11F;}
                 else if (chargedProjectiles.contains(Items.FIREWORK_ROCKET)) {return 0.12F;}
+                else if (chargedProjectiles.contains(PALE_OAK_ARROW) || chargedProjectiles.contains(PALE_OAK_TIPPED_ARROW)) {return 0.13F;}
                 }
             }
             return 0.0F;
