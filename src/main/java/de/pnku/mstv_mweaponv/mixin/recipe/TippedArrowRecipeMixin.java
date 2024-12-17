@@ -45,13 +45,13 @@ public abstract class TippedArrowRecipeMixin extends CustomRecipe {
     }
 
     @Inject(
-            method = "assemble(Lnet/minecraft/world/inventory/CraftingContainer;Lnet/minecraft/core/HolderLookup$Provider;)Lnet/minecraft/world/item/ItemStack;",
+            method = "assemble(Lnet/minecraft/world/inventory/CraftingContainer;Lnet/minecraft/core/RegistryAccess;)Lnet/minecraft/world/item/ItemStack;",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/world/item/ItemStack;<init>(Lnet/minecraft/world/level/ItemLike;I)V"
             ),
             cancellable = true)
-    private void injectedAssemble(CraftingContainer input, HolderLookup.Provider registries, CallbackInfoReturnable<ItemStack> cir){
+    private void injectedAssemble(CraftingContainer input, RegistryAccess registryAccess, CallbackInfoReturnable<ItemStack> cir){
         Item tippedArrowVariantItem = more_tippable_arrows.get(input.getItem(0).getItem());
         ItemStack tippedArrowStack = new ItemStack(tippedArrowVariantItem, 8);
         ItemStack lingeringPotionStack = input.getItem(4);
