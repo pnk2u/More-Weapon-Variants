@@ -30,7 +30,7 @@ public abstract class TippedArrowRecipeMixin extends CustomRecipe {
 
     // by Linguardium
     @WrapOperation(
-            method="matches(Lnet/minecraft/world/level/item/CraftingInput;Lnet/minecraft/world/level/Level;)Z",
+            method="matches(Lnet/minecraft/world/item/crafting/CraftingInput;Lnet/minecraft/world/level/Level;)Z",
             slice = @Slice(
                     from=@At(
                             value="FIELD",
@@ -48,16 +48,16 @@ public abstract class TippedArrowRecipeMixin extends CustomRecipe {
     }
 
     @Inject(
-            method = "assemble(Lnet/minecraft/world/level/item/CraftingInput;Lnet/minecraft/core/HolderLookup$Provider;)Lnet/minecraft/world/item/ItemStack;",
+            method = "assemble(Lnet/minecraft/world/item/crafting/CraftingInput;Lnet/minecraft/core/HolderLookup$Provider;)Lnet/minecraft/world/item/ItemStack;",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/world/item/ItemStack;<init>(Lnet/minecraft/world/level/ItemLike;I)V"
             ),
             cancellable = true)
     private void injectedAssemble(CraftingInput input, HolderLookup.Provider registries, CallbackInfoReturnable<ItemStack> cir){
-        Item tippedArrowVariantItem = more_tippable_arrows.get(input.getItem(0).getItem());
+        Item tippedArrowVariantItem = more_tippable_arrows.get(input.getItem(0,0).getItem());
         ItemStack tippedArrowStack = new ItemStack(tippedArrowVariantItem, 8);
-        ItemStack lingeringPotionStack = input.getItem(4);
+        ItemStack lingeringPotionStack = input.getItem(1,1);
         tippedArrowStack.set(DataComponents.POTION_CONTENTS, (PotionContents) lingeringPotionStack.get(DataComponents.POTION_CONTENTS));
         cir.setReturnValue(tippedArrowStack);
     }
