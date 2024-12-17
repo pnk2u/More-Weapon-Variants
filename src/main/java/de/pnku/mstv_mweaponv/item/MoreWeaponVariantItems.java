@@ -355,6 +355,7 @@ public class MoreWeaponVariantItems {
         more_weapons.add(Items.BOW);
         registerCrossbowItem(OAK_CROSSBOW, Items.STICK);
         more_weapons.add(Items.ARROW);
+        more_tippable_arrows.put(Items.ARROW, Items.TIPPED_ARROW);
 
       //Spruce Weapons
        registerSwordItem(SPRUCE_WOODEN_SWORD, SPRUCE_STICK, Items.SPRUCE_PLANKS, "wooden");
