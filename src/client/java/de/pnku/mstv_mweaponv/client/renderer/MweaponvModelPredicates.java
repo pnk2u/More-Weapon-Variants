@@ -36,17 +36,17 @@ public class MweaponvModelPredicates {
 //    }
 
     private static void registerBowPullPredicate(Item bowItem) {
-        ItemProperties.register(bowItem, ResourceLocation.parse("pull"),
+        ItemProperties.register(bowItem, new ResourceLocation("pull"),
                 (itemStack, clientLevel, livingEntity, seed) -> {
                     if (livingEntity == null) {
                         return 0.0F;
                     } else {
-                        return livingEntity.getUseItem() != itemStack ? 0.0F : (float)(itemStack.getUseDuration(livingEntity) - livingEntity.getUseItemRemainingTicks()) / 20.0F;
+                        return livingEntity.getUseItem() != itemStack ? 0.0F : (float)(itemStack.getUseDuration() - livingEntity.getUseItemRemainingTicks()) / 20.0F;
                     }
                 });
     }
     private static void registerBowArrowPredicate(Item bowItem) {
-        ItemProperties.register(bowItem, ResourceLocation.parse("bowarrow"),
+        ItemProperties.register(bowItem, ResourceLocation.tryParse("bowarrow"),
             (itemStack, clientLevel, livingEntity, seed) -> {
             String arrowStickWood;
             // Check from PullingPredicate
@@ -80,29 +80,29 @@ public class MweaponvModelPredicates {
             });
     }
     private static void registerCrossbowPullPredicate(Item crossbowItem) {
-        ItemProperties.register(crossbowItem, ResourceLocation.parse("pull"),
+        ItemProperties.register(crossbowItem, ResourceLocation.tryParse("pull"),
                 (itemStack, clientLevel, livingEntity, seed) -> {
                     if (livingEntity == null) {
                         return 0.0F;
                     } else {
-                        return CrossbowItem.isCharged(itemStack) ? 0.0F : (float)(itemStack.getUseDuration(livingEntity) - livingEntity.getUseItemRemainingTicks()) / (float)CrossbowItem.getChargeDuration(itemStack, livingEntity);
+                        return CrossbowItem.isCharged(itemStack) ? 0.0F : (float)(itemStack.getUseDuration() - livingEntity.getUseItemRemainingTicks()) / (float)CrossbowItem.getChargeDuration(itemStack);
                     }
                 });
     }
     private static void registerCrossbowPullingPredicate(Item crossbowItem) {
-        ItemProperties.register(crossbowItem, ResourceLocation.parse("pulling"),
+        ItemProperties.register(crossbowItem, ResourceLocation.tryParse("pulling"),
                 (itemStack, clientLevel, livingEntity, i) -> {
             return livingEntity != null && livingEntity.isUsingItem() && livingEntity.getUseItem() == itemStack && !CrossbowItem.isCharged(itemStack) ? 1.0F : 0.0F;
         });
     }
     private static void registerCrossbowChargedPredicate(Item crossbowItem) {
-        ItemProperties.register(crossbowItem, ResourceLocation.parse("charged"),
+        ItemProperties.register(crossbowItem, ResourceLocation.tryParse("charged"),
                 (itemStack, clientLevel, livingEntity, i) -> {
             return CrossbowItem.isCharged(itemStack) ? 1.0F : 0.0F;
         });
     }
     private static void registerCrossbowChargedProjectilesPredicate(Item crossbowItem) {
-        ItemProperties.register(crossbowItem, ResourceLocation.parse("charged_projectiles"),
+        ItemProperties.register(crossbowItem, ResourceLocation.tryParse("charged_projectiles"),
                 (itemStack, clientLevel, livingEntity, i) -> {
             if (CrossbowItem.isCharged(itemStack)) {
                 if (CrossbowItem.containsChargedProjectile(itemStack, ACACIA_ARROW) || CrossbowItem.containsChargedProjectile(itemStack, ACACIA_TIPPED_ARROW)) {return 0.01F;}

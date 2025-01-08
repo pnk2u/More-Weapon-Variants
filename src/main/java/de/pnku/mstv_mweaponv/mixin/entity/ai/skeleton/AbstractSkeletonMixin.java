@@ -2,26 +2,15 @@ package de.pnku.mstv_mweaponv.mixin.entity.ai.skeleton;
 
 import de.pnku.mstv_mweaponv.util.ArrowUtil;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.AbstractSkeleton;
-import net.minecraft.world.entity.monster.Bogged;
-import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.alchemy.PotionContents;
-import net.minecraft.world.item.alchemy.Potions;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -30,7 +19,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.Objects;
 import java.util.Random;
 
 import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.*;
@@ -110,28 +98,19 @@ public abstract class AbstractSkeletonMixin extends Monster {
         if (more_bows.contains(projectileWeapon)){cir.setReturnValue(true);}
     }
 
+
     @Unique
     @Override
-    protected void dropCustomDeathLoot(ServerLevel level, DamageSource damageSource, boolean hitByPlayer) {
-        super.dropCustomDeathLoot(level, damageSource, hitByPlayer);
+    protected void dropCustomDeathLoot(DamageSource damageSource, int looting, boolean hitByPlayer) {
+        super.dropCustomDeathLoot(damageSource, looting, hitByPlayer);
         Item mainHandItem = abstractSkeleton.getMainHandItem().getItem();
         Item offhandItem = abstractSkeleton.getOffhandItem().getItem();
-        boolean isBogged = abstractSkeleton.getType() == EntityType.BOGGED;
-        ItemStack arrowStack;
-        int looting;
-        if (damageSource.getWeaponItem() != null) {
-            looting = damageSource.getWeaponItem().getEnchantments().getLevel(level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.LOOTING));}
-        else {looting = 0;}
         Random rand = new Random();
         if (!mainHandItem.equals(Items.BOW) && !offhandItem.equals(Items.BOW)) {
             if (mainHandItem instanceof BowItem) {
-                arrowStack = new ItemStack(ArrowUtil.arrowFromProjectileWeapon(mainHandItem, isBogged));
-                if (isBogged){arrowStack.set(DataComponents.POTION_CONTENTS, new PotionContents(Potions.POISON));}
-                this.spawnAtLocation(arrowStack, rand.nextInt(3) * (1 + looting));
+                this.spawnAtLocation(new ItemStack(ArrowUtil.arrowFromProjectileWeapon(mainHandItem, false), rand.nextInt(3) * (1 + looting)));
             } else if (offhandItem instanceof BowItem) {
-                arrowStack = new ItemStack(ArrowUtil.arrowFromProjectileWeapon(mainHandItem, isBogged));
-                if (isBogged){arrowStack.set(DataComponents.POTION_CONTENTS, new PotionContents(Potions.POISON));}
-                this.spawnAtLocation(arrowStack, rand.nextInt(3) * (1 + looting));
+                this.spawnAtLocation(new ItemStack(ArrowUtil.arrowFromProjectileWeapon(offhandItem, false), rand.nextInt(3) * (1 + looting)));
             }
         } else {
             this.spawnAtLocation(new ItemStack(Items.ARROW, rand.nextInt(3) * (1 + looting)));
