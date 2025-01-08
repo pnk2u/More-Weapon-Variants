@@ -5,6 +5,7 @@
   "client": [
     "color.ItemColorsMixin" ,
     "player.AbstractClientPlayerMixin" ,
+    "player.PlayerRendererMixin" ,
     "renderer.ItemInHandRendererMixin" ,
     "renderer.TippableArrowRendererMixin"
   ] ,
