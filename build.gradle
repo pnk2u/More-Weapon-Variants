@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.8-SNAPSHOT'
+	id 'fabric-loom' version '1.9-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -51,11 +51,9 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fapi_version}"
 
-	// MStV (modImplementation datagen only -> modCompileOnly for release)
+	// MStV + mToolV
 	modCompileOnly "curse.maven:more-stick-variants-1096913:${project.mstv_version_id}"
-
-	// MStV - More Tool Variants
-	modCompileOnly files("./res/MoreToolVariants-${project.mstv_mtoolv_version}+${project.minecraft_version}-Fabric.jar")
+	modCompileOnly "curse.maven:more-tool-variants-1114937:${project.mstv_mtoolv_version_id}"
 }
 
 processResources {
