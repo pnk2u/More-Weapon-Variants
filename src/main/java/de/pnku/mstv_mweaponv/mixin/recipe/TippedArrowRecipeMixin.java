@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -21,8 +22,8 @@ import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.more_tippable_ar
 
 @Mixin(TippedArrowRecipe.class)
 public abstract class TippedArrowRecipeMixin extends CustomRecipe {
-    public TippedArrowRecipeMixin(CraftingBookCategory category) {
-        super(category);
+    public TippedArrowRecipeMixin(ResourceLocation id, CraftingBookCategory category) {
+        super(id, category);
     }
 
     // by Linguardium
