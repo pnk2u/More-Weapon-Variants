@@ -1,0 +1,14 @@
+{
+  "required": false ,
+  "plugin": "de.pnku.mstv_mweaponv.mixin.mtoolv.MtoolvMixinPlugin" ,
+  "minVersion": "0.8" ,
+  "package": "de.pnku.mstv_mweaponv.mixin.mtoolv" ,
+  "compatibilityLevel": "JAVA_21" ,
+  "mixins": [
+    "entity.ai.illager.VindicatorMixin" ,
+    "entity.ai.piglin.PiglinBruteMixin"
+  ] ,
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

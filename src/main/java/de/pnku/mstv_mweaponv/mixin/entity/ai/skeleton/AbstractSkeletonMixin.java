@@ -1,9 +1,10 @@
 package de.pnku.mstv_mweaponv.mixin.entity.ai.skeleton;
 
+import com.llamalad7.mixinextras.sugar.Local;
+import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import de.pnku.mstv_mweaponv.util.ArrowUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
@@ -12,25 +13,20 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.AbstractSkeleton;
-import net.minecraft.world.entity.monster.Bogged;
-import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.Objects;
 import java.util.Random;
 
 import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.*;
@@ -39,7 +35,7 @@ import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.*;
 public abstract class AbstractSkeletonMixin extends Monster {
 
     @Unique
-    AbstractSkeleton abstractSkeleton = (AbstractSkeleton)(Object)this;
+    AbstractSkeleton thisAbstractSkeleton = (AbstractSkeleton)(Object)this;
 
     protected AbstractSkeletonMixin(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
@@ -47,8 +43,8 @@ public abstract class AbstractSkeletonMixin extends Monster {
 
     @Redirect(method = "populateDefaultEquipmentSlots", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/AbstractSkeleton;setItemSlot(Lnet/minecraft/world/entity/EquipmentSlot;Lnet/minecraft/world/item/ItemStack;)V"))
     protected void redirectedPopulateDefaultEquipmentSlots(AbstractSkeleton skeleton, EquipmentSlot slot, ItemStack stack){
-        BlockPos skeletonPos = abstractSkeleton.blockPosition();
-        String spawnBiomeName = abstractSkeleton.level().getBiome(skeletonPos).getRegisteredName();
+        BlockPos skeletonPos = thisAbstractSkeleton.blockPosition();
+        String spawnBiomeName = thisAbstractSkeleton.level().getBiome(skeletonPos).getRegisteredName();
         Item spawnBowItem;
         Item spawnBowItemAlt;
         double spawnBowVariantProb;
@@ -75,29 +71,39 @@ public abstract class AbstractSkeletonMixin extends Monster {
         if (spawnBowItem != null) {
             if (spawnBowItemAlt == null) {
                 if (Math.random() < spawnBowVariantProb) {
-                    abstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(spawnBowItem));
-                } else {abstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));}
+                    thisAbstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(spawnBowItem));
+                } else {
+                    thisAbstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));}
             } else {
                 if (Math.random() < spawnBowVariantProb) {
-                    abstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(spawnBowItem));
+                    thisAbstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(spawnBowItem));
                 } else if (Math.random() < (spawnBowVariantProb + spawnBowVariantAltProb)) {
-                    abstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(spawnBowItemAlt));
-                } else {abstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));}
+                    thisAbstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(spawnBowItemAlt));
+                } else {
+                    thisAbstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));}
             }
-        } else {abstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));}
+        } else {
+            thisAbstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));}
     }
 
     @Redirect(method = "reassessWeaponGoal", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/projectile/ProjectileUtil;getWeaponHoldingHand(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/Item;)Lnet/minecraft/world/InteractionHand;"))
     public InteractionHand redirectedReassessWeaponGoalGetWeaponHoldingHand(LivingEntity shooter, Item weapon) {
-        if (more_bows.contains(shooter.getMainHandItem().getItem())){return InteractionHand.MAIN_HAND;}
-        else if (more_bows.contains(shooter.getOffhandItem().getItem())){return InteractionHand.OFF_HAND;}
-        else return ProjectileUtil.getWeaponHoldingHand(shooter, Items.BOW);
+        if (!shooter.getType().equals(EntityType.WITHER_SKELETON)) {
+            if (more_bows.contains(shooter.getMainHandItem().getItem())) {
+                return InteractionHand.MAIN_HAND;
+            } else if (more_bows.contains(shooter.getOffhandItem().getItem())) {
+                return InteractionHand.OFF_HAND;
+            } else return ProjectileUtil.getWeaponHoldingHand(shooter, weapon);
+        } else return !shooter.getMainHandItem().isEmpty() ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND;
     }
 
-    @Redirect(method = "reassessWeaponGoal", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"))
-    public boolean redirectedReassessWeaponGoalStackIs(ItemStack stack, Item item) {
-        {return more_bows.contains(item) || item.equals(Items.BOW);}
+    @Inject(method = "reassessWeaponGoal", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/AbstractSkeleton;getItemInHand(Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/item/ItemStack;", shift = At.Shift.BY, by = 2), cancellable = true)
+    public void injectedReassessWeaponGoal(CallbackInfo ci, @Local LocalRef<ItemStack> localItemStack) {
+        Item weaponItem = localItemStack.get().getItem();
+        if (more_bows.contains(weaponItem) || weaponItem.equals(Items.BOW))
+        {localItemStack.set(new ItemStack(Items.BOW));}
     }
+
 
     @Redirect(method = "performRangedAttack", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/projectile/ProjectileUtil;getWeaponHoldingHand(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/Item;)Lnet/minecraft/world/InteractionHand;"))
     public InteractionHand redirectedperformRangedAttackGetWeaponHoldingHand(LivingEntity shooter, Item weapon) {
@@ -115,9 +121,9 @@ public abstract class AbstractSkeletonMixin extends Monster {
     @Override
     protected void dropCustomDeathLoot(ServerLevel level, DamageSource damageSource, boolean hitByPlayer) {
         super.dropCustomDeathLoot(level, damageSource, hitByPlayer);
-        Item mainHandItem = abstractSkeleton.getMainHandItem().getItem();
-        Item offhandItem = abstractSkeleton.getOffhandItem().getItem();
-        boolean isBogged = abstractSkeleton.getType() == EntityType.BOGGED;
+        Item mainHandItem = thisAbstractSkeleton.getMainHandItem().getItem();
+        Item offhandItem = thisAbstractSkeleton.getOffhandItem().getItem();
+        boolean isBogged = thisAbstractSkeleton.getType() == EntityType.BOGGED;
         ItemStack arrowStack;
         int looting;
         if (damageSource.getWeaponItem() != null) {
@@ -125,12 +131,8 @@ public abstract class AbstractSkeletonMixin extends Monster {
         else {looting = 0;}
         Random rand = new Random();
         if (!mainHandItem.equals(Items.BOW) && !offhandItem.equals(Items.BOW)) {
-            if (mainHandItem instanceof BowItem) {
-                arrowStack = new ItemStack(ArrowUtil.arrowFromProjectileWeapon(mainHandItem, isBogged));
-                if (isBogged){arrowStack.set(DataComponents.POTION_CONTENTS, new PotionContents(Potions.POISON));}
-                this.spawnAtLocation(level, arrowStack, rand.nextInt(3) * (1 + looting));
-            } else if (offhandItem instanceof BowItem) {
-                arrowStack = new ItemStack(ArrowUtil.arrowFromProjectileWeapon(mainHandItem, isBogged));
+            if (mainHandItem instanceof BowItem || offhandItem instanceof BowItem) {
+                arrowStack = new ItemStack(ArrowUtil.arrowFromProjectileWeapon(mainHandItem instanceof BowItem ? mainHandItem : offhandItem instanceof BowItem ? offhandItem : Items.BOW, isBogged));
                 if (isBogged){arrowStack.set(DataComponents.POTION_CONTENTS, new PotionContents(Potions.POISON));}
                 this.spawnAtLocation(level, arrowStack, rand.nextInt(3) * (1 + looting));
             }
