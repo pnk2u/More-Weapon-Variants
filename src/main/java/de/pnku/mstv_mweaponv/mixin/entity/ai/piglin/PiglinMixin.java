@@ -19,8 +19,8 @@ public class PiglinMixin {
     @Inject(method = "createSpawnWeapon", at = @At(value = "HEAD"), cancellable = true)
     private void injectedCreateSpawnWeapon(CallbackInfoReturnable<ItemStack> cir){
         double rand = Math.random();
-        if (rand < 0.375){ cir.setReturnValue(new ItemStack(MoreWeaponVariantItems.CRIMSON_CROSSBOW)); }
-        else if (rand < 0.625){cir.setReturnValue(new ItemStack(MoreWeaponVariantItems.CRIMSON_GOLDEN_SWORD));}
+        if (rand < 0.45){ cir.setReturnValue(new ItemStack(MoreWeaponVariantItems.CRIMSON_CROSSBOW)); }
+        else if (rand < 0.85){cir.setReturnValue(new ItemStack(MoreWeaponVariantItems.CRIMSON_GOLDEN_SWORD));}
     }
 
     @Redirect(method = "getArmPose", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/piglin/Piglin;isHolding(Lnet/minecraft/world/item/Item;)Z"))

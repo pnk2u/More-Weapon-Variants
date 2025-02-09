@@ -15,9 +15,9 @@ public abstract class WitherSkeletonMixin {
     @Redirect(method = "populateDefaultEquipmentSlots", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/WitherSkeleton;setItemSlot(Lnet/minecraft/world/entity/EquipmentSlot;Lnet/minecraft/world/item/ItemStack;)V"))
     public void redirectedPopulateDefaultEquipmentSlots(WitherSkeleton skeleton, EquipmentSlot equipmentSlot, ItemStack itemStack) {
         if (itemStack.is(Items.STONE_SWORD)){
-            if (Math.random() < 0.5) {
+            if (Math.random() < 0.4) {
                 skeleton.setItemSlot(equipmentSlot, new ItemStack(MoreWeaponVariantItems.CRIMSON_STONE_SWORD));
-            } else if (Math.random() < 0.85) {
+            } else if (Math.random() < 0.825) {
                 skeleton.setItemSlot(equipmentSlot, new ItemStack(MoreWeaponVariantItems.CRIMSON_BLACKSTONE_SWORD));
             } else {
                 skeleton.setItemSlot(equipmentSlot, itemStack);
