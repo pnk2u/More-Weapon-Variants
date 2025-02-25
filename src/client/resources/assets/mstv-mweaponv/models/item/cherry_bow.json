@@ -68,7 +68,6 @@
         },
         {
             "predicate": {
-                "pulling": 1,
                 "bowarrow": 0.03
             },
             "model": "mstv-mweaponv:item/cherry_bow_pulling_0_birch_arrow"
