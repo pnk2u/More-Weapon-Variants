@@ -24,11 +24,16 @@
       "de.pnku.mstv_mweaponv.MoreWeaponVariantsClient"
     ]
   },
+  "accessWidener": "mstv-mweaponv.accesswidener",
   "mixins": [
     "mstv-mweaponv.mixins.json",
     "mstv-mweaponv.mtoolv.mixins.json",
     {
       "config": "mstv-mweaponv.client.mixins.json",
+      "environment": "client"
+    },
+    {
+      "config": "mstv-mweaponv.client.compat.nea.mixins.json",
       "environment": "client"
     }
   ],

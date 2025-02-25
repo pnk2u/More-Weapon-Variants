@@ -1,0 +1,15 @@
+{
+  "plugin": "de.pnku.mstv_mweaponv.mixin.client.compat.nea.NeaMixinPlugin",
+  "required": false ,
+  "package": "de.pnku.mstv_mweaponv.mixin.client.compat.nea" ,
+  "compatibilityLevel": "JAVA_21" ,
+  "mixins": [
+  ],
+  "client": [
+    "AnimationUtilMixin"
+  ] ,
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "priority": 999
+}
