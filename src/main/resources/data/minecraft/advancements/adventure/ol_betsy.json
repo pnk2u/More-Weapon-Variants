@@ -4,7 +4,7 @@
     "shot_crossbow": {
       "conditions": {
         "item": {
-          "items":  "#mstv-mweaponv:all_crossbows"
+          "tag":  "mstv-mweaponv:all_crossbows"
         }
       },
       "trigger": "minecraft:shot_crossbow"
