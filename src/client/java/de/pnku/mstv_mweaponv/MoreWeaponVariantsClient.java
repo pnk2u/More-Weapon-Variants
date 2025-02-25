@@ -8,6 +8,7 @@ import net.fabricmc.api.Environment;
 
 @Environment(value = EnvType.CLIENT)
 public class MoreWeaponVariantsClient implements ClientModInitializer {
+	public static boolean isNeaLoaded;
 
 	@Override
 	public void onInitializeClient() {

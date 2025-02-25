@@ -31,6 +31,10 @@
     {
       "config": "mstv-mweaponv.client.mixins.json",
       "environment": "client"
+    },
+    {
+      "config": "mstv-mweaponv.client.compat.nea.mixins.json",
+      "environment": "client"
     }
   ],
   "depends": {
