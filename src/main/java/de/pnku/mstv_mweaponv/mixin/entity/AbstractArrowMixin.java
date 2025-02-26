@@ -35,9 +35,4 @@ public abstract class AbstractArrowMixin implements IArrow {
             }
         }
     }
-
-    @Redirect(method = "shotFromCrossbow", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"))
-    private boolean redirectedShotFromCrossbowStackIs(ItemStack originalStack, Item otherItem) {
-        return originalStack.getItem() instanceof CrossbowItem;
-    }
 }
