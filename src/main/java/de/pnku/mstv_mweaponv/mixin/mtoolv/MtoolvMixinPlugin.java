@@ -10,10 +10,10 @@ import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 import java.util.List;
 import java.util.Set;
 
-import static de.pnku.mstv_mweaponv.MoreWeaponVariants.isMtoolvLoaded;
-
 public class MtoolvMixinPlugin implements IMixinConfigPlugin {
     public static final Logger LOGGER = LoggerFactory.getLogger("mweaponvmixinplugin");
+
+    private boolean isMtoolvLoaded;
 
     @Override
     public void onLoad(String mixinPackage) {
