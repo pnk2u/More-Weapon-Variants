@@ -55,7 +55,7 @@ public abstract class AbstractSkeletonMixin extends Monster {
             case ("minecraft:forest"), ("minecraft:meadow") -> {spawnBowItem = BIRCH_BOW; spawnBowVariantProb = 0.2; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}
             case ("minecraft:bamboo_jungle") -> {spawnBowItem = BAMBOO_BOW; spawnBowVariantProb = 0.6; spawnBowItemAlt = JUNGLE_BOW; spawnBowVariantAltProb = 0.3;}
             case ("minecraft:jungle") -> {spawnBowItem = JUNGLE_BOW; spawnBowVariantProb = 0.8; spawnBowItemAlt = BAMBOO_BOW; spawnBowVariantAltProb = 0.1;}
-            case ("minecraft:sparse_jungle") -> {spawnBowItem = JUNGLE_BOW; spawnBowVariantProb = 0.8; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}
+            case ("minecraft:sparse_jungle"), ("minecraft:desert") -> {spawnBowItem = JUNGLE_BOW; spawnBowVariantProb = 0.8; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}
             case ("minecraft:cherry_grove") -> {spawnBowItem = CHERRY_BOW; spawnBowVariantProb = 0.925; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}
             case ("minecraft:crimson_forest") -> {spawnBowItem = CRIMSON_BOW; spawnBowVariantProb = 1; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}
             case ("minecraft:nether_wastes") -> {spawnBowItem = CRIMSON_BOW; spawnBowVariantProb = 0.25; spawnBowItemAlt = WARPED_BOW; spawnBowVariantAltProb = 0.05;}
