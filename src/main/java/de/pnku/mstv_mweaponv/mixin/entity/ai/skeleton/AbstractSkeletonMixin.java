@@ -1,5 +1,7 @@
 package de.pnku.mstv_mweaponv.mixin.entity.ai.skeleton;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import de.pnku.mstv_mweaponv.util.ArrowUtil;
@@ -41,8 +43,8 @@ public abstract class AbstractSkeletonMixin extends Monster {
         super(entityType, level);
     }
 
-    @Redirect(method = "populateDefaultEquipmentSlots", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/AbstractSkeleton;setItemSlot(Lnet/minecraft/world/entity/EquipmentSlot;Lnet/minecraft/world/item/ItemStack;)V"))
-    protected void redirectedPopulateDefaultEquipmentSlots(AbstractSkeleton skeleton, EquipmentSlot slot, ItemStack stack){
+    @WrapOperation(method = "populateDefaultEquipmentSlots", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/AbstractSkeleton;setItemSlot(Lnet/minecraft/world/entity/EquipmentSlot;Lnet/minecraft/world/item/ItemStack;)V"))
+    protected void wrappedSetItemSlotFromPopulateDefaultEquipmentSlots(AbstractSkeleton skeleton, EquipmentSlot slot, ItemStack stack, Operation<Void> original){
         BlockPos skeletonPos = thisAbstractSkeleton.blockPosition();
         String spawnBiomeName = thisAbstractSkeleton.level().getBiome(skeletonPos).getRegisteredName();
         Item spawnBowItem;
@@ -72,28 +74,28 @@ public abstract class AbstractSkeletonMixin extends Monster {
                 if (Math.random() < spawnBowVariantProb) {
                     thisAbstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(spawnBowItem));
                 } else {
-                    thisAbstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));}
+                    original.call(skeleton, slot, stack);}
             } else {
                 if (Math.random() < spawnBowVariantProb) {
                     thisAbstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(spawnBowItem));
                 } else if (Math.random() < (spawnBowVariantProb + spawnBowVariantAltProb)) {
                     thisAbstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(spawnBowItemAlt));
                 } else {
-                    thisAbstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));}
+                    original.call(skeleton, slot, stack);}
             }
         } else {
-            thisAbstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));}
+            original.call(skeleton, slot, stack);}
     }
 
-    @Redirect(method = "reassessWeaponGoal", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/projectile/ProjectileUtil;getWeaponHoldingHand(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/Item;)Lnet/minecraft/world/InteractionHand;"))
-    public InteractionHand redirectedReassessWeaponGoalGetWeaponHoldingHand(LivingEntity shooter, Item weapon) {
+    @WrapOperation(method = "reassessWeaponGoal", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/projectile/ProjectileUtil;getWeaponHoldingHand(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/Item;)Lnet/minecraft/world/InteractionHand;"))
+    public InteractionHand wrappedGetWeaponHoldingHandFromReassessWeaponGoal(LivingEntity shooter, Item weapon, Operation<InteractionHand> original) {
         if (!shooter.getType().equals(EntityType.WITHER_SKELETON)) {
             if (more_bows.contains(shooter.getMainHandItem().getItem())) {
                 return InteractionHand.MAIN_HAND;
             } else if (more_bows.contains(shooter.getOffhandItem().getItem())) {
                 return InteractionHand.OFF_HAND;
-            } else return ProjectileUtil.getWeaponHoldingHand(shooter, weapon);
-        } else return !shooter.getMainHandItem().isEmpty() ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND;
+            } else return original.call(shooter, weapon);
+        } else return original.call(shooter, weapon);
     }
 
     @Inject(method = "reassessWeaponGoal", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/AbstractSkeleton;getItemInHand(Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/item/ItemStack;", shift = At.Shift.BY, by = 2), cancellable = true)
@@ -104,11 +106,11 @@ public abstract class AbstractSkeletonMixin extends Monster {
     }
 
 
-    @Redirect(method = "performRangedAttack", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/projectile/ProjectileUtil;getWeaponHoldingHand(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/Item;)Lnet/minecraft/world/InteractionHand;"))
-    public InteractionHand redirectedperformRangedAttackGetWeaponHoldingHand(LivingEntity shooter, Item weapon) {
+    @WrapOperation(method = "performRangedAttack", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/projectile/ProjectileUtil;getWeaponHoldingHand(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/Item;)Lnet/minecraft/world/InteractionHand;"))
+    public InteractionHand wrappedGetWeaponHoldingHandFromPerformRangedAttack(LivingEntity shooter, Item weapon, Operation<InteractionHand> original) {
         if (more_bows.contains(shooter.getMainHandItem().getItem())){return InteractionHand.MAIN_HAND;}
         else if (more_bows.contains(shooter.getOffhandItem().getItem())){return InteractionHand.OFF_HAND;}
-        else return ProjectileUtil.getWeaponHoldingHand(shooter, Items.BOW);
+        else return original.call(shooter, weapon);
     }
 
     @Inject(method = "canFireProjectileWeapon", at = @At("HEAD"), cancellable = true)
@@ -139,8 +141,4 @@ public abstract class AbstractSkeletonMixin extends Monster {
             this.spawnAtLocation(new ItemStack(Items.ARROW, rand.nextInt(3) * (1 + looting)));
         }
     }
-
-
-
-    // TBD: protected AbstractArrow getArrow
 }

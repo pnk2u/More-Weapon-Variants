@@ -1,5 +1,7 @@
 package de.pnku.mstv_mweaponv.mixin.entity;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import de.pnku.mstv_mweaponv.util.IArrow;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -36,8 +38,8 @@ public abstract class AbstractArrowMixin implements IArrow {
         }
     }
 
-    @Redirect(method = "shotFromCrossbow", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"))
-    private boolean redirectedShotFromCrossbowStackIs(ItemStack originalStack, Item otherItem) {
+    @WrapOperation(method = "shotFromCrossbow", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"))
+    private boolean wrappedStackIsFromShotFromCrossbow(ItemStack originalStack, Item item, Operation<Boolean> original) {
         return originalStack.getItem() instanceof CrossbowItem;
     }
 }
