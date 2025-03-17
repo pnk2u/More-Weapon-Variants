@@ -1,5 +1,7 @@
 package de.pnku.mstv_mweaponv.mixin.entity.ai;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.RangedCrossbowAttackGoal;
@@ -15,15 +17,15 @@ import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.more_crossbows;
 
 @Mixin(RangedCrossbowAttackGoal.class)
 public class RangedCrossbowAttackGoalMixin {
-    @Redirect(method = "isHoldingCrossbow", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/Monster;isHolding(Lnet/minecraft/world/item/Item;)Z"))
-    public boolean redirectedIsHoldingCrossbow(Monster monster, Item item) {
+    @WrapOperation(method = "isHoldingCrossbow", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/Monster;isHolding(Lnet/minecraft/world/item/Item;)Z"))
+    public boolean wrappedIsHoldingItemFromIsHoldingCrossbow(Monster instance, Item item, Operation<Boolean> original) {
         {return more_crossbows.contains(item) || item.equals(Items.CROSSBOW);}
     }
 
-    @Redirect(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/projectile/ProjectileUtil;getWeaponHoldingHand(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/Item;)Lnet/minecraft/world/InteractionHand;"))
-    public InteractionHand redirectedTickGetWeaponHoldingHand(LivingEntity shooter, Item weapon) {
+    @WrapOperation(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/projectile/ProjectileUtil;getWeaponHoldingHand(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/Item;)Lnet/minecraft/world/InteractionHand;"))
+    public InteractionHand wrappedGetWeaponHoldingHandFromTick(LivingEntity shooter, Item weapon, Operation<InteractionHand> original) {
         if (more_crossbows.contains(shooter.getMainHandItem().getItem())){return InteractionHand.MAIN_HAND;}
         else if (more_crossbows.contains(shooter.getOffhandItem().getItem())){return InteractionHand.OFF_HAND;}
-        else return ProjectileUtil.getWeaponHoldingHand(shooter, Items.CROSSBOW);
+        else return original.call(shooter, weapon);
     }
 }

@@ -1,5 +1,7 @@
 package de.pnku.mstv_mweaponv.mixin.entity.ai;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.RangedBowAttackGoal;
@@ -16,15 +18,15 @@ import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.more_bows;
 @Mixin(RangedBowAttackGoal.class)
 public class RangedBowAttackGoalMixin {
 
-    @Redirect(method = "isHoldingBow", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/Monster;isHolding(Lnet/minecraft/world/item/Item;)Z"))
-    public boolean redirectedIsHoldingBow(Monster monster, Item item) {
+    @WrapOperation(method = "isHoldingBow", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/Monster;isHolding(Lnet/minecraft/world/item/Item;)Z"))
+    public boolean wrappedIsHoldingItemFromIsHoldingBow(Monster instance, Item item, Operation<Boolean> original) {
         {return more_bows.contains(item) || item.equals(Items.BOW);}
     }
 
-    @Redirect(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/projectile/ProjectileUtil;getWeaponHoldingHand(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/Item;)Lnet/minecraft/world/InteractionHand;"))
-    public InteractionHand redirectedTickGetWeaponHoldingHand(LivingEntity shooter, Item weapon) {
+    @WrapOperation(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/projectile/ProjectileUtil;getWeaponHoldingHand(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/Item;)Lnet/minecraft/world/InteractionHand;"))
+    public InteractionHand wrappedGetWeaponHoldingHandFromTick(LivingEntity shooter, Item weapon, Operation<InteractionHand> original) {
         if (more_bows.contains(shooter.getMainHandItem().getItem())){return InteractionHand.MAIN_HAND;}
         else if (more_bows.contains(shooter.getOffhandItem().getItem())){return InteractionHand.OFF_HAND;}
-        else return ProjectileUtil.getWeaponHoldingHand(shooter, Items.BOW);
+        else return original.call(shooter, weapon);
     }
 }

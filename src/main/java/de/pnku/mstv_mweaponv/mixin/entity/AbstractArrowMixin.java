@@ -1,5 +1,7 @@
 package de.pnku.mstv_mweaponv.mixin.entity;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import de.pnku.mstv_mweaponv.util.IArrow;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.projectile.AbstractArrow;
