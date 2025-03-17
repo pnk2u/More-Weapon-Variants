@@ -1,24 +1,21 @@
-package de.pnku.mstv_mweaponv.mixin.mtoolv;
+package de.pnku.mstv_mweaponv.mixin.client.compat.nea;
 
 import net.fabricmc.loader.api.FabricLoader;
 import org.objectweb.asm.tree.ClassNode;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 
 import java.util.List;
 import java.util.Set;
 
-public class MtoolvMixinPlugin implements IMixinConfigPlugin {
-    public static final Logger LOGGER = LoggerFactory.getLogger("mweaponvmixinplugin");
-
-    private boolean isMtoolvLoaded;
+public class MweaponvWithNeaMixinPlugin implements IMixinConfigPlugin {
+    public static boolean isNeaLoaded = false;
 
     @Override
     public void onLoad(String mixinPackage) {
-        isMtoolvLoaded = FabricLoader.getInstance().isModLoaded("mstv-mtoolv");
-        if (isMtoolvLoaded) {LOGGER.info("mToolV loaded");}
+        if (FabricLoader.getInstance().isModLoaded("notenoughanimations")) {
+            isNeaLoaded = true;
+        }
     }
 
     @Override
@@ -28,7 +25,7 @@ public class MtoolvMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        return isMtoolvLoaded;
+        return isNeaLoaded;
     }
 
     @Override

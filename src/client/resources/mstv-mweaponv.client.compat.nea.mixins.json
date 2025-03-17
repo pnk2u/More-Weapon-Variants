@@ -1,5 +1,5 @@
 {
-  "plugin": "de.pnku.mstv_mweaponv.mixin.client.compat.nea.NeaMixinPlugin",
+  "plugin": "de.pnku.mstv_mweaponv.mixin.client.compat.nea.MweaponvWithNeaMixinPlugin" ,
   "required": false ,
   "package": "de.pnku.mstv_mweaponv.mixin.client.compat.nea" ,
   "compatibilityLevel": "JAVA_17" ,

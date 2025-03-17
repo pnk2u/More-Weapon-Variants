@@ -1,5 +1,7 @@
 package de.pnku.mstv_mweaponv.mixin.entity.ai;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -36,13 +38,13 @@ public abstract class CrossbowAttackMixin<E extends Mob & CrossbowAttackMob, T e
     @Unique
     CrossbowAttack<E, T> crossbowAttack = (CrossbowAttack<E, T>) (Object) this;
 
-    @Redirect(method = "checkExtraStartConditions*", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Mob;isHolding(Lnet/minecraft/world/item/Item;)Z"))
-    protected boolean redirectedCheckExtraStartConditionsIsHoldingItem(Mob mob, Item item){
+    @WrapOperation(method = "checkExtraStartConditions(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/Mob;)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Mob;isHolding(Lnet/minecraft/world/item/Item;)Z"))
+    protected boolean wrappedIsHoldingItemFromCheckExtraStartConditions(Mob mob, Item item, Operation<Boolean> original) {
         if ((mob.getType().equals(EntityType.PIGLIN) && item.equals(MoreWeaponVariantItems.WARPED_CROSSBOW))) {return false;} else {return more_crossbows.contains(item) || item.equals(Items.CROSSBOW);}
     }
 
-    @Redirect(method = "stop*", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Mob;isHolding(Lnet/minecraft/world/item/Item;)Z"))
-    protected boolean redirectedStopIsHoldingItem(Mob mob, Item item){
+    @WrapOperation(method = "stop(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/Mob;J)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Mob;isHolding(Lnet/minecraft/world/item/Item;)Z"))
+    protected boolean wrappedIsHoldingItemFromStop(Mob mob, Item item, Operation<Boolean> original){
         {return more_crossbows.contains(item) || item.equals(Items.CROSSBOW);}
     }
 
