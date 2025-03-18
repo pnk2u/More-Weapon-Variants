@@ -32,8 +32,8 @@ public abstract class AbstractArrowMixin implements IArrow {
     @Inject(method = "readAdditionalSaveData", at = @At("TAIL"))
     protected void injectedReadAdditionalSaveData(CompoundTag compound, CallbackInfo ci) {
         if (abstractArrow instanceof Arrow) {
-            if (compound.contains("Type", 8)) {
-                this.mweaponv$setVariant(compound.getString("Type"));
+            if (compound.contains("Type")) {
+                this.mweaponv$setVariant(compound.getStringOr("Type", "oak"));
             }
         }
     }

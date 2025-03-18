@@ -2,6 +2,7 @@ package de.pnku.mstv_mweaponv.client.renderer.item.properties.select;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.PrimitiveCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import de.pnku.mstv_base.item.MoreStickVariantItem;
 import net.fabricmc.api.EnvType;
@@ -19,6 +20,7 @@ import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.WARPED_TIPPED_AR
 
 @Environment(EnvType.CLIENT)
 public record CrossbowArrowPredicate() implements SelectItemModelProperty<String> {
+    public static final PrimitiveCodec<String> VALUE_CODEC;
     public static final Type<CrossbowArrowPredicate, String> TYPE;
 
     public CrossbowArrowPredicate() {
@@ -47,11 +49,17 @@ public record CrossbowArrowPredicate() implements SelectItemModelProperty<String
         return "oak";
     }
 
+    @Override
+    public Codec<String> valueCodec() {
+        return VALUE_CODEC;
+    }
+
     public Type<CrossbowArrowPredicate, String> type() {
         return TYPE;
     }
 
     static {
+        VALUE_CODEC = Codec.STRING;
         TYPE = Type.create(MapCodec.unit(new CrossbowArrowPredicate()), Codec.STRING);
     }
 }

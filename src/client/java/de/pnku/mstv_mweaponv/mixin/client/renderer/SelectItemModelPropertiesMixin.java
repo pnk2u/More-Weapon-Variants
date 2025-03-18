@@ -19,7 +19,7 @@ import static de.pnku.mstv_mweaponv.MoreWeaponVariants.asId;
 @Mixin(SelectItemModelProperties.class)
 public class SelectItemModelPropertiesMixin {
 
-    @Shadow @Final private static ExtraCodecs.LateBoundIdMapper<ResourceLocation, SelectItemModelProperty.Type<?, ?>> ID_MAPPER;
+    @Shadow @Final public static ExtraCodecs.LateBoundIdMapper<ResourceLocation, SelectItemModelProperty.Type<?, ?>> ID_MAPPER;
 
     @Inject(method = "bootstrap", at = @At("HEAD"))
     private static void bootstrap(CallbackInfo ci) {

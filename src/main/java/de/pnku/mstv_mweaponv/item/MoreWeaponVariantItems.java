@@ -25,14 +25,14 @@ import static net.minecraft.world.item.ToolMaterial.*;
 public class MoreWeaponVariantItems {
 
 
-    public static SwordItem createSwordVariantItem (ToolMaterial toolMaterial, String toolMaterialString, String woodType){
+    public static Item createSwordVariantItem (ToolMaterial toolMaterial, String toolMaterialString, String woodType){
         int AD = 3; float AS = -2.4F;
-        Item.Properties swordVariantProperties = new Item.Properties();
+        Item.Properties swordVariantProperties = new Item.Properties().sword(toolMaterial, AD, AS);
         if (woodType.matches("crimson|warped") || toolMaterial.equals(NETHERITE)) {
             swordVariantProperties.fireResistant();
         }
         swordVariantProperties.setId(ResourceKey.create(Registries.ITEM, asId(woodType + "_" + toolMaterialString + "_sword")));
-        SwordItem swordItem = new SwordItem(toolMaterial, AD, AS, swordVariantProperties);
+        Item swordItem = new Item(swordVariantProperties);
         more_sword_tiers.put(swordItem, toolMaterial);
         return swordItem;
     }

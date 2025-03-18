@@ -2,6 +2,7 @@ package de.pnku.mstv_mweaponv.client.renderer.item.properties.select;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.PrimitiveCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import de.pnku.mstv_base.item.MoreStickVariantItem;
 import net.fabricmc.api.EnvType;
@@ -22,6 +23,7 @@ import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.more_weapon_stic
 
 @Environment(EnvType.CLIENT)
 public record BowArrowPredicate() implements SelectItemModelProperty<String> {
+    public static final PrimitiveCodec<String> VALUE_CODEC;
     public static final SelectItemModelProperty.Type<BowArrowPredicate, String> TYPE;
 
     public BowArrowPredicate() {
@@ -45,11 +47,17 @@ public record BowArrowPredicate() implements SelectItemModelProperty<String> {
         return arrowStickWood;
     }
 
+    @Override
+    public Codec<String> valueCodec() {
+        return VALUE_CODEC;
+    }
+
     public SelectItemModelProperty.Type<BowArrowPredicate, String> type() {
         return TYPE;
     }
 
     static {
+        VALUE_CODEC = Codec.STRING;
         TYPE = Type.create(MapCodec.unit(new BowArrowPredicate()), Codec.STRING);
     }
 }
