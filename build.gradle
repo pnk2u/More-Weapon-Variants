@@ -45,13 +45,11 @@ dependencies {
 		parchment("org.parchmentmc.data:parchment-1.21.4:${project.parchment_date}@zip")
 	}
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-
-	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fapi_version}"
 
 	// MStV + mToolV
-	modCompileOnly files("res/MoreStickVariants-1.4.1+1.21.5-pre2-Fabric.jar")//"maven.modrinth:more-stick-variants:${project.mstv_version_id}"
-	modLocalRuntime files("res/MoreStickVariants-1.4.1+1.21.5-pre2-Fabric.jar")//"maven.modrinth:more-stick-variants:${project.mstv_version_id}"
+	modCompileOnly "maven.modrinth:more-stick-variants:${project.mstv_version_id}"
+	modLocalRuntime "maven.modrinth:more-stick-variants:${project.mstv_version_id}"
 	modCompileOnly "maven.modrinth:more-tool-variants:${project.mstv_mtoolv_version_id}"
 	//modLocalRuntime "maven.modrinth:more-tool-variants:${project.mstv_mtoolv_version_id}"
 
@@ -63,7 +61,7 @@ processResources {
 	var replaceProperties = [
 			loader_version: loader_version, mod_id: mod_id, mod_name: mod_name,
 			mod_license: mod_license, mod_version: mod_version,
-			mod_description: mod_description, minecraft_version: minecraft_version
+			mod_description: mod_description, minecraft_version: minecraft_version, minecraft_version_0: decrementedVersion
 	]
 	inputs.properties replaceProperties
 
