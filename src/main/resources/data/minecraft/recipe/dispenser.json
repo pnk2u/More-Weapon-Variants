@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
   "key": {
-    "#": {
-      "item": "minecraft:cobblestone"
-    },
-    "R": {
-      "item": "minecraft:redstone"
-    },
-    "X": {
-      "tag": "c:tools/bows"
-    }
+    "#": "minecraft:cobblestone",
+    "R": "minecraft:redstone",
+    "X": "#c:tools/bows"
   },
   "pattern": [
     "###",
