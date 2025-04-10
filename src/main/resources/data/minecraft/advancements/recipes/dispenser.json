@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#c:tools/bow"
+            "tag": "mstv-mweaponv:variant_bows"
           }
         ]
       },
