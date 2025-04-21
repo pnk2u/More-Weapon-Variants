@@ -2,6 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "group": "arrows",
   "category": "equipment",
+  "group": "arrows",
   "key": {
     "#": {
       "item": "minecraft:stick"

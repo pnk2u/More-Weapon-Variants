@@ -2,6 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "group": "crossbows",
   "category": "equipment",
+  "group": "crossbows",
   "key": {
     "#": {
       "item": "mstv-base:dark_oak_stick"
