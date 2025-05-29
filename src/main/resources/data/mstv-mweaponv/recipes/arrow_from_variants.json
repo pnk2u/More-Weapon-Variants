@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "mstv-mweaponv:variant_untipped_arrows"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "minecraft:arrow"
+  }
+}
