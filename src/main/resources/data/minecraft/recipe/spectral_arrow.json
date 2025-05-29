@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "spectral_arrow",
   "key": {
-    "#": {
-      "item": "minecraft:glowstone_dust"
-    },
-    "X": {
-      "item": "minecraft:arrow"
-    }
+    "#": "minecraft:glowstone_dust",
+    "X": "minecraft:arrow"
   },
   "pattern": [
     " # ",

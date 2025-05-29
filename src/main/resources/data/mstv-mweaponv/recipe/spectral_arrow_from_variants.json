@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "spectral_arrow",
   "key": {
-    "#": {
-      "item": "minecraft:glowstone_dust"
-    },
-    "X": {
-      "tag": "mstv-mweaponv:variant_untipped_arrows"
-    }
+    "#": "minecraft:glowstone_dust",
+    "X": "#mstv-mweaponv:variant_untipped_arrows"
   },
   "pattern": [
     " # ",
