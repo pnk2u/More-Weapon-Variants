@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "spectral_arrow",
+  "key": {
+    "#": "minecraft:glowstone_dust",
+    "X": "#mstv-mweaponv:variant_untipped_arrows"
+  },
+  "pattern": [
+    " # ",
+    "#X#",
+    " # "
+  ],
+  "result": {
+    "count": 2,
+    "id": "minecraft:spectral_arrow"
+  }
+}

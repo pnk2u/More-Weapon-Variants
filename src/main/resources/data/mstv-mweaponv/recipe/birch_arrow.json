@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
+  "group": "arrows",
   "key": {
     "#": "minecraft:flint",
     "/": "mstv-base:birch_stick",

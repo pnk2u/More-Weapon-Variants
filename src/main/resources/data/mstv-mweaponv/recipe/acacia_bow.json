@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
+  "group": "bows",
   "key": {
     "/": "mstv-base:acacia_stick",
     "S": "minecraft:string"

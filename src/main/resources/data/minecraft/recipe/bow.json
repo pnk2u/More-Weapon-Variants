@@ -2,6 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "group": "bows",
   "category": "equipment",
+  "group": "bows",
   "key": {
     "#": "minecraft:stick",
     "X": "minecraft:string"

@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
+  "group": "crossbows",
   "key": {
     "/": "mstv-base:acacia_stick",
     "H": "minecraft:tripwire_hook",
