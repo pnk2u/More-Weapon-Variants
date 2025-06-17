@@ -9,6 +9,8 @@ import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -23,18 +25,16 @@ public abstract class AbstractArrowMixin implements IArrow {
     AbstractArrow abstractArrow = (AbstractArrow) (Object) this;
 
     @Inject(method = "addAdditionalSaveData", at = @At("TAIL"))
-    protected void injectedAddAdditionalSaveData(CompoundTag compound, CallbackInfo ci) {
+    protected void injectedAddAdditionalSaveData(ValueOutput valueOutput, CallbackInfo ci) {
         if (abstractArrow instanceof Arrow) {
-            compound.putString("Type", this.mweaponv$getVariant());
-    }
+            valueOutput.putString("Type", this.mweaponv$getVariant());
+        }
     }
 
     @Inject(method = "readAdditionalSaveData", at = @At("TAIL"))
-    protected void injectedReadAdditionalSaveData(CompoundTag compound, CallbackInfo ci) {
+    protected void injectedReadAdditionalSaveData(ValueInput valueInput, CallbackInfo ci) {
         if (abstractArrow instanceof Arrow) {
-            if (compound.contains("Type")) {
-                this.mweaponv$setVariant(compound.getStringOr("Type", "oak"));
-            }
+            this.mweaponv$setVariant(valueInput.getStringOr("Type", "oak"));
         }
     }
 }
