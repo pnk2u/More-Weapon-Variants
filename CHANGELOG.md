@@ -6,3 +6,4 @@
 - `1.21.9`: 
   - Update to 1.21.9
   - Add _**Copper** Sword_ Variants using Vanilla Copper
+- Reduce jar file size by ~10% through the removal of unnecessary files and improved compression
