@@ -4,7 +4,7 @@
   "compatibilityLevel": "JAVA_21" ,
   "client": [
     "player.AbstractClientPlayerMixin" ,
-    "player.PlayerRendererMixin" ,
+    "player.AvatarRendererMixin",
     "renderer.ItemInHandRendererMixin" ,
     "renderer.SelectItemModelPropertiesMixin" ,
     "renderer.TippableArrowRendererMixin"

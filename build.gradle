@@ -113,7 +113,7 @@ def (decrementedVersion, pMinecraftVersion, mostRecentParchmentDate) = getParchm
 
 dependencies {
 	implementation 'org.apache.commons:commons-text:1.12.0'
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	minecraft "com.mojang:minecraft:25w36a"
 	mappings loom.layered() {
 		officialMojangMappings()
 		parchment("org.parchmentmc.data:parchment-${pMinecraftVersion}:${mostRecentParchmentDate}@zip")
@@ -131,9 +131,9 @@ dependencies {
 	modCompileOnly "maven.modrinth:not-enough-animations:${project.nea_version_id}"
 
 	// Nemo's Copper (Pre-1.21.9 alternative to Vanilla Copper Swords)
-	modCompileOnly "maven.modrinth:nemos-copper:${project.nemos_copper_version_id}"
-	modRuntimeOnly "maven.modrinth:nemos-copper:${project.nemos_copper_version_id}"
-	modRuntimeOnly "maven.modrinth:nemos-tags:${project.nemos_tags_version_id}"
+	//modCompileOnly "maven.modrinth:nemos-copper:${project.nemos_copper_version_id}"
+	//modRuntimeOnly "maven.modrinth:nemos-copper:${project.nemos_copper_version_id}"
+	//modRuntimeOnly "maven.modrinth:nemos-tags:${project.nemos_tags_version_id}"
 }
 
 def minecraft_version_1() {

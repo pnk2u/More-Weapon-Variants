@@ -22,7 +22,6 @@ public class MoreWeaponVariants implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		isNemosCopperLoaded = FabricLoader.getInstance().isModLoaded("nemos_copper") || FabricLoader.getInstance().isModLoaded("nemos-copper");
 		isMtoolvLoaded = FabricLoader.getInstance().isModLoaded("mstv-mtoolv");
 		MoreWeaponVariantItems.registerWeaponItems();
 		for (Item arrowItem : more_arrows) {
