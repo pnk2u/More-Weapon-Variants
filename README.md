@@ -12,6 +12,7 @@
     - [<img width='16' src="https://raw.githubusercontent.com/tr7zw/FirstPersonModel/main/src/main/resources/icon.png"> `First Person Mod`](https://modrinth.com/mod/first-person-model)
     - [<img width='16' src="https://raw.githubusercontent.com/tr7zw/NotEnoughAnimations/main/src/main/resources/icon.png"> `Not Enough Animations`](https://modrinth.com/mod/not-enough-animations)
     - [<img width='16' src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/More-Tool-Variants/pres/logo/logo_c.png"> `More Tool Variants (MStV+)`](https://modrinth.com/mod/more-tool-variants)
+    - [<img width='16' src="https://raw.githubusercontent.com/nemoongh/NemosCopper/master/common/src/main/resources/nemos_copper.png"> `Nemo's Copper`](https://modrinth.com/mod/nemos-copper) (`1.21.4`~`1.21.8` only)
 
 ### ᴬ⃯ ᵦ⃔ Translations
 
