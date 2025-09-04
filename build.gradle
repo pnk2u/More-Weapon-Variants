@@ -133,6 +133,7 @@ dependencies {
 	// Nemo's Copper (Pre-1.21.9 alternative to Vanilla Copper Swords)
 	modCompileOnly "maven.modrinth:nemos-copper:${project.nemos_copper_version_id}"
 	modRuntimeOnly "maven.modrinth:nemos-copper:${project.nemos_copper_version_id}"
+	modRuntimeOnly "maven.modrinth:nemos-tags:${project.nemos_tags_version_id}"
 }
 
 def minecraft_version_1() {
