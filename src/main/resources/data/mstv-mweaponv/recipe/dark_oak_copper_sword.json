@@ -1,0 +1,38 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:or",
+      "values": [
+        {
+          "condition": "fabric:any_mods_loaded",
+          "values": [
+            "nemos_copper",
+            "nemos-copper"
+          ]
+        },
+        {
+          "condition": "fabric:tags_populated",
+          "values": [
+            "mstv-mweaponv:variant_copper_swords"
+          ]
+        }
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "copper_swords",
+  "key": {
+    "/": "mstv-base:dark_oak_stick",
+    "<": "minecraft:copper_ingot"
+  },
+  "pattern": [
+    "<",
+    "<",
+    "/"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:dark_oak_copper_sword"
+  }
+}

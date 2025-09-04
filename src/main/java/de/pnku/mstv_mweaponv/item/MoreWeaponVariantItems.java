@@ -96,7 +96,7 @@ public class MoreWeaponVariantItems {
                     public static final Item CHERRY_STONE_SWORD = createSwordVariantItem(STONE, "stone", "cherry");
                     public static final Item CRIMSON_STONE_SWORD = createSwordVariantItem(STONE, "stone", "crimson");
                     public static final Item DARK_OAK_STONE_SWORD = createSwordVariantItem(STONE, "stone", "dark_oak");
-            public static final Item PALE_OAK_STONE_SWORD = createSwordVariantItem(STONE, "stone", "pale_oak");
+                    public static final Item PALE_OAK_STONE_SWORD = createSwordVariantItem(STONE, "stone", "pale_oak");
                     public static final Item JUNGLE_STONE_SWORD = createSwordVariantItem(STONE, "stone", "jungle");
                     public static final Item MANGROVE_STONE_SWORD = createSwordVariantItem(STONE, "stone", "mangrove");
                     public static final Item SPRUCE_STONE_SWORD = createSwordVariantItem(STONE, "stone", "spruce");
@@ -108,7 +108,7 @@ public class MoreWeaponVariantItems {
                     public static final Item CHERRY_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "cherry");
                     public static final Item CRIMSON_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "crimson");
                     public static final Item DARK_OAK_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "dark_oak");
-            public static final Item PALE_OAK_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "pale_oak");
+                    public static final Item PALE_OAK_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "pale_oak");
                     public static final Item JUNGLE_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "jungle");
                     public static final Item MANGROVE_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "mangrove");
                     public static final Item OAK_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "oak");
@@ -121,7 +121,7 @@ public class MoreWeaponVariantItems {
                     public static final Item CHERRY_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "cherry");
                     public static final Item CRIMSON_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "crimson");
                     public static final Item DARK_OAK_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "dark_oak");
-            public static final Item PALE_OAK_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "pale_oak");
+                    public static final Item PALE_OAK_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "pale_oak");
                     public static final Item JUNGLE_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "jungle");
                     public static final Item MANGROVE_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "mangrove");
                     public static final Item OAK_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "oak");
@@ -139,6 +139,18 @@ public class MoreWeaponVariantItems {
             public static final Item MANGROVE_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "mangrove");
             public static final Item SPRUCE_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "spruce");
             public static final Item WARPED_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "warped");
+
+            public static Item ACACIA_COPPER_SWORD;
+            public static Item BAMBOO_COPPER_SWORD;
+            public static Item BIRCH_COPPER_SWORD;
+            public static Item CHERRY_COPPER_SWORD;
+            public static Item CRIMSON_COPPER_SWORD;
+            public static Item DARK_OAK_COPPER_SWORD;
+            public static Item PALE_OAK_COPPER_SWORD;
+            public static Item JUNGLE_COPPER_SWORD;
+            public static Item MANGROVE_COPPER_SWORD;
+            public static Item SPRUCE_COPPER_SWORD;
+            public static Item WARPED_COPPER_SWORD;
 
             public static final Item ACACIA_IRON_SWORD = createSwordVariantItem(IRON, "iron", "acacia");
             public static final Item BAMBOO_IRON_SWORD = createSwordVariantItem(IRON, "iron", "bamboo");
@@ -238,11 +250,15 @@ public class MoreWeaponVariantItems {
 
     public static void registerWeaponItems() {
 
-      //Acacia Weapons
+       // Initialize copper material early, to disable registering items on error
+       if(isNemosCopperLoaded) {MoreWeaponVariantCopper.getCopperMaterial();}
+
+       //Acacia Weapons
        registerSwordItem(ACACIA_WOODEN_SWORD, ACACIA_STICK, Items.ACACIA_PLANKS, "wooden");
        registerSwordItem(ACACIA_STONE_SWORD, ACACIA_STICK, Items.COBBLESTONE, "stone");
        registerSwordItem(ACACIA_DEEPSLATE_SWORD, ACACIA_STICK, Items.DEEPSLATE, "deepslate");
        registerSwordItem(ACACIA_BLACKSTONE_SWORD, ACACIA_STICK, Items.BLACKSTONE, "blackstone");
+       if(isNemosCopperLoaded) {ACACIA_COPPER_SWORD = createSwordVariantItem(MoreWeaponVariantCopper.copperMaterial, "copper", "acacia"); registerSwordItem(ACACIA_COPPER_SWORD, ACACIA_STICK, Items.COPPER_INGOT, "copper");}
        registerSwordItem(ACACIA_IRON_SWORD, ACACIA_STICK, Items.IRON_INGOT, "iron");
        registerSwordItem(ACACIA_GOLDEN_SWORD, ACACIA_STICK, Items.GOLD_INGOT, "golden");
        registerSwordItem(ACACIA_DIAMOND_SWORD, ACACIA_STICK, Items.DIAMOND, "diamond");
@@ -258,6 +274,7 @@ public class MoreWeaponVariantItems {
        registerSwordItem(BAMBOO_STONE_SWORD, Items.BAMBOO, Items.COBBLESTONE, "stone");
        registerSwordItem(BAMBOO_DEEPSLATE_SWORD, Items.BAMBOO, Items.DEEPSLATE, "deepslate");
        registerSwordItem(BAMBOO_BLACKSTONE_SWORD, Items.BAMBOO, Items.BLACKSTONE, "blackstone");
+       if(isNemosCopperLoaded) {BAMBOO_COPPER_SWORD = createSwordVariantItem(MoreWeaponVariantCopper.copperMaterial, "copper", "bamboo"); registerSwordItem(BAMBOO_COPPER_SWORD, Items.BAMBOO, Items.COPPER_INGOT, "copper");}
        registerSwordItem(BAMBOO_IRON_SWORD, Items.BAMBOO, Items.IRON_INGOT, "iron");
        registerSwordItem(BAMBOO_GOLDEN_SWORD, Items.BAMBOO, Items.GOLD_INGOT, "golden");
        registerSwordItem(BAMBOO_DIAMOND_SWORD, Items.BAMBOO, Items.DIAMOND, "diamond");
@@ -273,6 +290,7 @@ public class MoreWeaponVariantItems {
        registerSwordItem(BIRCH_STONE_SWORD, BIRCH_STICK, Items.COBBLESTONE, "stone");
        registerSwordItem(BIRCH_DEEPSLATE_SWORD, BIRCH_STICK, Items.DEEPSLATE, "deepslate");
        registerSwordItem(BIRCH_BLACKSTONE_SWORD, BIRCH_STICK, Items.BLACKSTONE, "blackstone");
+       if(isNemosCopperLoaded) {BIRCH_COPPER_SWORD = createSwordVariantItem(MoreWeaponVariantCopper.copperMaterial, "copper", "birch"); registerSwordItem(BIRCH_COPPER_SWORD, BIRCH_STICK, Items.COPPER_INGOT, "copper");}
        registerSwordItem(BIRCH_IRON_SWORD, BIRCH_STICK, Items.IRON_INGOT, "iron");
        registerSwordItem(BIRCH_GOLDEN_SWORD, BIRCH_STICK, Items.GOLD_INGOT, "golden");
        registerSwordItem(BIRCH_DIAMOND_SWORD, BIRCH_STICK, Items.DIAMOND, "diamond");
@@ -288,6 +306,7 @@ public class MoreWeaponVariantItems {
        registerSwordItem(CHERRY_STONE_SWORD, CHERRY_STICK, Items.COBBLESTONE, "stone");
        registerSwordItem(CHERRY_DEEPSLATE_SWORD, CHERRY_STICK, Items.DEEPSLATE, "deepslate");
        registerSwordItem(CHERRY_BLACKSTONE_SWORD, CHERRY_STICK, Items.BLACKSTONE, "blackstone");
+       if(isNemosCopperLoaded) {CHERRY_COPPER_SWORD = createSwordVariantItem(MoreWeaponVariantCopper.copperMaterial, "copper", "cherry"); registerSwordItem(CHERRY_COPPER_SWORD, CHERRY_STICK, Items.COPPER_INGOT, "copper");}
        registerSwordItem(CHERRY_IRON_SWORD, CHERRY_STICK, Items.IRON_INGOT, "iron");
        registerSwordItem(CHERRY_GOLDEN_SWORD, CHERRY_STICK, Items.GOLD_INGOT, "golden");
        registerSwordItem(CHERRY_DIAMOND_SWORD, CHERRY_STICK, Items.DIAMOND, "diamond");
@@ -303,6 +322,7 @@ public class MoreWeaponVariantItems {
        registerSwordItem(CRIMSON_STONE_SWORD, CRIMSON_STICK, Items.COBBLESTONE, "stone");
        registerSwordItem(CRIMSON_DEEPSLATE_SWORD, CRIMSON_STICK, Items.DEEPSLATE, "deepslate");
        registerSwordItem(CRIMSON_BLACKSTONE_SWORD, CRIMSON_STICK, Items.BLACKSTONE, "blackstone");
+       if(isNemosCopperLoaded) {CRIMSON_COPPER_SWORD = createSwordVariantItem(MoreWeaponVariantCopper.copperMaterial, "copper", "crimson"); registerSwordItem(CRIMSON_COPPER_SWORD, CRIMSON_STICK, Items.COPPER_INGOT, "copper");}
        registerSwordItem(CRIMSON_IRON_SWORD, CRIMSON_STICK, Items.IRON_INGOT, "iron");
        registerSwordItem(CRIMSON_GOLDEN_SWORD, CRIMSON_STICK, Items.GOLD_INGOT, "golden");
        registerSwordItem(CRIMSON_DIAMOND_SWORD, CRIMSON_STICK, Items.DIAMOND, "diamond");
@@ -318,6 +338,7 @@ public class MoreWeaponVariantItems {
        registerSwordItem(DARK_OAK_STONE_SWORD, DARK_OAK_STICK, Items.COBBLESTONE, "stone");
        registerSwordItem(DARK_OAK_DEEPSLATE_SWORD, DARK_OAK_STICK, Items.DEEPSLATE, "deepslate");
        registerSwordItem(DARK_OAK_BLACKSTONE_SWORD, DARK_OAK_STICK, Items.BLACKSTONE, "blackstone");
+       if(isNemosCopperLoaded) {DARK_OAK_COPPER_SWORD = createSwordVariantItem(MoreWeaponVariantCopper.copperMaterial, "copper", "dark_oak"); registerSwordItem(DARK_OAK_COPPER_SWORD, DARK_OAK_STICK, Items.COPPER_INGOT, "copper");}
        registerSwordItem(DARK_OAK_IRON_SWORD, DARK_OAK_STICK, Items.IRON_INGOT, "iron");
        registerSwordItem(DARK_OAK_GOLDEN_SWORD, DARK_OAK_STICK, Items.GOLD_INGOT, "golden");
        registerSwordItem(DARK_OAK_DIAMOND_SWORD, DARK_OAK_STICK, Items.DIAMOND, "diamond");
@@ -333,6 +354,7 @@ public class MoreWeaponVariantItems {
         registerSwordItem(PALE_OAK_STONE_SWORD, PALE_OAK_STICK, Items.COBBLESTONE, "stone");
         registerSwordItem(PALE_OAK_DEEPSLATE_SWORD, PALE_OAK_STICK, Items.DEEPSLATE, "deepslate");
         registerSwordItem(PALE_OAK_BLACKSTONE_SWORD, PALE_OAK_STICK, Items.BLACKSTONE, "blackstone");
+        if(isNemosCopperLoaded) {PALE_OAK_COPPER_SWORD = createSwordVariantItem(MoreWeaponVariantCopper.copperMaterial, "copper", "pale_oak"); registerSwordItem(PALE_OAK_COPPER_SWORD, PALE_OAK_STICK, Items.COPPER_INGOT, "copper");}
         registerSwordItem(PALE_OAK_IRON_SWORD, PALE_OAK_STICK, Items.IRON_INGOT, "iron");
         registerSwordItem(PALE_OAK_GOLDEN_SWORD, PALE_OAK_STICK, Items.GOLD_INGOT, "golden");
         registerSwordItem(PALE_OAK_DIAMOND_SWORD, PALE_OAK_STICK, Items.DIAMOND, "diamond");
@@ -348,6 +370,7 @@ public class MoreWeaponVariantItems {
        registerSwordItem(JUNGLE_STONE_SWORD, JUNGLE_STICK, Items.COBBLESTONE, "stone");
        registerSwordItem(JUNGLE_DEEPSLATE_SWORD, JUNGLE_STICK, Items.DEEPSLATE, "deepslate");
        registerSwordItem(JUNGLE_BLACKSTONE_SWORD, JUNGLE_STICK, Items.BLACKSTONE, "blackstone");
+       if(isNemosCopperLoaded) {JUNGLE_COPPER_SWORD = createSwordVariantItem(MoreWeaponVariantCopper.copperMaterial, "copper", "jungle"); registerSwordItem(JUNGLE_COPPER_SWORD, JUNGLE_STICK, Items.COPPER_INGOT, "copper");}
        registerSwordItem(JUNGLE_IRON_SWORD, JUNGLE_STICK, Items.IRON_INGOT, "iron");
        registerSwordItem(JUNGLE_GOLDEN_SWORD, JUNGLE_STICK, Items.GOLD_INGOT, "golden");
        registerSwordItem(JUNGLE_DIAMOND_SWORD, JUNGLE_STICK, Items.DIAMOND, "diamond");
@@ -363,6 +386,7 @@ public class MoreWeaponVariantItems {
        registerSwordItem(MANGROVE_STONE_SWORD, MANGROVE_STICK, Items.COBBLESTONE, "stone");
        registerSwordItem(MANGROVE_DEEPSLATE_SWORD, MANGROVE_STICK, Items.DEEPSLATE, "deepslate");
        registerSwordItem(MANGROVE_BLACKSTONE_SWORD, MANGROVE_STICK, Items.BLACKSTONE, "blackstone");
+       if(isNemosCopperLoaded) {MANGROVE_COPPER_SWORD = createSwordVariantItem(MoreWeaponVariantCopper.copperMaterial, "copper", "mangrove"); registerSwordItem(MANGROVE_COPPER_SWORD, MANGROVE_STICK, Items.COPPER_INGOT, "copper");}
        registerSwordItem(MANGROVE_IRON_SWORD, MANGROVE_STICK, Items.IRON_INGOT, "iron");
        registerSwordItem(MANGROVE_GOLDEN_SWORD, MANGROVE_STICK, Items.GOLD_INGOT, "golden");
        registerSwordItem(MANGROVE_DIAMOND_SWORD, MANGROVE_STICK, Items.DIAMOND, "diamond");
@@ -378,6 +402,7 @@ public class MoreWeaponVariantItems {
         more_weapons.add(Items.STONE_SWORD);
        registerSwordItem(OAK_DEEPSLATE_SWORD, Items.STICK, Items.DEEPSLATE, "deepslate");
        registerSwordItem(OAK_BLACKSTONE_SWORD, Items.STICK, Items.BLACKSTONE, "blackstone");
+        if(isNemosCopperLoaded) {more_weapons.add(MoreWeaponVariantCopper.copperSword);}
         more_weapons.add(Items.IRON_SWORD);
         more_weapons.add(Items.GOLDEN_SWORD);
         more_weapons.add(Items.DIAMOND_SWORD);
@@ -392,6 +417,7 @@ public class MoreWeaponVariantItems {
        registerSwordItem(SPRUCE_STONE_SWORD, SPRUCE_STICK, Items.COBBLESTONE, "stone");
        registerSwordItem(SPRUCE_DEEPSLATE_SWORD, SPRUCE_STICK, Items.DEEPSLATE, "deepslate");
        registerSwordItem(SPRUCE_BLACKSTONE_SWORD, SPRUCE_STICK, Items.BLACKSTONE, "blackstone");
+       if(isNemosCopperLoaded) {SPRUCE_COPPER_SWORD = createSwordVariantItem(MoreWeaponVariantCopper.copperMaterial, "copper", "spruce"); registerSwordItem(SPRUCE_COPPER_SWORD, SPRUCE_STICK, Items.COPPER_INGOT, "copper");}
        registerSwordItem(SPRUCE_IRON_SWORD, SPRUCE_STICK, Items.IRON_INGOT, "iron");
        registerSwordItem(SPRUCE_GOLDEN_SWORD, SPRUCE_STICK, Items.GOLD_INGOT, "golden");
        registerSwordItem(SPRUCE_DIAMOND_SWORD, SPRUCE_STICK, Items.DIAMOND, "diamond");
@@ -407,6 +433,7 @@ public class MoreWeaponVariantItems {
        registerSwordItem(WARPED_STONE_SWORD, WARPED_STICK, Items.COBBLESTONE, "stone");
        registerSwordItem(WARPED_DEEPSLATE_SWORD, WARPED_STICK, Items.DEEPSLATE, "deepslate");
        registerSwordItem(WARPED_BLACKSTONE_SWORD, WARPED_STICK, Items.BLACKSTONE, "blackstone");
+       if(isNemosCopperLoaded) {WARPED_COPPER_SWORD = createSwordVariantItem(MoreWeaponVariantCopper.copperMaterial, "copper", "warped"); registerSwordItem(WARPED_COPPER_SWORD, WARPED_STICK, Items.COPPER_INGOT, "copper");}
        registerSwordItem(WARPED_IRON_SWORD, WARPED_STICK, Items.IRON_INGOT, "iron");
        registerSwordItem(WARPED_GOLDEN_SWORD, WARPED_STICK, Items.GOLD_INGOT, "golden");
        registerSwordItem(WARPED_DIAMOND_SWORD, WARPED_STICK, Items.DIAMOND, "diamond");
