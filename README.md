@@ -1,4 +1,4 @@
-# <img width='24' src="./src/main/resources/icon.png"> More Frame Variants
+# <img width='24' src="./src/main/resources/icon.png"> More Weapon Variants
 > ![Mod Icon](https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/More-Weapon-Variants/pres/logo/logo_c.png)
 >
 > A simple mod adding wood variants for Minecraft's Weapon Items (Bow, Crossbow, Arrow and Sword variants).
