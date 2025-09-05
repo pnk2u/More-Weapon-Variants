@@ -1,3 +1,11 @@
+## 1.4.0:
+- Fix incompatibility with 0.17.x versions of Fabric Loader
+- `1.21.4`-`1.21.8`:
+  - Add _**Copper** Sword_ Variants using [Nemo's Copper](https://modrinth.com/mod/nemos-copper)
+- `1.21.9`: 
+  - Update to 1.21.9
+  - Add _**Copper** Sword_ Variants using Vanilla Copper
+- Reduce jar file size by ~10% through the removal of unnecessary files and improved compression
 ### 1.3.10:
 - Add recipe grouping for _Arrow_, _Bow_ and _Crossbow_ variant recipes combining them with their Vanilla variant's recipe's spot in the recipe book
 - Add '_Arrow_ variant to **Oak** _Arrow_ conversion' crafting recipe and allow _Arrow_ variants to be used in the _Spectral Arrow_ crafting recipe
