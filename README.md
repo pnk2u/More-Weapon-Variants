@@ -5,7 +5,7 @@
 
 ### Compatibility
 
-- Minecraft: `1.20.1`, `1.21(.1)`, `1.21.4`~`1.21.8`
+- Minecraft: `1.20.1`, `1.21(.1)`, `1.21.4`~`1.21.9`
 - Mod Loader: _Fabric_
 - Requires: [`Fabric API`](https://modrinth.com/mod/fabric-api), [<img width='16' src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/More-Stick-Variants/pres/logo/logo_c.png"> `More Stick Variants (MStV)`](https://modrinth.com/mod/more-stick-variants)
 - Added support for:
@@ -93,6 +93,8 @@ Want to help translate? Feel free to open a PR to the **default branch (`1.21(.1
 - Fix _**Oak** **Stone**/**Deepslate**/**Blackstone** Sword_ crafting recipes (all defaulted to _**Oak** **Stone** Sword_)
 ### 1.0.1:
 - Fix crash when shooting _**Bamboo** Arrows_ from Bows
+
+<!--CHANGELOG:END-->
 > _`The section above is automatically updated with each new release and only includes already published releases.`_
 ---
 #### Support/Contact
