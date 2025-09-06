@@ -25,6 +25,8 @@ Want to help translate? Feel free to open a PR to the **default branch (`1.21(.1
 ### Changelog History
 
 <!--CHANGELOG:START-->
+### 1.4.1:
+- `1.21.6(-8)`: Fix requiring incorrect Minecraft version, instead now requires 1.21.6⁺ as intended
 ## 1.4.0:
 - Fix incompatibility with 0.17.x versions of Fabric Loader
 - `1.21.4`-`1.21.8`:
@@ -93,7 +95,6 @@ Want to help translate? Feel free to open a PR to the **default branch (`1.21(.1
 - Fix _**Oak** **Stone**/**Deepslate**/**Blackstone** Sword_ crafting recipes (all defaulted to _**Oak** **Stone** Sword_)
 ### 1.0.1:
 - Fix crash when shooting _**Bamboo** Arrows_ from Bows
-
 <!--CHANGELOG:END-->
 > _`The section above is automatically updated with each new release and only includes already published releases.`_
 ---
