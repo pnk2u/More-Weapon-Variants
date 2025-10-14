@@ -113,7 +113,7 @@ def (decrementedVersion, pMinecraftVersion, mostRecentParchmentDate) = getParchm
 
 dependencies {
 	implementation 'org.apache.commons:commons-text:1.12.0'
-	minecraft "com.mojang:minecraft:25w36a"
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings loom.layered() {
 		officialMojangMappings()
 		parchment("org.parchmentmc.data:parchment-${pMinecraftVersion}:${mostRecentParchmentDate}@zip")
