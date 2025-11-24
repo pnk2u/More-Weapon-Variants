@@ -3,14 +3,12 @@ package de.pnku.mstv_mweaponv.mixin.mtoolv.entity.ai.piglin;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import de.pnku.mstv_mtoolv.item.MoreToolVariantItems;
-import de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.monster.piglin.PiglinBrute;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(PiglinBrute.class)
 public class PiglinBruteMixin {

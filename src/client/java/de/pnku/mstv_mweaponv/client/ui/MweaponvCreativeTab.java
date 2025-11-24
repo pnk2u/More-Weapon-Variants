@@ -10,7 +10,7 @@ import net.minecraft.world.item.*;
 
 import java.util.List;
 
-import static de.pnku.mstv_mweaponv.MoreWeaponVariants.*;
+import static de.pnku.mstv_mweaponv.MoreWeaponVariants.LOGGER;
 import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.*;
 
 public class MweaponvCreativeTab extends CreativeModeTabs {
