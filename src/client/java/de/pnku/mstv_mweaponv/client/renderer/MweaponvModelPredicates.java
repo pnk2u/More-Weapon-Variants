@@ -1,7 +1,6 @@
 package de.pnku.mstv_mweaponv.client.renderer;
 
 import de.pnku.mstv_base.item.MoreStickVariantItem;
-import de.pnku.mstv_mweaponv.MoreWeaponVariants;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
@@ -10,11 +9,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.ChargedProjectiles;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.*;
-import static de.pnku.mstv_mweaponv.MoreWeaponVariants.*;
 
 public class MweaponvModelPredicates {
 
@@ -32,14 +27,6 @@ public class MweaponvModelPredicates {
         }
         registerCrossbowChargedProjectilesPredicate(Items.CROSSBOW);
     }
-
-    //No pulling check as it is included in bowarrow
-//    private static void registerBowPullingPredicate(Item bowItem) {
-//        ItemProperties.register(bowItem, new ResourceLocation("pulling"),
-//                (itemStack, clientLevel, livingEntity, seed) -> {
-//                    return livingEntity != null && livingEntity.isUsingItem() && livingEntity.getUseItem() == itemStack ? 1.0F : 0.0F;
-//                });
-//    }
 
     private static void registerBowPullPredicate(Item bowItem) {
         ItemProperties.register(bowItem, ResourceLocation.parse("pull"),
