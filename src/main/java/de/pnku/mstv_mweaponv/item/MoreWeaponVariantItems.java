@@ -32,7 +32,7 @@ public class MoreWeaponVariantItems {
         if (woodType.matches("crimson|warped") || toolMaterial.equals(NETHERITE)) {
             swordVariantProperties.fireResistant();
         }
-        swordVariantProperties.setId(ResourceKey.create(Registries.ITEM, asId(woodType + "_" + toolMaterialString + "_sword")));
+        swordVariantProperties.setId(ResourceKey.create(Registries.ITEM, withModId(woodType + "_" + toolMaterialString + "_sword")));
         Item swordItem = new Item(swordVariantProperties);
         more_sword_tiers.put(swordItem, toolMaterial);
         return swordItem;
@@ -43,7 +43,7 @@ public class MoreWeaponVariantItems {
         if (woodType.matches("crimson|warped")) {
             bowVariantProperties.fireResistant();
         }
-        bowVariantProperties.setId(ResourceKey.create(Registries.ITEM, asId(woodType + "_bow")));
+        bowVariantProperties.setId(ResourceKey.create(Registries.ITEM, withModId(woodType + "_bow")));
         return new BowItem(bowVariantProperties);
     }
 
@@ -52,7 +52,7 @@ public class MoreWeaponVariantItems {
         if (woodType.matches("crimson|warped")) {
             crossbowVariantProperties.fireResistant();
         }
-        crossbowVariantProperties.setId(ResourceKey.create(Registries.ITEM, asId(woodType + "_crossbow")));
+        crossbowVariantProperties.setId(ResourceKey.create(Registries.ITEM, withModId(woodType + "_crossbow")));
         return new CrossbowItem(crossbowVariantProperties);
     }
 
@@ -68,10 +68,10 @@ public class MoreWeaponVariantItems {
         }
         String arrowName = woodType + "_arrow";
         if (isTipped) {
-            arrowVariantProperties.setId(ResourceKey.create(Registries.ITEM, asId("tipped_" + arrowName)));
+            arrowVariantProperties.setId(ResourceKey.create(Registries.ITEM, withModId("tipped_" + arrowName)));
             return new TippedArrowItem(arrowVariantProperties);
         } else {
-            arrowVariantProperties.setId(ResourceKey.create(Registries.ITEM, asId(arrowName)));
+            arrowVariantProperties.setId(ResourceKey.create(Registries.ITEM, withModId(arrowName)));
             return new ArrowItem(arrowVariantProperties);
         }
     }
@@ -479,7 +479,7 @@ public class MoreWeaponVariantItems {
         more_weapons.add(weaponItem);
         more_weapon_sticks.put(weaponItem, stickIngredient);
         if (bladeIngredient != null) {more_blade_ingredients.put(weaponItem, bladeIngredient);}
-        Registry.register(BuiltInRegistries.ITEM, MoreWeaponVariants.asId(weaponName), weaponItem);
+        Registry.register(BuiltInRegistries.ITEM, MoreWeaponVariants.withModId(weaponName), weaponItem);
     }
 
 

@@ -29,8 +29,8 @@ public class MoreWeaponVariants implements ModInitializer {
 		}
 	}
 
-	public static ResourceLocation asId(String path) {
-		return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+	public static ResourceLocation withModId(String path) {
+		return ResourceLocation.tryBuild(MOD_ID, path);
 	}
 
 }

@@ -3,20 +3,20 @@ package de.pnku.mstv_mweaponv.client.renderer.item.properties.select;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.PrimitiveCodec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
-import de.pnku.mstv_base.item.MoreStickVariantItem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.item.properties.select.SelectItemModelProperty;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.CrossbowItem;
+import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.ChargedProjectiles;
 import org.jetbrains.annotations.Nullable;
 
 import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.*;
-import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.WARPED_TIPPED_ARROW;
 
 @Environment(EnvType.CLIENT)
 public record CrossbowArrowPredicate() implements SelectItemModelProperty<String> {
