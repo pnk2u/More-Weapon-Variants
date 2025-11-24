@@ -1,27 +1,4 @@
 {
-  "fabric:load_conditions": [
-    {
-      "condition": "fabric:and",
-      "values": [
-        {
-          "condition": "fabric:not",
-          "value": {
-            "condition": "fabric:any_mods_loaded",
-            "values": [
-              "nemos_copper",
-              "nemos-copper"
-            ]
-          }
-        },
-        {
-          "condition": "fabric:tags_populated",
-          "values": [
-            "mstv-mweaponv:variant_copper_swords"
-          ]
-        }
-      ]
-    }
-  ],
   "type": "minecraft:crafting_shaped",
   "group": "copper_swords",
   "category": "equipment",
