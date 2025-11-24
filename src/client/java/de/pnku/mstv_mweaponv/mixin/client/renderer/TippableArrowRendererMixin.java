@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import static de.pnku.mstv_mweaponv.MoreWeaponVariants.asId;
+import static de.pnku.mstv_mweaponv.MoreWeaponVariants.withModId;
 
 @Mixin(TippableArrowRenderer.class)
 public abstract class TippableArrowRendererMixin extends EntityRenderer<AbstractArrow, MweaponvTippableArrowRenderState> implements IArrow {
@@ -30,7 +30,7 @@ public abstract class TippableArrowRendererMixin extends EntityRenderer<Abstract
         if (mweaponvTippableArrowRenderState.arrowVariant != null) {
             String arrowVariant = mweaponvTippableArrowRenderState.arrowVariant;
             if (!arrowVariant.equals("oak")) {
-                ResourceLocation arrowLocation = asId("textures/entity/arrow/" + arrowVariant + "_arrow.png");
+                ResourceLocation arrowLocation = withModId("textures/entity/arrow/" + arrowVariant + "_arrow.png");
                 cir.setReturnValue(arrowLocation);
             }
         }

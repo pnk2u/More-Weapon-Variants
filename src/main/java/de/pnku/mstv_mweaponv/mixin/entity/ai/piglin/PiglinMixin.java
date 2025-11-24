@@ -1,7 +1,6 @@
 package de.pnku.mstv_mweaponv.mixin.entity.ai.piglin;
 
 import de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
