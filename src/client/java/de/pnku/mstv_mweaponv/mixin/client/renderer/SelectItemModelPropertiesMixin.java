@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import static de.pnku.mstv_mweaponv.MoreWeaponVariants.asId;
+import static de.pnku.mstv_mweaponv.MoreWeaponVariants.withModId;
 
 @Mixin(SelectItemModelProperties.class)
 public class SelectItemModelPropertiesMixin {
@@ -23,7 +23,7 @@ public class SelectItemModelPropertiesMixin {
 
     @Inject(method = "bootstrap", at = @At("HEAD"))
     private static void bootstrap(CallbackInfo ci) {
-        ID_MAPPER.put(asId("bowarrow"), BowArrowPredicate.TYPE);
-        ID_MAPPER.put(asId("crossbowarrow"), CrossbowArrowPredicate.TYPE);
+        ID_MAPPER.put(withModId("bowarrow"), BowArrowPredicate.TYPE);
+        ID_MAPPER.put(withModId("crossbowarrow"), CrossbowArrowPredicate.TYPE);
     }
 }
