@@ -1,7 +1,5 @@
 package de.pnku.mstv_mweaponv.client.ui;
 
-import de.pnku.mstv_base.MoreStickVariants;
-import de.pnku.mstv_base.item.MoreStickVariantItem;
 import de.pnku.mstv_mweaponv.MoreWeaponVariants;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -10,10 +8,9 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static de.pnku.mstv_mweaponv.MoreWeaponVariants.*;
+import static de.pnku.mstv_mweaponv.MoreWeaponVariants.LOGGER;
 import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.*;
 
 public class MweaponvCreativeTab extends CreativeModeTabs {
@@ -30,7 +27,7 @@ public class MweaponvCreativeTab extends CreativeModeTabs {
     }));
 
     public static void registerMweaponvCreativeTab() {
-        WEAPON_VARIANTS = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, MoreWeaponVariants.asId("weapon_variants"), MWEAPONV_CMT_BUILDER.build());
+        WEAPON_VARIANTS = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, MoreWeaponVariants.withModId("weapon_variants"), MWEAPONV_CMT_BUILDER.build());
         LOGGER.info("Creative Mode Item Tab registered.");
     }
 
