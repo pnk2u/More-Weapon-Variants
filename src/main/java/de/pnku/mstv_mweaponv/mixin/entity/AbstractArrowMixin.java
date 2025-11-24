@@ -1,7 +1,6 @@
 package de.pnku.mstv_mweaponv.mixin.entity;
 
 import de.pnku.mstv_mweaponv.util.IArrow;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.level.storage.ValueInput;
