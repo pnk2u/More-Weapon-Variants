@@ -420,7 +420,7 @@ public class MoreWeaponVariantItems {
         more_weapons.add(weaponItem);
         more_weapon_sticks.put(weaponItem, stickIngredient);
         if (bladeIngredient != null) {more_blade_ingredients.put(weaponItem, bladeIngredient);}
-        Registry.register(BuiltInRegistries.ITEM, MoreWeaponVariants.asId(weaponName), weaponItem);
+        Registry.register(BuiltInRegistries.ITEM, MoreWeaponVariants.withModId(weaponName), weaponItem);
     }
 
 

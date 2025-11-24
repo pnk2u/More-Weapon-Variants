@@ -1,16 +1,12 @@
 package de.pnku.mstv_mweaponv;
 
-import com.mojang.authlib.minecraft.client.MinecraftClient;
 import de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems;
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.DispenserBlock;
-import org.apache.logging.log4j.core.jmx.Server;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,8 +28,8 @@ public class MoreWeaponVariants implements ModInitializer {
 		}
 	}
 
-	public static ResourceLocation asId(String path) {
-		return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+	public static ResourceLocation withModId(String path) {
+		return ResourceLocation.tryBuild(MOD_ID, path);
 	}
 
 }
