@@ -2,8 +2,6 @@ package de.pnku.mstv_mweaponv.client.renderer.item.properties.select;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
-import de.pnku.mstv_base.item.MoreStickVariantItem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.multiplayer.ClientLevel;

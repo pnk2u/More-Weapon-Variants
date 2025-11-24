@@ -2,7 +2,6 @@ package de.pnku.mstv_mweaponv.mixin.client.renderer;
 
 import de.pnku.mstv_mweaponv.client.renderer.item.properties.select.BowArrowPredicate;
 import de.pnku.mstv_mweaponv.client.renderer.item.properties.select.CrossbowArrowPredicate;
-import net.minecraft.client.renderer.item.properties.select.ItemBlockState;
 import net.minecraft.client.renderer.item.properties.select.SelectItemModelProperties;
 import net.minecraft.client.renderer.item.properties.select.SelectItemModelProperty;
 import net.minecraft.resources.ResourceLocation;
