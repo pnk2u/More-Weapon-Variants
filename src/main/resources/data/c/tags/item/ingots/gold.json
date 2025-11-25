@@ -1,5 +1,6 @@
 {
   "values": [
-    "minecraft:gold_ingot"
+    "minecraft:gold_ingot",
+    "#minecraft:gold_tool_materials"
   ]
 }

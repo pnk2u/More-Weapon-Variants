@@ -4,7 +4,7 @@
   "group": "iron_swords",
   "key": {
     "/": "mstv-base:jungle_stick",
-    "<": "#minecraft:iron_tool_materials"
+    "<": "#c:ingots/iron"
   },
   "pattern": [
     "<",

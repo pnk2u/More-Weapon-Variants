@@ -4,7 +4,7 @@
   "group": "golden_swords",
   "key": {
     "/": "mstv-base:crimson_stick",
-    "<": "#minecraft:gold_tool_materials"
+    "<": "#c:ingots/gold"
   },
   "pattern": [
     "<",
