@@ -28,8 +28,8 @@ public class PiglinMixin {
         if ((item.equals(MoreWeaponVariantItems.WARPED_CROSSBOW))) {return false;} else {return more_crossbows.contains(item) || item.equals(Items.CROSSBOW);}
     }
 
-    @Inject(method = "canFireProjectileWeapon", at = @At("HEAD"), cancellable = true)
-    public void injectedCanFireProjectileWeapon(ProjectileWeaponItem projectileWeapon, CallbackInfoReturnable<Boolean> cir){
-        if (more_crossbows.contains(projectileWeapon)){cir.setReturnValue(true);}
+    @Inject(method = "canUseNonMeleeWeapon", at = @At("HEAD"), cancellable = true)
+    public void injectedCanUseNonMeleeWeapon(ItemStack projectileWeaponStack, CallbackInfoReturnable<Boolean> cir){
+        if (more_crossbows.contains(projectileWeaponStack.getItem())){cir.setReturnValue(true);}
     }
 }

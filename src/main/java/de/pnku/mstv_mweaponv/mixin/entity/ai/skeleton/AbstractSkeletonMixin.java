@@ -113,9 +113,9 @@ public abstract class AbstractSkeletonMixin extends Monster {
         else return original.call(shooter, weapon);
     }
 
-    @Inject(method = "canFireProjectileWeapon", at = @At("HEAD"), cancellable = true)
-    public void injectedCanFireProjectileWeapon(ProjectileWeaponItem projectileWeapon, CallbackInfoReturnable<Boolean> cir){
-        if (more_bows.contains(projectileWeapon)){cir.setReturnValue(true);}
+    @Inject(method = "canUseNonMeleeWeapon", at = @At("HEAD"), cancellable = true)
+    public void injectedCanUseNonMeleeWeapon(ItemStack projectileWeaponStack, CallbackInfoReturnable<Boolean> cir){
+        if (more_bows.contains(projectileWeaponStack.getItem())){cir.setReturnValue(true);}
     }
 
     @Unique
