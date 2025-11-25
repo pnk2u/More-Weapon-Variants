@@ -4,7 +4,7 @@ import com.llamalad7.mixinextras.sugar.Local;
 import de.pnku.mstv_base.item.MoreStickVariantItem;
 import de.pnku.mstv_mweaponv.util.IArrow;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;

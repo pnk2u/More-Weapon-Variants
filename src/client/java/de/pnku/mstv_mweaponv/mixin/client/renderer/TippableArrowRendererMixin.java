@@ -6,9 +6,9 @@ import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.TippableArrowRenderer;
 import net.minecraft.client.renderer.entity.state.TippableArrowRenderState;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.Arrow;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
+import net.minecraft.world.entity.projectile.arrow.Arrow;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -24,13 +24,13 @@ public abstract class TippableArrowRendererMixin extends EntityRenderer<Abstract
         super(context);
     }
 
-    @Inject(method = "getTextureLocation(Lnet/minecraft/client/renderer/entity/state/TippableArrowRenderState;)Lnet/minecraft/resources/ResourceLocation;", at = @At("HEAD"), cancellable = true)
-    public void injectedGetTextureLocation(TippableArrowRenderState tippableArrowRenderState, CallbackInfoReturnable<ResourceLocation> cir) {
+    @Inject(method = "getTextureLocation(Lnet/minecraft/client/renderer/entity/state/TippableArrowRenderState;)Lnet/minecraft/resources/Identifier;", at = @At("HEAD"), cancellable = true)
+    public void injectedGetTextureLocation(TippableArrowRenderState tippableArrowRenderState, CallbackInfoReturnable<Identifier> cir) {
         MweaponvTippableArrowRenderState mweaponvTippableArrowRenderState = (MweaponvTippableArrowRenderState) tippableArrowRenderState;
         if (mweaponvTippableArrowRenderState.arrowVariant != null) {
             String arrowVariant = mweaponvTippableArrowRenderState.arrowVariant;
             if (!arrowVariant.equals("oak")) {
-                ResourceLocation arrowLocation = withModId("textures/entity/arrow/" + arrowVariant + "_arrow.png");
+                Identifier arrowLocation = withModId("textures/entity/arrow/" + arrowVariant + "_arrow.png");
                 cir.setReturnValue(arrowLocation);
             }
         }
@@ -41,7 +41,7 @@ public abstract class TippableArrowRendererMixin extends EntityRenderer<Abstract
         cir.setReturnValue(new MweaponvTippableArrowRenderState());
     }
 
-    @Inject(method = "extractRenderState(Lnet/minecraft/world/entity/projectile/Arrow;Lnet/minecraft/client/renderer/entity/state/TippableArrowRenderState;F)V", at = @At("HEAD"))
+    @Inject(method = "extractRenderState(Lnet/minecraft/world/entity/projectile/arrow/Arrow;Lnet/minecraft/client/renderer/entity/state/TippableArrowRenderState;F)V", at = @At("HEAD"))
     public void injectedExtractRenderState(Arrow arrow, TippableArrowRenderState tippableArrowRenderState, float f, CallbackInfo ci) {
         MweaponvTippableArrowRenderState mweaponvTippableArrowRenderState = (MweaponvTippableArrowRenderState) tippableArrowRenderState;
         mweaponvTippableArrowRenderState.arrowVariant = ((IArrow) arrow).mweaponv$getVariant();

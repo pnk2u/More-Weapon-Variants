@@ -4,7 +4,7 @@ import de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.DispenserBlock;
 import org.slf4j.Logger;
@@ -29,8 +29,8 @@ public class MoreWeaponVariants implements ModInitializer {
 		}
 	}
 
-	public static ResourceLocation withModId(String path) {
-		return ResourceLocation.tryBuild(MOD_ID, path);
+	public static Identifier withModId(String path) {
+		return Identifier.tryBuild(MOD_ID, path);
 	}
 
 }
