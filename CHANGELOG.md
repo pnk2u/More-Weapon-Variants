@@ -1,4 +1,6 @@
 <!--publish=false-->
-### 1.4.2:
-- `1.21.4(-8)`: Remove compatibility with Nemo's Copper as that mod has been discontinued by its author
-- `1.21.9(10)`: Add compatibility with More Tool Variants `1.2.0` (Copper Tools - Axes in particular)
+## 1.5.0:
+- `1.21.11`: 
+  - Update to <ins>1.21.11</ins>
+  - Add _Spear_ variants for all wood types
+- `1.20.1`, `1.21(.1)`: Allow _Oak Wooden Sword_ to be crafted using any wooden plank type as long as a vanilla Stick item is used
