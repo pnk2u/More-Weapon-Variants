@@ -4,7 +4,7 @@
   "group": "diamond_swords",
   "key": {
     "/": "mstv-base:crimson_stick",
-    "<": "minecraft:diamond"
+    "<": "#minecraft:diamond_tool_materials"
   },
   "pattern": [
     "<",
