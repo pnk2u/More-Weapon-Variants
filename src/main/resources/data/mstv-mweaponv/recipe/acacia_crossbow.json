@@ -5,7 +5,7 @@
   "key": {
     "/": "mstv-base:acacia_stick",
     "H": "minecraft:tripwire_hook",
-    "I": "minecraft:iron_ingot",
+    "I": "#c:ingots/iron",
     "S": "minecraft:string"
   },
   "pattern": [
