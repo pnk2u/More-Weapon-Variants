@@ -4,7 +4,7 @@
   "group": "diamond_swords",
   "key": {
     "/": "minecraft:bamboo",
-    "<": "minecraft:diamond"
+    "<": "#minecraft:diamond_tool_materials"
   },
   "pattern": [
     "<",

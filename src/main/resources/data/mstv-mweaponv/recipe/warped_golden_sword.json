@@ -4,7 +4,7 @@
   "group": "golden_swords",
   "key": {
     "/": "mstv-base:warped_stick",
-    "<": "minecraft:gold_ingot"
+    "<": "#c:ingots/gold"
   },
   "pattern": [
     "<",
