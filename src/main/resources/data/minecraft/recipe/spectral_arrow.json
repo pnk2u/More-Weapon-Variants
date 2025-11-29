@@ -4,7 +4,7 @@
   "group": "spectral_arrow",
   "key": {
     "#": "minecraft:glowstone_dust",
-    "X": "minecraft:arrow"
+    "X": "#mstv-mweaponv:all_untipped_arrows"
   },
   "pattern": [
     " # ",
