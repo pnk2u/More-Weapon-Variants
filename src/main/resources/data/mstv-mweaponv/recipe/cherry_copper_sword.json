@@ -4,7 +4,7 @@
   "group": "copper_swords",
   "key": {
     "/": "mstv-base:cherry_stick",
-    "<": "minecraft:copper_ingot"
+    "<": "#minecraft:copper_tool_materials"
   },
   "pattern": [
     "<",
