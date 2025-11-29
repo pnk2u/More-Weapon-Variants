@@ -7,7 +7,7 @@
       "item": "minecraft:glowstone_dust"
     },
     "X": {
-      "item": "minecraft:arrow"
+      "tag": "mstv-mweaponv:all_untipped_arrows"
     }
   },
   "pattern": [
