@@ -5,7 +5,7 @@
   "key": {
     "#": "mstv-base:dark_oak_stick",
     "$": "minecraft:tripwire_hook",
-    "&": "minecraft:iron_ingot",
+    "&": "#c:ingots/iron",
     "~": "minecraft:string"
   },
   "pattern": [
