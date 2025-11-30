@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "iron_spears",
+  "key": {
+    "/": "mstv-base:acacia_stick",
+    "<": "#c:ingots/iron"
+  },
+  "pattern": [
+    "  <",
+    " / ",
+    "/  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:acacia_iron_spear"
+  }
+}

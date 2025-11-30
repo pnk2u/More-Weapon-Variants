@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "minecraft:netherite_ingot",
+  "base": "mstv-mweaponv:acacia_diamond_spear",
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:acacia_netherite_spear"
+  },
+  "template": "minecraft:netherite_upgrade_smithing_template"
+}

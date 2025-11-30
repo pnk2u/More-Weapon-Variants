@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "copper_spears",
+  "key": {
+    "/": "mstv-base:pale_oak_stick",
+    "<": "#minecraft:copper_tool_materials"
+  },
+  "pattern": [
+    "  <",
+    " / ",
+    "/  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:pale_oak_copper_spear"
+  }
+}

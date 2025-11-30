@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "stone_spears",
+  "key": {
+    "/": "minecraft:bamboo",
+    "<": "minecraft:cobblestone"
+  },
+  "pattern": [
+    "  <",
+    " / ",
+    "/  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:bamboo_stone_spear"
+  }
+}

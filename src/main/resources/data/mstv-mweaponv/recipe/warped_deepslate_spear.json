@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "deepslate_spears",
+  "key": {
+    "/": "mstv-base:warped_stick",
+    "<": "minecraft:cobbled_deepslate"
+  },
+  "pattern": [
+    "  <",
+    " / ",
+    "/  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:warped_deepslate_spear"
+  }
+}

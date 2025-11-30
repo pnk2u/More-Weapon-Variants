@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "golden_spears",
+  "key": {
+    "/": "mstv-base:mangrove_stick",
+    "<": "#c:ingots/gold"
+  },
+  "pattern": [
+    "  <",
+    " / ",
+    "/  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:mangrove_golden_spear"
+  }
+}

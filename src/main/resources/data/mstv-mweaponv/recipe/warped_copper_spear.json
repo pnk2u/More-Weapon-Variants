@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "copper_spears",
+  "key": {
+    "/": "mstv-base:warped_stick",
+    "<": "#minecraft:copper_tool_materials"
+  },
+  "pattern": [
+    "  <",
+    " / ",
+    "/  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:warped_copper_spear"
+  }
+}

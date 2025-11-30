@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "minecraft:netherite_ingot",
+  "base": "mstv-mweaponv:dark_oak_diamond_spear",
+  "result": {
+    "count": 1,
+    "id": "mstv-mweaponv:dark_oak_netherite_spear"
+  },
+  "template": "minecraft:netherite_upgrade_smithing_template"
+}
