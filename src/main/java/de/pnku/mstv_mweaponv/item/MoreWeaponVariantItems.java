@@ -50,7 +50,7 @@ public class MoreWeaponVariantItems {
     }
 
     private static Item.Properties bowProperties(Item stickIngredient) {
-        return applyFireRes(getStickName(stickIngredient), null, new Item.Properties()
+        return applyFireRes(getStickName(stickIngredient), "", new Item.Properties()
                 .durability(384)
                 .enchantable(1)
                 .setId(ResourceKey.create(Registries.ITEM, withModId(bowName(stickIngredient)))));
@@ -61,20 +61,20 @@ public class MoreWeaponVariantItems {
     }
 
     private static Item.Properties crossbowProperties(Item stickIngredient) {
-        return applyFireRes(getStickName(stickIngredient), null, new Item.Properties()
+        return applyFireRes(getStickName(stickIngredient), "", new Item.Properties()
                 .durability(465)
                 .component(DataComponents.CHARGED_PROJECTILES, ChargedProjectiles.EMPTY)
                 .enchantable(1)).setId(ResourceKey.create(Registries.ITEM, withModId(crossbowName(stickIngredient))));
     }
 
     private static String arrowName(Item stickIngredient, boolean tipped) {
-        return getStickName(stickIngredient) + (tipped ? "_tipped_arrow" : "_arrow");
+        return (tipped ? "tipped_" : "") + getStickName(stickIngredient) + ("_arrow");
     }
 
     private static Item.Properties arrowProperties(Item stickIngredient) {return arrowProperties(stickIngredient, false);}
 
     private static Item.Properties arrowProperties(Item stickIngredient, boolean tipped) {
-        Item.Properties properties = applyFireRes(getStickName(stickIngredient), null, new Item.Properties());
+        Item.Properties properties = applyFireRes(getStickName(stickIngredient), "", new Item.Properties());
         properties.setId(ResourceKey.create(Registries.ITEM, withModId(arrowName(stickIngredient, tipped))));
         if (tipped) properties.component(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
         return properties;
