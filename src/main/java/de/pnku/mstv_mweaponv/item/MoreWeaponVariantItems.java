@@ -145,7 +145,7 @@ public class MoreWeaponVariantItems {
             public static final Item WARPED_GOLDEN_SWORD = new Item(swordProperties(GOLD, "golden", WARPED_STICK));
 
             public static final Item ACACIA_COPPER_SWORD = new Item(swordProperties(COPPER, "copper", ACACIA_STICK));
-            public static final Item BAMBOO_COPPER_SWORD = new Item(swordProperties(COPPER, "copper", Items.BAMBOO);
+            public static final Item BAMBOO_COPPER_SWORD = new Item(swordProperties(COPPER, "copper", Items.BAMBOO));
             public static final Item BIRCH_COPPER_SWORD = new Item(swordProperties(COPPER, "copper", BIRCH_STICK));
             public static final Item CHERRY_COPPER_SWORD = new Item(swordProperties(COPPER, "copper", CHERRY_STICK));
             public static final Item CRIMSON_COPPER_SWORD = new Item(swordProperties(COPPER, "copper", CRIMSON_STICK));
