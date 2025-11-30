@@ -274,6 +274,7 @@ public class MoreWeaponVariantItems {
        registerSwordItem(BAMBOO_STONE_SWORD, Items.BAMBOO, "stone");
        registerSwordItem(BAMBOO_DEEPSLATE_SWORD, Items.BAMBOO, "deepslate");
        registerSwordItem(BAMBOO_BLACKSTONE_SWORD, Items.BAMBOO, "blackstone");
+       registerSwordItem(BAMBOO_COPPER_SWORD, Items.BAMBOO, "copper");
        registerSwordItem(BAMBOO_IRON_SWORD, Items.BAMBOO, "iron");
        registerSwordItem(BAMBOO_GOLDEN_SWORD, Items.BAMBOO, "golden");
        registerSwordItem(BAMBOO_DIAMOND_SWORD, Items.BAMBOO, "diamond");
