@@ -11,10 +11,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.component.ChargedProjectiles;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static de.pnku.mstv_base.item.MoreStickVariantItems.*;
 import static de.pnku.mstv_mtoolv.item.MoreToolVariantCopper.*;
@@ -24,220 +21,226 @@ import static de.pnku.mstv_mweaponv.MoreWeaponVariants.*;
 import static net.minecraft.world.item.ToolMaterial.*;
 
 public class MoreWeaponVariantItems {
+    private static final int swordAD = 3;
+    private static final float swordAS = -2.4F;
 
-
-    public static Item createSwordVariantItem (ToolMaterial toolMaterial, String toolMaterialString, String woodType){
-        int AD = 3; float AS = -2.4F;
-        Item.Properties swordVariantProperties = new Item.Properties().sword(toolMaterial, AD, AS);
-        if (woodType.matches("crimson|warped") || toolMaterial.equals(NETHERITE)) {
-            swordVariantProperties.fireResistant();
+    private static Item.Properties applyFireRes(String woodType, String toolMaterialString, Item.Properties properties){
+        if (woodType.matches("crimson|warped") || toolMaterialString.equals("netherite")) {
+            properties.fireResistant();
         }
-        swordVariantProperties.setId(ResourceKey.create(Registries.ITEM, withModId(woodType + "_" + toolMaterialString + "_sword")));
-        Item swordItem = new Item(swordVariantProperties);
-        more_sword_tiers.put(swordItem, toolMaterial);
-        return swordItem;
+        return properties;
     }
 
-    public static BowItem createBowVariantItem (String woodType){
-        Item.Properties bowVariantProperties = (new Item.Properties()).durability(384).enchantable(1);
-        if (woodType.matches("crimson|warped")) {
-            bowVariantProperties.fireResistant();
-        }
-        bowVariantProperties.setId(ResourceKey.create(Registries.ITEM, withModId(woodType + "_bow")));
-        return new BowItem(bowVariantProperties);
+    private static String getStickName(Item stickIngredient) {
+        if (stickIngredient.equals(Items.BAMBOO)) return "bamboo";
+        if (stickIngredient.equals(Items.STICK)) return "oak";
+        return ((MoreStickVariantItem) stickIngredient).mstvWoodType;
     }
 
-    public static CrossbowItem createCrossbowVariantItem (String woodType){
-        Item.Properties crossbowVariantProperties = (new Item.Properties()).durability(465).component(DataComponents.CHARGED_PROJECTILES, ChargedProjectiles.EMPTY).enchantable(1);
-        if (woodType.matches("crimson|warped")) {
-            crossbowVariantProperties.fireResistant();
-        }
-        crossbowVariantProperties.setId(ResourceKey.create(Registries.ITEM, withModId(woodType + "_crossbow")));
-        return new CrossbowItem(crossbowVariantProperties);
+    private static String swordName(String toolMaterialName, Item stickIngredient) {
+        return getStickName(stickIngredient) + "_" + toolMaterialName + "_sword";
     }
 
-    public static ArrowItem createArrowVariantItem(String woodType){
-        return createArrowVariantItem(woodType, false);
+    private static Item.Properties swordProperties(ToolMaterial toolMaterial, String toolMaterialName, Item stickIngredient) {
+        Item.Properties properties = new Item.Properties().sword(toolMaterial, swordAD, swordAS).setId(ResourceKey.create(Registries.ITEM, withModId(swordName(toolMaterialName, stickIngredient))));
+        return applyFireRes(getStickName(stickIngredient), toolMaterialName, properties);
     }
 
-    public static ArrowItem createArrowVariantItem (String woodType, Boolean isTipped){
-        Item.Properties arrowVariantProperties = (new Item.Properties());
-        if (isTipped) {arrowVariantProperties.component(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);}
-        if (woodType.matches("crimson|warped")) {
-            arrowVariantProperties.fireResistant();
-        }
-        String arrowName = woodType + "_arrow";
-        if (isTipped) {
-            arrowVariantProperties.setId(ResourceKey.create(Registries.ITEM, withModId("tipped_" + arrowName)));
-            return new TippedArrowItem(arrowVariantProperties);
-        } else {
-            arrowVariantProperties.setId(ResourceKey.create(Registries.ITEM, withModId(arrowName)));
-            return new ArrowItem(arrowVariantProperties);
-        }
+    private static String bowName(Item stickIngredient) {
+        return getStickName(stickIngredient) + "_bow";
     }
 
-    public static final Map<Item, ToolMaterial> more_sword_tiers = new HashMap<>();
+    private static Item.Properties bowProperties(Item stickIngredient) {
+        return applyFireRes(getStickName(stickIngredient), "", new Item.Properties()
+                .durability(384)
+                .enchantable(1)
+                .setId(ResourceKey.create(Registries.ITEM, withModId(bowName(stickIngredient)))));
+    }
+
+    private static String crossbowName(Item stickIngredient) {
+        return getStickName(stickIngredient) + "_crossbow";
+    }
+
+    private static Item.Properties crossbowProperties(Item stickIngredient) {
+        return applyFireRes(getStickName(stickIngredient), "", new Item.Properties()
+                .durability(465)
+                .component(DataComponents.CHARGED_PROJECTILES, ChargedProjectiles.EMPTY)
+                .enchantable(1)).setId(ResourceKey.create(Registries.ITEM, withModId(crossbowName(stickIngredient))));
+    }
+
+    private static String arrowName(Item stickIngredient, boolean tipped) {
+        return (tipped ? "tipped_" : "") + getStickName(stickIngredient) + ("_arrow");
+    }
+
+    private static Item.Properties arrowProperties(Item stickIngredient) {return arrowProperties(stickIngredient, false);}
+
+    private static Item.Properties arrowProperties(Item stickIngredient, boolean tipped) {
+        Item.Properties properties = applyFireRes(getStickName(stickIngredient), "", new Item.Properties());
+        properties.setId(ResourceKey.create(Registries.ITEM, withModId(arrowName(stickIngredient, tipped))));
+        if (tipped) properties.component(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
+        return properties;
+    }
 
             // Swords
-            public static final Item ACACIA_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "acacia");
-            public static final Item BAMBOO_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "bamboo");
-            public static final Item BIRCH_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "birch");
-            public static final Item CHERRY_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "cherry");
-            public static final Item CRIMSON_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "crimson");
-            public static final Item DARK_OAK_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "dark_oak");
-            public static final Item PALE_OAK_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "pale_oak");
-            public static final Item JUNGLE_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "jungle");
-            public static final Item MANGROVE_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "mangrove");
-            public static final Item SPRUCE_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "spruce");
-            public static final Item WARPED_WOODEN_SWORD = createSwordVariantItem(WOOD, "wooden", "warped");
+            public static final Item ACACIA_WOODEN_SWORD = new Item(swordProperties(WOOD, "wooden", ACACIA_STICK));
+            public static final Item BAMBOO_WOODEN_SWORD = new Item(swordProperties(WOOD, "wooden", Items.BAMBOO));
+            public static final Item BIRCH_WOODEN_SWORD = new Item(swordProperties(WOOD, "wooden", BIRCH_STICK));
+            public static final Item CHERRY_WOODEN_SWORD = new Item(swordProperties(WOOD, "wooden", CHERRY_STICK));
+            public static final Item CRIMSON_WOODEN_SWORD = new Item(swordProperties(WOOD, "wooden", CRIMSON_STICK));
+            public static final Item DARK_OAK_WOODEN_SWORD = new Item(swordProperties(WOOD, "wooden", DARK_OAK_STICK));
+            public static final Item PALE_OAK_WOODEN_SWORD = new Item(swordProperties(WOOD, "wooden", PALE_OAK_STICK));
+            public static final Item JUNGLE_WOODEN_SWORD = new Item(swordProperties(WOOD, "wooden", JUNGLE_STICK));
+            public static final Item MANGROVE_WOODEN_SWORD = new Item(swordProperties(WOOD, "wooden", MANGROVE_STICK));
+            public static final Item SPRUCE_WOODEN_SWORD = new Item(swordProperties(WOOD, "wooden", SPRUCE_STICK));
+            public static final Item WARPED_WOODEN_SWORD = new Item(swordProperties(WOOD, "wooden", WARPED_STICK));
 
-                    public static final Item ACACIA_STONE_SWORD = createSwordVariantItem(STONE, "stone", "acacia");
-                    public static final Item BAMBOO_STONE_SWORD = createSwordVariantItem(STONE, "stone", "bamboo");
-                    public static final Item BIRCH_STONE_SWORD = createSwordVariantItem(STONE, "stone", "birch");
-                    public static final Item CHERRY_STONE_SWORD = createSwordVariantItem(STONE, "stone", "cherry");
-                    public static final Item CRIMSON_STONE_SWORD = createSwordVariantItem(STONE, "stone", "crimson");
-                    public static final Item DARK_OAK_STONE_SWORD = createSwordVariantItem(STONE, "stone", "dark_oak");
-                    public static final Item PALE_OAK_STONE_SWORD = createSwordVariantItem(STONE, "stone", "pale_oak");
-                    public static final Item JUNGLE_STONE_SWORD = createSwordVariantItem(STONE, "stone", "jungle");
-                    public static final Item MANGROVE_STONE_SWORD = createSwordVariantItem(STONE, "stone", "mangrove");
-                    public static final Item SPRUCE_STONE_SWORD = createSwordVariantItem(STONE, "stone", "spruce");
-                    public static final Item WARPED_STONE_SWORD = createSwordVariantItem(STONE, "stone", "warped");
+                    public static final Item ACACIA_STONE_SWORD = new Item(swordProperties(STONE, "stone", ACACIA_STICK));
+                    public static final Item BAMBOO_STONE_SWORD = new Item(swordProperties(STONE, "stone", Items.BAMBOO));
+                    public static final Item BIRCH_STONE_SWORD = new Item(swordProperties(STONE, "stone", BIRCH_STICK));
+                    public static final Item CHERRY_STONE_SWORD = new Item(swordProperties(STONE, "stone", CHERRY_STICK));
+                    public static final Item CRIMSON_STONE_SWORD = new Item(swordProperties(STONE, "stone", CRIMSON_STICK));
+                    public static final Item DARK_OAK_STONE_SWORD = new Item(swordProperties(STONE, "stone", DARK_OAK_STICK));
+                    public static final Item PALE_OAK_STONE_SWORD = new Item(swordProperties(STONE, "stone", PALE_OAK_STICK));
+                    public static final Item JUNGLE_STONE_SWORD = new Item(swordProperties(STONE, "stone", JUNGLE_STICK));
+                    public static final Item MANGROVE_STONE_SWORD = new Item(swordProperties(STONE, "stone", MANGROVE_STICK));
+                    public static final Item SPRUCE_STONE_SWORD = new Item(swordProperties(STONE, "stone", SPRUCE_STICK));
+                    public static final Item WARPED_STONE_SWORD = new Item(swordProperties(STONE, "stone", WARPED_STICK));
 
-                    public static final Item ACACIA_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "acacia");
-                    public static final Item BAMBOO_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "bamboo");
-                    public static final Item BIRCH_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "birch");
-                    public static final Item CHERRY_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "cherry");
-                    public static final Item CRIMSON_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "crimson");
-                    public static final Item DARK_OAK_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "dark_oak");
-                    public static final Item PALE_OAK_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "pale_oak");
-                    public static final Item JUNGLE_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "jungle");
-                    public static final Item MANGROVE_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "mangrove");
-                    public static final Item OAK_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "oak");
-                    public static final Item SPRUCE_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "spruce");
-                    public static final Item WARPED_DEEPSLATE_SWORD = createSwordVariantItem(STONE, "deepslate", "warped");
+                    public static final Item ACACIA_DEEPSLATE_SWORD = new Item(swordProperties(STONE, "deepslate", ACACIA_STICK));
+                    public static final Item BAMBOO_DEEPSLATE_SWORD = new Item(swordProperties(STONE, "deepslate", Items.BAMBOO));
+                    public static final Item BIRCH_DEEPSLATE_SWORD = new Item(swordProperties(STONE, "deepslate", BIRCH_STICK));
+                    public static final Item CHERRY_DEEPSLATE_SWORD = new Item(swordProperties(STONE, "deepslate", CHERRY_STICK));
+                    public static final Item CRIMSON_DEEPSLATE_SWORD = new Item(swordProperties(STONE, "deepslate", CRIMSON_STICK));
+                    public static final Item DARK_OAK_DEEPSLATE_SWORD = new Item(swordProperties(STONE, "deepslate", DARK_OAK_STICK));
+                    public static final Item PALE_OAK_DEEPSLATE_SWORD = new Item(swordProperties(STONE, "deepslate", PALE_OAK_STICK));
+                    public static final Item JUNGLE_DEEPSLATE_SWORD = new Item(swordProperties(STONE, "deepslate", JUNGLE_STICK));
+                    public static final Item MANGROVE_DEEPSLATE_SWORD = new Item(swordProperties(STONE, "deepslate", MANGROVE_STICK));
+                    public static final Item OAK_DEEPSLATE_SWORD = new Item(swordProperties(STONE, "deepslate", Items.STICK));
+                    public static final Item SPRUCE_DEEPSLATE_SWORD = new Item(swordProperties(STONE, "deepslate", SPRUCE_STICK));
+                    public static final Item WARPED_DEEPSLATE_SWORD = new Item(swordProperties(STONE, "deepslate", WARPED_STICK));
 
-                    public static final Item ACACIA_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "acacia");
-                    public static final Item BAMBOO_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "bamboo");
-                    public static final Item BIRCH_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "birch");
-                    public static final Item CHERRY_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "cherry");
-                    public static final Item CRIMSON_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "crimson");
-                    public static final Item DARK_OAK_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "dark_oak");
-                    public static final Item PALE_OAK_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "pale_oak");
-                    public static final Item JUNGLE_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "jungle");
-                    public static final Item MANGROVE_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "mangrove");
-                    public static final Item OAK_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "oak");
-                    public static final Item SPRUCE_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "spruce");
-                    public static final Item WARPED_BLACKSTONE_SWORD = createSwordVariantItem(STONE, "blackstone", "warped");
+                    public static final Item ACACIA_BLACKSTONE_SWORD = new Item(swordProperties(STONE, "blackstone", ACACIA_STICK));
+                    public static final Item BAMBOO_BLACKSTONE_SWORD = new Item(swordProperties(STONE, "blackstone", Items.BAMBOO));
+                    public static final Item BIRCH_BLACKSTONE_SWORD = new Item(swordProperties(STONE, "blackstone", BIRCH_STICK));
+                    public static final Item CHERRY_BLACKSTONE_SWORD = new Item(swordProperties(STONE, "blackstone", CHERRY_STICK));
+                    public static final Item CRIMSON_BLACKSTONE_SWORD = new Item(swordProperties(STONE, "blackstone", CRIMSON_STICK));
+                    public static final Item DARK_OAK_BLACKSTONE_SWORD = new Item(swordProperties(STONE, "blackstone", DARK_OAK_STICK));
+                    public static final Item PALE_OAK_BLACKSTONE_SWORD = new Item(swordProperties(STONE, "blackstone", PALE_OAK_STICK));
+                    public static final Item JUNGLE_BLACKSTONE_SWORD = new Item(swordProperties(STONE, "blackstone", JUNGLE_STICK));
+                    public static final Item MANGROVE_BLACKSTONE_SWORD = new Item(swordProperties(STONE, "blackstone", MANGROVE_STICK));
+                    public static final Item OAK_BLACKSTONE_SWORD = new Item(swordProperties(STONE, "blackstone", Items.STICK));
+                    public static final Item SPRUCE_BLACKSTONE_SWORD = new Item(swordProperties(STONE, "blackstone", SPRUCE_STICK));
+                    public static final Item WARPED_BLACKSTONE_SWORD = new Item(swordProperties(STONE, "blackstone", WARPED_STICK));
 
-            public static final Item ACACIA_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "acacia");
-            public static final Item BAMBOO_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "bamboo");
-            public static final Item BIRCH_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "birch");
-            public static final Item CHERRY_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "cherry");
-            public static final Item CRIMSON_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "crimson");
-            public static final Item DARK_OAK_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "dark_oak");
-            public static final Item PALE_OAK_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "pale_oak");
-            public static final Item JUNGLE_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "jungle");
-            public static final Item MANGROVE_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "mangrove");
-            public static final Item SPRUCE_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "spruce");
-            public static final Item WARPED_GOLDEN_SWORD = createSwordVariantItem(GOLD, "golden", "warped");
+            public static final Item ACACIA_GOLDEN_SWORD = new Item(swordProperties(GOLD, "golden", ACACIA_STICK));
+            public static final Item BAMBOO_GOLDEN_SWORD = new Item(swordProperties(GOLD, "golden", Items.BAMBOO));
+            public static final Item BIRCH_GOLDEN_SWORD = new Item(swordProperties(GOLD, "golden", BIRCH_STICK));
+            public static final Item CHERRY_GOLDEN_SWORD = new Item(swordProperties(GOLD, "golden", CHERRY_STICK));
+            public static final Item CRIMSON_GOLDEN_SWORD = new Item(swordProperties(GOLD, "golden", CRIMSON_STICK));
+            public static final Item DARK_OAK_GOLDEN_SWORD = new Item(swordProperties(GOLD, "golden", DARK_OAK_STICK));
+            public static final Item PALE_OAK_GOLDEN_SWORD = new Item(swordProperties(GOLD, "golden", PALE_OAK_STICK));
+            public static final Item JUNGLE_GOLDEN_SWORD = new Item(swordProperties(GOLD, "golden", JUNGLE_STICK));
+            public static final Item MANGROVE_GOLDEN_SWORD = new Item(swordProperties(GOLD, "golden", MANGROVE_STICK));
+            public static final Item SPRUCE_GOLDEN_SWORD = new Item(swordProperties(GOLD, "golden", SPRUCE_STICK));
+            public static final Item WARPED_GOLDEN_SWORD = new Item(swordProperties(GOLD, "golden", WARPED_STICK));
 
-            public static final Item ACACIA_COPPER_SWORD = createSwordVariantItem(COPPER, "copper", "acacia");
-            public static final Item BAMBOO_COPPER_SWORD = createSwordVariantItem(COPPER, "copper", "bamboo");
-            public static final Item BIRCH_COPPER_SWORD = createSwordVariantItem(COPPER, "copper", "birch");
-            public static final Item CHERRY_COPPER_SWORD = createSwordVariantItem(COPPER, "copper", "cherry");
-            public static final Item CRIMSON_COPPER_SWORD = createSwordVariantItem(COPPER, "copper", "crimson");
-            public static final Item DARK_OAK_COPPER_SWORD = createSwordVariantItem(COPPER, "copper", "dark_oak");
-            public static final Item PALE_OAK_COPPER_SWORD = createSwordVariantItem(COPPER, "copper", "pale_oak");
-            public static final Item JUNGLE_COPPER_SWORD = createSwordVariantItem(COPPER, "copper", "jungle");
-            public static final Item MANGROVE_COPPER_SWORD = createSwordVariantItem(COPPER, "copper", "mangrove");
-            public static final Item SPRUCE_COPPER_SWORD = createSwordVariantItem(COPPER, "copper", "spruce");
-            public static final Item WARPED_COPPER_SWORD = createSwordVariantItem(COPPER, "copper", "warped");
+            public static final Item ACACIA_COPPER_SWORD = new Item(swordProperties(COPPER, "copper", ACACIA_STICK));
+            public static final Item BAMBOO_COPPER_SWORD = new Item(swordProperties(COPPER, "copper", Items.BAMBOO);
+            public static final Item BIRCH_COPPER_SWORD = new Item(swordProperties(COPPER, "copper", BIRCH_STICK));
+            public static final Item CHERRY_COPPER_SWORD = new Item(swordProperties(COPPER, "copper", CHERRY_STICK));
+            public static final Item CRIMSON_COPPER_SWORD = new Item(swordProperties(COPPER, "copper", CRIMSON_STICK));
+            public static final Item DARK_OAK_COPPER_SWORD = new Item(swordProperties(COPPER, "copper", DARK_OAK_STICK));
+            public static final Item PALE_OAK_COPPER_SWORD = new Item(swordProperties(COPPER, "copper", PALE_OAK_STICK));
+            public static final Item JUNGLE_COPPER_SWORD = new Item(swordProperties(COPPER, "copper", JUNGLE_STICK));
+            public static final Item MANGROVE_COPPER_SWORD = new Item(swordProperties(COPPER, "copper", MANGROVE_STICK));
+            public static final Item SPRUCE_COPPER_SWORD = new Item(swordProperties(COPPER, "copper", SPRUCE_STICK));
+            public static final Item WARPED_COPPER_SWORD = new Item(swordProperties(COPPER, "copper", WARPED_STICK));
 
-            public static final Item ACACIA_IRON_SWORD = createSwordVariantItem(IRON, "iron", "acacia");
-            public static final Item BAMBOO_IRON_SWORD = createSwordVariantItem(IRON, "iron", "bamboo");
-            public static final Item BIRCH_IRON_SWORD = createSwordVariantItem(IRON, "iron", "birch");
-            public static final Item CHERRY_IRON_SWORD = createSwordVariantItem(IRON, "iron", "cherry");
-            public static final Item CRIMSON_IRON_SWORD = createSwordVariantItem(IRON, "iron", "crimson");
-            public static final Item DARK_OAK_IRON_SWORD = createSwordVariantItem(IRON, "iron", "dark_oak");
-            public static final Item PALE_OAK_IRON_SWORD = createSwordVariantItem(IRON, "iron", "pale_oak");
-            public static final Item JUNGLE_IRON_SWORD = createSwordVariantItem(IRON, "iron", "jungle");
-            public static final Item MANGROVE_IRON_SWORD = createSwordVariantItem(IRON, "iron", "mangrove");
-            public static final Item SPRUCE_IRON_SWORD = createSwordVariantItem(IRON, "iron", "spruce");
-            public static final Item WARPED_IRON_SWORD = createSwordVariantItem(IRON, "iron", "warped");
+            public static final Item ACACIA_IRON_SWORD = new Item(swordProperties(IRON, "iron", ACACIA_STICK));
+            public static final Item BAMBOO_IRON_SWORD = new Item(swordProperties(IRON, "iron", Items.BAMBOO));
+            public static final Item BIRCH_IRON_SWORD = new Item(swordProperties(IRON, "iron", BIRCH_STICK));
+            public static final Item CHERRY_IRON_SWORD = new Item(swordProperties(IRON, "iron", CHERRY_STICK));
+            public static final Item CRIMSON_IRON_SWORD = new Item(swordProperties(IRON, "iron", CRIMSON_STICK));
+            public static final Item DARK_OAK_IRON_SWORD = new Item(swordProperties(IRON, "iron", DARK_OAK_STICK));
+            public static final Item PALE_OAK_IRON_SWORD = new Item(swordProperties(IRON, "iron", PALE_OAK_STICK));
+            public static final Item JUNGLE_IRON_SWORD = new Item(swordProperties(IRON, "iron", JUNGLE_STICK));
+            public static final Item MANGROVE_IRON_SWORD = new Item(swordProperties(IRON, "iron", MANGROVE_STICK));
+            public static final Item SPRUCE_IRON_SWORD = new Item(swordProperties(IRON, "iron", SPRUCE_STICK));
+            public static final Item WARPED_IRON_SWORD = new Item(swordProperties(IRON, "iron", WARPED_STICK));
 
-            public static final Item ACACIA_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "acacia");
-            public static final Item BAMBOO_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "bamboo");
-            public static final Item BIRCH_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "birch");
-            public static final Item CHERRY_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "cherry");
-            public static final Item CRIMSON_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "crimson");
-            public static final Item DARK_OAK_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "dark_oak");
-            public static final Item PALE_OAK_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "pale_oak");
-            public static final Item JUNGLE_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "jungle");
-            public static final Item MANGROVE_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "mangrove");
-            public static final Item SPRUCE_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "spruce");
-            public static final Item WARPED_DIAMOND_SWORD = createSwordVariantItem(DIAMOND, "diamond", "warped");
+            public static final Item ACACIA_DIAMOND_SWORD = new Item(swordProperties(DIAMOND, "diamond", ACACIA_STICK));
+            public static final Item BAMBOO_DIAMOND_SWORD = new Item(swordProperties(DIAMOND, "diamond", Items.BAMBOO));
+            public static final Item BIRCH_DIAMOND_SWORD = new Item(swordProperties(DIAMOND, "diamond", BIRCH_STICK));
+            public static final Item CHERRY_DIAMOND_SWORD = new Item(swordProperties(DIAMOND, "diamond", CHERRY_STICK));
+            public static final Item CRIMSON_DIAMOND_SWORD = new Item(swordProperties(DIAMOND, "diamond", CRIMSON_STICK));
+            public static final Item DARK_OAK_DIAMOND_SWORD = new Item(swordProperties(DIAMOND, "diamond", DARK_OAK_STICK));
+            public static final Item PALE_OAK_DIAMOND_SWORD = new Item(swordProperties(DIAMOND, "diamond", PALE_OAK_STICK));
+            public static final Item JUNGLE_DIAMOND_SWORD = new Item(swordProperties(DIAMOND, "diamond", JUNGLE_STICK));
+            public static final Item MANGROVE_DIAMOND_SWORD = new Item(swordProperties(DIAMOND, "diamond", MANGROVE_STICK));
+            public static final Item SPRUCE_DIAMOND_SWORD = new Item(swordProperties(DIAMOND, "diamond", SPRUCE_STICK));
+            public static final Item WARPED_DIAMOND_SWORD = new Item(swordProperties(DIAMOND, "diamond", WARPED_STICK));
 
-            public static final Item ACACIA_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "acacia");
-            public static final Item BAMBOO_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "bamboo");
-            public static final Item BIRCH_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "birch");
-            public static final Item CHERRY_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "cherry");
-            public static final Item CRIMSON_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "crimson");
-            public static final Item DARK_OAK_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "dark_oak");
-            public static final Item PALE_OAK_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "pale_oak");
-            public static final Item JUNGLE_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "jungle");
-            public static final Item MANGROVE_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "mangrove");
-            public static final Item SPRUCE_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "spruce");
-            public static final Item WARPED_NETHERITE_SWORD = createSwordVariantItem(NETHERITE, "netherite", "warped");
+            public static final Item ACACIA_NETHERITE_SWORD = new Item(swordProperties(NETHERITE, "netherite", ACACIA_STICK));
+            public static final Item BAMBOO_NETHERITE_SWORD = new Item(swordProperties(NETHERITE, "netherite", Items.BAMBOO));
+            public static final Item BIRCH_NETHERITE_SWORD = new Item(swordProperties(NETHERITE, "netherite", BIRCH_STICK));
+            public static final Item CHERRY_NETHERITE_SWORD = new Item(swordProperties(NETHERITE, "netherite", CHERRY_STICK));
+            public static final Item CRIMSON_NETHERITE_SWORD = new Item(swordProperties(NETHERITE, "netherite", CRIMSON_STICK));
+            public static final Item DARK_OAK_NETHERITE_SWORD = new Item(swordProperties(NETHERITE, "netherite", DARK_OAK_STICK));
+            public static final Item PALE_OAK_NETHERITE_SWORD = new Item(swordProperties(NETHERITE, "netherite", PALE_OAK_STICK));
+            public static final Item JUNGLE_NETHERITE_SWORD = new Item(swordProperties(NETHERITE, "netherite", JUNGLE_STICK));
+            public static final Item MANGROVE_NETHERITE_SWORD = new Item(swordProperties(NETHERITE, "netherite", MANGROVE_STICK));
+            public static final Item SPRUCE_NETHERITE_SWORD = new Item(swordProperties(NETHERITE, "netherite", SPRUCE_STICK));
+            public static final Item WARPED_NETHERITE_SWORD = new Item(swordProperties(NETHERITE, "netherite", WARPED_STICK));
 
 
             // Bows
-            public static final Item ACACIA_BOW = createBowVariantItem("acacia");
-            public static final Item BAMBOO_BOW = createBowVariantItem("bamboo");
-            public static final Item BIRCH_BOW = createBowVariantItem("birch");
-            public static final Item CHERRY_BOW = createBowVariantItem("cherry");
-            public static final Item CRIMSON_BOW = createBowVariantItem("crimson");
-            public static final Item DARK_OAK_BOW = createBowVariantItem("dark_oak");
-            public static final Item PALE_OAK_BOW = createBowVariantItem("pale_oak");
-            public static final Item JUNGLE_BOW = createBowVariantItem("jungle");
-            public static final Item MANGROVE_BOW = createBowVariantItem("mangrove");
-            public static final Item SPRUCE_BOW = createBowVariantItem("spruce");
-            public static final Item WARPED_BOW = createBowVariantItem("warped");
+            public static final Item ACACIA_BOW = new BowItem(bowProperties(ACACIA_STICK));
+            public static final Item BAMBOO_BOW = new BowItem(bowProperties(Items.BAMBOO));
+            public static final Item BIRCH_BOW = new BowItem(bowProperties(BIRCH_STICK));
+            public static final Item CHERRY_BOW = new BowItem(bowProperties(CHERRY_STICK));
+            public static final Item CRIMSON_BOW = new BowItem(bowProperties(CRIMSON_STICK));
+            public static final Item DARK_OAK_BOW = new BowItem(bowProperties(DARK_OAK_STICK));
+            public static final Item PALE_OAK_BOW = new BowItem(bowProperties(PALE_OAK_STICK));
+            public static final Item JUNGLE_BOW = new BowItem(bowProperties(JUNGLE_STICK));
+            public static final Item MANGROVE_BOW = new BowItem(bowProperties(MANGROVE_STICK));
+            public static final Item SPRUCE_BOW = new BowItem(bowProperties(SPRUCE_STICK));
+            public static final Item WARPED_BOW = new BowItem(bowProperties(WARPED_STICK));
             // Crossbows
-            public static final Item ACACIA_CROSSBOW = createCrossbowVariantItem("acacia");
-            public static final Item BAMBOO_CROSSBOW = createCrossbowVariantItem("bamboo");
-            public static final Item BIRCH_CROSSBOW = createCrossbowVariantItem("birch");
-            public static final Item CHERRY_CROSSBOW = createCrossbowVariantItem("cherry");
-            public static final Item CRIMSON_CROSSBOW = createCrossbowVariantItem("crimson");
-            public static final Item JUNGLE_CROSSBOW = createCrossbowVariantItem("jungle");
-            public static final Item MANGROVE_CROSSBOW = createCrossbowVariantItem("mangrove");
-            public static final Item OAK_CROSSBOW = createCrossbowVariantItem("oak");
-            public static final Item PALE_OAK_CROSSBOW = createCrossbowVariantItem("pale_oak");
-            public static final Item SPRUCE_CROSSBOW = createCrossbowVariantItem("spruce");
-            public static final Item WARPED_CROSSBOW = createCrossbowVariantItem("warped");
+            public static final Item ACACIA_CROSSBOW = new CrossbowItem(crossbowProperties(ACACIA_STICK));
+            public static final Item BAMBOO_CROSSBOW = new CrossbowItem(crossbowProperties(Items.BAMBOO));
+            public static final Item BIRCH_CROSSBOW = new CrossbowItem(crossbowProperties(BIRCH_STICK));
+            public static final Item CHERRY_CROSSBOW = new CrossbowItem(crossbowProperties(CHERRY_STICK));
+            public static final Item CRIMSON_CROSSBOW = new CrossbowItem(crossbowProperties(CRIMSON_STICK));
+            public static final Item JUNGLE_CROSSBOW = new CrossbowItem(crossbowProperties(JUNGLE_STICK));
+            public static final Item MANGROVE_CROSSBOW = new CrossbowItem(crossbowProperties(MANGROVE_STICK));
+            public static final Item OAK_CROSSBOW = new CrossbowItem(crossbowProperties(Items.STICK));
+            public static final Item PALE_OAK_CROSSBOW = new CrossbowItem(crossbowProperties(PALE_OAK_STICK));
+            public static final Item SPRUCE_CROSSBOW = new CrossbowItem(crossbowProperties(SPRUCE_STICK));
+            public static final Item WARPED_CROSSBOW = new CrossbowItem(crossbowProperties(WARPED_STICK));
             // Arrows
-            public static final Item ACACIA_ARROW = createArrowVariantItem("acacia");
-            public static final Item BAMBOO_ARROW = createArrowVariantItem("bamboo");
-            public static final Item BIRCH_ARROW = createArrowVariantItem("birch");
-            public static final Item CHERRY_ARROW = createArrowVariantItem("cherry");
-            public static final Item CRIMSON_ARROW = createArrowVariantItem("crimson");
-            public static final Item DARK_OAK_ARROW = createArrowVariantItem("dark_oak");
-            public static final Item PALE_OAK_ARROW = createArrowVariantItem("pale_oak");
-            public static final Item JUNGLE_ARROW = createArrowVariantItem("jungle");
-            public static final Item MANGROVE_ARROW = createArrowVariantItem("mangrove");
-            public static final Item SPRUCE_ARROW = createArrowVariantItem("spruce");
-            public static final Item WARPED_ARROW = createArrowVariantItem("warped");
+            public static final Item ACACIA_ARROW = new ArrowItem(arrowProperties(ACACIA_STICK));
+            public static final Item BAMBOO_ARROW = new ArrowItem(arrowProperties(Items.BAMBOO));
+            public static final Item BIRCH_ARROW = new ArrowItem(arrowProperties(BIRCH_STICK));
+            public static final Item CHERRY_ARROW = new ArrowItem(arrowProperties(CHERRY_STICK));
+            public static final Item CRIMSON_ARROW = new ArrowItem(arrowProperties(CRIMSON_STICK));
+            public static final Item DARK_OAK_ARROW = new ArrowItem(arrowProperties(DARK_OAK_STICK));
+            public static final Item PALE_OAK_ARROW = new ArrowItem(arrowProperties(PALE_OAK_STICK));
+            public static final Item JUNGLE_ARROW = new ArrowItem(arrowProperties(JUNGLE_STICK));
+            public static final Item MANGROVE_ARROW = new ArrowItem(arrowProperties(MANGROVE_STICK));
+            public static final Item SPRUCE_ARROW = new ArrowItem(arrowProperties(SPRUCE_STICK));
+            public static final Item WARPED_ARROW = new ArrowItem(arrowProperties(WARPED_STICK));
             // Tipped Arrows
-            public static final Item ACACIA_TIPPED_ARROW = createArrowVariantItem("acacia", true);
-            public static final Item BAMBOO_TIPPED_ARROW = createArrowVariantItem("bamboo", true);
-            public static final Item BIRCH_TIPPED_ARROW = createArrowVariantItem("birch", true);
-            public static final Item CHERRY_TIPPED_ARROW = createArrowVariantItem("cherry", true);
-            public static final Item CRIMSON_TIPPED_ARROW = createArrowVariantItem("crimson", true);
-            public static final Item DARK_OAK_TIPPED_ARROW = createArrowVariantItem("dark_oak", true);
-            public static final Item PALE_OAK_TIPPED_ARROW = createArrowVariantItem("pale_oak", true);
-            public static final Item JUNGLE_TIPPED_ARROW = createArrowVariantItem("jungle", true);
-            public static final Item MANGROVE_TIPPED_ARROW = createArrowVariantItem("mangrove", true);
-            public static final Item SPRUCE_TIPPED_ARROW = createArrowVariantItem("spruce", true);
-            public static final Item WARPED_TIPPED_ARROW = createArrowVariantItem("warped", true);
+            public static final Item ACACIA_TIPPED_ARROW = new TippedArrowItem(arrowProperties(ACACIA_STICK, true));
+            public static final Item BAMBOO_TIPPED_ARROW = new TippedArrowItem(arrowProperties(Items.BAMBOO, true));
+            public static final Item BIRCH_TIPPED_ARROW = new TippedArrowItem(arrowProperties(BIRCH_STICK, true));
+            public static final Item CHERRY_TIPPED_ARROW = new TippedArrowItem(arrowProperties(CHERRY_STICK, true));
+            public static final Item CRIMSON_TIPPED_ARROW = new TippedArrowItem(arrowProperties(CRIMSON_STICK, true));
+            public static final Item DARK_OAK_TIPPED_ARROW = new TippedArrowItem(arrowProperties(DARK_OAK_STICK, true));
+            public static final Item PALE_OAK_TIPPED_ARROW = new TippedArrowItem(arrowProperties(PALE_OAK_STICK, true));
+            public static final Item JUNGLE_TIPPED_ARROW = new TippedArrowItem(arrowProperties(JUNGLE_STICK, true));
+            public static final Item MANGROVE_TIPPED_ARROW = new TippedArrowItem(arrowProperties(MANGROVE_STICK, true));
+            public static final Item SPRUCE_TIPPED_ARROW = new TippedArrowItem(arrowProperties(SPRUCE_STICK, true));
+            public static final Item WARPED_TIPPED_ARROW = new TippedArrowItem(arrowProperties(WARPED_STICK, true));
 
 
     public static final List<Item> more_weapons = new ArrayList<>();
@@ -246,242 +249,223 @@ public class MoreWeaponVariantItems {
     public static final List<Item> more_crossbows = new ArrayList<>();
     public static final List<Item> more_arrows = new ArrayList<>();
     public static final Map<Item, Item> more_weapon_sticks = new HashMap<>();
-    public static final Map<Item, Item> more_blade_ingredients = new HashMap<>();
     public static final Map<Item, Item> more_tippable_arrows = new HashMap<>();
 
     public static void registerWeaponItems() {
 
-       //Acacia Weapons
-       registerSwordItem(ACACIA_WOODEN_SWORD, ACACIA_STICK, Items.ACACIA_PLANKS, "wooden");
-       registerSwordItem(ACACIA_STONE_SWORD, ACACIA_STICK, Items.COBBLESTONE, "stone");
-       registerSwordItem(ACACIA_DEEPSLATE_SWORD, ACACIA_STICK, Items.DEEPSLATE, "deepslate");
-       registerSwordItem(ACACIA_BLACKSTONE_SWORD, ACACIA_STICK, Items.BLACKSTONE, "blackstone");
-       registerSwordItem(ACACIA_COPPER_SWORD, ACACIA_STICK, Items.COPPER_INGOT, "copper");
-       registerSwordItem(ACACIA_IRON_SWORD, ACACIA_STICK, Items.IRON_INGOT, "iron");
-       registerSwordItem(ACACIA_GOLDEN_SWORD, ACACIA_STICK, Items.GOLD_INGOT, "golden");
-       registerSwordItem(ACACIA_DIAMOND_SWORD, ACACIA_STICK, Items.DIAMOND, "diamond");
-       registerSwordItem(ACACIA_NETHERITE_SWORD, ACACIA_STICK, ACACIA_DIAMOND_SWORD, "netherite");
-       if(isMtoolvLoaded){more_weapons.add(ACACIA_WOODEN_AXE); more_weapons.add(ACACIA_STONE_AXE); more_weapons.add(ACACIA_DEEPSLATE_AXE); more_weapons.add(ACACIA_BLACKSTONE_AXE); more_weapons.add(ACACIA_COPPER_AXE); more_weapons.add(ACACIA_IRON_AXE); more_weapons.add(ACACIA_GOLDEN_AXE); more_weapons.add(ACACIA_DIAMOND_AXE); more_weapons.add(ACACIA_NETHERITE_AXE);}
-        registerBowItem(ACACIA_BOW, ACACIA_STICK);
-        registerCrossbowItem(ACACIA_CROSSBOW, ACACIA_STICK);
-        registerArrowItem(ACACIA_ARROW, ACACIA_STICK, ACACIA_TIPPED_ARROW);
+      //Acacia Weapons
+       registerSwordItem(ACACIA_WOODEN_SWORD, ACACIA_STICK, "wooden");
+       registerSwordItem(ACACIA_STONE_SWORD, ACACIA_STICK, "stone");
+       registerSwordItem(ACACIA_DEEPSLATE_SWORD, ACACIA_STICK, "deepslate");
+       registerSwordItem(ACACIA_BLACKSTONE_SWORD, ACACIA_STICK, "blackstone");
+       registerSwordItem(ACACIA_COPPER_SWORD, ACACIA_STICK, "copper");
+       registerSwordItem(ACACIA_IRON_SWORD, ACACIA_STICK, "iron");
+       registerSwordItem(ACACIA_GOLDEN_SWORD, ACACIA_STICK, "golden");
+       registerSwordItem(ACACIA_DIAMOND_SWORD, ACACIA_STICK, "diamond");
+       registerSwordItem(ACACIA_NETHERITE_SWORD, ACACIA_STICK, "netherite");
+       if (isMtoolvLoaded) {more_weapons.addAll(Set.of(ACACIA_WOODEN_AXE, ACACIA_STONE_AXE, ACACIA_DEEPSLATE_AXE, ACACIA_BLACKSTONE_AXE, ACACIA_COPPER_AXE, ACACIA_IRON_AXE, ACACIA_GOLDEN_AXE, ACACIA_DIAMOND_AXE, ACACIA_NETHERITE_AXE));}
+       registerBowItem(ACACIA_BOW, ACACIA_STICK);
+       registerCrossbowItem(ACACIA_CROSSBOW, ACACIA_STICK);
+       registerArrowItem(ACACIA_ARROW, ACACIA_STICK, ACACIA_TIPPED_ARROW);
 
 
         //Bamboo Weapons
-       registerSwordItem(BAMBOO_WOODEN_SWORD, Items.BAMBOO, Items.BAMBOO_PLANKS, "wooden");
-       registerSwordItem(BAMBOO_STONE_SWORD, Items.BAMBOO, Items.COBBLESTONE, "stone");
-       registerSwordItem(BAMBOO_DEEPSLATE_SWORD, Items.BAMBOO, Items.DEEPSLATE, "deepslate");
-       registerSwordItem(BAMBOO_BLACKSTONE_SWORD, Items.BAMBOO, Items.BLACKSTONE, "blackstone");
-       registerSwordItem(BAMBOO_COPPER_SWORD, Items.BAMBOO, Items.COPPER_INGOT, "copper");
-       registerSwordItem(BAMBOO_IRON_SWORD, Items.BAMBOO, Items.IRON_INGOT, "iron");
-       registerSwordItem(BAMBOO_GOLDEN_SWORD, Items.BAMBOO, Items.GOLD_INGOT, "golden");
-       registerSwordItem(BAMBOO_DIAMOND_SWORD, Items.BAMBOO, Items.DIAMOND, "diamond");
-       registerSwordItem(BAMBOO_NETHERITE_SWORD, Items.BAMBOO, BAMBOO_DIAMOND_SWORD, "netherite");
-       if(isMtoolvLoaded){more_weapons.add(BAMBOO_WOODEN_AXE); more_weapons.add(BAMBOO_STONE_AXE); more_weapons.add(BAMBOO_DEEPSLATE_AXE); more_weapons.add(BAMBOO_BLACKSTONE_AXE); more_weapons.add(BAMBOO_IRON_AXE); more_weapons.add(BAMBOO_COPPER_AXE); more_weapons.add(BAMBOO_GOLDEN_AXE); more_weapons.add(BAMBOO_DIAMOND_AXE); more_weapons.add(BAMBOO_NETHERITE_AXE);}
-        registerBowItem(BAMBOO_BOW, Items.BAMBOO);
-        registerCrossbowItem(BAMBOO_CROSSBOW, Items.BAMBOO);
-        registerArrowItem(BAMBOO_ARROW, Items.BAMBOO, BAMBOO_TIPPED_ARROW);
+       registerSwordItem(BAMBOO_WOODEN_SWORD, Items.BAMBOO, "wooden");
+       registerSwordItem(BAMBOO_STONE_SWORD, Items.BAMBOO, "stone");
+       registerSwordItem(BAMBOO_DEEPSLATE_SWORD, Items.BAMBOO, "deepslate");
+       registerSwordItem(BAMBOO_BLACKSTONE_SWORD, Items.BAMBOO, "blackstone");
+       registerSwordItem(BAMBOO_IRON_SWORD, Items.BAMBOO, "iron");
+       registerSwordItem(BAMBOO_GOLDEN_SWORD, Items.BAMBOO, "golden");
+       registerSwordItem(BAMBOO_DIAMOND_SWORD, Items.BAMBOO, "diamond");
+       registerSwordItem(BAMBOO_NETHERITE_SWORD, Items.BAMBOO, "netherite");
+       if (isMtoolvLoaded) {more_weapons.addAll(Set.of(BAMBOO_WOODEN_AXE, BAMBOO_STONE_AXE, BAMBOO_DEEPSLATE_AXE, BAMBOO_BLACKSTONE_AXE, BAMBOO_COPPER_AXE, BAMBOO_IRON_AXE, BAMBOO_GOLDEN_AXE, BAMBOO_DIAMOND_AXE, BAMBOO_NETHERITE_AXE));}
+       registerBowItem(BAMBOO_BOW, Items.BAMBOO);
+       registerCrossbowItem(BAMBOO_CROSSBOW, Items.BAMBOO);
+       registerArrowItem(BAMBOO_ARROW, Items.BAMBOO, BAMBOO_TIPPED_ARROW);
 
 
       //Birch Weapons
-       registerSwordItem(BIRCH_WOODEN_SWORD, BIRCH_STICK, Items.BIRCH_PLANKS, "wooden");
-       registerSwordItem(BIRCH_STONE_SWORD, BIRCH_STICK, Items.COBBLESTONE, "stone");
-       registerSwordItem(BIRCH_DEEPSLATE_SWORD, BIRCH_STICK, Items.DEEPSLATE, "deepslate");
-       registerSwordItem(BIRCH_BLACKSTONE_SWORD, BIRCH_STICK, Items.BLACKSTONE, "blackstone");
-       registerSwordItem(BIRCH_COPPER_SWORD, BIRCH_STICK, Items.COPPER_INGOT, "copper");
-       registerSwordItem(BIRCH_IRON_SWORD, BIRCH_STICK, Items.IRON_INGOT, "iron");
-       registerSwordItem(BIRCH_GOLDEN_SWORD, BIRCH_STICK, Items.GOLD_INGOT, "golden");
-       registerSwordItem(BIRCH_DIAMOND_SWORD, BIRCH_STICK, Items.DIAMOND, "diamond");
-       registerSwordItem(BIRCH_NETHERITE_SWORD, BIRCH_STICK, BIRCH_DIAMOND_SWORD, "netherite");
-       if(isMtoolvLoaded){more_weapons.add(BIRCH_WOODEN_AXE); more_weapons.add(BIRCH_STONE_AXE); more_weapons.add(BIRCH_DEEPSLATE_AXE); more_weapons.add(BIRCH_BLACKSTONE_AXE); more_weapons.add(BIRCH_IRON_AXE); more_weapons.add(BIRCH_COPPER_AXE); more_weapons.add(BIRCH_GOLDEN_AXE); more_weapons.add(BIRCH_DIAMOND_AXE); more_weapons.add(BIRCH_NETHERITE_AXE);}
-        registerBowItem(BIRCH_BOW, BIRCH_STICK);
-        registerCrossbowItem(BIRCH_CROSSBOW, BIRCH_STICK);
-        registerArrowItem(BIRCH_ARROW, BIRCH_STICK, BIRCH_TIPPED_ARROW);
+       registerSwordItem(BIRCH_WOODEN_SWORD, BIRCH_STICK, "wooden");
+       registerSwordItem(BIRCH_STONE_SWORD, BIRCH_STICK, "stone");
+       registerSwordItem(BIRCH_DEEPSLATE_SWORD, BIRCH_STICK, "deepslate");
+       registerSwordItem(BIRCH_BLACKSTONE_SWORD, BIRCH_STICK, "blackstone");
+       registerSwordItem(BIRCH_COPPER_SWORD, BIRCH_STICK, "copper");
+       registerSwordItem(BIRCH_IRON_SWORD, BIRCH_STICK, "iron");
+       registerSwordItem(BIRCH_GOLDEN_SWORD, BIRCH_STICK, "golden");
+       registerSwordItem(BIRCH_DIAMOND_SWORD, BIRCH_STICK, "diamond");
+       registerSwordItem(BIRCH_NETHERITE_SWORD, BIRCH_STICK, "netherite");
+       if (isMtoolvLoaded) {more_weapons.addAll(Set.of(BIRCH_WOODEN_AXE, BIRCH_STONE_AXE, BIRCH_DEEPSLATE_AXE, BIRCH_BLACKSTONE_AXE, BIRCH_COPPER_AXE, BIRCH_IRON_AXE, BIRCH_GOLDEN_AXE, BIRCH_DIAMOND_AXE, BIRCH_NETHERITE_AXE));}
+       registerBowItem(BIRCH_BOW, BIRCH_STICK);
+       registerCrossbowItem(BIRCH_CROSSBOW, BIRCH_STICK);
+       registerArrowItem(BIRCH_ARROW, BIRCH_STICK, BIRCH_TIPPED_ARROW);
 
 
       //Cherry Weapons
-       registerSwordItem(CHERRY_WOODEN_SWORD, CHERRY_STICK, Items.CHERRY_PLANKS, "wooden");
-       registerSwordItem(CHERRY_STONE_SWORD, CHERRY_STICK, Items.COBBLESTONE, "stone");
-       registerSwordItem(CHERRY_DEEPSLATE_SWORD, CHERRY_STICK, Items.DEEPSLATE, "deepslate");
-       registerSwordItem(CHERRY_BLACKSTONE_SWORD, CHERRY_STICK, Items.BLACKSTONE, "blackstone");
-       registerSwordItem(CHERRY_COPPER_SWORD, CHERRY_STICK, Items.COPPER_INGOT, "copper");
-       registerSwordItem(CHERRY_IRON_SWORD, CHERRY_STICK, Items.IRON_INGOT, "iron");
-       registerSwordItem(CHERRY_GOLDEN_SWORD, CHERRY_STICK, Items.GOLD_INGOT, "golden");
-       registerSwordItem(CHERRY_DIAMOND_SWORD, CHERRY_STICK, Items.DIAMOND, "diamond");
-       registerSwordItem(CHERRY_NETHERITE_SWORD, CHERRY_STICK, CHERRY_DIAMOND_SWORD, "netherite");
-       if(isMtoolvLoaded){more_weapons.add(CHERRY_WOODEN_AXE); more_weapons.add(CHERRY_STONE_AXE); more_weapons.add(CHERRY_DEEPSLATE_AXE); more_weapons.add(CHERRY_BLACKSTONE_AXE); more_weapons.add(CHERRY_IRON_AXE); more_weapons.add(CHERRY_COPPER_AXE); more_weapons.add(CHERRY_GOLDEN_AXE); more_weapons.add(CHERRY_DIAMOND_AXE); more_weapons.add(CHERRY_NETHERITE_AXE);}
-        registerBowItem(CHERRY_BOW, CHERRY_STICK);
-        registerCrossbowItem(CHERRY_CROSSBOW, CHERRY_STICK);
-        registerArrowItem(CHERRY_ARROW, CHERRY_STICK, CHERRY_TIPPED_ARROW);
+       registerSwordItem(CHERRY_WOODEN_SWORD, CHERRY_STICK, "wooden");
+       registerSwordItem(CHERRY_STONE_SWORD, CHERRY_STICK, "stone");
+       registerSwordItem(CHERRY_DEEPSLATE_SWORD, CHERRY_STICK, "deepslate");
+       registerSwordItem(CHERRY_BLACKSTONE_SWORD, CHERRY_STICK, "blackstone");
+       registerSwordItem(CHERRY_COPPER_SWORD, CHERRY_STICK, "copper");
+       registerSwordItem(CHERRY_IRON_SWORD, CHERRY_STICK, "iron");
+       registerSwordItem(CHERRY_GOLDEN_SWORD, CHERRY_STICK, "golden");
+       registerSwordItem(CHERRY_DIAMOND_SWORD, CHERRY_STICK, "diamond");
+       registerSwordItem(CHERRY_NETHERITE_SWORD, CHERRY_STICK, "netherite");
+       if (isMtoolvLoaded) {more_weapons.addAll(Set.of(CHERRY_WOODEN_AXE, CHERRY_STONE_AXE, CHERRY_DEEPSLATE_AXE, CHERRY_BLACKSTONE_AXE, CHERRY_COPPER_AXE, CHERRY_IRON_AXE, CHERRY_GOLDEN_AXE, CHERRY_DIAMOND_AXE, CHERRY_NETHERITE_AXE));}
+       registerBowItem(CHERRY_BOW, CHERRY_STICK);
+       registerCrossbowItem(CHERRY_CROSSBOW, CHERRY_STICK);
+       registerArrowItem(CHERRY_ARROW, CHERRY_STICK, CHERRY_TIPPED_ARROW);
 
 
       //Crimson Weapons
-       registerSwordItem(CRIMSON_WOODEN_SWORD, CRIMSON_STICK, Items.CRIMSON_PLANKS, "wooden");
-       registerSwordItem(CRIMSON_STONE_SWORD, CRIMSON_STICK, Items.COBBLESTONE, "stone");
-       registerSwordItem(CRIMSON_DEEPSLATE_SWORD, CRIMSON_STICK, Items.DEEPSLATE, "deepslate");
-       registerSwordItem(CRIMSON_BLACKSTONE_SWORD, CRIMSON_STICK, Items.BLACKSTONE, "blackstone");
-       registerSwordItem(CRIMSON_COPPER_SWORD, CRIMSON_STICK, Items.COPPER_INGOT, "copper");
-       registerSwordItem(CRIMSON_IRON_SWORD, CRIMSON_STICK, Items.IRON_INGOT, "iron");
-       registerSwordItem(CRIMSON_GOLDEN_SWORD, CRIMSON_STICK, Items.GOLD_INGOT, "golden");
-       registerSwordItem(CRIMSON_DIAMOND_SWORD, CRIMSON_STICK, Items.DIAMOND, "diamond");
-       registerSwordItem(CRIMSON_NETHERITE_SWORD, CRIMSON_STICK, CRIMSON_DIAMOND_SWORD, "netherite");
-       if(isMtoolvLoaded){more_weapons.add(CRIMSON_WOODEN_AXE); more_weapons.add(CRIMSON_STONE_AXE); more_weapons.add(CRIMSON_DEEPSLATE_AXE); more_weapons.add(CRIMSON_BLACKSTONE_AXE); more_weapons.add(CRIMSON_IRON_AXE); more_weapons.add(CRIMSON_COPPER_AXE); more_weapons.add(CRIMSON_GOLDEN_AXE); more_weapons.add(CRIMSON_DIAMOND_AXE); more_weapons.add(CRIMSON_NETHERITE_AXE);}
-        registerBowItem(CRIMSON_BOW, CRIMSON_STICK);
-        registerCrossbowItem(CRIMSON_CROSSBOW, CRIMSON_STICK);
-        registerArrowItem(CRIMSON_ARROW, CRIMSON_STICK, CRIMSON_TIPPED_ARROW);
+       registerSwordItem(CRIMSON_WOODEN_SWORD, CRIMSON_STICK, "wooden");
+       registerSwordItem(CRIMSON_STONE_SWORD, CRIMSON_STICK, "stone");
+       registerSwordItem(CRIMSON_DEEPSLATE_SWORD, CRIMSON_STICK, "deepslate");
+       registerSwordItem(CRIMSON_BLACKSTONE_SWORD, CRIMSON_STICK, "blackstone");
+       registerSwordItem(CRIMSON_COPPER_SWORD, CRIMSON_STICK, "copper");
+       registerSwordItem(CRIMSON_IRON_SWORD, CRIMSON_STICK, "iron");
+       registerSwordItem(CRIMSON_GOLDEN_SWORD, CRIMSON_STICK, "golden");
+       registerSwordItem(CRIMSON_DIAMOND_SWORD, CRIMSON_STICK, "diamond");
+       registerSwordItem(CRIMSON_NETHERITE_SWORD, CRIMSON_STICK, "netherite");
+       if (isMtoolvLoaded) {more_weapons.addAll(Set.of(CRIMSON_WOODEN_AXE, CRIMSON_STONE_AXE, CRIMSON_DEEPSLATE_AXE, CRIMSON_BLACKSTONE_AXE, CRIMSON_COPPER_AXE, CRIMSON_IRON_AXE, CRIMSON_GOLDEN_AXE, CRIMSON_DIAMOND_AXE, CRIMSON_NETHERITE_AXE));}
+       registerBowItem(CRIMSON_BOW, CRIMSON_STICK);
+       registerCrossbowItem(CRIMSON_CROSSBOW, CRIMSON_STICK);
+       registerArrowItem(CRIMSON_ARROW, CRIMSON_STICK, CRIMSON_TIPPED_ARROW);
 
 
       //Dark_oak Weapons
-       registerSwordItem(DARK_OAK_WOODEN_SWORD, DARK_OAK_STICK, Items.DARK_OAK_PLANKS, "wooden");
-       registerSwordItem(DARK_OAK_STONE_SWORD, DARK_OAK_STICK, Items.COBBLESTONE, "stone");
-       registerSwordItem(DARK_OAK_DEEPSLATE_SWORD, DARK_OAK_STICK, Items.DEEPSLATE, "deepslate");
-       registerSwordItem(DARK_OAK_BLACKSTONE_SWORD, DARK_OAK_STICK, Items.BLACKSTONE, "blackstone");
-       registerSwordItem(DARK_OAK_COPPER_SWORD, DARK_OAK_STICK, Items.COPPER_INGOT, "copper");
-       registerSwordItem(DARK_OAK_IRON_SWORD, DARK_OAK_STICK, Items.IRON_INGOT, "iron");
-       registerSwordItem(DARK_OAK_GOLDEN_SWORD, DARK_OAK_STICK, Items.GOLD_INGOT, "golden");
-       registerSwordItem(DARK_OAK_DIAMOND_SWORD, DARK_OAK_STICK, Items.DIAMOND, "diamond");
-       registerSwordItem(DARK_OAK_NETHERITE_SWORD, DARK_OAK_STICK, DARK_OAK_DIAMOND_SWORD, "netherite");
-       if(isMtoolvLoaded){more_weapons.add(DARK_OAK_WOODEN_AXE); more_weapons.add(DARK_OAK_STONE_AXE); more_weapons.add(DARK_OAK_DEEPSLATE_AXE); more_weapons.add(DARK_OAK_BLACKSTONE_AXE); more_weapons.add(DARK_OAK_IRON_AXE); more_weapons.add(DARK_OAK_COPPER_AXE); more_weapons.add(DARK_OAK_GOLDEN_AXE); more_weapons.add(DARK_OAK_DIAMOND_AXE); more_weapons.add(DARK_OAK_NETHERITE_AXE);}
-        registerBowItem(DARK_OAK_BOW, DARK_OAK_STICK);
+       registerSwordItem(DARK_OAK_WOODEN_SWORD, DARK_OAK_STICK, "wooden");
+       registerSwordItem(DARK_OAK_STONE_SWORD, DARK_OAK_STICK, "stone");
+       registerSwordItem(DARK_OAK_DEEPSLATE_SWORD, DARK_OAK_STICK, "deepslate");
+       registerSwordItem(DARK_OAK_BLACKSTONE_SWORD, DARK_OAK_STICK, "blackstone");
+       registerSwordItem(DARK_OAK_COPPER_SWORD, DARK_OAK_STICK, "copper");
+       registerSwordItem(DARK_OAK_IRON_SWORD, DARK_OAK_STICK, "iron");
+       registerSwordItem(DARK_OAK_GOLDEN_SWORD, DARK_OAK_STICK, "golden");
+       registerSwordItem(DARK_OAK_DIAMOND_SWORD, DARK_OAK_STICK, "diamond");
+       registerSwordItem(DARK_OAK_NETHERITE_SWORD, DARK_OAK_STICK, "netherite");
+       if (isMtoolvLoaded) {more_weapons.addAll(Set.of(DARK_OAK_WOODEN_AXE, DARK_OAK_STONE_AXE, DARK_OAK_DEEPSLATE_AXE, DARK_OAK_BLACKSTONE_AXE, DARK_OAK_COPPER_AXE, DARK_OAK_IRON_AXE, DARK_OAK_GOLDEN_AXE, DARK_OAK_DIAMOND_AXE, DARK_OAK_NETHERITE_AXE));}
+       registerBowItem(DARK_OAK_BOW, DARK_OAK_STICK);
         more_weapons.add(Items.CROSSBOW);
-        registerArrowItem(DARK_OAK_ARROW, DARK_OAK_STICK, DARK_OAK_TIPPED_ARROW);
+       registerArrowItem(DARK_OAK_ARROW, DARK_OAK_STICK, DARK_OAK_TIPPED_ARROW);
 
 
         //Pale_oak Weapons
-        registerSwordItem(PALE_OAK_WOODEN_SWORD, PALE_OAK_STICK, Items.PALE_OAK_PLANKS, "wooden");
-        registerSwordItem(PALE_OAK_STONE_SWORD, PALE_OAK_STICK, Items.COBBLESTONE, "stone");
-        registerSwordItem(PALE_OAK_DEEPSLATE_SWORD, PALE_OAK_STICK, Items.DEEPSLATE, "deepslate");
-        registerSwordItem(PALE_OAK_BLACKSTONE_SWORD, PALE_OAK_STICK, Items.BLACKSTONE, "blackstone");
-        registerSwordItem(PALE_OAK_COPPER_SWORD, PALE_OAK_STICK, Items.COPPER_INGOT, "copper");
-        registerSwordItem(PALE_OAK_IRON_SWORD, PALE_OAK_STICK, Items.IRON_INGOT, "iron");
-        registerSwordItem(PALE_OAK_GOLDEN_SWORD, PALE_OAK_STICK, Items.GOLD_INGOT, "golden");
-        registerSwordItem(PALE_OAK_DIAMOND_SWORD, PALE_OAK_STICK, Items.DIAMOND, "diamond");
-        registerSwordItem(PALE_OAK_NETHERITE_SWORD, PALE_OAK_STICK, PALE_OAK_DIAMOND_SWORD, "netherite");
-        if(isMtoolvLoaded){more_weapons.add(PALE_OAK_WOODEN_AXE); more_weapons.add(PALE_OAK_STONE_AXE); more_weapons.add(PALE_OAK_DEEPSLATE_AXE); more_weapons.add(PALE_OAK_BLACKSTONE_AXE); more_weapons.add(PALE_OAK_IRON_AXE); more_weapons.add(PALE_OAK_COPPER_AXE); more_weapons.add(PALE_OAK_GOLDEN_AXE); more_weapons.add(PALE_OAK_DIAMOND_AXE); more_weapons.add(PALE_OAK_NETHERITE_AXE);}
+        registerSwordItem(PALE_OAK_WOODEN_SWORD, PALE_OAK_STICK, "wooden");
+        registerSwordItem(PALE_OAK_STONE_SWORD, PALE_OAK_STICK, "stone");
+        registerSwordItem(PALE_OAK_DEEPSLATE_SWORD, PALE_OAK_STICK, "deepslate");
+        registerSwordItem(PALE_OAK_BLACKSTONE_SWORD, PALE_OAK_STICK, "blackstone");
+        registerSwordItem(PALE_OAK_COPPER_SWORD, PALE_OAK_STICK, "copper");
+        registerSwordItem(PALE_OAK_IRON_SWORD, PALE_OAK_STICK, "iron");
+        registerSwordItem(PALE_OAK_GOLDEN_SWORD, PALE_OAK_STICK, "golden");
+        registerSwordItem(PALE_OAK_DIAMOND_SWORD, PALE_OAK_STICK, "diamond");
+        registerSwordItem(PALE_OAK_NETHERITE_SWORD, PALE_OAK_STICK, "netherite");
+        if(isMtoolvLoaded){more_weapons.add(PALE_OAK_WOODEN_AXE); more_weapons.add(PALE_OAK_STONE_AXE); more_weapons.add(PALE_OAK_DEEPSLATE_AXE); more_weapons.add(PALE_OAK_BLACKSTONE_AXE); more_weapons.add(PALE_OAK_IRON_AXE); more_weapons.add(PALE_OAK_GOLDEN_AXE); more_weapons.add(PALE_OAK_DIAMOND_AXE); more_weapons.add(PALE_OAK_NETHERITE_AXE);}
         registerBowItem(PALE_OAK_BOW, PALE_OAK_STICK);
         registerCrossbowItem(PALE_OAK_CROSSBOW, PALE_OAK_STICK);
         registerArrowItem(PALE_OAK_ARROW, PALE_OAK_STICK, PALE_OAK_TIPPED_ARROW);
 
 
       //Jungle Weapons
-       registerSwordItem(JUNGLE_WOODEN_SWORD, JUNGLE_STICK, Items.JUNGLE_PLANKS, "wooden");
-       registerSwordItem(JUNGLE_STONE_SWORD, JUNGLE_STICK, Items.COBBLESTONE, "stone");
-       registerSwordItem(JUNGLE_DEEPSLATE_SWORD, JUNGLE_STICK, Items.DEEPSLATE, "deepslate");
-       registerSwordItem(JUNGLE_BLACKSTONE_SWORD, JUNGLE_STICK, Items.BLACKSTONE, "blackstone");
-       registerSwordItem(JUNGLE_COPPER_SWORD, JUNGLE_STICK, Items.COPPER_INGOT, "copper");
-       registerSwordItem(JUNGLE_IRON_SWORD, JUNGLE_STICK, Items.IRON_INGOT, "iron");
-       registerSwordItem(JUNGLE_GOLDEN_SWORD, JUNGLE_STICK, Items.GOLD_INGOT, "golden");
-       registerSwordItem(JUNGLE_DIAMOND_SWORD, JUNGLE_STICK, Items.DIAMOND, "diamond");
-       registerSwordItem(JUNGLE_NETHERITE_SWORD, JUNGLE_STICK, JUNGLE_DIAMOND_SWORD, "netherite");
-       if(isMtoolvLoaded){more_weapons.add(JUNGLE_WOODEN_AXE); more_weapons.add(JUNGLE_STONE_AXE); more_weapons.add(JUNGLE_DEEPSLATE_AXE); more_weapons.add(JUNGLE_BLACKSTONE_AXE); more_weapons.add(JUNGLE_IRON_AXE); more_weapons.add(JUNGLE_COPPER_AXE); more_weapons.add(JUNGLE_GOLDEN_AXE); more_weapons.add(JUNGLE_DIAMOND_AXE); more_weapons.add(JUNGLE_NETHERITE_AXE);}
-        registerBowItem(JUNGLE_BOW, JUNGLE_STICK);
-        registerCrossbowItem(JUNGLE_CROSSBOW, JUNGLE_STICK);
-        registerArrowItem(JUNGLE_ARROW, JUNGLE_STICK, JUNGLE_TIPPED_ARROW);
+       registerSwordItem(JUNGLE_WOODEN_SWORD, JUNGLE_STICK, "wooden");
+       registerSwordItem(JUNGLE_STONE_SWORD, JUNGLE_STICK, "stone");
+       registerSwordItem(JUNGLE_DEEPSLATE_SWORD, JUNGLE_STICK, "deepslate");
+       registerSwordItem(JUNGLE_BLACKSTONE_SWORD, JUNGLE_STICK, "blackstone");
+       registerSwordItem(JUNGLE_COPPER_SWORD, JUNGLE_STICK, "copper");
+       registerSwordItem(JUNGLE_IRON_SWORD, JUNGLE_STICK, "iron");
+       registerSwordItem(JUNGLE_GOLDEN_SWORD, JUNGLE_STICK, "golden");
+       registerSwordItem(JUNGLE_DIAMOND_SWORD, JUNGLE_STICK, "diamond");
+       registerSwordItem(JUNGLE_NETHERITE_SWORD, JUNGLE_STICK, "netherite");
+       if (isMtoolvLoaded) {more_weapons.addAll(Set.of(JUNGLE_WOODEN_AXE, JUNGLE_STONE_AXE, JUNGLE_DEEPSLATE_AXE, JUNGLE_BLACKSTONE_AXE, JUNGLE_COPPER_AXE, JUNGLE_IRON_AXE, JUNGLE_GOLDEN_AXE, JUNGLE_DIAMOND_AXE, JUNGLE_NETHERITE_AXE));}
+       registerBowItem(JUNGLE_BOW, JUNGLE_STICK);
+       registerCrossbowItem(JUNGLE_CROSSBOW, JUNGLE_STICK);
+       registerArrowItem(JUNGLE_ARROW, JUNGLE_STICK, JUNGLE_TIPPED_ARROW);
 
 
       //Mangrove Weapons
-       registerSwordItem(MANGROVE_WOODEN_SWORD, MANGROVE_STICK, Items.MANGROVE_PLANKS, "wooden");
-       registerSwordItem(MANGROVE_STONE_SWORD, MANGROVE_STICK, Items.COBBLESTONE, "stone");
-       registerSwordItem(MANGROVE_DEEPSLATE_SWORD, MANGROVE_STICK, Items.DEEPSLATE, "deepslate");
-       registerSwordItem(MANGROVE_BLACKSTONE_SWORD, MANGROVE_STICK, Items.BLACKSTONE, "blackstone");
-       registerSwordItem(MANGROVE_COPPER_SWORD, MANGROVE_STICK, Items.COPPER_INGOT, "copper");
-       registerSwordItem(MANGROVE_IRON_SWORD, MANGROVE_STICK, Items.IRON_INGOT, "iron");
-       registerSwordItem(MANGROVE_GOLDEN_SWORD, MANGROVE_STICK, Items.GOLD_INGOT, "golden");
-       registerSwordItem(MANGROVE_DIAMOND_SWORD, MANGROVE_STICK, Items.DIAMOND, "diamond");
-       registerSwordItem(MANGROVE_NETHERITE_SWORD, MANGROVE_STICK, MANGROVE_DIAMOND_SWORD, "netherite");
-       if(isMtoolvLoaded){more_weapons.add(MANGROVE_WOODEN_AXE); more_weapons.add(MANGROVE_STONE_AXE); more_weapons.add(MANGROVE_DEEPSLATE_AXE); more_weapons.add(MANGROVE_BLACKSTONE_AXE); more_weapons.add(MANGROVE_IRON_AXE); more_weapons.add(MANGROVE_COPPER_AXE); more_weapons.add(MANGROVE_GOLDEN_AXE); more_weapons.add(MANGROVE_DIAMOND_AXE); more_weapons.add(MANGROVE_NETHERITE_AXE);}
-        registerBowItem(MANGROVE_BOW, MANGROVE_STICK);
-        registerCrossbowItem(MANGROVE_CROSSBOW, MANGROVE_STICK);
-        registerArrowItem(MANGROVE_ARROW, MANGROVE_STICK, MANGROVE_TIPPED_ARROW);
+       registerSwordItem(MANGROVE_WOODEN_SWORD, MANGROVE_STICK, "wooden");
+       registerSwordItem(MANGROVE_STONE_SWORD, MANGROVE_STICK, "stone");
+       registerSwordItem(MANGROVE_DEEPSLATE_SWORD, MANGROVE_STICK, "deepslate");
+       registerSwordItem(MANGROVE_BLACKSTONE_SWORD, MANGROVE_STICK, "blackstone");
+       registerSwordItem(MANGROVE_COPPER_SWORD, MANGROVE_STICK, "copper");
+       registerSwordItem(MANGROVE_IRON_SWORD, MANGROVE_STICK, "iron");
+       registerSwordItem(MANGROVE_GOLDEN_SWORD, MANGROVE_STICK, "golden");
+       registerSwordItem(MANGROVE_DIAMOND_SWORD, MANGROVE_STICK, "diamond");
+       registerSwordItem(MANGROVE_NETHERITE_SWORD, MANGROVE_STICK, "netherite");
+       if (isMtoolvLoaded) {more_weapons.addAll(Set.of(MANGROVE_WOODEN_AXE, MANGROVE_STONE_AXE, MANGROVE_DEEPSLATE_AXE, MANGROVE_BLACKSTONE_AXE, MANGROVE_COPPER_AXE, MANGROVE_IRON_AXE, MANGROVE_GOLDEN_AXE, MANGROVE_DIAMOND_AXE, MANGROVE_NETHERITE_AXE));}
+       registerBowItem(MANGROVE_BOW, MANGROVE_STICK);
+       registerCrossbowItem(MANGROVE_CROSSBOW, MANGROVE_STICK);
+       registerArrowItem(MANGROVE_ARROW, MANGROVE_STICK, MANGROVE_TIPPED_ARROW);
 
 
       //Oak Weapons
         more_weapons.add(Items.WOODEN_SWORD);
         more_weapons.add(Items.STONE_SWORD);
-       registerSwordItem(OAK_DEEPSLATE_SWORD, Items.STICK, Items.DEEPSLATE, "deepslate");
-       registerSwordItem(OAK_BLACKSTONE_SWORD, Items.STICK, Items.BLACKSTONE, "blackstone");
-        more_weapons.add(Items.COPPER_SWORD);
+       registerSwordItem(OAK_DEEPSLATE_SWORD, Items.STICK, "deepslate");
+       registerSwordItem(OAK_BLACKSTONE_SWORD, Items.STICK, "blackstone");
         more_weapons.add(Items.IRON_SWORD);
         more_weapons.add(Items.GOLDEN_SWORD);
         more_weapons.add(Items.DIAMOND_SWORD);
         more_weapons.add(Items.NETHERITE_SWORD);
-        if(isMtoolvLoaded){more_weapons.add(Items.WOODEN_AXE); more_weapons.add(Items.STONE_AXE); more_weapons.add(OAK_DEEPSLATE_AXE); more_weapons.add(OAK_BLACKSTONE_AXE); more_weapons.add(Items.COPPER_AXE); more_weapons.add(Items.IRON_AXE); more_weapons.add(Items.GOLDEN_AXE); more_weapons.add(Items.DIAMOND_AXE); more_weapons.add(Items.NETHERITE_AXE);}
+        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(Items.WOODEN_AXE, Items.STONE_AXE, OAK_DEEPSLATE_AXE, OAK_BLACKSTONE_AXE, Items.COPPER_AXE, Items.IRON_AXE, Items.GOLDEN_AXE, Items.DIAMOND_AXE, Items.NETHERITE_AXE));}
         more_weapons.add(Items.BOW);
-        registerCrossbowItem(OAK_CROSSBOW, Items.STICK);
+       registerCrossbowItem(OAK_CROSSBOW, Items.STICK);
         more_weapons.add(Items.ARROW);
+        more_tippable_arrows.put(Items.ARROW, Items.TIPPED_ARROW);
 
       //Spruce Weapons
-       registerSwordItem(SPRUCE_WOODEN_SWORD, SPRUCE_STICK, Items.SPRUCE_PLANKS, "wooden");
-       registerSwordItem(SPRUCE_STONE_SWORD, SPRUCE_STICK, Items.COBBLESTONE, "stone");
-       registerSwordItem(SPRUCE_DEEPSLATE_SWORD, SPRUCE_STICK, Items.DEEPSLATE, "deepslate");
-       registerSwordItem(SPRUCE_BLACKSTONE_SWORD, SPRUCE_STICK, Items.BLACKSTONE, "blackstone");
-       registerSwordItem(SPRUCE_COPPER_SWORD, SPRUCE_STICK, Items.COPPER_INGOT, "copper");
-       registerSwordItem(SPRUCE_IRON_SWORD, SPRUCE_STICK, Items.IRON_INGOT, "iron");
-       registerSwordItem(SPRUCE_GOLDEN_SWORD, SPRUCE_STICK, Items.GOLD_INGOT, "golden");
-       registerSwordItem(SPRUCE_DIAMOND_SWORD, SPRUCE_STICK, Items.DIAMOND, "diamond");
-       registerSwordItem(SPRUCE_NETHERITE_SWORD, SPRUCE_STICK, SPRUCE_DIAMOND_SWORD, "netherite");
-       if(isMtoolvLoaded){more_weapons.add(SPRUCE_WOODEN_AXE); more_weapons.add(SPRUCE_STONE_AXE); more_weapons.add(SPRUCE_DEEPSLATE_AXE); more_weapons.add(SPRUCE_BLACKSTONE_AXE); more_weapons.add(SPRUCE_IRON_AXE); more_weapons.add(SPRUCE_COPPER_AXE); more_weapons.add(SPRUCE_GOLDEN_AXE); more_weapons.add(SPRUCE_DIAMOND_AXE); more_weapons.add(SPRUCE_NETHERITE_AXE);}
-        registerBowItem(SPRUCE_BOW, SPRUCE_STICK);
-        registerCrossbowItem(SPRUCE_CROSSBOW, SPRUCE_STICK);
-        registerArrowItem(SPRUCE_ARROW, SPRUCE_STICK, SPRUCE_TIPPED_ARROW);
+       registerSwordItem(SPRUCE_WOODEN_SWORD, SPRUCE_STICK, "wooden");
+       registerSwordItem(SPRUCE_STONE_SWORD, SPRUCE_STICK, "stone");
+       registerSwordItem(SPRUCE_DEEPSLATE_SWORD, SPRUCE_STICK, "deepslate");
+       registerSwordItem(SPRUCE_BLACKSTONE_SWORD, SPRUCE_STICK, "blackstone");
+       registerSwordItem(SPRUCE_COPPER_SWORD, SPRUCE_STICK, "copper");
+       registerSwordItem(SPRUCE_IRON_SWORD, SPRUCE_STICK, "iron");
+       registerSwordItem(SPRUCE_GOLDEN_SWORD, SPRUCE_STICK, "golden");
+       registerSwordItem(SPRUCE_DIAMOND_SWORD, SPRUCE_STICK, "diamond");
+       registerSwordItem(SPRUCE_NETHERITE_SWORD, SPRUCE_STICK, "netherite");
+       if (isMtoolvLoaded) {more_weapons.addAll(Set.of(SPRUCE_WOODEN_AXE, SPRUCE_STONE_AXE, SPRUCE_DEEPSLATE_AXE, SPRUCE_BLACKSTONE_AXE, SPRUCE_COPPER_AXE, SPRUCE_IRON_AXE, SPRUCE_GOLDEN_AXE, SPRUCE_DIAMOND_AXE, SPRUCE_NETHERITE_AXE));}
+       registerBowItem(SPRUCE_BOW, SPRUCE_STICK);
+       registerCrossbowItem(SPRUCE_CROSSBOW, SPRUCE_STICK);
+       registerArrowItem(SPRUCE_ARROW, SPRUCE_STICK, SPRUCE_TIPPED_ARROW);
 
 
       //Warped Weapons
-       registerSwordItem(WARPED_WOODEN_SWORD, WARPED_STICK, Items.WARPED_PLANKS, "wooden");
-       registerSwordItem(WARPED_STONE_SWORD, WARPED_STICK, Items.COBBLESTONE, "stone");
-       registerSwordItem(WARPED_DEEPSLATE_SWORD, WARPED_STICK, Items.DEEPSLATE, "deepslate");
-       registerSwordItem(WARPED_BLACKSTONE_SWORD, WARPED_STICK, Items.BLACKSTONE, "blackstone");
-       registerSwordItem(WARPED_COPPER_SWORD, WARPED_STICK, Items.COPPER_INGOT, "copper");
-       registerSwordItem(WARPED_IRON_SWORD, WARPED_STICK, Items.IRON_INGOT, "iron");
-       registerSwordItem(WARPED_GOLDEN_SWORD, WARPED_STICK, Items.GOLD_INGOT, "golden");
-       registerSwordItem(WARPED_DIAMOND_SWORD, WARPED_STICK, Items.DIAMOND, "diamond");
-       registerSwordItem(WARPED_NETHERITE_SWORD, WARPED_STICK, WARPED_DIAMOND_SWORD, "netherite");
-       if(isMtoolvLoaded){more_weapons.add(WARPED_WOODEN_AXE); more_weapons.add(WARPED_STONE_AXE); more_weapons.add(WARPED_DEEPSLATE_AXE); more_weapons.add(WARPED_BLACKSTONE_AXE); more_weapons.add(WARPED_IRON_AXE); more_weapons.add(WARPED_COPPER_AXE); more_weapons.add(WARPED_GOLDEN_AXE); more_weapons.add(WARPED_DIAMOND_AXE); more_weapons.add(WARPED_NETHERITE_AXE);}
-        registerBowItem(WARPED_BOW, WARPED_STICK);
-        registerCrossbowItem(WARPED_CROSSBOW, WARPED_STICK);
-        registerArrowItem(WARPED_ARROW, WARPED_STICK, WARPED_TIPPED_ARROW);
+       registerSwordItem(WARPED_WOODEN_SWORD, WARPED_STICK, "wooden");
+       registerSwordItem(WARPED_STONE_SWORD, WARPED_STICK, "stone");
+       registerSwordItem(WARPED_DEEPSLATE_SWORD, WARPED_STICK, "deepslate");
+       registerSwordItem(WARPED_BLACKSTONE_SWORD, WARPED_STICK, "blackstone");
+       registerSwordItem(WARPED_COPPER_SWORD, WARPED_STICK, "copper");
+       registerSwordItem(WARPED_IRON_SWORD, WARPED_STICK, "iron");
+       registerSwordItem(WARPED_GOLDEN_SWORD, WARPED_STICK, "golden");
+       registerSwordItem(WARPED_DIAMOND_SWORD, WARPED_STICK, "diamond");
+       registerSwordItem(WARPED_NETHERITE_SWORD, WARPED_STICK, "netherite");
+       if (isMtoolvLoaded) {more_weapons.addAll(Set.of(WARPED_WOODEN_AXE, WARPED_STONE_AXE, WARPED_DEEPSLATE_AXE, WARPED_BLACKSTONE_AXE, WARPED_COPPER_AXE, WARPED_IRON_AXE, WARPED_GOLDEN_AXE, WARPED_DIAMOND_AXE, WARPED_NETHERITE_AXE));}
+       registerBowItem(WARPED_BOW, WARPED_STICK);
+       registerCrossbowItem(WARPED_CROSSBOW, WARPED_STICK);
+       registerArrowItem(WARPED_ARROW, WARPED_STICK, WARPED_TIPPED_ARROW);
 
     }
 
-    private static void registerSwordItem(Item swordItem, Item stickIngredient, Item bladeIngredient, String weaponType) {
-        String stickWood;
-        if (stickIngredient.equals(Items.BAMBOO)) {stickWood = "bamboo";} else if (stickIngredient.equals(Items.STICK)) {stickWood = "oak";} else { stickWood = ((MoreStickVariantItem) stickIngredient).mstvWoodType;}
-        String swordName = stickWood + "_" + weaponType + "_sword";
+    private static void registerSwordItem(Item swordItem, Item stickIngredient, String toolMaterialName) {
         more_swords.add(swordItem);
-        registerWeaponItem(swordItem, stickIngredient, bladeIngredient, swordName);
+        registerWeaponItem(swordItem, stickIngredient, swordName(toolMaterialName, stickIngredient));
     }
     private static void registerBowItem(Item bowItem, Item stickIngredient) {
-        String stickWood;
-        if (stickIngredient.equals(Items.BAMBOO)) {stickWood = "bamboo";} else if (stickIngredient.equals(Items.STICK)) {stickWood = "oak";} else { stickWood = ((MoreStickVariantItem) stickIngredient).mstvWoodType;}
-        String bowName = stickWood + "_bow";
         more_bows.add(bowItem);
-        registerWeaponItem(bowItem, stickIngredient, null, bowName);
+        registerWeaponItem(bowItem, stickIngredient, bowName(stickIngredient));
     }
     private static void registerCrossbowItem(Item crossbowItem, Item stickIngredient) {
-        String stickWood;
-        if (stickIngredient.equals(Items.BAMBOO)) {stickWood = "bamboo";} else if (stickIngredient.equals(Items.STICK)) {stickWood = "oak";} else { stickWood = ((MoreStickVariantItem) stickIngredient).mstvWoodType;}
-        String crossbowName = stickWood + "_crossbow";
         more_crossbows.add(crossbowItem);
-        registerWeaponItem(crossbowItem, stickIngredient, null, crossbowName);
+        registerWeaponItem(crossbowItem, stickIngredient, crossbowName(stickIngredient));
     }
     private static void registerArrowItem(Item arrowItem, Item stickIngredient, Item tippedArrowItem) {
-        String stickWood;
-        if (stickIngredient.equals(Items.BAMBOO)) {stickWood = "bamboo";} else if (stickIngredient.equals(Items.STICK)) {stickWood = "oak";} else { stickWood = ((MoreStickVariantItem) stickIngredient).mstvWoodType;}
-        String arrowName = stickWood + "_arrow";
-        String tippedArrowName = "tipped_" + arrowName;
         more_arrows.add(arrowItem);
         more_arrows.add(tippedArrowItem);
         more_tippable_arrows.put(arrowItem, tippedArrowItem);
-        registerWeaponItem(arrowItem, stickIngredient, null, arrowName);
-        registerWeaponItem(tippedArrowItem, stickIngredient, null, tippedArrowName);
+        registerWeaponItem(arrowItem, stickIngredient, arrowName(stickIngredient, false));
+        registerWeaponItem(tippedArrowItem, stickIngredient, arrowName(stickIngredient, true));
     }
-    private static void registerWeaponItem(Item weaponItem, Item stickIngredient, Item bladeIngredient, String weaponName) {
+    private static void registerWeaponItem(Item weaponItem, Item stickIngredient, String weaponName) {
         more_weapons.add(weaponItem);
         more_weapon_sticks.put(weaponItem, stickIngredient);
-        if (bladeIngredient != null) {more_blade_ingredients.put(weaponItem, bladeIngredient);}
         Registry.register(BuiltInRegistries.ITEM, MoreWeaponVariants.withModId(weaponName), weaponItem);
     }
-
-
-
 }
