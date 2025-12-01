@@ -46,6 +46,28 @@ public class MoreWeaponVariantItems {
         return applyFireRes(getStickName(stickIngredient), toolMaterialName, properties);
     }
 
+    private static String spearName(String toolMaterialName, Item stickIngredient) {
+        return getStickName(stickIngredient) + "_" + toolMaterialName + "_spear";
+    }
+
+    private static Item.Properties spearProperties(ToolMaterial toolMaterial, String toolMaterialName, Item stickIngredient) {
+        float f; float g; float h; float i; float j; float k; float l = 5.1F; float m; float n = 4.6F;
+        switch (toolMaterialName) {
+            case "wooden" -> {f = 0.65F; g = 0.7F; h = 0.75F; i = 5.0F; j = 14.0F; k = 6.0F; m = 15.0F;}
+            case "stone", "deepslate", "blackstone" -> {f = 0.75F; g = 0.82F; h = 0.7F; i = 4.5F; j = 10.0F; k = 5.5F; m = 13.75F;}
+            case "copper" -> {f = 0.85F; g = 0.82F; h = 0.65F; i = 4.0F; j = 9.0F; k = 5.0F; m = 12.5F;}
+            case "iron" -> {f = 0.95F; g = 0.95F; h = 0.6F; i = 2.5F; j = 8.0F; k = 4.5F; m = 11.25F;}
+            case "golden" -> {f = 0.95F; g = 0.7F; h = 0.7F; i = 3.5F; j = 10.0F; k = 5.5F; m = 13.75F;}
+            case "diamond" -> {f = 1.05F; g = 1.075F; h = 0.5F; i = 3.0F; j = 7.5F; k = 4.0F; m = 10.0F;}
+            case "netherite" -> {f = 1.15F; g = 1.2F; h = 0.4F; i = 2.5F; j = 7.0F; k = 3.5F; m = 8.75F;}
+            default -> {f = 0.1F; g = 0.1F; h = 1.0F; i = 15.0F; j = 15.0F; k = 15.0F; m = 15.0F;
+                LOGGER.warn("Unknown tool material string '{}' found for a spear variant item '_{}_spear'. This should not happen!", toolMaterialName, getStickName(stickIngredient));}
+        }
+        Item.Properties properties = new Item.Properties().spear(toolMaterial, f, g, h, l, i, j, k, n, m)
+                .setId(ResourceKey.create(Registries.ITEM, withModId(spearName(toolMaterialName, stickIngredient))));
+        return applyFireRes(getStickName(stickIngredient), toolMaterialName, properties);
+    }
+
     private static String bowName(Item stickIngredient) {
         return getStickName(stickIngredient) + "_bow";
     }
@@ -80,6 +102,117 @@ public class MoreWeaponVariantItems {
         if (tipped) properties.component(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
         return properties;
     }
+
+            // Spears
+            public static final Item ACACIA_WOODEN_SPEAR = new Item(spearProperties(WOOD, "wooden", ACACIA_STICK));
+            public static final Item BAMBOO_WOODEN_SPEAR = new Item(spearProperties(WOOD, "wooden", Items.BAMBOO));
+            public static final Item BIRCH_WOODEN_SPEAR = new Item(spearProperties(WOOD, "wooden", BIRCH_STICK));
+            public static final Item CHERRY_WOODEN_SPEAR = new Item(spearProperties(WOOD, "wooden", CHERRY_STICK));
+            public static final Item CRIMSON_WOODEN_SPEAR = new Item(spearProperties(WOOD, "wooden", CRIMSON_STICK));
+            public static final Item DARK_OAK_WOODEN_SPEAR = new Item(spearProperties(WOOD, "wooden", DARK_OAK_STICK));
+            public static final Item PALE_OAK_WOODEN_SPEAR = new Item(spearProperties(WOOD, "wooden", PALE_OAK_STICK));
+            public static final Item JUNGLE_WOODEN_SPEAR = new Item(spearProperties(WOOD, "wooden", JUNGLE_STICK));
+            public static final Item MANGROVE_WOODEN_SPEAR = new Item(spearProperties(WOOD, "wooden", MANGROVE_STICK));
+            public static final Item SPRUCE_WOODEN_SPEAR = new Item(spearProperties(WOOD, "wooden", SPRUCE_STICK));
+            public static final Item WARPED_WOODEN_SPEAR = new Item(spearProperties(WOOD, "wooden", WARPED_STICK));
+
+                    public static final Item ACACIA_STONE_SPEAR = new Item(spearProperties(STONE, "stone", ACACIA_STICK));
+                    public static final Item BAMBOO_STONE_SPEAR = new Item(spearProperties(STONE, "stone", Items.BAMBOO));
+                    public static final Item BIRCH_STONE_SPEAR = new Item(spearProperties(STONE, "stone", BIRCH_STICK));
+                    public static final Item CHERRY_STONE_SPEAR = new Item(spearProperties(STONE, "stone", CHERRY_STICK));
+                    public static final Item CRIMSON_STONE_SPEAR = new Item(spearProperties(STONE, "stone", CRIMSON_STICK));
+                    public static final Item DARK_OAK_STONE_SPEAR = new Item(spearProperties(STONE, "stone", DARK_OAK_STICK));
+                    public static final Item PALE_OAK_STONE_SPEAR = new Item(spearProperties(STONE, "stone", PALE_OAK_STICK));
+                    public static final Item JUNGLE_STONE_SPEAR = new Item(spearProperties(STONE, "stone", JUNGLE_STICK));
+                    public static final Item MANGROVE_STONE_SPEAR = new Item(spearProperties(STONE, "stone", MANGROVE_STICK));
+                    public static final Item SPRUCE_STONE_SPEAR = new Item(spearProperties(STONE, "stone", SPRUCE_STICK));
+                    public static final Item WARPED_STONE_SPEAR = new Item(spearProperties(STONE, "stone", WARPED_STICK));
+
+                    public static final Item ACACIA_DEEPSLATE_SPEAR = new Item(spearProperties(STONE, "deepslate", ACACIA_STICK));
+                    public static final Item BAMBOO_DEEPSLATE_SPEAR = new Item(spearProperties(STONE, "deepslate", Items.BAMBOO));
+                    public static final Item BIRCH_DEEPSLATE_SPEAR = new Item(spearProperties(STONE, "deepslate", BIRCH_STICK));
+                    public static final Item CHERRY_DEEPSLATE_SPEAR = new Item(spearProperties(STONE, "deepslate", CHERRY_STICK));
+                    public static final Item CRIMSON_DEEPSLATE_SPEAR = new Item(spearProperties(STONE, "deepslate", CRIMSON_STICK));
+                    public static final Item DARK_OAK_DEEPSLATE_SPEAR = new Item(spearProperties(STONE, "deepslate", DARK_OAK_STICK));
+                    public static final Item PALE_OAK_DEEPSLATE_SPEAR = new Item(spearProperties(STONE, "deepslate", PALE_OAK_STICK));
+                    public static final Item JUNGLE_DEEPSLATE_SPEAR = new Item(spearProperties(STONE, "deepslate", JUNGLE_STICK));
+                    public static final Item MANGROVE_DEEPSLATE_SPEAR = new Item(spearProperties(STONE, "deepslate", MANGROVE_STICK));
+                    public static final Item OAK_DEEPSLATE_SPEAR = new Item(spearProperties(STONE, "deepslate", Items.STICK));
+                    public static final Item SPRUCE_DEEPSLATE_SPEAR = new Item(spearProperties(STONE, "deepslate", SPRUCE_STICK));
+                    public static final Item WARPED_DEEPSLATE_SPEAR = new Item(spearProperties(STONE, "deepslate", WARPED_STICK));
+
+                    public static final Item ACACIA_BLACKSTONE_SPEAR = new Item(spearProperties(STONE, "blackstone", ACACIA_STICK));
+                    public static final Item BAMBOO_BLACKSTONE_SPEAR = new Item(spearProperties(STONE, "blackstone", Items.BAMBOO));
+                    public static final Item BIRCH_BLACKSTONE_SPEAR = new Item(spearProperties(STONE, "blackstone", BIRCH_STICK));
+                    public static final Item CHERRY_BLACKSTONE_SPEAR = new Item(spearProperties(STONE, "blackstone", CHERRY_STICK));
+                    public static final Item CRIMSON_BLACKSTONE_SPEAR = new Item(spearProperties(STONE, "blackstone", CRIMSON_STICK));
+                    public static final Item DARK_OAK_BLACKSTONE_SPEAR = new Item(spearProperties(STONE, "blackstone", DARK_OAK_STICK));
+                    public static final Item PALE_OAK_BLACKSTONE_SPEAR = new Item(spearProperties(STONE, "blackstone", PALE_OAK_STICK));
+                    public static final Item JUNGLE_BLACKSTONE_SPEAR = new Item(spearProperties(STONE, "blackstone", JUNGLE_STICK));
+                    public static final Item MANGROVE_BLACKSTONE_SPEAR = new Item(spearProperties(STONE, "blackstone", MANGROVE_STICK));
+                    public static final Item OAK_BLACKSTONE_SPEAR = new Item(spearProperties(STONE, "blackstone", Items.STICK));
+                    public static final Item SPRUCE_BLACKSTONE_SPEAR = new Item(spearProperties(STONE, "blackstone", SPRUCE_STICK));
+                    public static final Item WARPED_BLACKSTONE_SPEAR = new Item(spearProperties(STONE, "blackstone", WARPED_STICK));
+
+            public static final Item ACACIA_GOLDEN_SPEAR = new Item(spearProperties(GOLD, "golden", ACACIA_STICK));
+            public static final Item BAMBOO_GOLDEN_SPEAR = new Item(spearProperties(GOLD, "golden", Items.BAMBOO));
+            public static final Item BIRCH_GOLDEN_SPEAR = new Item(spearProperties(GOLD, "golden", BIRCH_STICK));
+            public static final Item CHERRY_GOLDEN_SPEAR = new Item(spearProperties(GOLD, "golden", CHERRY_STICK));
+            public static final Item CRIMSON_GOLDEN_SPEAR = new Item(spearProperties(GOLD, "golden", CRIMSON_STICK));
+            public static final Item DARK_OAK_GOLDEN_SPEAR = new Item(spearProperties(GOLD, "golden", DARK_OAK_STICK));
+            public static final Item PALE_OAK_GOLDEN_SPEAR = new Item(spearProperties(GOLD, "golden", PALE_OAK_STICK));
+            public static final Item JUNGLE_GOLDEN_SPEAR = new Item(spearProperties(GOLD, "golden", JUNGLE_STICK));
+            public static final Item MANGROVE_GOLDEN_SPEAR = new Item(spearProperties(GOLD, "golden", MANGROVE_STICK));
+            public static final Item SPRUCE_GOLDEN_SPEAR = new Item(spearProperties(GOLD, "golden", SPRUCE_STICK));
+            public static final Item WARPED_GOLDEN_SPEAR = new Item(spearProperties(GOLD, "golden", WARPED_STICK));
+
+            public static final Item ACACIA_COPPER_SPEAR = new Item(spearProperties(COPPER, "copper", ACACIA_STICK));
+            public static final Item BAMBOO_COPPER_SPEAR = new Item(spearProperties(COPPER, "copper", Items.BAMBOO));
+            public static final Item BIRCH_COPPER_SPEAR = new Item(spearProperties(COPPER, "copper", BIRCH_STICK));
+            public static final Item CHERRY_COPPER_SPEAR = new Item(spearProperties(COPPER, "copper", CHERRY_STICK));
+            public static final Item CRIMSON_COPPER_SPEAR = new Item(spearProperties(COPPER, "copper", CRIMSON_STICK));
+            public static final Item DARK_OAK_COPPER_SPEAR = new Item(spearProperties(COPPER, "copper", DARK_OAK_STICK));
+            public static final Item PALE_OAK_COPPER_SPEAR = new Item(spearProperties(COPPER, "copper", PALE_OAK_STICK));
+            public static final Item JUNGLE_COPPER_SPEAR = new Item(spearProperties(COPPER, "copper", JUNGLE_STICK));
+            public static final Item MANGROVE_COPPER_SPEAR = new Item(spearProperties(COPPER, "copper", MANGROVE_STICK));
+            public static final Item SPRUCE_COPPER_SPEAR = new Item(spearProperties(COPPER, "copper", SPRUCE_STICK));
+            public static final Item WARPED_COPPER_SPEAR = new Item(spearProperties(COPPER, "copper", WARPED_STICK));
+
+            public static final Item ACACIA_IRON_SPEAR = new Item(spearProperties(IRON, "iron", ACACIA_STICK));
+            public static final Item BAMBOO_IRON_SPEAR = new Item(spearProperties(IRON, "iron", Items.BAMBOO));
+            public static final Item BIRCH_IRON_SPEAR = new Item(spearProperties(IRON, "iron", BIRCH_STICK));
+            public static final Item CHERRY_IRON_SPEAR = new Item(spearProperties(IRON, "iron", CHERRY_STICK));
+            public static final Item CRIMSON_IRON_SPEAR = new Item(spearProperties(IRON, "iron", CRIMSON_STICK));
+            public static final Item DARK_OAK_IRON_SPEAR = new Item(spearProperties(IRON, "iron", DARK_OAK_STICK));
+            public static final Item PALE_OAK_IRON_SPEAR = new Item(spearProperties(IRON, "iron", PALE_OAK_STICK));
+            public static final Item JUNGLE_IRON_SPEAR = new Item(spearProperties(IRON, "iron", JUNGLE_STICK));
+            public static final Item MANGROVE_IRON_SPEAR = new Item(spearProperties(IRON, "iron", MANGROVE_STICK));
+            public static final Item SPRUCE_IRON_SPEAR = new Item(spearProperties(IRON, "iron", SPRUCE_STICK));
+            public static final Item WARPED_IRON_SPEAR = new Item(spearProperties(IRON, "iron", WARPED_STICK));
+
+            public static final Item ACACIA_DIAMOND_SPEAR = new Item(spearProperties(DIAMOND, "diamond", ACACIA_STICK));
+            public static final Item BAMBOO_DIAMOND_SPEAR = new Item(spearProperties(DIAMOND, "diamond", Items.BAMBOO));
+            public static final Item BIRCH_DIAMOND_SPEAR = new Item(spearProperties(DIAMOND, "diamond", BIRCH_STICK));
+            public static final Item CHERRY_DIAMOND_SPEAR = new Item(spearProperties(DIAMOND, "diamond", CHERRY_STICK));
+            public static final Item CRIMSON_DIAMOND_SPEAR = new Item(spearProperties(DIAMOND, "diamond", CRIMSON_STICK));
+            public static final Item DARK_OAK_DIAMOND_SPEAR = new Item(spearProperties(DIAMOND, "diamond", DARK_OAK_STICK));
+            public static final Item PALE_OAK_DIAMOND_SPEAR = new Item(spearProperties(DIAMOND, "diamond", PALE_OAK_STICK));
+            public static final Item JUNGLE_DIAMOND_SPEAR = new Item(spearProperties(DIAMOND, "diamond", JUNGLE_STICK));
+            public static final Item MANGROVE_DIAMOND_SPEAR = new Item(spearProperties(DIAMOND, "diamond", MANGROVE_STICK));
+            public static final Item SPRUCE_DIAMOND_SPEAR = new Item(spearProperties(DIAMOND, "diamond", SPRUCE_STICK));
+            public static final Item WARPED_DIAMOND_SPEAR = new Item(spearProperties(DIAMOND, "diamond", WARPED_STICK));
+
+            public static final Item ACACIA_NETHERITE_SPEAR = new Item(spearProperties(NETHERITE, "netherite", ACACIA_STICK));
+            public static final Item BAMBOO_NETHERITE_SPEAR = new Item(spearProperties(NETHERITE, "netherite", Items.BAMBOO));
+            public static final Item BIRCH_NETHERITE_SPEAR = new Item(spearProperties(NETHERITE, "netherite", BIRCH_STICK));
+            public static final Item CHERRY_NETHERITE_SPEAR = new Item(spearProperties(NETHERITE, "netherite", CHERRY_STICK));
+            public static final Item CRIMSON_NETHERITE_SPEAR = new Item(spearProperties(NETHERITE, "netherite", CRIMSON_STICK));
+            public static final Item DARK_OAK_NETHERITE_SPEAR = new Item(spearProperties(NETHERITE, "netherite", DARK_OAK_STICK));
+            public static final Item PALE_OAK_NETHERITE_SPEAR = new Item(spearProperties(NETHERITE, "netherite", PALE_OAK_STICK));
+            public static final Item JUNGLE_NETHERITE_SPEAR = new Item(spearProperties(NETHERITE, "netherite", JUNGLE_STICK));
+            public static final Item MANGROVE_NETHERITE_SPEAR = new Item(spearProperties(NETHERITE, "netherite", MANGROVE_STICK));
+            public static final Item SPRUCE_NETHERITE_SPEAR = new Item(spearProperties(NETHERITE, "netherite", SPRUCE_STICK));
+            public static final Item WARPED_NETHERITE_SPEAR = new Item(spearProperties(NETHERITE, "netherite", WARPED_STICK));
 
             // Swords
             public static final Item ACACIA_WOODEN_SWORD = new Item(swordProperties(WOOD, "wooden", ACACIA_STICK));
@@ -245,6 +378,7 @@ public class MoreWeaponVariantItems {
 
     public static final List<Item> more_weapons = new ArrayList<>();
     public static final List<Item> more_swords = new ArrayList<>();
+    public static final List<Item> more_spears = new ArrayList<>();
     public static final List<Item> more_bows = new ArrayList<>();
     public static final List<Item> more_crossbows = new ArrayList<>();
     public static final List<Item> more_arrows = new ArrayList<>();
@@ -263,6 +397,15 @@ public class MoreWeaponVariantItems {
        registerSwordItem(ACACIA_GOLDEN_SWORD, ACACIA_STICK, "golden");
        registerSwordItem(ACACIA_DIAMOND_SWORD, ACACIA_STICK, "diamond");
        registerSwordItem(ACACIA_NETHERITE_SWORD, ACACIA_STICK, "netherite");
+       registerSpearItem(ACACIA_WOODEN_SPEAR, ACACIA_STICK, "wooden");
+       registerSpearItem(ACACIA_STONE_SPEAR, ACACIA_STICK, "stone");
+       registerSpearItem(ACACIA_DEEPSLATE_SPEAR, ACACIA_STICK, "deepslate");
+       registerSpearItem(ACACIA_BLACKSTONE_SPEAR, ACACIA_STICK, "blackstone");
+       registerSpearItem(ACACIA_COPPER_SPEAR, ACACIA_STICK, "copper");
+       registerSpearItem(ACACIA_IRON_SPEAR, ACACIA_STICK, "iron");
+       registerSpearItem(ACACIA_GOLDEN_SPEAR, ACACIA_STICK, "golden");
+       registerSpearItem(ACACIA_DIAMOND_SPEAR, ACACIA_STICK, "diamond");
+       registerSpearItem(ACACIA_NETHERITE_SPEAR, ACACIA_STICK, "netherite");
        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(ACACIA_WOODEN_AXE, ACACIA_STONE_AXE, ACACIA_DEEPSLATE_AXE, ACACIA_BLACKSTONE_AXE, ACACIA_COPPER_AXE, ACACIA_IRON_AXE, ACACIA_GOLDEN_AXE, ACACIA_DIAMOND_AXE, ACACIA_NETHERITE_AXE));}
        registerBowItem(ACACIA_BOW, ACACIA_STICK);
        registerCrossbowItem(ACACIA_CROSSBOW, ACACIA_STICK);
@@ -279,6 +422,15 @@ public class MoreWeaponVariantItems {
        registerSwordItem(BAMBOO_GOLDEN_SWORD, Items.BAMBOO, "golden");
        registerSwordItem(BAMBOO_DIAMOND_SWORD, Items.BAMBOO, "diamond");
        registerSwordItem(BAMBOO_NETHERITE_SWORD, Items.BAMBOO, "netherite");
+       registerSpearItem(BAMBOO_WOODEN_SPEAR, Items.BAMBOO, "wooden");
+       registerSpearItem(BAMBOO_STONE_SPEAR, Items.BAMBOO, "stone");
+       registerSpearItem(BAMBOO_DEEPSLATE_SPEAR, Items.BAMBOO, "deepslate");
+       registerSpearItem(BAMBOO_BLACKSTONE_SPEAR, Items.BAMBOO, "blackstone");
+       registerSpearItem(BAMBOO_COPPER_SPEAR, Items.BAMBOO, "copper");
+       registerSpearItem(BAMBOO_IRON_SPEAR, Items.BAMBOO, "iron");
+       registerSpearItem(BAMBOO_GOLDEN_SPEAR, Items.BAMBOO, "golden");
+       registerSpearItem(BAMBOO_DIAMOND_SPEAR, Items.BAMBOO, "diamond");
+       registerSpearItem(BAMBOO_NETHERITE_SPEAR, Items.BAMBOO, "netherite");
        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(BAMBOO_WOODEN_AXE, BAMBOO_STONE_AXE, BAMBOO_DEEPSLATE_AXE, BAMBOO_BLACKSTONE_AXE, BAMBOO_COPPER_AXE, BAMBOO_IRON_AXE, BAMBOO_GOLDEN_AXE, BAMBOO_DIAMOND_AXE, BAMBOO_NETHERITE_AXE));}
        registerBowItem(BAMBOO_BOW, Items.BAMBOO);
        registerCrossbowItem(BAMBOO_CROSSBOW, Items.BAMBOO);
@@ -295,6 +447,15 @@ public class MoreWeaponVariantItems {
        registerSwordItem(BIRCH_GOLDEN_SWORD, BIRCH_STICK, "golden");
        registerSwordItem(BIRCH_DIAMOND_SWORD, BIRCH_STICK, "diamond");
        registerSwordItem(BIRCH_NETHERITE_SWORD, BIRCH_STICK, "netherite");
+       registerSpearItem(BIRCH_WOODEN_SPEAR, BIRCH_STICK, "wooden");
+       registerSpearItem(BIRCH_STONE_SPEAR, BIRCH_STICK, "stone");
+       registerSpearItem(BIRCH_DEEPSLATE_SPEAR, BIRCH_STICK, "deepslate");
+       registerSpearItem(BIRCH_BLACKSTONE_SPEAR, BIRCH_STICK, "blackstone");
+       registerSpearItem(BIRCH_COPPER_SPEAR, BIRCH_STICK, "copper");
+       registerSpearItem(BIRCH_IRON_SPEAR, BIRCH_STICK, "iron");
+       registerSpearItem(BIRCH_GOLDEN_SPEAR, BIRCH_STICK, "golden");
+       registerSpearItem(BIRCH_DIAMOND_SPEAR, BIRCH_STICK, "diamond");
+       registerSpearItem(BIRCH_NETHERITE_SPEAR, BIRCH_STICK, "netherite");
        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(BIRCH_WOODEN_AXE, BIRCH_STONE_AXE, BIRCH_DEEPSLATE_AXE, BIRCH_BLACKSTONE_AXE, BIRCH_COPPER_AXE, BIRCH_IRON_AXE, BIRCH_GOLDEN_AXE, BIRCH_DIAMOND_AXE, BIRCH_NETHERITE_AXE));}
        registerBowItem(BIRCH_BOW, BIRCH_STICK);
        registerCrossbowItem(BIRCH_CROSSBOW, BIRCH_STICK);
@@ -311,6 +472,15 @@ public class MoreWeaponVariantItems {
        registerSwordItem(CHERRY_GOLDEN_SWORD, CHERRY_STICK, "golden");
        registerSwordItem(CHERRY_DIAMOND_SWORD, CHERRY_STICK, "diamond");
        registerSwordItem(CHERRY_NETHERITE_SWORD, CHERRY_STICK, "netherite");
+       registerSpearItem(CHERRY_WOODEN_SPEAR, CHERRY_STICK, "wooden");
+       registerSpearItem(CHERRY_STONE_SPEAR, CHERRY_STICK, "stone");
+       registerSpearItem(CHERRY_DEEPSLATE_SPEAR, CHERRY_STICK, "deepslate");
+       registerSpearItem(CHERRY_BLACKSTONE_SPEAR, CHERRY_STICK, "blackstone");
+       registerSpearItem(CHERRY_COPPER_SPEAR, CHERRY_STICK, "copper");
+       registerSpearItem(CHERRY_IRON_SPEAR, CHERRY_STICK, "iron");
+       registerSpearItem(CHERRY_GOLDEN_SPEAR, CHERRY_STICK, "golden");
+       registerSpearItem(CHERRY_DIAMOND_SPEAR, CHERRY_STICK, "diamond");
+       registerSpearItem(CHERRY_NETHERITE_SPEAR, CHERRY_STICK, "netherite");
        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(CHERRY_WOODEN_AXE, CHERRY_STONE_AXE, CHERRY_DEEPSLATE_AXE, CHERRY_BLACKSTONE_AXE, CHERRY_COPPER_AXE, CHERRY_IRON_AXE, CHERRY_GOLDEN_AXE, CHERRY_DIAMOND_AXE, CHERRY_NETHERITE_AXE));}
        registerBowItem(CHERRY_BOW, CHERRY_STICK);
        registerCrossbowItem(CHERRY_CROSSBOW, CHERRY_STICK);
@@ -327,6 +497,15 @@ public class MoreWeaponVariantItems {
        registerSwordItem(CRIMSON_GOLDEN_SWORD, CRIMSON_STICK, "golden");
        registerSwordItem(CRIMSON_DIAMOND_SWORD, CRIMSON_STICK, "diamond");
        registerSwordItem(CRIMSON_NETHERITE_SWORD, CRIMSON_STICK, "netherite");
+       registerSpearItem(CRIMSON_WOODEN_SPEAR, CRIMSON_STICK, "wooden");
+       registerSpearItem(CRIMSON_STONE_SPEAR, CRIMSON_STICK, "stone");
+       registerSpearItem(CRIMSON_DEEPSLATE_SPEAR, CRIMSON_STICK, "deepslate");
+       registerSpearItem(CRIMSON_BLACKSTONE_SPEAR, CRIMSON_STICK, "blackstone");
+       registerSpearItem(CRIMSON_COPPER_SPEAR, CRIMSON_STICK, "copper");
+       registerSpearItem(CRIMSON_IRON_SPEAR, CRIMSON_STICK, "iron");
+       registerSpearItem(CRIMSON_GOLDEN_SPEAR, CRIMSON_STICK, "golden");
+       registerSpearItem(CRIMSON_DIAMOND_SPEAR, CRIMSON_STICK, "diamond");
+       registerSpearItem(CRIMSON_NETHERITE_SPEAR, CRIMSON_STICK, "netherite");
        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(CRIMSON_WOODEN_AXE, CRIMSON_STONE_AXE, CRIMSON_DEEPSLATE_AXE, CRIMSON_BLACKSTONE_AXE, CRIMSON_COPPER_AXE, CRIMSON_IRON_AXE, CRIMSON_GOLDEN_AXE, CRIMSON_DIAMOND_AXE, CRIMSON_NETHERITE_AXE));}
        registerBowItem(CRIMSON_BOW, CRIMSON_STICK);
        registerCrossbowItem(CRIMSON_CROSSBOW, CRIMSON_STICK);
@@ -343,6 +522,15 @@ public class MoreWeaponVariantItems {
        registerSwordItem(DARK_OAK_GOLDEN_SWORD, DARK_OAK_STICK, "golden");
        registerSwordItem(DARK_OAK_DIAMOND_SWORD, DARK_OAK_STICK, "diamond");
        registerSwordItem(DARK_OAK_NETHERITE_SWORD, DARK_OAK_STICK, "netherite");
+       registerSpearItem(DARK_OAK_WOODEN_SPEAR, DARK_OAK_STICK, "wooden");
+       registerSpearItem(DARK_OAK_STONE_SPEAR, DARK_OAK_STICK, "stone");
+       registerSpearItem(DARK_OAK_DEEPSLATE_SPEAR, DARK_OAK_STICK, "deepslate");
+       registerSpearItem(DARK_OAK_BLACKSTONE_SPEAR, DARK_OAK_STICK, "blackstone");
+       registerSpearItem(DARK_OAK_COPPER_SPEAR, DARK_OAK_STICK, "copper");
+       registerSpearItem(DARK_OAK_IRON_SPEAR, DARK_OAK_STICK, "iron");
+       registerSpearItem(DARK_OAK_GOLDEN_SPEAR, DARK_OAK_STICK, "golden");
+       registerSpearItem(DARK_OAK_DIAMOND_SPEAR, DARK_OAK_STICK, "diamond");
+       registerSpearItem(DARK_OAK_NETHERITE_SPEAR, DARK_OAK_STICK, "netherite");
        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(DARK_OAK_WOODEN_AXE, DARK_OAK_STONE_AXE, DARK_OAK_DEEPSLATE_AXE, DARK_OAK_BLACKSTONE_AXE, DARK_OAK_COPPER_AXE, DARK_OAK_IRON_AXE, DARK_OAK_GOLDEN_AXE, DARK_OAK_DIAMOND_AXE, DARK_OAK_NETHERITE_AXE));}
        registerBowItem(DARK_OAK_BOW, DARK_OAK_STICK);
         more_weapons.add(Items.CROSSBOW);
@@ -359,6 +547,15 @@ public class MoreWeaponVariantItems {
         registerSwordItem(PALE_OAK_GOLDEN_SWORD, PALE_OAK_STICK, "golden");
         registerSwordItem(PALE_OAK_DIAMOND_SWORD, PALE_OAK_STICK, "diamond");
         registerSwordItem(PALE_OAK_NETHERITE_SWORD, PALE_OAK_STICK, "netherite");
+        registerSpearItem(PALE_OAK_WOODEN_SPEAR, PALE_OAK_STICK, "wooden");
+        registerSpearItem(PALE_OAK_STONE_SPEAR, PALE_OAK_STICK, "stone");
+        registerSpearItem(PALE_OAK_DEEPSLATE_SPEAR, PALE_OAK_STICK, "deepslate");
+        registerSpearItem(PALE_OAK_BLACKSTONE_SPEAR, PALE_OAK_STICK, "blackstone");
+        registerSpearItem(PALE_OAK_COPPER_SPEAR, PALE_OAK_STICK, "copper");
+        registerSpearItem(PALE_OAK_IRON_SPEAR, PALE_OAK_STICK, "iron");
+        registerSpearItem(PALE_OAK_GOLDEN_SPEAR, PALE_OAK_STICK, "golden");
+        registerSpearItem(PALE_OAK_DIAMOND_SPEAR, PALE_OAK_STICK, "diamond");
+        registerSpearItem(PALE_OAK_NETHERITE_SPEAR, PALE_OAK_STICK, "netherite");
         if(isMtoolvLoaded){more_weapons.add(PALE_OAK_WOODEN_AXE); more_weapons.add(PALE_OAK_STONE_AXE); more_weapons.add(PALE_OAK_DEEPSLATE_AXE); more_weapons.add(PALE_OAK_BLACKSTONE_AXE); more_weapons.add(PALE_OAK_IRON_AXE); more_weapons.add(PALE_OAK_GOLDEN_AXE); more_weapons.add(PALE_OAK_DIAMOND_AXE); more_weapons.add(PALE_OAK_NETHERITE_AXE);}
         registerBowItem(PALE_OAK_BOW, PALE_OAK_STICK);
         registerCrossbowItem(PALE_OAK_CROSSBOW, PALE_OAK_STICK);
@@ -375,6 +572,15 @@ public class MoreWeaponVariantItems {
        registerSwordItem(JUNGLE_GOLDEN_SWORD, JUNGLE_STICK, "golden");
        registerSwordItem(JUNGLE_DIAMOND_SWORD, JUNGLE_STICK, "diamond");
        registerSwordItem(JUNGLE_NETHERITE_SWORD, JUNGLE_STICK, "netherite");
+       registerSpearItem(JUNGLE_WOODEN_SPEAR, JUNGLE_STICK, "wooden");
+       registerSpearItem(JUNGLE_STONE_SPEAR, JUNGLE_STICK, "stone");
+       registerSpearItem(JUNGLE_DEEPSLATE_SPEAR, JUNGLE_STICK, "deepslate");
+       registerSpearItem(JUNGLE_BLACKSTONE_SPEAR, JUNGLE_STICK, "blackstone");
+       registerSpearItem(JUNGLE_COPPER_SPEAR, JUNGLE_STICK, "copper");
+       registerSpearItem(JUNGLE_IRON_SPEAR, JUNGLE_STICK, "iron");
+       registerSpearItem(JUNGLE_GOLDEN_SPEAR, JUNGLE_STICK, "golden");
+       registerSpearItem(JUNGLE_DIAMOND_SPEAR, JUNGLE_STICK, "diamond");
+       registerSpearItem(JUNGLE_NETHERITE_SPEAR, JUNGLE_STICK, "netherite");
        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(JUNGLE_WOODEN_AXE, JUNGLE_STONE_AXE, JUNGLE_DEEPSLATE_AXE, JUNGLE_BLACKSTONE_AXE, JUNGLE_COPPER_AXE, JUNGLE_IRON_AXE, JUNGLE_GOLDEN_AXE, JUNGLE_DIAMOND_AXE, JUNGLE_NETHERITE_AXE));}
        registerBowItem(JUNGLE_BOW, JUNGLE_STICK);
        registerCrossbowItem(JUNGLE_CROSSBOW, JUNGLE_STICK);
@@ -391,6 +597,15 @@ public class MoreWeaponVariantItems {
        registerSwordItem(MANGROVE_GOLDEN_SWORD, MANGROVE_STICK, "golden");
        registerSwordItem(MANGROVE_DIAMOND_SWORD, MANGROVE_STICK, "diamond");
        registerSwordItem(MANGROVE_NETHERITE_SWORD, MANGROVE_STICK, "netherite");
+       registerSpearItem(MANGROVE_WOODEN_SPEAR, MANGROVE_STICK, "wooden");
+       registerSpearItem(MANGROVE_STONE_SPEAR, MANGROVE_STICK, "stone");
+       registerSpearItem(MANGROVE_DEEPSLATE_SPEAR, MANGROVE_STICK, "deepslate");
+       registerSpearItem(MANGROVE_BLACKSTONE_SPEAR, MANGROVE_STICK, "blackstone");
+       registerSpearItem(MANGROVE_COPPER_SPEAR, MANGROVE_STICK, "copper");
+       registerSpearItem(MANGROVE_IRON_SPEAR, MANGROVE_STICK, "iron");
+       registerSpearItem(MANGROVE_GOLDEN_SPEAR, MANGROVE_STICK, "golden");
+       registerSpearItem(MANGROVE_DIAMOND_SPEAR, MANGROVE_STICK, "diamond");
+       registerSpearItem(MANGROVE_NETHERITE_SPEAR, MANGROVE_STICK, "netherite");
        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(MANGROVE_WOODEN_AXE, MANGROVE_STONE_AXE, MANGROVE_DEEPSLATE_AXE, MANGROVE_BLACKSTONE_AXE, MANGROVE_COPPER_AXE, MANGROVE_IRON_AXE, MANGROVE_GOLDEN_AXE, MANGROVE_DIAMOND_AXE, MANGROVE_NETHERITE_AXE));}
        registerBowItem(MANGROVE_BOW, MANGROVE_STICK);
        registerCrossbowItem(MANGROVE_CROSSBOW, MANGROVE_STICK);
@@ -406,6 +621,14 @@ public class MoreWeaponVariantItems {
         more_weapons.add(Items.GOLDEN_SWORD);
         more_weapons.add(Items.DIAMOND_SWORD);
         more_weapons.add(Items.NETHERITE_SWORD);
+        more_weapons.add(Items.WOODEN_SPEAR);
+        more_weapons.add(Items.STONE_SPEAR);
+       registerSpearItem(OAK_DEEPSLATE_SPEAR, Items.STICK, "deepslate");
+       registerSpearItem(OAK_BLACKSTONE_SPEAR, Items.STICK, "blackstone");
+        more_weapons.add(Items.IRON_SPEAR);
+        more_weapons.add(Items.GOLDEN_SPEAR);
+        more_weapons.add(Items.DIAMOND_SPEAR);
+        more_weapons.add(Items.NETHERITE_SPEAR);
         if (isMtoolvLoaded) {more_weapons.addAll(Set.of(Items.WOODEN_AXE, Items.STONE_AXE, OAK_DEEPSLATE_AXE, OAK_BLACKSTONE_AXE, Items.COPPER_AXE, Items.IRON_AXE, Items.GOLDEN_AXE, Items.DIAMOND_AXE, Items.NETHERITE_AXE));}
         more_weapons.add(Items.BOW);
        registerCrossbowItem(OAK_CROSSBOW, Items.STICK);
@@ -422,6 +645,15 @@ public class MoreWeaponVariantItems {
        registerSwordItem(SPRUCE_GOLDEN_SWORD, SPRUCE_STICK, "golden");
        registerSwordItem(SPRUCE_DIAMOND_SWORD, SPRUCE_STICK, "diamond");
        registerSwordItem(SPRUCE_NETHERITE_SWORD, SPRUCE_STICK, "netherite");
+       registerSpearItem(SPRUCE_WOODEN_SPEAR, SPRUCE_STICK, "wooden");
+       registerSpearItem(SPRUCE_STONE_SPEAR, SPRUCE_STICK, "stone");
+       registerSpearItem(SPRUCE_DEEPSLATE_SPEAR, SPRUCE_STICK, "deepslate");
+       registerSpearItem(SPRUCE_BLACKSTONE_SPEAR, SPRUCE_STICK, "blackstone");
+       registerSpearItem(SPRUCE_COPPER_SPEAR, SPRUCE_STICK, "copper");
+       registerSpearItem(SPRUCE_IRON_SPEAR, SPRUCE_STICK, "iron");
+       registerSpearItem(SPRUCE_GOLDEN_SPEAR, SPRUCE_STICK, "golden");
+       registerSpearItem(SPRUCE_DIAMOND_SPEAR, SPRUCE_STICK, "diamond");
+       registerSpearItem(SPRUCE_NETHERITE_SPEAR, SPRUCE_STICK, "netherite");
        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(SPRUCE_WOODEN_AXE, SPRUCE_STONE_AXE, SPRUCE_DEEPSLATE_AXE, SPRUCE_BLACKSTONE_AXE, SPRUCE_COPPER_AXE, SPRUCE_IRON_AXE, SPRUCE_GOLDEN_AXE, SPRUCE_DIAMOND_AXE, SPRUCE_NETHERITE_AXE));}
        registerBowItem(SPRUCE_BOW, SPRUCE_STICK);
        registerCrossbowItem(SPRUCE_CROSSBOW, SPRUCE_STICK);
@@ -438,6 +670,15 @@ public class MoreWeaponVariantItems {
        registerSwordItem(WARPED_GOLDEN_SWORD, WARPED_STICK, "golden");
        registerSwordItem(WARPED_DIAMOND_SWORD, WARPED_STICK, "diamond");
        registerSwordItem(WARPED_NETHERITE_SWORD, WARPED_STICK, "netherite");
+       registerSpearItem(WARPED_WOODEN_SPEAR, WARPED_STICK, "wooden");
+       registerSpearItem(WARPED_STONE_SPEAR, WARPED_STICK, "stone");
+       registerSpearItem(WARPED_DEEPSLATE_SPEAR, WARPED_STICK, "deepslate");
+       registerSpearItem(WARPED_BLACKSTONE_SPEAR, WARPED_STICK, "blackstone");
+       registerSpearItem(WARPED_COPPER_SPEAR, WARPED_STICK, "copper");
+       registerSpearItem(WARPED_IRON_SPEAR, WARPED_STICK, "iron");
+       registerSpearItem(WARPED_GOLDEN_SPEAR, WARPED_STICK, "golden");
+       registerSpearItem(WARPED_DIAMOND_SPEAR, WARPED_STICK, "diamond");
+       registerSpearItem(WARPED_NETHERITE_SPEAR, WARPED_STICK, "netherite");
        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(WARPED_WOODEN_AXE, WARPED_STONE_AXE, WARPED_DEEPSLATE_AXE, WARPED_BLACKSTONE_AXE, WARPED_COPPER_AXE, WARPED_IRON_AXE, WARPED_GOLDEN_AXE, WARPED_DIAMOND_AXE, WARPED_NETHERITE_AXE));}
        registerBowItem(WARPED_BOW, WARPED_STICK);
        registerCrossbowItem(WARPED_CROSSBOW, WARPED_STICK);
@@ -448,6 +689,10 @@ public class MoreWeaponVariantItems {
     private static void registerSwordItem(Item swordItem, Item stickIngredient, String toolMaterialName) {
         more_swords.add(swordItem);
         registerWeaponItem(swordItem, stickIngredient, swordName(toolMaterialName, stickIngredient));
+    }
+    private static void registerSpearItem(Item spearItem, Item stickIngredient, String toolMaterialName) {
+        more_spears.add(spearItem);
+        registerWeaponItem(spearItem, stickIngredient, spearName(toolMaterialName, stickIngredient));
     }
     private static void registerBowItem(Item bowItem, Item stickIngredient) {
         more_bows.add(bowItem);
