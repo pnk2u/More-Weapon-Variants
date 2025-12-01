@@ -51,19 +51,38 @@ public class MoreWeaponVariantItems {
     }
 
     private static Item.Properties spearProperties(ToolMaterial toolMaterial, String toolMaterialName, Item stickIngredient) {
-        float f; float g; float h; float i; float j; float k; float l = 5.1F; float m; float n = 4.6F;
+        float swingTimeFactor; float kineticDamageMultiplier; float lungeDelaySeconds;
+        float dismountWindowSeconds; float dismountMinSpeed; float knockbackWindowSeconds;
+        float knockbackMinSpeed = 5.1F; float damageWindowSeconds; float damageMinRelativeSpeed = 4.6F;
         switch (toolMaterialName) {
-            case "wooden" -> {f = 0.65F; g = 0.7F; h = 0.75F; i = 5.0F; j = 14.0F; k = 6.0F; m = 15.0F;}
-            case "stone", "deepslate", "blackstone" -> {f = 0.75F; g = 0.82F; h = 0.7F; i = 4.5F; j = 10.0F; k = 5.5F; m = 13.75F;}
-            case "copper" -> {f = 0.85F; g = 0.82F; h = 0.65F; i = 4.0F; j = 9.0F; k = 5.0F; m = 12.5F;}
-            case "iron" -> {f = 0.95F; g = 0.95F; h = 0.6F; i = 2.5F; j = 8.0F; k = 4.5F; m = 11.25F;}
-            case "golden" -> {f = 0.95F; g = 0.7F; h = 0.7F; i = 3.5F; j = 10.0F; k = 5.5F; m = 13.75F;}
-            case "diamond" -> {f = 1.05F; g = 1.075F; h = 0.5F; i = 3.0F; j = 7.5F; k = 4.0F; m = 10.0F;}
-            case "netherite" -> {f = 1.15F; g = 1.2F; h = 0.4F; i = 2.5F; j = 7.0F; k = 3.5F; m = 8.75F;}
-            default -> {f = 0.1F; g = 0.1F; h = 1.0F; i = 15.0F; j = 15.0F; k = 15.0F; m = 15.0F;
+            case "wooden" -> {
+                swingTimeFactor = 0.65F; kineticDamageMultiplier = 0.7F; lungeDelaySeconds = 0.75F; dismountWindowSeconds = 5.0F;
+                dismountMinSpeed = 14.0F; knockbackWindowSeconds = 6.0F; damageWindowSeconds = 15.0F;}
+            case "stone", "deepslate", "blackstone" -> {
+                swingTimeFactor = 0.75F; kineticDamageMultiplier = 0.82F; lungeDelaySeconds = 0.7F; dismountWindowSeconds = 4.5F;
+                dismountMinSpeed = 10.0F; knockbackWindowSeconds = 5.5F; damageWindowSeconds = 13.75F;}
+            case "copper" -> {
+                swingTimeFactor = 0.85F; kineticDamageMultiplier = 0.82F; lungeDelaySeconds = 0.65F; dismountWindowSeconds = 4.0F;
+                dismountMinSpeed = 9.0F; knockbackWindowSeconds = 5.0F; damageWindowSeconds = 12.5F;}
+            case "iron" -> {
+                swingTimeFactor = 0.95F; kineticDamageMultiplier = 0.95F; lungeDelaySeconds = 0.6F; dismountWindowSeconds = 2.5F;
+                dismountMinSpeed = 8.0F; knockbackWindowSeconds = 4.5F; damageWindowSeconds = 11.25F;}
+            case "golden" -> {
+                swingTimeFactor = 0.95F; kineticDamageMultiplier = 0.7F; lungeDelaySeconds = 0.7F; dismountWindowSeconds = 3.5F;
+                dismountMinSpeed = 10.0F; knockbackWindowSeconds = 5.5F; damageWindowSeconds = 13.75F;}
+            case "diamond" -> {
+                swingTimeFactor = 1.05F; kineticDamageMultiplier = 1.075F; lungeDelaySeconds = 0.5F; dismountWindowSeconds = 3.0F;
+                dismountMinSpeed = 7.5F; knockbackWindowSeconds = 4.0F; damageWindowSeconds = 10.0F;}
+            case "netherite" -> {
+                swingTimeFactor = 1.15F; kineticDamageMultiplier = 1.2F; lungeDelaySeconds = 0.4F; dismountWindowSeconds = 2.5F;
+                dismountMinSpeed = 7.0F; knockbackWindowSeconds = 3.5F; damageWindowSeconds = 8.75F;}
+            default -> {
+                swingTimeFactor = 0.1F; kineticDamageMultiplier = 0.1F; lungeDelaySeconds = 1.0F; dismountWindowSeconds = 15.0F;
+                dismountMinSpeed = 15.0F; knockbackWindowSeconds = 15.0F; damageWindowSeconds = 15.0F;
                 LOGGER.warn("Unknown tool material string '{}' found for a spear variant item '_{}_spear'. This should not happen!", toolMaterialName, getStickName(stickIngredient));}
         }
-        Item.Properties properties = new Item.Properties().spear(toolMaterial, f, g, h, l, i, j, k, n, m)
+        Item.Properties properties = new Item.Properties().spear(toolMaterial, swingTimeFactor, kineticDamageMultiplier, lungeDelaySeconds,
+                        dismountWindowSeconds, dismountMinSpeed, knockbackWindowSeconds, knockbackMinSpeed, damageWindowSeconds, damageMinRelativeSpeed)
                 .setId(ResourceKey.create(Registries.ITEM, withModId(spearName(toolMaterialName, stickIngredient))));
         return applyFireRes(getStickName(stickIngredient), toolMaterialName, properties);
     }
