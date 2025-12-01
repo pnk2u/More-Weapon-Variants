@@ -5,7 +5,6 @@ import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.ProjectileWeaponItem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -20,7 +19,8 @@ public class PiglinMixin {
     private void injectedCreateSpawnWeapon(CallbackInfoReturnable<ItemStack> cir){
         double rand = Math.random();
         if (rand < 0.45){ cir.setReturnValue(new ItemStack(MoreWeaponVariantItems.CRIMSON_CROSSBOW)); }
-        else if (rand < 0.85){cir.setReturnValue(new ItemStack(MoreWeaponVariantItems.CRIMSON_GOLDEN_SWORD));}
+        else if (rand < 0.75){cir.setReturnValue(new ItemStack(MoreWeaponVariantItems.CRIMSON_GOLDEN_SWORD));}
+        else if (rand < 0.85){cir.setReturnValue(new ItemStack(MoreWeaponVariantItems.CRIMSON_GOLDEN_SPEAR));}
     }
 
     @Redirect(method = "getArmPose", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/piglin/Piglin;isHolding(Lnet/minecraft/world/item/Item;)Z"))
