@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#mstv-mweaponv:variant_crossbows"
+    "#mstv-mweaponv:variant_crossbows",
+    "#mstv-mweaponv:variant_golden_spears"
   ]
 }
