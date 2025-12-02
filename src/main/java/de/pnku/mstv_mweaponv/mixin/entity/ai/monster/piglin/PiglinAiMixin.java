@@ -1,4 +1,4 @@
-package de.pnku.mstv_mweaponv.mixin.entity.ai.piglin;
+package de.pnku.mstv_mweaponv.mixin.entity.ai.monster.piglin;
 
 import de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems;
 import net.minecraft.world.entity.LivingEntity;
