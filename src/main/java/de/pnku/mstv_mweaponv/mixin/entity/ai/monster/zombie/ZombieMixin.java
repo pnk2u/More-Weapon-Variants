@@ -90,6 +90,12 @@ public class ZombieMixin {
                     spawnSwordItemAlt = BIRCH_IRON_SWORD;
                     spawnSwordVariantAltProb = 0.1;
                 }
+                case ("minecraft:pale_garden") -> {
+                    spawnSwordItem = PALE_OAK_IRON_SWORD;
+                    spawnSwordVariantProb = 0.95;
+                    spawnSwordItemAlt = DARK_OAK_IRON_SWORD;
+                    spawnSwordVariantAltProb = 0.05;
+                }
                 case ("minecraft:mangrove_swamp") -> {
                     spawnSwordItem = MANGROVE_IRON_SWORD;
                     spawnSwordVariantProb = 0.975;

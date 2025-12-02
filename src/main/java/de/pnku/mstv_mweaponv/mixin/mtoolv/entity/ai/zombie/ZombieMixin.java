@@ -13,6 +13,8 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 
 import static de.pnku.mstv_mtoolv.item.MoreToolVariantItems.*;
+import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.DARK_OAK_IRON_SWORD;
+import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.PALE_OAK_IRON_SWORD;
 
 @Mixin(Zombie.class)
 public class ZombieMixin {
@@ -89,6 +91,12 @@ public class ZombieMixin {
                     spawnShovelVariantProb = 0.8;
                     spawnShovelItemAlt = BIRCH_IRON_SHOVEL;
                     spawnShovelVariantAltProb = 0.1;
+                }
+                case ("minecraft:pale_garden") -> {
+                    spawnShovelItem = PALE_OAK_IRON_SHOVEL;
+                    spawnShovelVariantProb = 0.95;
+                    spawnShovelItemAlt = DARK_OAK_IRON_SHOVEL;
+                    spawnShovelVariantAltProb = 0.05;
                 }
                 case ("minecraft:mangrove_swamp") -> {
                     spawnShovelItem = MANGROVE_IRON_SHOVEL;
