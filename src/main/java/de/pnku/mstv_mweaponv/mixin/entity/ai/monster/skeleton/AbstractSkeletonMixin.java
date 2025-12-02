@@ -5,7 +5,6 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import de.pnku.mstv_mweaponv.util.ArrowUtil;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
@@ -28,9 +27,18 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.Map;
 import java.util.Random;
 
+import static de.pnku.mstv_base.item.MoreStickVariantItems.*;
+import static de.pnku.mstv_base.item.MoreStickVariantItems.CHERRY_STICK;
+import static de.pnku.mstv_base.item.MoreStickVariantItems.CRIMSON_STICK;
+import static de.pnku.mstv_base.item.MoreStickVariantItems.DARK_OAK_STICK;
+import static de.pnku.mstv_base.item.MoreStickVariantItems.MANGROVE_STICK;
+import static de.pnku.mstv_base.item.MoreStickVariantItems.SPRUCE_STICK;
+import static de.pnku.mstv_base.item.MoreStickVariantItems.WARPED_STICK;
 import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.*;
+import static de.pnku.mstv_mweaponv.util.BiomeSpawnItemUtil.chooseStickForSpawnBiome;
 
 @Mixin(AbstractSkeleton.class)
 public abstract class AbstractSkeletonMixin extends Monster {
@@ -42,48 +50,34 @@ public abstract class AbstractSkeletonMixin extends Monster {
         super(entityType, level);
     }
 
-    @WrapOperation(method = "populateDefaultEquipmentSlots", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/AbstractSkeleton;setItemSlot(Lnet/minecraft/world/entity/EquipmentSlot;Lnet/minecraft/world/item/ItemStack;)V"))
-    protected void wrappedSetItemSlotFromPopulateDefaultEquipmentSlots(AbstractSkeleton skeleton, EquipmentSlot slot, ItemStack stack, Operation<Void> original){
-        BlockPos skeletonPos = thisAbstractSkeleton.blockPosition();
-        String spawnBiomeName = thisAbstractSkeleton.level().getBiome(skeletonPos).getRegisteredName();
-        Item spawnBowItem;
-        Item spawnBowItemAlt;
-        double spawnBowVariantProb;
-        double spawnBowVariantAltProb;
-        switch (spawnBiomeName) {
-            case ("minecraft:savanna"), ("minecraft:savanna_plateau"), ("minecraft:windswept_savanna") -> {spawnBowItem = ACACIA_BOW; spawnBowVariantProb = 0.95; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}
-            case ("minecraft:birch_forest"), ("minecraft:old_growth_birch_forest") -> {spawnBowItem = BIRCH_BOW; spawnBowVariantProb = 0.9; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}
-            case ("minecraft:forest"), ("minecraft:meadow") -> {spawnBowItem = BIRCH_BOW; spawnBowVariantProb = 0.2; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}
-            case ("minecraft:bamboo_jungle") -> {spawnBowItem = BAMBOO_BOW; spawnBowVariantProb = 0.6; spawnBowItemAlt = JUNGLE_BOW; spawnBowVariantAltProb = 0.3;}
-            case ("minecraft:jungle") -> {spawnBowItem = JUNGLE_BOW; spawnBowVariantProb = 0.8; spawnBowItemAlt = BAMBOO_BOW; spawnBowVariantAltProb = 0.1;}
-            case ("minecraft:sparse_jungle"), ("minecraft:desert") -> {spawnBowItem = JUNGLE_BOW; spawnBowVariantProb = 0.8; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}
-            case ("minecraft:cherry_grove") -> {spawnBowItem = CHERRY_BOW; spawnBowVariantProb = 0.925; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}
-            case ("minecraft:crimson_forest") -> {spawnBowItem = CRIMSON_BOW; spawnBowVariantProb = 1; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}
-            case ("minecraft:nether_wastes") -> {spawnBowItem = CRIMSON_BOW; spawnBowVariantProb = 0.25; spawnBowItemAlt = WARPED_BOW; spawnBowVariantAltProb = 0.05;}
-            case ("minecraft:dark_forest") -> {spawnBowItem = DARK_OAK_BOW; spawnBowVariantProb = 0.8; spawnBowItemAlt = BIRCH_BOW; spawnBowVariantAltProb = 0.1;}
-            case ("minecraft:mangrove_swamp") -> {spawnBowItem = MANGROVE_BOW; spawnBowVariantProb = 0.975; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}
-            case ("minecraft:old_growth_spruce_taiga"), ("minecraft:old_growth_pine_taiga"), ("minecraft:taiga"), ("minecraft:snowy_taiga") -> {spawnBowItem = SPRUCE_BOW; spawnBowVariantProb = 0.85; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}
-            case ("minecraft:windswept_forest"), ("minecraft:snowy_plains") -> {spawnBowItem = SPRUCE_BOW; spawnBowVariantProb = 0.3; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}
-            case ("minecraft:warped_forest") -> {spawnBowItem = WARPED_BOW; spawnBowVariantProb = 1; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}
-            case ("minecraft:soul_sand_valley") -> {spawnBowItem = WARPED_BOW; spawnBowVariantProb = 0.125; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}
-            default -> {spawnBowItem = null; spawnBowVariantProb = 0; spawnBowItemAlt = null; spawnBowVariantAltProb = 0;}
-        }
-        if (spawnBowItem != null) {
-            if (spawnBowItemAlt == null) {
-                if (Math.random() < spawnBowVariantProb) {
-                    thisAbstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(spawnBowItem));
-                } else {
-                    original.call(skeleton, slot, stack);}
+    @Unique
+    private static final Map<Item, Item> BOW_BY_STICK = Map.ofEntries(
+            Map.entry(ACACIA_STICK,   ACACIA_BOW),
+            Map.entry(BIRCH_STICK,    BIRCH_BOW),
+            Map.entry(Items.BAMBOO,   BAMBOO_BOW),
+            Map.entry(JUNGLE_STICK,   JUNGLE_BOW),
+            Map.entry(CHERRY_STICK,   CHERRY_BOW),
+            Map.entry(CRIMSON_STICK,  CRIMSON_BOW),
+            Map.entry(DARK_OAK_STICK, DARK_OAK_BOW),
+            Map.entry(MANGROVE_STICK, MANGROVE_BOW),
+            Map.entry(SPRUCE_STICK,   SPRUCE_BOW),
+            Map.entry(WARPED_STICK,   WARPED_BOW)
+    );
+
+    @WrapOperation(method = "populateDefaultEquipmentSlots", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/AbstractSkeleton;setItemSlot(Lnet/minecraft/world/entity/EquipmentSlot;Lnet/minecraft/world/item/ItemStack;)V", ordinal = 0))
+    protected void wrappedSetItemSlotFromPopulateDefaultEquipmentSlots(AbstractSkeleton abstractSkeleton, EquipmentSlot slot, ItemStack stack, Operation<Void> original) {
+        if (!stack.isEmpty() && stack.getItem().equals(Items.BOW)) {
+            Item stickItem = chooseStickForSpawnBiome(thisAbstractSkeleton);
+            Item bowItem = stickItem != null ? BOW_BY_STICK.get(stickItem) : null;
+
+            if (bowItem != null) {
+                thisAbstractSkeleton.setItemSlot(slot, new ItemStack(bowItem));
             } else {
-                if (Math.random() < spawnBowVariantProb) {
-                    thisAbstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(spawnBowItem));
-                } else if (Math.random() < (spawnBowVariantProb + spawnBowVariantAltProb)) {
-                    thisAbstractSkeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(spawnBowItemAlt));
-                } else {
-                    original.call(skeleton, slot, stack);}
+                original.call(abstractSkeleton, slot, stack);
             }
         } else {
-            original.call(skeleton, slot, stack);}
+            original.call(abstractSkeleton, slot, stack);
+        }
     }
 
     @WrapOperation(method = "reassessWeaponGoal", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/projectile/ProjectileUtil;getWeaponHoldingHand(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/Item;)Lnet/minecraft/world/InteractionHand;"))
