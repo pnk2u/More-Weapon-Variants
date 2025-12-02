@@ -1,13 +1,14 @@
 {
-  "required": false ,
-  "plugin": "de.pnku.mstv_mweaponv.mixin.mtoolv.MweaponvWithMtoolvMixinPlugin" ,
-  "minVersion": "0.8" ,
-  "package": "de.pnku.mstv_mweaponv.mixin.mtoolv" ,
-  "compatibilityLevel": "JAVA_21" ,
+  "required": false,
+  "plugin": "de.pnku.mstv_mweaponv.mixin.mtoolv.MweaponvWithMtoolvMixinPlugin",
+  "minVersion": "0.8",
+  "package": "de.pnku.mstv_mweaponv.mixin.mtoolv",
+  "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "entity.ai.illager.VindicatorMixin" ,
-    "entity.ai.piglin.PiglinBruteMixin"
-  ] ,
+    "entity.ai.illager.VindicatorMixin",
+    "entity.ai.piglin.PiglinBruteMixin",
+    "entity.ai.zombie.ZombieMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }
