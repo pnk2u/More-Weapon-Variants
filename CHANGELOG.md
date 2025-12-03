@@ -4,7 +4,7 @@
 - `1.21.11`:
     - Update to <ins>1.21.11</ins>
     - Add _Spear_ variants for all wood types and separate _Stone Spears_ into _**Cobblestone**_, _**Deepslate**_ and _**Blackstone** Spears_
-- Zombies (and Husks) can now spawn holding _Iron Sword_ and _Iron Shovel_<sup>1</sup> variants
+- Zombies (and Husks) can now spawn holding _Iron Sword_ and _Iron Shovel_<sup>1</sup> variants (based on the biome they spawn in)
     - `1.21.11`: Zombies can spawn holding _Iron Spear_ variants
 #### ± <sub><ins>Changed</ins>:</sub>
 - `1.20.1`, `1.21(.1)`: Allow _**Oak** Wooden Sword_ (vanilla) to be crafted using any _Planks_ type as long as an _**Oak** Stick_ (vanilla) is used (essentially reverting behavior back to the vanilla recipe).
