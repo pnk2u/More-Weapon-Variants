@@ -4,10 +4,17 @@
   "item.minecraft.arrow": "Oak Arrow",
   "item.minecraft.tipped_arrow": "Tipped Oak Arrow",
   "item.minecraft.copper_sword": "Oak Copper Sword",
+  "item.minecraft.copper_spear": "Oak Copper Spear",
   "item.minecraft.diamond_sword": "Oak Diamond Sword",
+  "item.minecraft.diamond_spear": "Oak Diamond Spear",
   "item.minecraft.golden_sword": "Oak Golden Sword",
+  "item.minecraft.golden_spear": "Oak Golden Spear",
   "item.minecraft.iron_sword": "Oak Iron Sword",
+  "item.minecraft.iron_spear": "Oak Iron Spear",
   "item.minecraft.netherite_sword": "Oak Netherite Sword",
+  "item.minecraft.netherite_spear": "Oak Netherite Spear",
   "item.minecraft.stone_sword": "Oak Stone Sword",
-  "item.minecraft.wooden_sword": "Oak Wooden Sword"
+  "item.minecraft.stone_spear": "Oak Stone Spear",
+  "item.minecraft.wooden_sword": "Oak Wooden Sword",
+  "item.minecraft.wooden_spear": "Oak Wooden Spear"
 }

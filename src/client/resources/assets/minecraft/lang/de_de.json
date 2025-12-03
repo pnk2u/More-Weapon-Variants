@@ -4,10 +4,17 @@
   "item.minecraft.arrow": "Eichenholzpfeil",
   "item.minecraft.tipped_arrow": "Getränkter Eichenholzpfeil",
   "item.minecraft.copper_sword": "Eichenholzkupferschwert",
+  "item.minecraft.copper_spear": "Eichenholzkupferspeer",
   "item.minecraft.diamond_sword": "Eichenholzdiamantschwert",
+  "item.minecraft.diamond_spear": "Eichenholzdiamantspeer",
   "item.minecraft.golden_sword": "Eichenholzgoldschwert",
+  "item.minecraft.golden_spear": "Eichenholzgoldspeer",
   "item.minecraft.iron_sword": "Eichenholzeisenschwert",
+  "item.minecraft.iron_spear": "Eichenholzeisenspeer",
   "item.minecraft.netherite_sword": "Eichenholznetheritschwert",
+  "item.minecraft.netherite_spear": "Eichenholznetheritspeer",
   "item.minecraft.stone_sword": "Eichenholzsteinschwert",
-  "item.minecraft.wooden_sword": "Eichenholzschwert"
+  "item.minecraft.stone_spear": "Eichenholzsteinspeer",
+  "item.minecraft.wooden_sword": "Eichenholzschwert",
+  "item.minecraft.wooden_spear": "Eichenholzspeer"
 }
