@@ -2,7 +2,6 @@
   "type": "minecraft:crafting_shaped",
   "group": "crossbows",
   "category": "equipment",
-  "group": "crossbows",
   "key": {
     "#": {
       "item": "mstv-base:dark_oak_stick"
@@ -11,7 +10,7 @@
       "item": "minecraft:tripwire_hook"
     },
     "&": {
-      "item": "minecraft:iron_ingot"
+      "tag": "c:ingots/iron"
     },
     "~": {
       "item": "minecraft:string"

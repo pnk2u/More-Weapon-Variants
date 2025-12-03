@@ -1,4 +1,4 @@
-package de.pnku.mstv_mweaponv.mixin.entity.ai.skeleton;
+package de.pnku.mstv_mweaponv.mixin.entity.ai.monster.skeleton;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
