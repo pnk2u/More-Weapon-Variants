@@ -17,6 +17,7 @@
     "entity.ai.monster.skeleton.AbstractSkeletonMixin",
     "entity.ai.monster.skeleton.WitherSkeletonMixin",
     "entity.ai.monster.zombie.ZombieMixin",
+    "entity.ai.monster.zombie.HuskMixin",
     "item.ArrowItemMixin",
     "item.ProjectileWeaponItemMixin",
     "recipe.TippedArrowRecipeMixin"
