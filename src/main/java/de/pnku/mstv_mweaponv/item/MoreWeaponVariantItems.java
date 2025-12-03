@@ -44,16 +44,24 @@ public class MoreWeaponVariantItems {
 
         private static String swordName(Tier tier, Item stickIngredient, String tierNameVariant) {
             String woodType = getStickName(stickIngredient);
-            String tierName = !tierNameVariant.isEmpty() ?
-                    tierNameVariant : switch (tier) {
-                                        case WOOD -> "wooden";
-                                        case STONE -> "stone";
-                                        case IRON -> "iron";
-                                        case GOLD -> "golden";
-                                        case DIAMOND -> "diamond";
-                                        case NETHERITE -> "netherite";
-                                        default -> "unknown";
-            };
+            String tierName;
+            if (!tierNameVariant.isEmpty()) {
+                tierName = tierNameVariant;
+            } else if (tier == WOOD) {
+                tierName = "wooden";
+            } else if (tier == STONE) {
+                tierName = "stone";
+            } else if (tier == IRON) {
+                tierName = "iron";
+            } else if (tier == GOLD) {
+                tierName = "golden";
+            } else if (tier == DIAMOND) {
+                tierName = "diamond";
+            } else if (tier == NETHERITE) {
+                tierName = "netherite";
+            } else {
+                tierName = "unknown";
+            }
             return woodType + "_" + tierName + "_sword";
         }
 
@@ -84,8 +92,7 @@ public class MoreWeaponVariantItems {
 
         private static Item.Properties crossbowProperties(boolean isFireResWood) {
             return applyFireRes(isFireResWood, WOOD, new Item.Properties()
-                    .durability(465)
-                    .stacksTo(1));
+                    .durability(465));
         }
 
         private static String arrowName(Item stickIngredient, boolean tipped) {
@@ -215,23 +222,23 @@ public class MoreWeaponVariantItems {
             public static final Item BAMBOO_ARROW = new ArrowItem(arrowProperties(false));
             public static final Item BIRCH_ARROW = new ArrowItem(arrowProperties(false));
             public static final Item CHERRY_ARROW = new ArrowItem(arrowProperties(false));
-            public static final Item CRIMSON_ARROW = new ArrowItem(arrowProperties(true, false));
+            public static final Item CRIMSON_ARROW = new ArrowItem(arrowProperties(true));
             public static final Item DARK_OAK_ARROW = new ArrowItem(arrowProperties(false));
             public static final Item JUNGLE_ARROW = new ArrowItem(arrowProperties(false));
             public static final Item MANGROVE_ARROW = new ArrowItem(arrowProperties(false));
             public static final Item SPRUCE_ARROW = new ArrowItem(arrowProperties(false));
-            public static final Item WARPED_ARROW = new ArrowItem(arrowProperties(true, false));
+            public static final Item WARPED_ARROW = new ArrowItem(arrowProperties(true));
             // Tipped Arrows
-            public static final Item ACACIA_TIPPED_ARROW = new TippedArrowItem(arrowProperties(true));
-            public static final Item BAMBOO_TIPPED_ARROW = new TippedArrowItem(arrowProperties(true));
-            public static final Item BIRCH_TIPPED_ARROW = new TippedArrowItem(arrowProperties(true));
-            public static final Item CHERRY_TIPPED_ARROW = new TippedArrowItem(arrowProperties(true));
-            public static final Item CRIMSON_TIPPED_ARROW = new TippedArrowItem(arrowProperties(true, true));
-            public static final Item DARK_OAK_TIPPED_ARROW = new TippedArrowItem(arrowProperties(true));
-            public static final Item JUNGLE_TIPPED_ARROW = new TippedArrowItem(arrowProperties(true));
-            public static final Item MANGROVE_TIPPED_ARROW = new TippedArrowItem(arrowProperties(true));
-            public static final Item SPRUCE_TIPPED_ARROW = new TippedArrowItem(arrowProperties(true));
-            public static final Item WARPED_TIPPED_ARROW = new TippedArrowItem(arrowProperties(true, true));
+            public static final Item ACACIA_TIPPED_ARROW = new TippedArrowItem(arrowProperties(false));
+            public static final Item BAMBOO_TIPPED_ARROW = new TippedArrowItem(arrowProperties(false));
+            public static final Item BIRCH_TIPPED_ARROW = new TippedArrowItem(arrowProperties(false));
+            public static final Item CHERRY_TIPPED_ARROW = new TippedArrowItem(arrowProperties(false));
+            public static final Item CRIMSON_TIPPED_ARROW = new TippedArrowItem(arrowProperties(true));
+            public static final Item DARK_OAK_TIPPED_ARROW = new TippedArrowItem(arrowProperties(false));
+            public static final Item JUNGLE_TIPPED_ARROW = new TippedArrowItem(arrowProperties(false));
+            public static final Item MANGROVE_TIPPED_ARROW = new TippedArrowItem(arrowProperties(false));
+            public static final Item SPRUCE_TIPPED_ARROW = new TippedArrowItem(arrowProperties(false));
+            public static final Item WARPED_TIPPED_ARROW = new TippedArrowItem(arrowProperties(true));
 
 
     public static final List<Item> more_weapons = new ArrayList<>();

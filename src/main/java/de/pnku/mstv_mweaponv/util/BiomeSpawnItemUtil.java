@@ -97,7 +97,7 @@ public final class BiomeSpawnItemUtil {
 
     public static Item chooseStickForSpawnBiome(LivingEntity entity) {
         BlockPos pos = entity.blockPosition();
-        String biomeName = entity.level().getBiome(pos).getRegisteredName();
+        String biomeName = entity.level().getBiome(pos).unwrapKey().get().location().toString();;
 
         WoodVariant variant = findVariantForBiome(biomeName);
         if (variant == null || variant.main == null || variant.mainProb <= 0.0) {
