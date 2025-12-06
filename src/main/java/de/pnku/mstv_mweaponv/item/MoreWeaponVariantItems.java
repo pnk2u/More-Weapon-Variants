@@ -24,7 +24,7 @@ import static net.minecraft.world.item.Tiers.*;
 
 public class MoreWeaponVariantItems {
         static int swordAD = 3; static float swordAS = -2.4F;
-    
+
         private static Item.Properties applyFireRes(boolean isFireResWood, Tier tier, Item.Properties properties){
             if (isFireResWood || tier.equals(NETHERITE)) {
                 properties.fireResistant();
@@ -38,31 +38,8 @@ public class MoreWeaponVariantItems {
             return ((MoreStickVariantItem) stickIngredient).mstvWoodType;
         }
 
-        private static String swordName(SwordItem sword, Item stickIngredient, String tierNameVariant) {
-            return swordName(sword.getTier(), stickIngredient, tierNameVariant);
-        }
-
-        private static String swordName(Tier tier, Item stickIngredient, String tierNameVariant) {
-            String woodType = getStickName(stickIngredient);
-            String tierName;
-            if (!tierNameVariant.isEmpty()) {
-                tierName = tierNameVariant;
-            } else if (tier == WOOD) {
-                tierName = "wooden";
-            } else if (tier == STONE) {
-                tierName = "stone";
-            } else if (tier == IRON) {
-                tierName = "iron";
-            } else if (tier == GOLD) {
-                tierName = "golden";
-            } else if (tier == DIAMOND) {
-                tierName = "diamond";
-            } else if (tier == NETHERITE) {
-                tierName = "netherite";
-            } else {
-                tierName = "unknown";
-            }
-            return woodType + "_" + tierName + "_sword";
+        private static String swordName(Item stickIngredient, String tierName) {
+            return getStickName(stickIngredient) + "_" + tierName + "_sword";
         }
 
         private static Item.Properties swordProperties(Tier tier) {
@@ -252,14 +229,14 @@ public class MoreWeaponVariantItems {
     public static void registerWeaponItems() {
 
       //Acacia Weapons
-       registerSwordItem(ACACIA_WOODEN_SWORD, ACACIA_STICK);
-       registerSwordItem(ACACIA_STONE_SWORD, ACACIA_STICK);
+       registerSwordItem(ACACIA_WOODEN_SWORD, ACACIA_STICK, "wooden");
+       registerSwordItem(ACACIA_STONE_SWORD, ACACIA_STICK, "stone");
        registerSwordItem(ACACIA_DEEPSLATE_SWORD, ACACIA_STICK, "deepslate");
        registerSwordItem(ACACIA_BLACKSTONE_SWORD, ACACIA_STICK, "blackstone");
-       registerSwordItem(ACACIA_IRON_SWORD, ACACIA_STICK);
-       registerSwordItem(ACACIA_GOLDEN_SWORD, ACACIA_STICK);
-       registerSwordItem(ACACIA_DIAMOND_SWORD, ACACIA_STICK);
-       registerSwordItem(ACACIA_NETHERITE_SWORD, ACACIA_STICK);
+       registerSwordItem(ACACIA_IRON_SWORD, ACACIA_STICK, "iron");
+       registerSwordItem(ACACIA_GOLDEN_SWORD, ACACIA_STICK, "golden");
+       registerSwordItem(ACACIA_DIAMOND_SWORD, ACACIA_STICK, "diamond");
+       registerSwordItem(ACACIA_NETHERITE_SWORD, ACACIA_STICK, "netherite");
        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(ACACIA_WOODEN_AXE, ACACIA_STONE_AXE, ACACIA_DEEPSLATE_AXE, ACACIA_BLACKSTONE_AXE, ACACIA_IRON_AXE, ACACIA_GOLDEN_AXE, ACACIA_DIAMOND_AXE, ACACIA_NETHERITE_AXE));}
        registerBowItem(ACACIA_BOW, ACACIA_STICK);
        registerCrossbowItem(ACACIA_CROSSBOW, ACACIA_STICK);
@@ -267,14 +244,14 @@ public class MoreWeaponVariantItems {
 
 
         //Bamboo Weapons
-       registerSwordItem(BAMBOO_WOODEN_SWORD, Items.BAMBOO);
-       registerSwordItem(BAMBOO_STONE_SWORD, Items.BAMBOO);
+       registerSwordItem(BAMBOO_WOODEN_SWORD, Items.BAMBOO, "wooden");
+       registerSwordItem(BAMBOO_STONE_SWORD, Items.BAMBOO, "stone");
        registerSwordItem(BAMBOO_DEEPSLATE_SWORD, Items.BAMBOO, "deepslate");
        registerSwordItem(BAMBOO_BLACKSTONE_SWORD, Items.BAMBOO, "blackstone");
-       registerSwordItem(BAMBOO_IRON_SWORD, Items.BAMBOO);
-       registerSwordItem(BAMBOO_GOLDEN_SWORD, Items.BAMBOO);
-       registerSwordItem(BAMBOO_DIAMOND_SWORD, Items.BAMBOO);
-       registerSwordItem(BAMBOO_NETHERITE_SWORD, Items.BAMBOO);
+       registerSwordItem(BAMBOO_IRON_SWORD, Items.BAMBOO, "iron");
+       registerSwordItem(BAMBOO_GOLDEN_SWORD, Items.BAMBOO, "golden");
+       registerSwordItem(BAMBOO_DIAMOND_SWORD, Items.BAMBOO, "diamond");
+       registerSwordItem(BAMBOO_NETHERITE_SWORD, Items.BAMBOO, "netherite");
        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(BAMBOO_WOODEN_AXE, BAMBOO_STONE_AXE, BAMBOO_DEEPSLATE_AXE, BAMBOO_BLACKSTONE_AXE, BAMBOO_IRON_AXE, BAMBOO_GOLDEN_AXE, BAMBOO_DIAMOND_AXE, BAMBOO_NETHERITE_AXE));}
        registerBowItem(BAMBOO_BOW, Items.BAMBOO);
        registerCrossbowItem(BAMBOO_CROSSBOW, Items.BAMBOO);
@@ -282,14 +259,14 @@ public class MoreWeaponVariantItems {
 
 
       //Birch Weapons
-       registerSwordItem(BIRCH_WOODEN_SWORD, BIRCH_STICK);
-       registerSwordItem(BIRCH_STONE_SWORD, BIRCH_STICK);
+       registerSwordItem(BIRCH_WOODEN_SWORD, BIRCH_STICK, "wooden");
+       registerSwordItem(BIRCH_STONE_SWORD, BIRCH_STICK, "stone");
        registerSwordItem(BIRCH_DEEPSLATE_SWORD, BIRCH_STICK, "deepslate");
        registerSwordItem(BIRCH_BLACKSTONE_SWORD, BIRCH_STICK, "blackstone");
-       registerSwordItem(BIRCH_IRON_SWORD, BIRCH_STICK);
-       registerSwordItem(BIRCH_GOLDEN_SWORD, BIRCH_STICK);
-       registerSwordItem(BIRCH_DIAMOND_SWORD, BIRCH_STICK);
-       registerSwordItem(BIRCH_NETHERITE_SWORD, BIRCH_STICK);
+       registerSwordItem(BIRCH_IRON_SWORD, BIRCH_STICK, "iron");
+       registerSwordItem(BIRCH_GOLDEN_SWORD, BIRCH_STICK, "golden");
+       registerSwordItem(BIRCH_DIAMOND_SWORD, BIRCH_STICK, "diamond");
+       registerSwordItem(BIRCH_NETHERITE_SWORD, BIRCH_STICK, "netherite");
        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(BIRCH_WOODEN_AXE, BIRCH_STONE_AXE, BIRCH_DEEPSLATE_AXE, BIRCH_BLACKSTONE_AXE, BIRCH_IRON_AXE, BIRCH_GOLDEN_AXE, BIRCH_DIAMOND_AXE, BIRCH_NETHERITE_AXE));}
        registerBowItem(BIRCH_BOW, BIRCH_STICK);
        registerCrossbowItem(BIRCH_CROSSBOW, BIRCH_STICK);
@@ -297,14 +274,14 @@ public class MoreWeaponVariantItems {
 
 
       //Cherry Weapons
-       registerSwordItem(CHERRY_WOODEN_SWORD, CHERRY_STICK);
-       registerSwordItem(CHERRY_STONE_SWORD, CHERRY_STICK);
+       registerSwordItem(CHERRY_WOODEN_SWORD, CHERRY_STICK, "wooden");
+       registerSwordItem(CHERRY_STONE_SWORD, CHERRY_STICK, "stone");
        registerSwordItem(CHERRY_DEEPSLATE_SWORD, CHERRY_STICK, "deepslate");
        registerSwordItem(CHERRY_BLACKSTONE_SWORD, CHERRY_STICK, "blackstone");
-       registerSwordItem(CHERRY_IRON_SWORD, CHERRY_STICK);
-       registerSwordItem(CHERRY_GOLDEN_SWORD, CHERRY_STICK);
-       registerSwordItem(CHERRY_DIAMOND_SWORD, CHERRY_STICK);
-       registerSwordItem(CHERRY_NETHERITE_SWORD, CHERRY_STICK);
+       registerSwordItem(CHERRY_IRON_SWORD, CHERRY_STICK, "iron");
+       registerSwordItem(CHERRY_GOLDEN_SWORD, CHERRY_STICK, "golden");
+       registerSwordItem(CHERRY_DIAMOND_SWORD, CHERRY_STICK, "diamond");
+       registerSwordItem(CHERRY_NETHERITE_SWORD, CHERRY_STICK, "netherite");
        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(CHERRY_WOODEN_AXE, CHERRY_STONE_AXE, CHERRY_DEEPSLATE_AXE, CHERRY_BLACKSTONE_AXE, CHERRY_IRON_AXE, CHERRY_GOLDEN_AXE, CHERRY_DIAMOND_AXE, CHERRY_NETHERITE_AXE));}
        registerBowItem(CHERRY_BOW, CHERRY_STICK);
        registerCrossbowItem(CHERRY_CROSSBOW, CHERRY_STICK);
@@ -312,14 +289,14 @@ public class MoreWeaponVariantItems {
 
 
       //Crimson Weapons
-       registerSwordItem(CRIMSON_WOODEN_SWORD, CRIMSON_STICK);
-       registerSwordItem(CRIMSON_STONE_SWORD, CRIMSON_STICK);
+       registerSwordItem(CRIMSON_WOODEN_SWORD, CRIMSON_STICK, "wooden");
+       registerSwordItem(CRIMSON_STONE_SWORD, CRIMSON_STICK, "stone");
        registerSwordItem(CRIMSON_DEEPSLATE_SWORD, CRIMSON_STICK, "deepslate");
        registerSwordItem(CRIMSON_BLACKSTONE_SWORD, CRIMSON_STICK, "blackstone");
-       registerSwordItem(CRIMSON_IRON_SWORD, CRIMSON_STICK);
-       registerSwordItem(CRIMSON_GOLDEN_SWORD, CRIMSON_STICK);
-       registerSwordItem(CRIMSON_DIAMOND_SWORD, CRIMSON_STICK);
-       registerSwordItem(CRIMSON_NETHERITE_SWORD, CRIMSON_STICK);
+       registerSwordItem(CRIMSON_IRON_SWORD, CRIMSON_STICK, "iron");
+       registerSwordItem(CRIMSON_GOLDEN_SWORD, CRIMSON_STICK, "golden");
+       registerSwordItem(CRIMSON_DIAMOND_SWORD, CRIMSON_STICK, "diamond");
+       registerSwordItem(CRIMSON_NETHERITE_SWORD, CRIMSON_STICK, "netherite");
        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(CRIMSON_WOODEN_AXE, CRIMSON_STONE_AXE, CRIMSON_DEEPSLATE_AXE, CRIMSON_BLACKSTONE_AXE, CRIMSON_IRON_AXE, CRIMSON_GOLDEN_AXE, CRIMSON_DIAMOND_AXE, CRIMSON_NETHERITE_AXE));}
        registerBowItem(CRIMSON_BOW, CRIMSON_STICK);
        registerCrossbowItem(CRIMSON_CROSSBOW, CRIMSON_STICK);
@@ -327,14 +304,14 @@ public class MoreWeaponVariantItems {
 
 
       //Dark_oak Weapons
-       registerSwordItem(DARK_OAK_WOODEN_SWORD, DARK_OAK_STICK);
-       registerSwordItem(DARK_OAK_STONE_SWORD, DARK_OAK_STICK);
+       registerSwordItem(DARK_OAK_WOODEN_SWORD, DARK_OAK_STICK, "wooden");
+       registerSwordItem(DARK_OAK_STONE_SWORD, DARK_OAK_STICK, "stone");
        registerSwordItem(DARK_OAK_DEEPSLATE_SWORD, DARK_OAK_STICK, "deepslate");
        registerSwordItem(DARK_OAK_BLACKSTONE_SWORD, DARK_OAK_STICK, "blackstone");
-       registerSwordItem(DARK_OAK_IRON_SWORD, DARK_OAK_STICK);
-       registerSwordItem(DARK_OAK_GOLDEN_SWORD, DARK_OAK_STICK);
-       registerSwordItem(DARK_OAK_DIAMOND_SWORD, DARK_OAK_STICK);
-       registerSwordItem(DARK_OAK_NETHERITE_SWORD, DARK_OAK_STICK);
+       registerSwordItem(DARK_OAK_IRON_SWORD, DARK_OAK_STICK, "iron");
+       registerSwordItem(DARK_OAK_GOLDEN_SWORD, DARK_OAK_STICK, "golden");
+       registerSwordItem(DARK_OAK_DIAMOND_SWORD, DARK_OAK_STICK, "diamond");
+       registerSwordItem(DARK_OAK_NETHERITE_SWORD, DARK_OAK_STICK, "netherite");
        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(DARK_OAK_WOODEN_AXE, DARK_OAK_STONE_AXE, DARK_OAK_DEEPSLATE_AXE, DARK_OAK_BLACKSTONE_AXE, DARK_OAK_IRON_AXE, DARK_OAK_GOLDEN_AXE, DARK_OAK_DIAMOND_AXE, DARK_OAK_NETHERITE_AXE));}
        registerBowItem(DARK_OAK_BOW, DARK_OAK_STICK);
         more_weapons.add(Items.CROSSBOW);
@@ -342,14 +319,14 @@ public class MoreWeaponVariantItems {
 
 
       //Jungle Weapons
-       registerSwordItem(JUNGLE_WOODEN_SWORD, JUNGLE_STICK);
-       registerSwordItem(JUNGLE_STONE_SWORD, JUNGLE_STICK);
+       registerSwordItem(JUNGLE_WOODEN_SWORD, JUNGLE_STICK, "wooden");
+       registerSwordItem(JUNGLE_STONE_SWORD, JUNGLE_STICK, "stone");
        registerSwordItem(JUNGLE_DEEPSLATE_SWORD, JUNGLE_STICK, "deepslate");
        registerSwordItem(JUNGLE_BLACKSTONE_SWORD, JUNGLE_STICK, "blackstone");
-       registerSwordItem(JUNGLE_IRON_SWORD, JUNGLE_STICK);
-       registerSwordItem(JUNGLE_GOLDEN_SWORD, JUNGLE_STICK);
-       registerSwordItem(JUNGLE_DIAMOND_SWORD, JUNGLE_STICK);
-       registerSwordItem(JUNGLE_NETHERITE_SWORD, JUNGLE_STICK);
+       registerSwordItem(JUNGLE_IRON_SWORD, JUNGLE_STICK, "iron");
+       registerSwordItem(JUNGLE_GOLDEN_SWORD, JUNGLE_STICK, "golden");
+       registerSwordItem(JUNGLE_DIAMOND_SWORD, JUNGLE_STICK, "diamond");
+       registerSwordItem(JUNGLE_NETHERITE_SWORD, JUNGLE_STICK, "netherite");
        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(JUNGLE_WOODEN_AXE, JUNGLE_STONE_AXE, JUNGLE_DEEPSLATE_AXE, JUNGLE_BLACKSTONE_AXE, JUNGLE_IRON_AXE, JUNGLE_GOLDEN_AXE, JUNGLE_DIAMOND_AXE, JUNGLE_NETHERITE_AXE));}
        registerBowItem(JUNGLE_BOW, JUNGLE_STICK);
        registerCrossbowItem(JUNGLE_CROSSBOW, JUNGLE_STICK);
@@ -357,14 +334,14 @@ public class MoreWeaponVariantItems {
 
 
       //Mangrove Weapons
-       registerSwordItem(MANGROVE_WOODEN_SWORD, MANGROVE_STICK);
-       registerSwordItem(MANGROVE_STONE_SWORD, MANGROVE_STICK);
+       registerSwordItem(MANGROVE_WOODEN_SWORD, MANGROVE_STICK, "wooden");
+       registerSwordItem(MANGROVE_STONE_SWORD, MANGROVE_STICK, "stone");
        registerSwordItem(MANGROVE_DEEPSLATE_SWORD, MANGROVE_STICK, "deepslate");
        registerSwordItem(MANGROVE_BLACKSTONE_SWORD, MANGROVE_STICK, "blackstone");
-       registerSwordItem(MANGROVE_IRON_SWORD, MANGROVE_STICK);
-       registerSwordItem(MANGROVE_GOLDEN_SWORD, MANGROVE_STICK);
-       registerSwordItem(MANGROVE_DIAMOND_SWORD, MANGROVE_STICK);
-       registerSwordItem(MANGROVE_NETHERITE_SWORD, MANGROVE_STICK);
+       registerSwordItem(MANGROVE_IRON_SWORD, MANGROVE_STICK, "iron");
+       registerSwordItem(MANGROVE_GOLDEN_SWORD, MANGROVE_STICK, "golden");
+       registerSwordItem(MANGROVE_DIAMOND_SWORD, MANGROVE_STICK, "diamond");
+       registerSwordItem(MANGROVE_NETHERITE_SWORD, MANGROVE_STICK, "netherite");
        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(MANGROVE_WOODEN_AXE, MANGROVE_STONE_AXE, MANGROVE_DEEPSLATE_AXE, MANGROVE_BLACKSTONE_AXE, MANGROVE_IRON_AXE, MANGROVE_GOLDEN_AXE, MANGROVE_DIAMOND_AXE, MANGROVE_NETHERITE_AXE));}
        registerBowItem(MANGROVE_BOW, MANGROVE_STICK);
        registerCrossbowItem(MANGROVE_CROSSBOW, MANGROVE_STICK);
@@ -386,14 +363,14 @@ public class MoreWeaponVariantItems {
         more_weapons.add(Items.ARROW);
 
       //Spruce Weapons
-       registerSwordItem(SPRUCE_WOODEN_SWORD, SPRUCE_STICK);
-       registerSwordItem(SPRUCE_STONE_SWORD, SPRUCE_STICK);
+       registerSwordItem(SPRUCE_WOODEN_SWORD, SPRUCE_STICK, "wooden");
+       registerSwordItem(SPRUCE_STONE_SWORD, SPRUCE_STICK, "stone");
        registerSwordItem(SPRUCE_DEEPSLATE_SWORD, SPRUCE_STICK, "deepslate");
        registerSwordItem(SPRUCE_BLACKSTONE_SWORD, SPRUCE_STICK, "blackstone");
-       registerSwordItem(SPRUCE_IRON_SWORD, SPRUCE_STICK);
-       registerSwordItem(SPRUCE_GOLDEN_SWORD, SPRUCE_STICK);
-       registerSwordItem(SPRUCE_DIAMOND_SWORD, SPRUCE_STICK);
-       registerSwordItem(SPRUCE_NETHERITE_SWORD, SPRUCE_STICK);
+       registerSwordItem(SPRUCE_IRON_SWORD, SPRUCE_STICK, "iron");
+       registerSwordItem(SPRUCE_GOLDEN_SWORD, SPRUCE_STICK, "golden");
+       registerSwordItem(SPRUCE_DIAMOND_SWORD, SPRUCE_STICK, "diamond");
+       registerSwordItem(SPRUCE_NETHERITE_SWORD, SPRUCE_STICK, "netherite");
        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(SPRUCE_WOODEN_AXE, SPRUCE_STONE_AXE, SPRUCE_DEEPSLATE_AXE, SPRUCE_BLACKSTONE_AXE, SPRUCE_IRON_AXE, SPRUCE_GOLDEN_AXE, SPRUCE_DIAMOND_AXE, SPRUCE_NETHERITE_AXE));}
        registerBowItem(SPRUCE_BOW, SPRUCE_STICK);
        registerCrossbowItem(SPRUCE_CROSSBOW, SPRUCE_STICK);
@@ -401,14 +378,14 @@ public class MoreWeaponVariantItems {
 
 
       //Warped Weapons
-       registerSwordItem(WARPED_WOODEN_SWORD, WARPED_STICK);
-       registerSwordItem(WARPED_STONE_SWORD, WARPED_STICK);
+       registerSwordItem(WARPED_WOODEN_SWORD, WARPED_STICK, "wooden");
+       registerSwordItem(WARPED_STONE_SWORD, WARPED_STICK, "stone");
        registerSwordItem(WARPED_DEEPSLATE_SWORD, WARPED_STICK, "deepslate");
        registerSwordItem(WARPED_BLACKSTONE_SWORD, WARPED_STICK, "blackstone");
-       registerSwordItem(WARPED_IRON_SWORD, WARPED_STICK);
-       registerSwordItem(WARPED_GOLDEN_SWORD, WARPED_STICK);
-       registerSwordItem(WARPED_DIAMOND_SWORD, WARPED_STICK);
-       registerSwordItem(WARPED_NETHERITE_SWORD, WARPED_STICK);
+       registerSwordItem(WARPED_IRON_SWORD, WARPED_STICK, "iron");
+       registerSwordItem(WARPED_GOLDEN_SWORD, WARPED_STICK, "golden");
+       registerSwordItem(WARPED_DIAMOND_SWORD, WARPED_STICK, "diamond");
+       registerSwordItem(WARPED_NETHERITE_SWORD, WARPED_STICK, "netherite");
        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(WARPED_WOODEN_AXE, WARPED_STONE_AXE, WARPED_DEEPSLATE_AXE, WARPED_BLACKSTONE_AXE, WARPED_IRON_AXE, WARPED_GOLDEN_AXE, WARPED_DIAMOND_AXE, WARPED_NETHERITE_AXE));}
        registerBowItem(WARPED_BOW, WARPED_STICK);
        registerCrossbowItem(WARPED_CROSSBOW, WARPED_STICK);
@@ -416,11 +393,9 @@ public class MoreWeaponVariantItems {
 
     }
 
-    private static void registerSwordItem(Item swordItem, Item stickIngredient) {registerSwordItem(swordItem, stickIngredient, "");}
-    
-    private static void registerSwordItem(Item swordItem, Item stickIngredient, String tierVariant) {
+    private static void registerSwordItem(Item swordItem, Item stickIngredient, String tierName) {
         more_swords.add(swordItem);
-        registerWeaponItem(swordItem, stickIngredient, swordName((SwordItem) swordItem, stickIngredient, tierVariant));
+        registerWeaponItem(swordItem, stickIngredient, swordName(stickIngredient, tierName));
     }
     private static void registerBowItem(Item bowItem, Item stickIngredient) {
         more_bows.add(bowItem);

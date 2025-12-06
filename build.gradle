@@ -2,7 +2,7 @@ import groovy.json.JsonSlurper
 import groovy.xml.XmlSlurper
 
 plugins {
-	id 'net.fabricmc.fabric-loom-remap' // version from latest-loom.gradle via settings.gradle's pluginManagement
+	id 'fabric-loom' // version from latest-loom.gradle via settings.gradle's pluginManagement
 	id 'maven-publish'
 }
 
