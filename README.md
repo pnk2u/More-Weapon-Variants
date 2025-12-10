@@ -64,9 +64,9 @@ Currently available in:
 ### Versions
 <a name="most-recent-version"></a>
 <!--CHANGELOG:START-->
-<a name="1.5.1"></a>
-#### 1.5.1[*](#footnote-*):
-- `1.21.11`: Add missing name change for vanilla _Spears_ to "_Oak \<Material\> Spear_" in English and German localization
+<a name="1.5.2"></a>
+#### 1.5.2[*](#footnote-*):
+- `1.20.1`, `1.21(.1)`: Fix Swords not being registered properly
 
 <h2><sub><sub><sup><ins>Download 1.5.1 + 1.21.11</ins>:</sup>&#x200A;
 <a title="Download (Modrinth):&#10;More Weapon Variants 1.5.1 + 1.21.11" href="https://www.modrinth.com/mod/TAu3MvxJ/version/b8o5lxCF">
