@@ -1,3 +1,4 @@
 <!--publish=false-->
-### 1.5.1:
-- `1.21.11`: Add missing name change for vanilla _Spears_ to "_Oak \<Material\> Spear_" in English and German localization
+### 1.5.3:
+- `1.21.11`: Allow "_Zombie Horsemen_"<sup>1</sup> to spawn with _Iron Spear_ variants based on biome  
+    <sup>1): _Zombie Horses_ spawn with _Zombies_ holding an _Iron Spear_</sup>
