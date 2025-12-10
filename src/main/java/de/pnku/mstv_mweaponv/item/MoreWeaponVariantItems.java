@@ -36,9 +36,9 @@ public class MoreWeaponVariantItems {
         return ((MoreStickVariantItem) stickIngredient).mstvWoodType;
     }
 
-    private static String swordName(String toolMaterialName, Item stickIngredient) {
-        return getStickName(stickIngredient) + "_" + toolMaterialName + "_sword";
-    }
+        private static String swordName(Item stickIngredient, String toolMaterialName) {
+            return getStickName(stickIngredient) + "_" + toolMaterialName + "_sword";
+        }
 
     private static Item.Properties swordProperties(String toolMaterialName, Item stickIngredient) {
         Item.Properties properties = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, withModId(swordName(toolMaterialName, stickIngredient))));
@@ -423,7 +423,7 @@ public class MoreWeaponVariantItems {
 
     private static void registerSwordItem(Item swordItem, Item stickIngredient, String toolMaterialName) {
         more_swords.add(swordItem);
-        registerWeaponItem(swordItem, stickIngredient, swordName(toolMaterialName, stickIngredient));
+        registerWeaponItem(swordItem, stickIngredient, swordName(stickIngredient, toolMaterialName));
     }
     private static void registerBowItem(Item bowItem, Item stickIngredient) {
         more_bows.add(bowItem);

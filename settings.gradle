@@ -11,6 +11,6 @@ pluginManagement {
 	}
 
 	plugins {
-		id "net.fabricmc.fabric-loom-remap" version loomVersion
+		id "fabric-loom" version loomVersion
 	}
 }
