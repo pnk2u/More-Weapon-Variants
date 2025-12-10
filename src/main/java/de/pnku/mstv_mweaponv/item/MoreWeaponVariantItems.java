@@ -41,7 +41,7 @@ public class MoreWeaponVariantItems {
         }
 
     private static Item.Properties swordProperties(String toolMaterialName, Item stickIngredient) {
-        Item.Properties properties = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, withModId(swordName(toolMaterialName, stickIngredient))));
+        Item.Properties properties = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, withModId(swordName(stickIngredient, toolMaterialName))));
         return applyFireRes(getStickName(stickIngredient), toolMaterialName, properties);
     }
 
