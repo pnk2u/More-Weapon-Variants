@@ -1,4 +1,6 @@
 <!--publish=false-->
-### 1.5.3:
-- `1.21.11`: Allow "_Zombie Horsemen_"<sup>1</sup> to spawn with _Iron Spear_ variants based on biome  
-    <sup>1): _Zombie Horses_ spawn with _Zombies_ holding an _Iron Spear_</sup>
+### 1.5.4:
+- `26.1`: Update to <ins>26.1</ins>
+
+<br></br>
+<sub>License update to [`CC-BY-NC-SA-4.0`](https://creativecommons.org/licenses/by-nc-sa/4.0/) (previously [`MIT`](https://choosealicense.com/licenses/mit))</sub>

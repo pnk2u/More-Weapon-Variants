@@ -2,7 +2,7 @@
   "plugin": "de.pnku.mstv_mweaponv.mixin.client.compat.nea.MweaponvWithNeaMixinPlugin" ,
   "required": false ,
   "package": "de.pnku.mstv_mweaponv.mixin.client.compat.nea" ,
-  "compatibilityLevel": "JAVA_21" ,
+  "compatibilityLevel": "JAVA_${java_version}" ,
   "mixins": [
   ],
   "client": [
