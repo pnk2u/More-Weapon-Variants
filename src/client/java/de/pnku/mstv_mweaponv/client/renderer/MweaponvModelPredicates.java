@@ -28,7 +28,7 @@ public class MweaponvModelPredicates {
         registerCrossbowChargedProjectilesPredicate(Items.CROSSBOW);
     }
 
-    private static void registerBowPullPredicate(Item bowItem) {
+    public static void registerBowPullPredicate(Item bowItem) {
         ItemProperties.register(bowItem, ResourceLocation.parse("pull"),
                 (itemStack, clientLevel, livingEntity, seed) -> {
                     if (livingEntity == null) {
@@ -38,7 +38,7 @@ public class MweaponvModelPredicates {
                     }
                 });
     }
-    private static void registerBowArrowPredicate(Item bowItem) {
+    public static void registerBowArrowPredicate(Item bowItem) {
         ItemProperties.register(bowItem, ResourceLocation.parse("bowarrow"),
             (itemStack, clientLevel, livingEntity, seed) -> {
             String arrowStickWood;
@@ -70,7 +70,7 @@ public class MweaponvModelPredicates {
             }
             });
     }
-    private static void registerCrossbowPullPredicate(Item crossbowItem) {
+    public static void registerCrossbowPullPredicate(Item crossbowItem) {
         ItemProperties.register(crossbowItem, ResourceLocation.parse("pull"),
                 (itemStack, clientLevel, livingEntity, seed) -> {
                     if (livingEntity == null) {
@@ -80,19 +80,19 @@ public class MweaponvModelPredicates {
                     }
                 });
     }
-    private static void registerCrossbowPullingPredicate(Item crossbowItem) {
+    public static void registerCrossbowPullingPredicate(Item crossbowItem) {
         ItemProperties.register(crossbowItem, ResourceLocation.parse("pulling"),
                 (itemStack, clientLevel, livingEntity, i) -> {
             return livingEntity != null && livingEntity.isUsingItem() && livingEntity.getUseItem() == itemStack && !CrossbowItem.isCharged(itemStack) ? 1.0F : 0.0F;
         });
     }
-    private static void registerCrossbowChargedPredicate(Item crossbowItem) {
+    public static void registerCrossbowChargedPredicate(Item crossbowItem) {
         ItemProperties.register(crossbowItem, ResourceLocation.parse("charged"),
                 (itemStack, clientLevel, livingEntity, i) -> {
             return CrossbowItem.isCharged(itemStack) ? 1.0F : 0.0F;
         });
     }
-    private static void registerCrossbowChargedProjectilesPredicate(Item crossbowItem) {
+    public static void registerCrossbowChargedProjectilesPredicate(Item crossbowItem) {
         ItemProperties.register(crossbowItem, ResourceLocation.parse("charged_projectiles"),
                 (itemStack, clientLevel, livingEntity, i) -> {
             if (CrossbowItem.isCharged(itemStack)) {
