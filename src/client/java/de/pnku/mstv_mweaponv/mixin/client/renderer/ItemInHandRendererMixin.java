@@ -23,9 +23,9 @@ public abstract class ItemInHandRendererMixin {
         if (more_crossbows.contains(stack.getItem()) && CrossbowItem.isCharged(stack)) {cir.setReturnValue(true);}
     }
 
-    @WrapOperation(method = "renderArmWithItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z",
+    @WrapOperation(method = "renderArmWithItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Ljava/lang/Object;)Z",
                     ordinal = 0))
-    private boolean wrappedItemStackIsFromRenderArmWithItem(ItemStack itemStack, Item originalItem, Operation<Boolean> original) {
+    private boolean wrappedItemStackIsFromRenderArmWithItem(ItemStack itemStack, Object originalItem, Operation<Boolean> original) {
         if (originalItem.equals(Items.CROSSBOW)) {
             return itemStack.getItem() instanceof CrossbowItem;
         } else {

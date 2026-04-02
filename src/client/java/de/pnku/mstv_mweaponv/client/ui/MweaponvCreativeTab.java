@@ -1,8 +1,8 @@
 package de.pnku.mstv_mweaponv.client.ui;
 
 import de.pnku.mstv_mweaponv.MoreWeaponVariants;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -17,7 +17,7 @@ public class MweaponvCreativeTab extends CreativeModeTabs {
 
     public static CreativeModeTab WEAPON_VARIANTS;
 
-    public static final CreativeModeTab.Builder MWEAPONV_CMT_BUILDER = FabricItemGroup.builder().title(Component.translatable("itemGroup.weaponVariants")).icon(() -> new ItemStack(WARPED_GOLDEN_SWORD)).displayItems(((displayContext, entries) -> {
+    public static final CreativeModeTab.Builder MWEAPONV_CMT_BUILDER = FabricCreativeModeTab.builder().title(Component.translatable("itemGroup.weaponVariants")).icon(() -> new ItemStack(WARPED_GOLDEN_SWORD)).displayItems(((displayContext, entries) -> {
         for (Item weaponItem : more_weapons)
         {
             if (!more_tippable_arrows.containsValue(weaponItem)) {
@@ -36,9 +36,9 @@ public class MweaponvCreativeTab extends CreativeModeTabs {
             Item weaponItem = weaponItemList.get(i);
             if (i != 0 && i != 9) {
                 int j = i + 1;
-                ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT).register(entries -> entries.addBefore(weaponItemList.get(j), weaponItem));
+                CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(entries -> entries.insertBefore(weaponItemList.get(j), weaponItem));
             } else {
-                ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT).register(entries -> entries.addAfter(vanillaItem, weaponItem));
+                CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(entries -> entries.insertAfter(vanillaItem, weaponItem));
             }
         }
     }
