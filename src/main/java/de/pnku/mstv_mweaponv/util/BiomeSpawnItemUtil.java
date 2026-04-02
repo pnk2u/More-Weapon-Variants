@@ -96,6 +96,7 @@ public final class BiomeSpawnItemUtil {
     private BiomeSpawnItemUtil() {}
 
     public static Item chooseStickForSpawnBiome(LivingEntity entity) {
+        if (entity == null) return null;
         BlockPos pos = entity.blockPosition();
         String biomeName = entity.level().getBiome(pos).unwrapKey().get().location().toString();;
 
