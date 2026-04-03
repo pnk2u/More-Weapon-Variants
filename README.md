@@ -66,17 +66,21 @@
 ### Versions
 <a name="most-recent-version"></a>
 <!--CHANGELOG:START-->
-<a name="1.5.3"></a>
-#### 1.5.3[*](#footnote-*):
-- `1.21.11`: Allow "_Zombie Horsemen_"<sup>1</sup> to spawn with _Iron Spear_ variants based on biome  
-    <sup>1): _Zombie Horses_ spawn with _Zombies_ holding an _Iron Spear_</sup>
+<a name="1.5.4"></a>
+#### 1.5.4[*](#footnote-*):
+- `26.1`: Update to <ins>26.1</ins>
 
+- Fix recommended <ins>More Tool Variants</ins> (&#x200A;<sub><a title="More Tool Variants&#10;on Modrinth" href="https://modrinth.com/mod/more-tool-variants/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a></sub><!--SEPARATOR_V:GH--><img width=7 height=10 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"><sub><a title="More Tool Variants&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/more-tool-variants/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;) versions 
+    > Log messages incorrectly recommended the much higher <ins>More Stick Variants</ins> (&#x200A;<sub><a title="More Stick Variants&#10;on Modrinth" href="https://modrinth.com/mod/more-stick-variants/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a></sub><!--SEPARATOR_V:GH--><img width=7 height=10 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"><sub><a title="More Stick Variants&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/more-stick-variants/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;) version number.
 
-<h2><sub><sub><sup><ins>Download 1.5.0 + 1.21.9(10)</ins>:</sup>&#x200A;
-<a title="Download (Modrinth):&#10;More Weapon Variants 1.5.0 + 1.21.9(10)" href="https://www.modrinth.com/mod/TAu3MvxJ/version/Q2ggCPjy">
+<br></br>
+<sub>License update to [`CC-BY-NC-SA-4.0`](https://creativecommons.org/licenses/by-nc-sa/4.0/) (previously [`MIT`](https://choosealicense.com/licenses/mit))</sub>
+
+<h2><sub><sub><sup><ins>Download 1.5.4 + 1.21.9(10)</ins>:</sup>&#x200A;
+<a title="Download (Modrinth):&#10;More Weapon Variants 1.5.4 + 1.21.9(10)" href="https://www.modrinth.com/mod/TAu3MvxJ/version/zBxb4O7L">
 <img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>
 <sup><img width=7 height=10 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"></sup>
-<a title="Download (Curseforge):&#10;More Weapon Variants 1.5.0 + 1.21.9(10)" href="https://www.curseforge.com/minecraft/mc-mods/more-weapon-variants/files/7288958">
+<a title="Download (Curseforge):&#10;1.5.4 + 1.21.9(10) - More Weapon Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-weapon-variants/files/7867159">
 <img width=26 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a>
 </sub></sub></h2>
 
