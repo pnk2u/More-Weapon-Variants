@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 
 import java.util.List;
@@ -22,6 +23,11 @@ public class MweaponvCreativeTab extends CreativeModeTabs {
         {
             if (!more_tippable_arrows.containsValue(weaponItem)) {
                 entries.accept(weaponItem);
+                if (more_swords.contains(weaponItem) && MoreWeaponVariants.isMtoolvLoaded) {
+                    String axeItemName = BuiltInRegistries.ITEM.getKey(weaponItem).getPath().replace("sword", "axe");
+                    String axeItemNamespace = BuiltInRegistries.ITEM.getKey(weaponItem).getNamespace().replace("mstv-mweaponv", "mstv-mtoolv");
+                    entries.accept(BuiltInRegistries.ITEM.get(ResourceLocation.tryBuild(axeItemNamespace, axeItemName)).getDefaultInstance());
+                }
             }
         }
     }));
