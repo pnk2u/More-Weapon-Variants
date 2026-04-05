@@ -331,7 +331,6 @@ public class MoreWeaponVariantItems {
         registerSwordItem(PALE_OAK_GOLDEN_SWORD, PALE_OAK_STICK, "golden");
         registerSwordItem(PALE_OAK_DIAMOND_SWORD, PALE_OAK_STICK, "diamond");
         registerSwordItem(PALE_OAK_NETHERITE_SWORD, PALE_OAK_STICK, "netherite");
-        if(isMtoolvLoaded){more_weapons.add(PALE_OAK_WOODEN_AXE); more_weapons.add(PALE_OAK_STONE_AXE); more_weapons.add(PALE_OAK_DEEPSLATE_AXE); more_weapons.add(PALE_OAK_BLACKSTONE_AXE); more_weapons.add(PALE_OAK_IRON_AXE); more_weapons.add(PALE_OAK_GOLDEN_AXE); more_weapons.add(PALE_OAK_DIAMOND_AXE); more_weapons.add(PALE_OAK_NETHERITE_AXE);}
         registerBowItem(PALE_OAK_BOW, PALE_OAK_STICK);
         registerCrossbowItem(PALE_OAK_CROSSBOW, PALE_OAK_STICK);
         registerArrowItem(PALE_OAK_ARROW, PALE_OAK_STICK, PALE_OAK_TIPPED_ARROW);
