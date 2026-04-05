@@ -390,6 +390,7 @@ public class MoreWeaponVariantItems {
         more_weapons.add(Items.STONE_SWORD); more_swords.add(Items.STONE_SWORD);
        registerSwordItem(OAK_DEEPSLATE_SWORD, Items.STICK, "deepslate");
        registerSwordItem(OAK_BLACKSTONE_SWORD, Items.STICK, "blackstone");
+        more_weapons.add(Items.COPPER_SWORD); more_swords.add(Items.COPPER_SWORD);
         more_weapons.add(Items.IRON_SWORD); more_swords.add(Items.IRON_SWORD);
         more_weapons.add(Items.GOLDEN_SWORD); more_swords.add(Items.GOLDEN_SWORD);
         more_weapons.add(Items.DIAMOND_SWORD); more_swords.add(Items.DIAMOND_SWORD);
