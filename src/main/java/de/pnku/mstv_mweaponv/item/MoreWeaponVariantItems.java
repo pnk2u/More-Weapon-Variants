@@ -14,10 +14,11 @@ import net.minecraft.world.item.component.ChargedProjectiles;
 import java.util.*;
 
 import static de.pnku.mstv_base.item.MoreStickVariantItems.*;
+
 import static de.pnku.mstv_mtoolv.item.MoreToolVariantCopper.*;
 import static de.pnku.mstv_mtoolv.item.MoreToolVariantItems.*;
+import static de.pnku.mstv_mtoolv.item.MoreToolVariantItems.ACACIA_NETHERITE_AXE;
 import static de.pnku.mstv_mweaponv.MoreWeaponVariants.*;
-
 import static net.minecraft.world.item.ToolMaterial.*;
 
 public class MoreWeaponVariantItems {
@@ -425,7 +426,6 @@ public class MoreWeaponVariantItems {
        registerSpearItem(ACACIA_GOLDEN_SPEAR, ACACIA_STICK, "golden");
        registerSpearItem(ACACIA_DIAMOND_SPEAR, ACACIA_STICK, "diamond");
        registerSpearItem(ACACIA_NETHERITE_SPEAR, ACACIA_STICK, "netherite");
-       if (isMtoolvLoaded) {more_weapons.addAll(Set.of(ACACIA_WOODEN_AXE, ACACIA_STONE_AXE, ACACIA_DEEPSLATE_AXE, ACACIA_BLACKSTONE_AXE, ACACIA_COPPER_AXE, ACACIA_IRON_AXE, ACACIA_GOLDEN_AXE, ACACIA_DIAMOND_AXE, ACACIA_NETHERITE_AXE));}
        registerBowItem(ACACIA_BOW, ACACIA_STICK);
        registerCrossbowItem(ACACIA_CROSSBOW, ACACIA_STICK);
        registerArrowItem(ACACIA_ARROW, ACACIA_STICK, ACACIA_TIPPED_ARROW);
@@ -450,7 +450,6 @@ public class MoreWeaponVariantItems {
        registerSpearItem(BAMBOO_GOLDEN_SPEAR, Items.BAMBOO, "golden");
        registerSpearItem(BAMBOO_DIAMOND_SPEAR, Items.BAMBOO, "diamond");
        registerSpearItem(BAMBOO_NETHERITE_SPEAR, Items.BAMBOO, "netherite");
-       if (isMtoolvLoaded) {more_weapons.addAll(Set.of(BAMBOO_WOODEN_AXE, BAMBOO_STONE_AXE, BAMBOO_DEEPSLATE_AXE, BAMBOO_BLACKSTONE_AXE, BAMBOO_COPPER_AXE, BAMBOO_IRON_AXE, BAMBOO_GOLDEN_AXE, BAMBOO_DIAMOND_AXE, BAMBOO_NETHERITE_AXE));}
        registerBowItem(BAMBOO_BOW, Items.BAMBOO);
        registerCrossbowItem(BAMBOO_CROSSBOW, Items.BAMBOO);
        registerArrowItem(BAMBOO_ARROW, Items.BAMBOO, BAMBOO_TIPPED_ARROW);
@@ -475,7 +474,6 @@ public class MoreWeaponVariantItems {
        registerSpearItem(BIRCH_GOLDEN_SPEAR, BIRCH_STICK, "golden");
        registerSpearItem(BIRCH_DIAMOND_SPEAR, BIRCH_STICK, "diamond");
        registerSpearItem(BIRCH_NETHERITE_SPEAR, BIRCH_STICK, "netherite");
-       if (isMtoolvLoaded) {more_weapons.addAll(Set.of(BIRCH_WOODEN_AXE, BIRCH_STONE_AXE, BIRCH_DEEPSLATE_AXE, BIRCH_BLACKSTONE_AXE, BIRCH_COPPER_AXE, BIRCH_IRON_AXE, BIRCH_GOLDEN_AXE, BIRCH_DIAMOND_AXE, BIRCH_NETHERITE_AXE));}
        registerBowItem(BIRCH_BOW, BIRCH_STICK);
        registerCrossbowItem(BIRCH_CROSSBOW, BIRCH_STICK);
        registerArrowItem(BIRCH_ARROW, BIRCH_STICK, BIRCH_TIPPED_ARROW);
@@ -500,7 +498,6 @@ public class MoreWeaponVariantItems {
        registerSpearItem(CHERRY_GOLDEN_SPEAR, CHERRY_STICK, "golden");
        registerSpearItem(CHERRY_DIAMOND_SPEAR, CHERRY_STICK, "diamond");
        registerSpearItem(CHERRY_NETHERITE_SPEAR, CHERRY_STICK, "netherite");
-       if (isMtoolvLoaded) {more_weapons.addAll(Set.of(CHERRY_WOODEN_AXE, CHERRY_STONE_AXE, CHERRY_DEEPSLATE_AXE, CHERRY_BLACKSTONE_AXE, CHERRY_COPPER_AXE, CHERRY_IRON_AXE, CHERRY_GOLDEN_AXE, CHERRY_DIAMOND_AXE, CHERRY_NETHERITE_AXE));}
        registerBowItem(CHERRY_BOW, CHERRY_STICK);
        registerCrossbowItem(CHERRY_CROSSBOW, CHERRY_STICK);
        registerArrowItem(CHERRY_ARROW, CHERRY_STICK, CHERRY_TIPPED_ARROW);
@@ -525,7 +522,6 @@ public class MoreWeaponVariantItems {
        registerSpearItem(CRIMSON_GOLDEN_SPEAR, CRIMSON_STICK, "golden");
        registerSpearItem(CRIMSON_DIAMOND_SPEAR, CRIMSON_STICK, "diamond");
        registerSpearItem(CRIMSON_NETHERITE_SPEAR, CRIMSON_STICK, "netherite");
-       if (isMtoolvLoaded) {more_weapons.addAll(Set.of(CRIMSON_WOODEN_AXE, CRIMSON_STONE_AXE, CRIMSON_DEEPSLATE_AXE, CRIMSON_BLACKSTONE_AXE, CRIMSON_COPPER_AXE, CRIMSON_IRON_AXE, CRIMSON_GOLDEN_AXE, CRIMSON_DIAMOND_AXE, CRIMSON_NETHERITE_AXE));}
        registerBowItem(CRIMSON_BOW, CRIMSON_STICK);
        registerCrossbowItem(CRIMSON_CROSSBOW, CRIMSON_STICK);
        registerArrowItem(CRIMSON_ARROW, CRIMSON_STICK, CRIMSON_TIPPED_ARROW);
@@ -550,7 +546,6 @@ public class MoreWeaponVariantItems {
        registerSpearItem(DARK_OAK_GOLDEN_SPEAR, DARK_OAK_STICK, "golden");
        registerSpearItem(DARK_OAK_DIAMOND_SPEAR, DARK_OAK_STICK, "diamond");
        registerSpearItem(DARK_OAK_NETHERITE_SPEAR, DARK_OAK_STICK, "netherite");
-       if (isMtoolvLoaded) {more_weapons.addAll(Set.of(DARK_OAK_WOODEN_AXE, DARK_OAK_STONE_AXE, DARK_OAK_DEEPSLATE_AXE, DARK_OAK_BLACKSTONE_AXE, DARK_OAK_COPPER_AXE, DARK_OAK_IRON_AXE, DARK_OAK_GOLDEN_AXE, DARK_OAK_DIAMOND_AXE, DARK_OAK_NETHERITE_AXE));}
        registerBowItem(DARK_OAK_BOW, DARK_OAK_STICK);
         more_weapons.add(Items.CROSSBOW);
        registerArrowItem(DARK_OAK_ARROW, DARK_OAK_STICK, DARK_OAK_TIPPED_ARROW);
@@ -575,7 +570,6 @@ public class MoreWeaponVariantItems {
         registerSpearItem(PALE_OAK_GOLDEN_SPEAR, PALE_OAK_STICK, "golden");
         registerSpearItem(PALE_OAK_DIAMOND_SPEAR, PALE_OAK_STICK, "diamond");
         registerSpearItem(PALE_OAK_NETHERITE_SPEAR, PALE_OAK_STICK, "netherite");
-        if(isMtoolvLoaded){more_weapons.add(PALE_OAK_WOODEN_AXE); more_weapons.add(PALE_OAK_STONE_AXE); more_weapons.add(PALE_OAK_DEEPSLATE_AXE); more_weapons.add(PALE_OAK_BLACKSTONE_AXE); more_weapons.add(PALE_OAK_IRON_AXE); more_weapons.add(PALE_OAK_GOLDEN_AXE); more_weapons.add(PALE_OAK_DIAMOND_AXE); more_weapons.add(PALE_OAK_NETHERITE_AXE);}
         registerBowItem(PALE_OAK_BOW, PALE_OAK_STICK);
         registerCrossbowItem(PALE_OAK_CROSSBOW, PALE_OAK_STICK);
         registerArrowItem(PALE_OAK_ARROW, PALE_OAK_STICK, PALE_OAK_TIPPED_ARROW);
@@ -600,7 +594,6 @@ public class MoreWeaponVariantItems {
        registerSpearItem(JUNGLE_GOLDEN_SPEAR, JUNGLE_STICK, "golden");
        registerSpearItem(JUNGLE_DIAMOND_SPEAR, JUNGLE_STICK, "diamond");
        registerSpearItem(JUNGLE_NETHERITE_SPEAR, JUNGLE_STICK, "netherite");
-       if (isMtoolvLoaded) {more_weapons.addAll(Set.of(JUNGLE_WOODEN_AXE, JUNGLE_STONE_AXE, JUNGLE_DEEPSLATE_AXE, JUNGLE_BLACKSTONE_AXE, JUNGLE_COPPER_AXE, JUNGLE_IRON_AXE, JUNGLE_GOLDEN_AXE, JUNGLE_DIAMOND_AXE, JUNGLE_NETHERITE_AXE));}
        registerBowItem(JUNGLE_BOW, JUNGLE_STICK);
        registerCrossbowItem(JUNGLE_CROSSBOW, JUNGLE_STICK);
        registerArrowItem(JUNGLE_ARROW, JUNGLE_STICK, JUNGLE_TIPPED_ARROW);
@@ -625,25 +618,26 @@ public class MoreWeaponVariantItems {
        registerSpearItem(MANGROVE_GOLDEN_SPEAR, MANGROVE_STICK, "golden");
        registerSpearItem(MANGROVE_DIAMOND_SPEAR, MANGROVE_STICK, "diamond");
        registerSpearItem(MANGROVE_NETHERITE_SPEAR, MANGROVE_STICK, "netherite");
-       if (isMtoolvLoaded) {more_weapons.addAll(Set.of(MANGROVE_WOODEN_AXE, MANGROVE_STONE_AXE, MANGROVE_DEEPSLATE_AXE, MANGROVE_BLACKSTONE_AXE, MANGROVE_COPPER_AXE, MANGROVE_IRON_AXE, MANGROVE_GOLDEN_AXE, MANGROVE_DIAMOND_AXE, MANGROVE_NETHERITE_AXE));}
        registerBowItem(MANGROVE_BOW, MANGROVE_STICK);
        registerCrossbowItem(MANGROVE_CROSSBOW, MANGROVE_STICK);
        registerArrowItem(MANGROVE_ARROW, MANGROVE_STICK, MANGROVE_TIPPED_ARROW);
 
 
       //Oak Weapons
-        more_weapons.add(Items.WOODEN_SWORD);
-        more_weapons.add(Items.STONE_SWORD);
+        more_weapons.add(Items.WOODEN_SWORD); more_swords.add(Items.WOODEN_SWORD);
+        more_weapons.add(Items.STONE_SWORD); more_swords.add(Items.STONE_SWORD);
        registerSwordItem(OAK_DEEPSLATE_SWORD, Items.STICK, "deepslate");
        registerSwordItem(OAK_BLACKSTONE_SWORD, Items.STICK, "blackstone");
-        more_weapons.add(Items.IRON_SWORD);
-        more_weapons.add(Items.GOLDEN_SWORD);
-        more_weapons.add(Items.DIAMOND_SWORD);
-        more_weapons.add(Items.NETHERITE_SWORD);
+        more_weapons.add(Items.COPPER_SWORD); more_swords.add(Items.COPPER_SWORD);
+        more_weapons.add(Items.IRON_SWORD); more_swords.add(Items.IRON_SWORD);
+        more_weapons.add(Items.GOLDEN_SWORD); more_swords.add(Items.GOLDEN_SWORD);
+        more_weapons.add(Items.DIAMOND_SWORD); more_swords.add(Items.DIAMOND_SWORD);
+        more_weapons.add(Items.NETHERITE_SWORD); more_swords.add(Items.NETHERITE_SWORD);
         more_weapons.add(Items.WOODEN_SPEAR);
         more_weapons.add(Items.STONE_SPEAR);
        registerSpearItem(OAK_DEEPSLATE_SPEAR, Items.STICK, "deepslate");
        registerSpearItem(OAK_BLACKSTONE_SPEAR, Items.STICK, "blackstone");
+        more_weapons.add(Items.COPPER_SPEAR);
         more_weapons.add(Items.IRON_SPEAR);
         more_weapons.add(Items.GOLDEN_SPEAR);
         more_weapons.add(Items.DIAMOND_SPEAR);
@@ -673,7 +667,6 @@ public class MoreWeaponVariantItems {
        registerSpearItem(SPRUCE_GOLDEN_SPEAR, SPRUCE_STICK, "golden");
        registerSpearItem(SPRUCE_DIAMOND_SPEAR, SPRUCE_STICK, "diamond");
        registerSpearItem(SPRUCE_NETHERITE_SPEAR, SPRUCE_STICK, "netherite");
-       if (isMtoolvLoaded) {more_weapons.addAll(Set.of(SPRUCE_WOODEN_AXE, SPRUCE_STONE_AXE, SPRUCE_DEEPSLATE_AXE, SPRUCE_BLACKSTONE_AXE, SPRUCE_COPPER_AXE, SPRUCE_IRON_AXE, SPRUCE_GOLDEN_AXE, SPRUCE_DIAMOND_AXE, SPRUCE_NETHERITE_AXE));}
        registerBowItem(SPRUCE_BOW, SPRUCE_STICK);
        registerCrossbowItem(SPRUCE_CROSSBOW, SPRUCE_STICK);
        registerArrowItem(SPRUCE_ARROW, SPRUCE_STICK, SPRUCE_TIPPED_ARROW);
@@ -698,7 +691,6 @@ public class MoreWeaponVariantItems {
        registerSpearItem(WARPED_GOLDEN_SPEAR, WARPED_STICK, "golden");
        registerSpearItem(WARPED_DIAMOND_SPEAR, WARPED_STICK, "diamond");
        registerSpearItem(WARPED_NETHERITE_SPEAR, WARPED_STICK, "netherite");
-       if (isMtoolvLoaded) {more_weapons.addAll(Set.of(WARPED_WOODEN_AXE, WARPED_STONE_AXE, WARPED_DEEPSLATE_AXE, WARPED_BLACKSTONE_AXE, WARPED_COPPER_AXE, WARPED_IRON_AXE, WARPED_GOLDEN_AXE, WARPED_DIAMOND_AXE, WARPED_NETHERITE_AXE));}
        registerBowItem(WARPED_BOW, WARPED_STICK);
        registerCrossbowItem(WARPED_CROSSBOW, WARPED_STICK);
        registerArrowItem(WARPED_ARROW, WARPED_STICK, WARPED_TIPPED_ARROW);
