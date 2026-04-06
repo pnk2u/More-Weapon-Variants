@@ -15,6 +15,7 @@ import java.util.*;
 import static de.pnku.mstv_base.item.MoreStickVariantItems.*;
 
 import static de.pnku.mstv_mweaponv.MoreWeaponVariants.withModId;
+import static de.pnku.mstv_mweaponv.MoreWeaponVariants.*;
 import static net.minecraft.world.item.ToolMaterial.*;
 
 public class MoreWeaponVariantItems {
@@ -638,7 +639,6 @@ public class MoreWeaponVariantItems {
         more_weapons.add(Items.GOLDEN_SPEAR);
         more_weapons.add(Items.DIAMOND_SPEAR);
         more_weapons.add(Items.NETHERITE_SPEAR);
-        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(Items.WOODEN_AXE, Items.STONE_AXE, OAK_DEEPSLATE_AXE, OAK_BLACKSTONE_AXE, Items.COPPER_AXE, Items.IRON_AXE, Items.GOLDEN_AXE, Items.DIAMOND_AXE, Items.NETHERITE_AXE));}
         more_weapons.add(Items.BOW);
        registerCrossbowItem(OAK_CROSSBOW, Items.STICK);
         more_weapons.add(Items.ARROW);
