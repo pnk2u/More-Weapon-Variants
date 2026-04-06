@@ -1,7 +1,6 @@
 package de.pnku.mstv_mweaponv.item;
 
 import de.pnku.mstv_base.item.MoreStickVariantItem;
-import de.pnku.mstv_mweaponv.MoreWeaponVariants;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -15,9 +14,7 @@ import java.util.*;
 
 import static de.pnku.mstv_base.item.MoreStickVariantItems.*;
 
-import static de.pnku.mstv_mtoolv.item.MoreToolVariantCopper.*;
-import static de.pnku.mstv_mtoolv.item.MoreToolVariantItems.*;
-import static de.pnku.mstv_mtoolv.item.MoreToolVariantItems.ACACIA_NETHERITE_AXE;
+import static de.pnku.mstv_mweaponv.MoreWeaponVariants.withModId;
 import static de.pnku.mstv_mweaponv.MoreWeaponVariants.*;
 import static net.minecraft.world.item.ToolMaterial.*;
 
@@ -642,7 +639,6 @@ public class MoreWeaponVariantItems {
         more_weapons.add(Items.GOLDEN_SPEAR);
         more_weapons.add(Items.DIAMOND_SPEAR);
         more_weapons.add(Items.NETHERITE_SPEAR);
-        if (isMtoolvLoaded) {more_weapons.addAll(Set.of(Items.WOODEN_AXE, Items.STONE_AXE, OAK_DEEPSLATE_AXE, OAK_BLACKSTONE_AXE, Items.COPPER_AXE, Items.IRON_AXE, Items.GOLDEN_AXE, Items.DIAMOND_AXE, Items.NETHERITE_AXE));}
         more_weapons.add(Items.BOW);
        registerCrossbowItem(OAK_CROSSBOW, Items.STICK);
         more_weapons.add(Items.ARROW);
@@ -723,6 +719,6 @@ public class MoreWeaponVariantItems {
     private static void registerWeaponItem(Item weaponItem, Item stickIngredient, String weaponName) {
         more_weapons.add(weaponItem);
         more_weapon_sticks.put(weaponItem, stickIngredient);
-        Registry.register(BuiltInRegistries.ITEM, MoreWeaponVariants.withModId(weaponName), weaponItem);
+        Registry.register(BuiltInRegistries.ITEM, withModId(weaponName), weaponItem);
     }
 }
