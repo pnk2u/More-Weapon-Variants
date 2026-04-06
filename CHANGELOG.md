@@ -1,4 +1,4 @@
-<!--publish=true-->
+<!--publish = true-->
 ### 1.5.5:
 - Fix crash when using Modrinth's Launcher and <ins>More Tool Variants</ins> (&#x200A;<sub><a title="More Tool Variants&#10;on Modrinth" href="https://modrinth.com/mod/more-tool-variants/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a></sub><!--SEPARATOR_V:MR--><img width=5 height=8 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"><sub><a title="More Tool Variants&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/more-tool-variants/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;)  
 - `1.21.9+`: Add missing vanilla _Copper Sword_ and _Copper Spear_ to "More Weapon Variants" Creative Mode Tab
