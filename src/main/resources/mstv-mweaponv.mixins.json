@@ -19,7 +19,6 @@
     "entity.ai.monster.zombie.HuskMixin",
     "entity.ai.monster.zombie.ZombieHorseMixin",
     "entity.ai.monster.zombie.ZombieMixin",
-    "inventory.AnvilMenuMixin",
     "item.ArrowItemMixin",
     "item.ProjectileWeaponItemMixin",
     "recipe.TippedArrowRecipeMixin"
