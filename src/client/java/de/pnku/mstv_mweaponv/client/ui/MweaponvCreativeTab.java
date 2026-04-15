@@ -19,14 +19,18 @@ public class MweaponvCreativeTab extends CreativeModeTabs {
     public static CreativeModeTab WEAPON_VARIANTS;
 
     public static final CreativeModeTab.Builder MWEAPONV_CMT_BUILDER = FabricItemGroup.builder().title(Component.translatable("itemGroup.weaponVariants")).icon(() -> new ItemStack(WARPED_GOLDEN_SWORD)).displayItems(((displayContext, entries) -> {
-        for (Item weaponItem : more_weapons)
-        {
+        for (Item weaponItem : more_weapons) {
             if (!more_tippable_arrows.containsValue(weaponItem)) {
                 entries.accept(weaponItem);
                 if (more_swords.contains(weaponItem) && MoreWeaponVariants.isMtoolvLoaded) {
-                    String axeItemName = BuiltInRegistries.ITEM.getKey(weaponItem).getPath().replace("sword", "axe");
-                    String axeItemNamespace = BuiltInRegistries.ITEM.getKey(weaponItem).getNamespace().replace("mstv-mweaponv", "mstv-mtoolv");
-                    entries.accept(BuiltInRegistries.ITEM.get(ResourceLocation.tryBuild(axeItemNamespace, axeItemName)).getDefaultInstance());
+                    ResourceLocation swordItemKey = BuiltInRegistries.ITEM.getKey(weaponItem);
+                    String axeItemName = swordItemKey.getPath().replace("sword", "axe");
+                    String axeItemNamespace = swordItemKey.getNamespace().replace("mstv-mweaponv", "mstv-mtoolv");
+                    ResourceLocation axeItemId = ResourceLocation.tryBuild(axeItemNamespace, axeItemName);
+                    if (axeItemId != null && BuiltInRegistries.ITEM.containsKey(axeItemId)) {
+                        Item axeItem = BuiltInRegistries.ITEM.get(axeItemId);
+                        entries.accept(axeItem);
+                    }
                 }
             }
         }
