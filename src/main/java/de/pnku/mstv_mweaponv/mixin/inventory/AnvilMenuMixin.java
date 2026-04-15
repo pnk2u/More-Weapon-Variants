@@ -12,15 +12,8 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(AnvilMenu.class)
 public abstract class AnvilMenuMixin {
 
-    @WrapOperation(
-            method = "createResult",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z",
-                    ordinal = 0
-            )
-    )
-    private boolean mweaponv$allowSameTierVariantMerge(ItemStack firstInputStack, Item secondInputItem, Operation<Boolean> original) {
+    @WrapOperation(method = "createResult", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"))
+    private boolean wrappedCreateResultItemStackIs(ItemStack firstInputStack, Item secondInputItem, Operation<Boolean> original) {
         if (original.call(firstInputStack, secondInputItem)) {
             return true;
         }
