@@ -17,7 +17,6 @@
     "entity.ai.monster.skeleton.AbstractSkeletonMixin",
     "entity.ai.monster.skeleton.WitherSkeletonMixin",
     "entity.ai.monster.zombie.ZombieMixin",
-    "inventory.AnvilMenuMixin",
     "item.ArrowItemMixin",
     "item.BowItemMixin",
     "recipe.TippedArrowRecipeMixin"
