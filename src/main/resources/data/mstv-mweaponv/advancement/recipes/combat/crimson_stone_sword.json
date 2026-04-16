@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mstv-mtoolv:crimson_stone_sword"
+        "recipe": "mstv-mweaponv:crimson_stone_sword"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "mstv-mtoolv:crimson_stone_sword"
+      "mstv-mweaponv:crimson_stone_sword"
     ]
   }
 }
