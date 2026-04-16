@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mstv-mtoolv:mangrove_diamond_sword"
+        "recipe": "mstv-mweaponv:mangrove_diamond_sword"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "mstv-mtoolv:mangrove_diamond_sword"
+      "mstv-mweaponv:mangrove_diamond_sword"
     ]
   }
 }

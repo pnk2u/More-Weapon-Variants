@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mstv-mtoolv:acacia_golden_sword"
+        "recipe": "mstv-mweaponv:acacia_golden_sword"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "mstv-mtoolv:acacia_golden_sword"
+      "mstv-mweaponv:acacia_golden_sword"
     ]
   }
 }
