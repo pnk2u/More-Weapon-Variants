@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cherry_netherite_sword_smithing"
+        "recipe": "mstv-mweaponv::cherry_netherite_sword_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cherry_netherite_sword_smithing"
+      "mstv-mweaponv::cherry_netherite_sword_smithing"
     ]
   }
 }
