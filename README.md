@@ -74,8 +74,7 @@
 
 <h2><sub><sub><sup><ins>Download 1.5.7 + 1.21(.1)</ins>:</sup>&#x200A;
 <a title="Download (Modrinth):&#10;More Weapon Variants 1.5.7 + 1.21(.1)" href="https://www.modrinth.com/mod/TAu3MvxJ/version/mkCpC1ko">
-<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>
-<sup><img width=7 height=10 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"></sup>
+<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;
 <a title="Download (Curseforge):&#10;1.5.7 + 1.21(.1) - More Weapon Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-weapon-variants/files/7936691">
 <img width=26 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a>
 </sub></sub></h2>
