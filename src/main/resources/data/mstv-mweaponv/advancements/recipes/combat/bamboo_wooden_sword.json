@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mstv-mtoolv:bamboo_wooden_sword"
+        "recipe": "mstv-mweaponv:bamboo_wooden_sword"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "mstv-mtoolv:bamboo_wooden_sword"
+      "mstv-mweaponv:bamboo_wooden_sword"
     ]
   }
 }
