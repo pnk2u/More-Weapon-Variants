@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mstv-mtoolv:warped_diamond_sword"
+        "recipe": "mstv-mweaponv:warped_diamond_sword"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "mstv-mtoolv:warped_diamond_sword"
+      "mstv-mweaponv:warped_diamond_sword"
     ]
   }
 }

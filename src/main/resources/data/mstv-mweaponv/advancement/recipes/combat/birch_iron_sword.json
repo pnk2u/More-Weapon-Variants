@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mstv-mtoolv:birch_iron_sword"
+        "recipe": "mstv-mweaponv:birch_iron_sword"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "mstv-mtoolv:birch_iron_sword"
+      "mstv-mweaponv:birch_iron_sword"
     ]
   }
 }
