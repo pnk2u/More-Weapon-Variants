@@ -1,3 +1,14 @@
+<a name="1.5.8"></a>
+### 1.5.8:
+- Fix _Netherite Sword_ variants' _Smithing_ recipes not unlocking correctly
+
+<h2><sub><sub><sup><ins>Download 1.5.8 + 26.1</ins>:</sup>&#x200A;
+<a title="Download (Modrinth):&#10;More Weapon Variants 1.5.8 + 26.1" href="https://www.modrinth.com/mod/TAu3MvxJ/version/j9srLGPp">
+<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;
+<a title="Download (Curseforge):&#10;1.5.8 + 26.1 - More Weapon Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-weapon-variants/files/7938048">
+<img width=26 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a>
+</sub></sub></h2>
+
 <a name="1.5.7"></a>
 ### 1.5.7:
 - Fix _Sword_ recipes not unlocking in the recipe book without crafting them  
