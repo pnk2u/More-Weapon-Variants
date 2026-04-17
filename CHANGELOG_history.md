@@ -5,8 +5,7 @@
 
 <h2><sub><sub><sup><ins>Download 1.5.7 + 1.21.9(10)</ins>:</sup>&#x200A;
 <a title="Download (Modrinth):&#10;More Weapon Variants 1.5.7 + 1.21.9(10)" href="https://www.modrinth.com/mod/TAu3MvxJ/version/ISZT1HYW">
-<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>
-<sup><img width=7 height=10 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"></sup>
+<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;
 <a title="Download (Curseforge):&#10;1.5.7 + 1.21.9(10) - More Weapon Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-weapon-variants/files/7936754">
 <img width=26 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a>
 </sub></sub></h2>
@@ -17,21 +16,19 @@
 
 <h2><sub><sub><sup><ins>Download 1.5.6 + 1.21.9(10)</ins>:</sup>&#x200A;
 <a title="Download (Modrinth):&#10;More Weapon Variants 1.5.6 + 1.21.9(10)" href="https://www.modrinth.com/mod/TAu3MvxJ/version/WsdcJXOl">
-<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>
-<sup><img width=7 height=10 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"></sup>
+<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;
 <a title="Download (Curseforge):&#10;1.5.6 + 1.21.9(10) - More Weapon Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-weapon-variants/files/7932902">
 <img width=26 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a>
 </sub></sub></h2>
 
 <a name="1.5.5"></a>
 ### 1.5.5:
-- Fix crash when using Modrinth's Launcher and <ins>More Tool Variants</ins> (&#x200A;<sub><a title="More Tool Variants&#10;on Modrinth" href="https://modrinth.com/mod/more-tool-variants/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a></sub><!--SEPARATOR_V:GH--><img width=7 height=10 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"><sub><a title="More Tool Variants&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/more-tool-variants/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;)  
+- Fix crash when using Modrinth's Launcher and <ins>More Tool Variants</ins> (&#x200A;<sub><a title="More Tool Variants&#10;on Modrinth" href="https://modrinth.com/mod/more-tool-variants/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;&#x200A;&#x200A;<a title="More Tool Variants&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/more-tool-variants/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;)  
 - `1.21.9+`: Add missing vanilla _Copper Sword_ and _Copper Spear_ to "More Weapon Variants" Creative Mode Tab
 
 <h2><sub><sub><sup><ins>Download 1.5.5 + 1.21.9(10)</ins>:</sup>&#x200A;
 <a title="Download (Modrinth):&#10;More Weapon Variants 1.5.5 + 1.21.9(10)" href="https://www.modrinth.com/mod/TAu3MvxJ/version/oJyTi091">
-<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>
-<sup><img width=7 height=10 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"></sup>
+<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;
 <a title="Download (Curseforge):&#10;1.5.5 + 1.21.9(10) - More Weapon Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-weapon-variants/files/7882501">
 <img width=26 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a>
 </sub></sub></h2>
@@ -41,18 +38,17 @@
 - `26.1`:
   - Update to <ins>26.1</ins>
   - Implement _Villagers_ trading _Weapon_ variants
-    > This was formerly a feature of <ins>More Stick Variants (MStV)</ins> (&#x200A;<sub><a title="More Stick Variants (MStV)&#10;on Modrinth" href="https://modrinth.com/mod/more-stick-variants/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a></sub><!--SEPARATOR_V:GH--><img width=7 height=10 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"><sub><a title="More Stick Variants (MStV)&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/more-stick-variants/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;) but with Minecraft <ins>26.1</ins>, _Villager_ trading has become data-driven allowing for each _More Variants_ mod to implement this feature for their respective block/item variants without needing to rely on <ins>MStV</ins> (&#x200A;<sub><a title="MStV&#10;on Modrinth" href="https://modrinth.com/mod/more-stick-variants/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a></sub><!--SEPARATOR_V:GH--><img width=7 height=10 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"><sub><a title="MStV&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/more-stick-variants/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;) for this functionality.
+    > This was formerly a feature of <ins>More Stick Variants (MStV)</ins> (&#x200A;<sub><a title="More Stick Variants (MStV)&#10;on Modrinth" href="https://modrinth.com/mod/more-stick-variants/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;&#x200A;&#x200A;<a title="More Stick Variants (MStV)&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/more-stick-variants/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;) but with Minecraft <ins>26.1</ins>, _Villager_ trading has become data-driven allowing for each _More Variants_ mod to implement this feature for their respective block/item variants without needing to rely on <ins>MStV</ins> (&#x200A;<sub><a title="MStV&#10;on Modrinth" href="https://modrinth.com/mod/more-stick-variants/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;&#x200A;&#x200A;<a title="MStV&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/more-stick-variants/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;) for this functionality.
 
-- Fix recommended <ins>More Tool Variants</ins> (&#x200A;<sub><a title="More Tool Variants&#10;on Modrinth" href="https://modrinth.com/mod/more-tool-variants/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a></sub><!--SEPARATOR_V:GH--><img width=7 height=10 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"><sub><a title="More Tool Variants&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/more-tool-variants/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;) versions 
-    > Log messages incorrectly recommended the much higher <ins>More Stick Variants</ins> (&#x200A;<sub><a title="More Stick Variants&#10;on Modrinth" href="https://modrinth.com/mod/more-stick-variants/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a></sub><!--SEPARATOR_V:GH--><img width=7 height=10 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"><sub><a title="More Stick Variants&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/more-stick-variants/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;) version number.
+- Fix recommended <ins>More Tool Variants</ins> (&#x200A;<sub><a title="More Tool Variants&#10;on Modrinth" href="https://modrinth.com/mod/more-tool-variants/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;&#x200A;&#x200A;<a title="More Tool Variants&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/more-tool-variants/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;) versions 
+    > Log messages incorrectly recommended the much higher <ins>More Stick Variants</ins> (&#x200A;<sub><a title="More Stick Variants&#10;on Modrinth" href="https://modrinth.com/mod/more-stick-variants/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;&#x200A;&#x200A;<a title="More Stick Variants&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/more-stick-variants/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;) version number.
 
 <br></br>
 <sub>License update to [`CC-BY-NC-SA-4.0`](https://creativecommons.org/licenses/by-nc-sa/4.0/) (previously [`MIT`](https://choosealicense.com/licenses/mit))</sub>
 
 <h2><sub><sub><sup><ins>Download 1.5.4 + 1.21.9(10)</ins>:</sup>&#x200A;
 <a title="Download (Modrinth):&#10;More Weapon Variants 1.5.4 + 1.21.9(10)" href="https://www.modrinth.com/mod/TAu3MvxJ/version/zBxb4O7L">
-<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>
-<sup><img width=7 height=10 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"></sup>
+<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;
 <a title="Download (Curseforge):&#10;1.5.4 + 1.21.9(10) - More Weapon Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-weapon-variants/files/7867159">
 <img width=26 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a>
 </sub></sub></h2>
@@ -64,8 +60,7 @@
 
 <h2><sub><sub><sup><ins>Download 1.5.3 + 1.21.11</ins>:</sup>&#x200A;
 <a title="Download (Modrinth):&#10;More Weapon Variants 1.5.3 + 1.21.11" href="https://www.modrinth.com/mod/TAu3MvxJ/version/JpWfmVoG">
-<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>
-<sup><img width=7 height=10 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"></sup>
+<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;
 <a title="Download (Curseforge):&#10;1.5.3 + 1.21.11 + More Weapon Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-weapon-variants/files/7314506">
 <img width=26 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a>
 </sub></sub></h2>
@@ -76,8 +71,7 @@
 
 <h2><sub><sub><sup><ins>Download 1.5.2 + 1.21(.1)</ins>:</sup>&#x200A;
 <a title="Download (Modrinth):&#10;More Weapon Variants 1.5.2 + 1.21(.1)" href="https://www.modrinth.com/mod/TAu3MvxJ/version/SKsJOqNV">
-<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>
-<sup><img width=7 height=10 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"></sup>
+<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;
 <a title="Download (Curseforge):&#10;More Weapon Variants 1.5.2 + 1.21(.1)" href="https://www.curseforge.com/minecraft/mc-mods/more-weapon-variants/files/7300759">
 <img width=26 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a>
 </sub></sub></h2>
@@ -98,13 +92,12 @@
 #### \* <sub><ins>Fixed</ins>:</sub>
 - `1.21.4+`: Fix _**Pale Oak** Bow_ not being usable as fuel for smelting (`Requires `[`Quad`](https://modrinth.com/mod/quad))
 
-<sup>1): Requires <ins>More Tool Variants (MStV+)</ins> (&#x200A;<sub><a title="More Tool Variants (MStV+)&#10;on Modrinth" href="https://modrinth.com/mod/more-tool-variants/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a></sub><!--SEPARATOR_V--><img width=5 height=8 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"><sub><a title="More Tool Variants (MStV+)&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/more-tool-variants/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;)
+<sup>1): Requires <ins>More Tool Variants (MStV+)</ins> (&#x200A;<sub><a title="More Tool Variants (MStV+)&#10;on Modrinth" href="https://modrinth.com/mod/more-tool-variants/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;&#x200A;&#x200A;<a title="More Tool Variants (MStV+)&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/more-tool-variants/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;)
 
 
 <h2><sub><sub><sup><ins>Download 1.5.0 + 1.21.9(10)</ins>:</sup>&#x200A;
 <a title="Download (Modrinth):&#10;More Weapon Variants 1.5.0 + 1.21.9(10)" href="https://www.modrinth.com/mod/TAu3MvxJ/version/Q2ggCPjy">
-<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>
-<sup><img width=7 height=10 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"></sup>
+<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;
 <a title="Download (Curseforge):&#10;More Weapon Variants 1.5.0 + 1.21.9(10)" href="https://www.curseforge.com/minecraft/mc-mods/more-weapon-variants/files/7288958">
 <img width=26 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a>
 </sub></sub></h2>
