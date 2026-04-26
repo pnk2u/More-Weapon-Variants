@@ -1,15 +1,15 @@
 package de.pnku.mstv_mweaponv.mixin.entity.ai.monster.piglin;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ProjectileWeaponItem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.more_crossbows;
@@ -23,9 +23,11 @@ public class PiglinMixin {
         else if (rand < 0.85){cir.setReturnValue(new ItemStack(MoreWeaponVariantItems.CRIMSON_GOLDEN_SWORD));}
     }
 
-    @Redirect(method = "getArmPose", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/piglin/Piglin;isHolding(Lnet/minecraft/world/item/Item;)Z"))
-    private boolean redirectedGetArmPoseIsHolding(Piglin piglin, Item item) {
-        if ((item.equals(MoreWeaponVariantItems.WARPED_CROSSBOW))) {return false;} else {return more_crossbows.contains(item) || item.equals(Items.CROSSBOW);}
+    @WrapOperation(method = "getArmPose", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/piglin/Piglin;isHolding(Lnet/minecraft/world/item/Item;)Z"))
+    private boolean wrappedGetArmPoseAtLivingEntityIsHolding(Piglin piglin, Item item, Operation<Boolean> original) {
+        return  !item.equals(MoreWeaponVariantItems.WARPED_CROSSBOW)
+                && (original.call(piglin, item)
+                    || more_crossbows.contains(item));
     }
 
     @Inject(method = "canFireProjectileWeapon", at = @At("HEAD"), cancellable = true)
@@ -33,8 +35,10 @@ public class PiglinMixin {
         if (more_crossbows.contains(projectileWeapon)){cir.setReturnValue(true);}
     }
 
-    @Redirect(method = "canReplaceCurrentItem(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"))
-    public boolean redirectedCanReplaceCurrentItemStackIs(ItemStack itemStack, Item item) {
-        if ((item.equals(MoreWeaponVariantItems.WARPED_CROSSBOW))) {return false;} else {return more_crossbows.contains(item) || item.equals(Items.CROSSBOW);}
+    @WrapOperation(method = "canReplaceCurrentItem(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"))
+    private boolean wrappedCanReplaceCurrentItemAtItemStackIs(ItemStack stack, Item item, Operation<Boolean> original) {
+        return !item.equals(MoreWeaponVariantItems.WARPED_CROSSBOW)
+                && (original.call(stack, item)
+                    || more_crossbows.contains(item));
     }
 }
