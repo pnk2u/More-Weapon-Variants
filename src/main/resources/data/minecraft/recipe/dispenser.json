@@ -4,7 +4,7 @@
   "key": {
     "#": "minecraft:cobblestone",
     "R": "minecraft:redstone",
-    "X": "#c:tools/bows"
+    "X": "#c:tools/bow"
   },
   "pattern": [
     "###",
