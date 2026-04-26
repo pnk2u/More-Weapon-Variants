@@ -67,14 +67,16 @@
 ### Versions
 <a name="most-recent-version"></a>
 <!--CHANGELOG:START-->
-<a name="1.5.8"></a>
-#### 1.5.8[*](#footnote-*):
-- Fix _Netherite Sword_ variants' _Smithing_ recipes not unlocking correctly
+<a name="1.5.10"></a>
+#### 1.5.10[*](#footnote-*):
+- `1.21(.1)`,`1.21.4(-11)`,`26.1`: Update usage of _Fabric Convention Tags_ to `26.1`-compatible naming:
+  > e.g. `c:tools/bows` → `c:tools/bow`
+- `26.1`: Fix _Dispenser_ not being craftable with vanilla _Bow Item_ due to the above-mentioned incompatible tags
 
-<h2><sub><sub><sup><ins>Download 1.5.8 + 1.21(.1)</ins>:</sup>&#x200A;
-<a title="Download (Modrinth):&#10;More Weapon Variants 1.5.8 + 1.21(.1)" href="https://www.modrinth.com/mod/TAu3MvxJ/version/r1owGjKQ">
+<h2><sub><sub><sup><ins>Download 1.5.10 + 1.21(.1)</ins>:</sup>&#x200A;
+<a title="Download (Modrinth):&#10;More Weapon Variants 1.5.10 + 1.21(.1)" href="https://www.modrinth.com/mod/TAu3MvxJ/version/oMe9i5fn">
 <img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;
-<a title="Download (Curseforge):&#10;1.5.8 + 1.21(.1) - More Weapon Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-weapon-variants/files/7938002">
+<a title="Download (Curseforge):&#10;1.5.10 + 1.21(.1) - More Weapon Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-weapon-variants/files/7996087">
 <img width=26 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a>
 </sub></sub></h2>
 
