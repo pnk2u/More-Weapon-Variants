@@ -43,9 +43,6 @@ import static de.pnku.mstv_mweaponv.util.BiomeSpawnItemUtil.chooseStickForSpawnB
 @Mixin(AbstractSkeleton.class)
 public abstract class AbstractSkeletonMixin extends Monster {
 
-    @Unique
-    AbstractSkeleton thisAbstractSkeleton = (AbstractSkeleton)(Object)this;
-
     protected AbstractSkeletonMixin(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
     }
@@ -68,11 +65,11 @@ public abstract class AbstractSkeletonMixin extends Monster {
     @WrapOperation(method = "populateDefaultEquipmentSlots", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/AbstractSkeleton;setItemSlot(Lnet/minecraft/world/entity/EquipmentSlot;Lnet/minecraft/world/item/ItemStack;)V", ordinal = 0))
     protected void wrappedSetItemSlotFromPopulateDefaultEquipmentSlots(AbstractSkeleton abstractSkeleton, EquipmentSlot slot, ItemStack stack, Operation<Void> original) {
         if (!stack.isEmpty() && stack.getItem().equals(Items.BOW)) {
-            Item stickItem = chooseStickForSpawnBiome(thisAbstractSkeleton);
+            Item stickItem = chooseStickForSpawnBiome(this);
             Item bowItem = stickItem != null ? BOW_BY_STICK.get(stickItem) : null;
 
             if (bowItem != null) {
-                thisAbstractSkeleton.setItemSlot(slot, new ItemStack(bowItem));
+                this.setItemSlot(slot, new ItemStack(bowItem));
             } else {
                 original.call(abstractSkeleton, slot, stack);
             }
@@ -116,9 +113,9 @@ public abstract class AbstractSkeletonMixin extends Monster {
     @Override
     protected void dropCustomDeathLoot(ServerLevel level, DamageSource damageSource, boolean hitByPlayer) {
         super.dropCustomDeathLoot(level, damageSource, hitByPlayer);
-        Item mainHandItem = thisAbstractSkeleton.getMainHandItem().getItem();
-        Item offhandItem = thisAbstractSkeleton.getOffhandItem().getItem();
-        boolean isBogged = thisAbstractSkeleton.getType() == EntityType.BOGGED;
+        Item mainHandItem = this.getMainHandItem().getItem();
+        Item offhandItem = this.getOffhandItem().getItem();
+        boolean isBogged = this.getType() == EntityType.BOGGED;
         ItemStack arrowStack;
         int looting;
         if (damageSource.getWeaponItem() != null) {
