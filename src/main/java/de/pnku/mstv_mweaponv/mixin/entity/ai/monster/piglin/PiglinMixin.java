@@ -1,5 +1,7 @@
 package de.pnku.mstv_mweaponv.mixin.entity.ai.monster.piglin;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.item.Item;
@@ -23,9 +25,11 @@ public class PiglinMixin {
         else if (rand < 0.85){cir.setReturnValue(new ItemStack(MoreWeaponVariantItems.CRIMSON_GOLDEN_SPEAR));}
     }
 
-    @Redirect(method = "getArmPose", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/piglin/Piglin;isHolding(Lnet/minecraft/world/item/Item;)Z"))
-    private boolean redirectedGetArmPoseIsHolding(Piglin piglin, Item item) {
-        if ((item.equals(MoreWeaponVariantItems.WARPED_CROSSBOW))) {return false;} else {return more_crossbows.contains(item) || item.equals(Items.CROSSBOW);}
+    @WrapOperation(method = "getArmPose", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/piglin/Piglin;isHolding(Lnet/minecraft/world/item/Item;)Z"))
+    private boolean wrappedGetArmPoseAtLivingEntityIsHolding(Piglin piglin, Item item, Operation<Boolean> original) {
+        return  !item.equals(MoreWeaponVariantItems.WARPED_CROSSBOW)
+                && (original.call(piglin, item)
+                    || more_crossbows.contains(item));
     }
 
     @Inject(method = "canUseNonMeleeWeapon", at = @At("HEAD"), cancellable = true)
