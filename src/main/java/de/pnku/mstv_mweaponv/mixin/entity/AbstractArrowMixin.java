@@ -28,7 +28,7 @@ public abstract class AbstractArrowMixin extends Projectile implements IArrow {
     protected void injectedAddAdditionalSaveData(CompoundTag compound, CallbackInfo ci) {
         if ((Object)this instanceof Arrow) {
             if (!this.mweaponv$getVariant().equals("oak")) {
-                boolean isTipped = (((Arrow) this).potion == Potions.EMPTY);
+                boolean isTipped = (((Arrow)(Object) this).potion == Potions.EMPTY);
                 String woodVariant = this.mweaponv$getVariant();
                 ItemStack arrowStack = mweaponv$arrowItemStackFromVariant(woodVariant, isTipped);
                 compound.putString("Type", woodVariant);
