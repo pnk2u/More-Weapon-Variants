@@ -2,11 +2,14 @@ package de.pnku.mstv_mweaponv.mixin.mtoolv.entity.ai.zombie;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.zombie.Zombie;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,10 +21,7 @@ import static de.pnku.mstv_mtoolv.item.MoreToolVariantItems.*;
 import static de.pnku.mstv_mweaponv.util.BiomeSpawnItemUtil.chooseStickForSpawnBiome;
 
 @Mixin(Zombie.class)
-public class ZombieMixin {
-
-    @Unique
-    Zombie thisZombie = (Zombie)(Object)this;
+public abstract class ZombieMixin extends Monster {
 
     @Unique
     private static final Map<Item, Item> SHOVEL_BY_STICK = Map.ofEntries(
@@ -38,6 +38,10 @@ public class ZombieMixin {
             Map.entry(WARPED_STICK,   WARPED_IRON_SHOVEL)
     );
 
+    protected ZombieMixin(EntityType<? extends Monster> entityType, Level level) {
+        super(entityType, level);
+    }
+
     @WrapOperation(method = "populateDefaultEquipmentSlots", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/zombie/Zombie;setItemSlot(Lnet/minecraft/world/entity/EquipmentSlot;Lnet/minecraft/world/item/ItemStack;)V", ordinal = 2))
     protected void wrappedSetItemSlotFromPopulateDefaultEquipmentSlots(
             Zombie zombie,
@@ -45,11 +49,11 @@ public class ZombieMixin {
             ItemStack stack,
             Operation<Void> original) {
         if (!stack.isEmpty() && stack.getItem().equals(Items.IRON_SHOVEL)) {
-            Item stickItem = chooseStickForSpawnBiome(thisZombie);
+            Item stickItem = chooseStickForSpawnBiome(this);
             Item shovelItem = stickItem != null ? SHOVEL_BY_STICK.get(stickItem) : null;
 
             if (shovelItem != null) {
-                thisZombie.setItemSlot(slot, new ItemStack(shovelItem));
+                this.setItemSlot(slot, new ItemStack(shovelItem));
             } else {
                 original.call(zombie, slot, stack);
             }

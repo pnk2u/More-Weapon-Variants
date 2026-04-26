@@ -59,11 +59,11 @@ public abstract class ZombieMixin extends Monster {
     @WrapOperation(method = "populateDefaultEquipmentSlots", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/zombie/Zombie;setItemSlot(Lnet/minecraft/world/entity/EquipmentSlot;Lnet/minecraft/world/item/ItemStack;)V", ordinal = 1))
     protected void wrappedSetItemSlotFromPopulateDefaultEquipmentSlots_ord1(Zombie zombie, EquipmentSlot slot, ItemStack stack, Operation<Void> original) {
         if (!stack.isEmpty() && stack.getItem().equals(Items.IRON_SPEAR)) {
-            Item stickItem = chooseStickForSpawnBiome(thisZombie);
+            Item stickItem = chooseStickForSpawnBiome(this);
             Item spearItem = stickItem != null ? SWORD_AND_SPEAR_BY_STICK.get(stickItem)[1] : null;
 
             if (spearItem != null) {
-                thisZombie.setItemSlot(slot, new ItemStack(spearItem));
+                this.setItemSlot(slot, new ItemStack(spearItem));
             } else {
                 original.call(zombie, slot, stack);
             }
