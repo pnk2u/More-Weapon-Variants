@@ -223,6 +223,7 @@ public class MoreWeaponVariantItems {
     public static final List<Item> more_arrows = new ArrayList<>();
     public static final Map<Item, Item> more_weapon_sticks = new HashMap<>();
     public static final Map<Item, Item> more_tippable_arrows = new HashMap<>();
+    public static final Map<Item, Integer> more_arrow_ids = new HashMap<>();
 
     public static void registerWeaponItems() {
 
@@ -237,7 +238,7 @@ public class MoreWeaponVariantItems {
        registerSwordItem(ACACIA_NETHERITE_SWORD, ACACIA_STICK, "netherite");
        registerBowItem(ACACIA_BOW, ACACIA_STICK);
        registerCrossbowItem(ACACIA_CROSSBOW, ACACIA_STICK);
-       registerArrowItem(ACACIA_ARROW, ACACIA_STICK, ACACIA_TIPPED_ARROW);
+       registerArrowItem(ACACIA_ARROW, ACACIA_STICK, ACACIA_TIPPED_ARROW, 1);
 
 
         //Bamboo Weapons
@@ -251,7 +252,7 @@ public class MoreWeaponVariantItems {
        registerSwordItem(BAMBOO_NETHERITE_SWORD, Items.BAMBOO, "netherite");
        registerBowItem(BAMBOO_BOW, Items.BAMBOO);
        registerCrossbowItem(BAMBOO_CROSSBOW, Items.BAMBOO);
-       registerArrowItem(BAMBOO_ARROW, Items.BAMBOO, BAMBOO_TIPPED_ARROW);
+       registerArrowItem(BAMBOO_ARROW, Items.BAMBOO, BAMBOO_TIPPED_ARROW, 2);
 
 
       //Birch Weapons
@@ -265,7 +266,7 @@ public class MoreWeaponVariantItems {
        registerSwordItem(BIRCH_NETHERITE_SWORD, BIRCH_STICK, "netherite");
        registerBowItem(BIRCH_BOW, BIRCH_STICK);
        registerCrossbowItem(BIRCH_CROSSBOW, BIRCH_STICK);
-       registerArrowItem(BIRCH_ARROW, BIRCH_STICK, BIRCH_TIPPED_ARROW);
+       registerArrowItem(BIRCH_ARROW, BIRCH_STICK, BIRCH_TIPPED_ARROW, 3);
 
 
       //Cherry Weapons
@@ -279,7 +280,7 @@ public class MoreWeaponVariantItems {
        registerSwordItem(CHERRY_NETHERITE_SWORD, CHERRY_STICK, "netherite");
        registerBowItem(CHERRY_BOW, CHERRY_STICK);
        registerCrossbowItem(CHERRY_CROSSBOW, CHERRY_STICK);
-       registerArrowItem(CHERRY_ARROW, CHERRY_STICK, CHERRY_TIPPED_ARROW);
+       registerArrowItem(CHERRY_ARROW, CHERRY_STICK, CHERRY_TIPPED_ARROW, 4);
 
 
       //Crimson Weapons
@@ -293,7 +294,7 @@ public class MoreWeaponVariantItems {
        registerSwordItem(CRIMSON_NETHERITE_SWORD, CRIMSON_STICK, "netherite");
        registerBowItem(CRIMSON_BOW, CRIMSON_STICK);
        registerCrossbowItem(CRIMSON_CROSSBOW, CRIMSON_STICK);
-       registerArrowItem(CRIMSON_ARROW, CRIMSON_STICK, CRIMSON_TIPPED_ARROW);
+       registerArrowItem(CRIMSON_ARROW, CRIMSON_STICK, CRIMSON_TIPPED_ARROW, 5);
 
 
       //Dark_oak Weapons
@@ -307,7 +308,7 @@ public class MoreWeaponVariantItems {
        registerSwordItem(DARK_OAK_NETHERITE_SWORD, DARK_OAK_STICK, "netherite");
        registerBowItem(DARK_OAK_BOW, DARK_OAK_STICK);
         more_weapons.add(Items.CROSSBOW);
-       registerArrowItem(DARK_OAK_ARROW, DARK_OAK_STICK, DARK_OAK_TIPPED_ARROW);
+       registerArrowItem(DARK_OAK_ARROW, DARK_OAK_STICK, DARK_OAK_TIPPED_ARROW, 6);
 
 
       //Jungle Weapons
@@ -321,7 +322,7 @@ public class MoreWeaponVariantItems {
        registerSwordItem(JUNGLE_NETHERITE_SWORD, JUNGLE_STICK, "netherite");
        registerBowItem(JUNGLE_BOW, JUNGLE_STICK);
        registerCrossbowItem(JUNGLE_CROSSBOW, JUNGLE_STICK);
-       registerArrowItem(JUNGLE_ARROW, JUNGLE_STICK, JUNGLE_TIPPED_ARROW);
+       registerArrowItem(JUNGLE_ARROW, JUNGLE_STICK, JUNGLE_TIPPED_ARROW, 7);
 
 
       //Mangrove Weapons
@@ -335,7 +336,7 @@ public class MoreWeaponVariantItems {
        registerSwordItem(MANGROVE_NETHERITE_SWORD, MANGROVE_STICK, "netherite");
        registerBowItem(MANGROVE_BOW, MANGROVE_STICK);
        registerCrossbowItem(MANGROVE_CROSSBOW, MANGROVE_STICK);
-       registerArrowItem(MANGROVE_ARROW, MANGROVE_STICK, MANGROVE_TIPPED_ARROW);
+       registerArrowItem(MANGROVE_ARROW, MANGROVE_STICK, MANGROVE_TIPPED_ARROW, 8);
 
 
       //Oak Weapons
@@ -350,6 +351,9 @@ public class MoreWeaponVariantItems {
         more_weapons.add(Items.BOW);
        registerCrossbowItem(OAK_CROSSBOW, Items.STICK);
         more_weapons.add(Items.ARROW);
+        more_tippable_arrows.put(Items.ARROW, Items.TIPPED_ARROW);
+        more_arrow_ids.put(Items.ARROW, 9);
+        more_arrow_ids.put(Items.TIPPED_ARROW, 9);
 
       //Spruce Weapons
        registerSwordItem(SPRUCE_WOODEN_SWORD, SPRUCE_STICK, "wooden");
@@ -362,7 +366,7 @@ public class MoreWeaponVariantItems {
        registerSwordItem(SPRUCE_NETHERITE_SWORD, SPRUCE_STICK, "netherite");
        registerBowItem(SPRUCE_BOW, SPRUCE_STICK);
        registerCrossbowItem(SPRUCE_CROSSBOW, SPRUCE_STICK);
-       registerArrowItem(SPRUCE_ARROW, SPRUCE_STICK, SPRUCE_TIPPED_ARROW);
+       registerArrowItem(SPRUCE_ARROW, SPRUCE_STICK, SPRUCE_TIPPED_ARROW, 10);
 
 
       //Warped Weapons
@@ -376,7 +380,7 @@ public class MoreWeaponVariantItems {
        registerSwordItem(WARPED_NETHERITE_SWORD, WARPED_STICK, "netherite");
        registerBowItem(WARPED_BOW, WARPED_STICK);
        registerCrossbowItem(WARPED_CROSSBOW, WARPED_STICK);
-       registerArrowItem(WARPED_ARROW, WARPED_STICK, WARPED_TIPPED_ARROW);
+       registerArrowItem(WARPED_ARROW, WARPED_STICK, WARPED_TIPPED_ARROW, 11);
 
     }
 
@@ -392,10 +396,12 @@ public class MoreWeaponVariantItems {
         more_crossbows.add(crossbowItem);
         registerWeaponItem(crossbowItem, stickIngredient, crossbowName(stickIngredient));
     }
-    private static void registerArrowItem(Item arrowItem, Item stickIngredient, Item tippedArrowItem) {
+    private static void registerArrowItem(Item arrowItem, Item stickIngredient, Item tippedArrowItem, int arrowId) {
         more_arrows.add(arrowItem);
         more_arrows.add(tippedArrowItem);
         more_tippable_arrows.put(arrowItem, tippedArrowItem);
+        more_arrow_ids.put(arrowItem, arrowId);
+        more_arrow_ids.put(tippedArrowItem, arrowId);
         registerWeaponItem(arrowItem, stickIngredient, arrowName(stickIngredient, false));
         registerWeaponItem(tippedArrowItem, stickIngredient, arrowName(stickIngredient, true));
     }
