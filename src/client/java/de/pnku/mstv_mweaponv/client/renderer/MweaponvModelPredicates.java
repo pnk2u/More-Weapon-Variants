@@ -37,7 +37,7 @@ public class MweaponvModelPredicates {
     }
 
     public static void registerBowArrowPredicate(Item bowItem) {
-        ItemProperties.register(bowItem, ResourceLocation.parse("bowarrow"),
+        ItemProperties.register(bowItem, ResourceLocation.tryParse("bowarrow"),
                 (itemStack, clientLevel, livingEntity, seed) -> {
                     if (livingEntity != null && livingEntity.isUsingItem() && livingEntity.getUseItem() == itemStack) {
                         Item arrowItem = livingEntity.getProjectile(itemStack).getItem();
@@ -70,8 +70,6 @@ public class MweaponvModelPredicates {
         ItemProperties.register(crossbowItem, ResourceLocation.tryParse("charged_projectiles"),
                 (itemStack, clientLevel, livingEntity, i) -> {
             if (CrossbowItem.isCharged(itemStack)) {
-                ChargedProjectiles chargedProjectiles = itemStack.get(DataComponents.CHARGED_PROJECTILES);
-                if (chargedProjectiles != null) {
                   for (Item arrowItem : more_arrow_ids.keySet()) {
                     if (CrossbowItem.containsChargedProjectile(itemStack, arrowItem)) {
                         return more_arrow_ids.get(arrowItem)/100.0F;
