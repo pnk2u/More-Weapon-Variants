@@ -1,3 +1,3 @@
 <!--publish=false-->
 ### 1.5.11:
-- Internal changes required by upcoming Add-on mods
+- `1.20.1`, `1.21(.1)`: Internal changes required by upcoming Add-on mods
