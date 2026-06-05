@@ -1,3 +1,27 @@
+<a name="1.5.12"></a>
+### 1.5.12:
+- `1.21(.1)`: Fix crash during start-up on _NeoForge_ via <ins>Sinytra Connector</ins> (&#x200A;<sub><a title="Sinytra Connector&#10;on Modrinth" href="https://modrinth.com/mod/sinytra-connector/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a></sub><!--SEPARATOR_V:MR--><img width=5 height=8 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"><sub><a title="Sinytra Connector&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/sinytra-connector/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;)
+
+
+<h2><sub><sub><sup><ins>Download 1.5.12 + 1.21(.1)</ins>:</sup>&#x200A;
+<a title="Download (Modrinth):&#10;More Weapon Variants 1.5.12 + 1.21(.1)" href="https://www.modrinth.com/mod/TAu3MvxJ/version/LhDK6U8R">
+<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;
+<a title="Download (Curseforge):&#10;1.5.12 + 1.21(.1) - More Weapon Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-weapon-variants/files/8106038">
+<img width=26 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a>
+</sub></sub></h2>
+
+<a name="1.5.11"></a>
+### 1.5.11:
+- `1.20.1`, `1.21(.1)`: Internal changes required by upcoming Add-on mods
+
+
+<h2><sub><sub><sup><ins>Download 1.5.11 + 1.21(.1)</ins>:</sup>&#x200A;
+<a title="Download (Modrinth):&#10;More Weapon Variants 1.5.11 + 1.21(.1)" href="https://www.modrinth.com/mod/TAu3MvxJ/version/qKgQmLzE">
+<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;
+<a title="Download (Curseforge):&#10;1.5.11 + 1.21(.1) - More Weapon Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-weapon-variants/files/8055385">
+<img width=26 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a>
+</sub></sub></h2>
+
 <a name="1.5.10"></a>
 ### 1.5.10:
 - `1.21(.1)`,`1.21.4(-11)`,`26.1`: Update usage of _Fabric Convention Tags_ to `26.1`-compatible naming:
