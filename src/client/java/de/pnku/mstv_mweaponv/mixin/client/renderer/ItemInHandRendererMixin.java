@@ -5,7 +5,6 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.ItemInHandRenderer;
 import net.minecraft.world.item.CrossbowItem;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import org.spongepowered.asm.mixin.Mixin;
@@ -23,7 +22,7 @@ public abstract class ItemInHandRendererMixin {
         if (more_crossbows.contains(stack.getItem()) && CrossbowItem.isCharged(stack)) {cir.setReturnValue(true);}
     }
 
-    @WrapOperation(method = "renderArmWithItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Ljava/lang/Object;)Z",
+    @WrapOperation(method = {"renderArmWithItem", "submitArmWithItem"}, at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Ljava/lang/Object;)Z",
                     ordinal = 0))
     private boolean wrappedItemStackIsFromRenderArmWithItem(ItemStack itemStack, Object originalItem, Operation<Boolean> original) {
         if (originalItem.equals(Items.CROSSBOW)) {
