@@ -15,6 +15,8 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.skeleton.AbstractSkeleton;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.skeleton.Bogged;
+import net.minecraft.world.entity.monster.skeleton.WitherSkeleton;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
@@ -80,7 +82,7 @@ public abstract class AbstractSkeletonMixin extends Monster {
 
     @WrapOperation(method = "reassessWeaponGoal", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/projectile/ProjectileUtil;getWeaponHoldingHand(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/Item;)Lnet/minecraft/world/InteractionHand;"))
     public InteractionHand wrappedGetWeaponHoldingHandFromReassessWeaponGoal(LivingEntity shooter, Item weapon, Operation<InteractionHand> original) {
-        if (!shooter.getType().equals(EntityType.WITHER_SKELETON)) {
+        if (!shooter.getType().getBaseClass().equals(WitherSkeleton.class)) {
             if (more_bows.contains(shooter.getMainHandItem().getItem())) {
                 return InteractionHand.MAIN_HAND;
             } else if (more_bows.contains(shooter.getOffhandItem().getItem())) {
@@ -115,7 +117,7 @@ public abstract class AbstractSkeletonMixin extends Monster {
         super.dropCustomDeathLoot(level, damageSource, hitByPlayer);
         Item mainHandItem = this.getMainHandItem().getItem();
         Item offhandItem = this.getOffhandItem().getItem();
-        boolean isBogged = this.getType() == EntityType.BOGGED;
+        boolean isBogged = this.getType().getBaseClass().equals(Bogged.class);
         ItemStack arrowStack;
         int looting;
         if (damageSource.getWeaponItem() != null) {
