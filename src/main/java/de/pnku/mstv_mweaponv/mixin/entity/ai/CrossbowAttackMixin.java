@@ -34,9 +34,6 @@ public abstract class CrossbowAttackMixin<E extends Mob & CrossbowAttackMob, T e
 
     @Shadow public CrossbowAttack.CrossbowState crossbowState;
 
-    @Unique
-    CrossbowAttack<E, T> crossbowAttack = (CrossbowAttack<E, T>) (Object) this;
-
     @WrapOperation(method = "checkExtraStartConditions(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/Mob;)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Mob;isHolding(Lnet/minecraft/world/item/Item;)Z"))
     protected boolean wrappedIsHoldingItemFromCheckExtraStartConditions(Mob mob, Item item, Operation<Boolean> original) {
         if ((mob.getType().equals(EntityType.PIGLIN) && item.equals(MoreWeaponVariantItems.WARPED_CROSSBOW))) {return false;} else {return more_crossbows.contains(item) || item.equals(Items.CROSSBOW);}
@@ -49,7 +46,7 @@ public abstract class CrossbowAttackMixin<E extends Mob & CrossbowAttackMob, T e
 
     @Inject(method = "crossbowAttack", at = @At("HEAD"))
     private void injectedCrossbowAttack(E shooter, LivingEntity target, CallbackInfo ci) {
-        if (crossbowAttack.crossbowState == CrossbowAttack.CrossbowState.UNCHARGED && (more_crossbows.contains(shooter.getMainHandItem().getItem()) || more_crossbows.contains(shooter.getOffhandItem().getItem()))) {
+        if (this.crossbowState == CrossbowAttack.CrossbowState.UNCHARGED && (more_crossbows.contains(shooter.getMainHandItem().getItem()) || more_crossbows.contains(shooter.getOffhandItem().getItem()))) {
             Item crossbowItem;
             if (more_crossbows.contains(shooter.getMainHandItem().getItem())) {crossbowItem = shooter.getMainHandItem().getItem();} else {crossbowItem = shooter.getOffhandItem().getItem();}
             shooter.startUsingItem(ProjectileUtil.getWeaponHoldingHand(shooter, crossbowItem));

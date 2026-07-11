@@ -35,7 +35,7 @@ public class PiglinMixin {
         if (more_crossbows.contains(projectileWeapon)){cir.setReturnValue(true);}
     }
 
-    @WrapOperation(method = "canReplaceCurrentItem(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"))
+    @WrapOperation(method = "canReplaceCurrentItem(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"), require = 0)
     private boolean wrappedCanReplaceCurrentItemAtItemStackIs(ItemStack stack, Item item, Operation<Boolean> original) {
         return !item.equals(MoreWeaponVariantItems.WARPED_CROSSBOW)
                 && (original.call(stack, item)
