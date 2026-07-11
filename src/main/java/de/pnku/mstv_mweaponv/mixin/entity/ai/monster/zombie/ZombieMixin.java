@@ -11,31 +11,13 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
-import java.util.Map;
 
-import static de.pnku.mstv_base.item.MoreStickVariantItems.*;
-import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.*;
+import static de.pnku.mstv_mweaponv.util.BiomeSpawnItemUtil.SWORD_BY_STICK;
 import static de.pnku.mstv_mweaponv.util.BiomeSpawnItemUtil.chooseStickForSpawnBiome;
 
 @Mixin(Zombie.class)
 public abstract class ZombieMixin extends Monster {
-
-    @Unique
-    private static final Map<Item, Item> SWORD_BY_STICK = Map.ofEntries(
-            Map.entry(ACACIA_STICK,   ACACIA_IRON_SWORD),
-            Map.entry(BIRCH_STICK,    BIRCH_IRON_SWORD),
-            Map.entry(Items.BAMBOO,   BAMBOO_IRON_SWORD),
-            Map.entry(JUNGLE_STICK,   JUNGLE_IRON_SWORD),
-            Map.entry(CHERRY_STICK,   CHERRY_IRON_SWORD),
-            Map.entry(CRIMSON_STICK,  CRIMSON_IRON_SWORD),
-            Map.entry(DARK_OAK_STICK, DARK_OAK_IRON_SWORD),
-            Map.entry(PALE_OAK_STICK, PALE_OAK_IRON_SWORD),
-            Map.entry(MANGROVE_STICK, MANGROVE_IRON_SWORD),
-            Map.entry(SPRUCE_STICK,   SPRUCE_IRON_SWORD),
-            Map.entry(WARPED_STICK,   WARPED_IRON_SWORD)
-    );
 
     protected ZombieMixin(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
