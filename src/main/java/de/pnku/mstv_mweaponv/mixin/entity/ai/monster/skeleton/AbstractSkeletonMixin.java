@@ -27,17 +27,10 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.Map;
 import java.util.Random;
 
-import static de.pnku.mstv_base.item.MoreStickVariantItems.*;
-import static de.pnku.mstv_base.item.MoreStickVariantItems.CHERRY_STICK;
-import static de.pnku.mstv_base.item.MoreStickVariantItems.CRIMSON_STICK;
-import static de.pnku.mstv_base.item.MoreStickVariantItems.DARK_OAK_STICK;
-import static de.pnku.mstv_base.item.MoreStickVariantItems.MANGROVE_STICK;
-import static de.pnku.mstv_base.item.MoreStickVariantItems.SPRUCE_STICK;
-import static de.pnku.mstv_base.item.MoreStickVariantItems.WARPED_STICK;
 import static de.pnku.mstv_mweaponv.item.MoreWeaponVariantItems.*;
+import static de.pnku.mstv_mweaponv.util.BiomeSpawnItemUtil.BOW_BY_STICK;
 import static de.pnku.mstv_mweaponv.util.BiomeSpawnItemUtil.chooseStickForSpawnBiome;
 
 @Mixin(AbstractSkeleton.class)
@@ -46,20 +39,6 @@ public abstract class AbstractSkeletonMixin extends Monster {
     protected AbstractSkeletonMixin(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
     }
-
-    @Unique
-    private static final Map<Item, Item> BOW_BY_STICK = Map.ofEntries(
-            Map.entry(ACACIA_STICK,   ACACIA_BOW),
-            Map.entry(BIRCH_STICK,    BIRCH_BOW),
-            Map.entry(Items.BAMBOO,   BAMBOO_BOW),
-            Map.entry(JUNGLE_STICK,   JUNGLE_BOW),
-            Map.entry(CHERRY_STICK,   CHERRY_BOW),
-            Map.entry(CRIMSON_STICK,  CRIMSON_BOW),
-            Map.entry(DARK_OAK_STICK, DARK_OAK_BOW),
-            Map.entry(MANGROVE_STICK, MANGROVE_BOW),
-            Map.entry(SPRUCE_STICK,   SPRUCE_BOW),
-            Map.entry(WARPED_STICK,   WARPED_BOW)
-    );
 
     @WrapOperation(method = "populateDefaultEquipmentSlots", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/AbstractSkeleton;setItemSlot(Lnet/minecraft/world/entity/EquipmentSlot;Lnet/minecraft/world/item/ItemStack;)V", ordinal = 0))
     protected void wrappedSetItemSlotFromPopulateDefaultEquipmentSlots(AbstractSkeleton abstractSkeleton, EquipmentSlot slot, ItemStack stack, Operation<Void> original) {
