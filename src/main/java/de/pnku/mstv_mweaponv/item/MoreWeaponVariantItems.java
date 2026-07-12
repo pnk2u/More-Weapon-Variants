@@ -352,7 +352,7 @@ public class MoreWeaponVariantItems {
         registerSwordItem(PALE_OAK_NETHERITE_SWORD, PALE_OAK_STICK, "netherite");
         registerBowItem(PALE_OAK_BOW, PALE_OAK_STICK);
         registerCrossbowItem(PALE_OAK_CROSSBOW, PALE_OAK_STICK);
-        registerArrowItem(PALE_OAK_ARROW, PALE_OAK_STICK, PALE_OAK_TIPPED_ARROW, 13);
+        registerArrowItem(PALE_OAK_ARROW, PALE_OAK_STICK, PALE_OAK_TIPPED_ARROW);
 
 
       //Jungle Weapons
