@@ -67,16 +67,15 @@
 ### Versions
 <a name="most-recent-version"></a>
 <!--CHANGELOG:START-->
-<a name="1.5.10"></a>
-#### 1.5.10[*](#footnote-*):
-- `1.21(.1)`,`1.21.4(-11)`,`26.1`: Update usage of _Fabric Convention Tags_ to `26.1`-compatible naming:
-  > e.g. `c:tools/bows` → `c:tools/bow`
-- `26.1`: Fix _Dispenser_ not being craftable with vanilla _Bow Item_ due to the above-mentioned incompatible tags
+<a name="1.6.0"></a>
+### 1.6.0[*](#footnote-*):
+- Implement a way for other mods to add custom _Biomes_ and _Weapons_ for _Skeletons_, _Zombies_, etc. to spawn with
+> **Note**: The only currently planned/upcoming use of this by myself is <ins>More Variants: Core</ins> (&#x200A;<sub><a title="More Variants: Core&#10;on Modrinth" href="https://modrinth.com/mod/more-variants-core/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a></sub><!--SEPARATOR_V:MR--><img width=5 height=8 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"><sub><a title="More Variants: Core&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/more-variants-core/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;) and <ins>More Variants: Pale Oak Backport</ins> (&#x200A;<sub><a title="More Variants: Pale Oak Backport&#10;on Modrinth" href="https://modrinth.com/mod/more-variants-pale-oak-backport/"><img width=20 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a></sub><!--SEPARATOR_V:MR--><img width=5 height=8 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"><sub><a title="More Variants: Pale Oak Backport&#10;on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/more-variants-pale-oak-backport/"><img width=20 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a></sub>&#x200A;) for `1.20.1` and `1.21(.1)`. Nevertheless, the implementation has been added to all versions.
 
-<h2><sub><sub><sup><ins>Download 1.5.10 + 1.21.9(10)</ins>:</sup>&#x200A;
-<a title="Download (Modrinth):&#10;More Weapon Variants 1.5.10 + 1.21.9(10)" href="https://www.modrinth.com/mod/TAu3MvxJ/version/zaQN2RuF">
+<h2><sub><sub><sup><ins>Download 1.6.0 + 1.21.9(10)</ins>:</sup>&#x200A;
+<a title="Download (Modrinth):&#10;More Weapon Variants 1.6.0 + 1.21.9(10)" href="https://www.modrinth.com/mod/TAu3MvxJ/version/VFDmr24o">
 <img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;
-<a title="Download (Curseforge):&#10;1.5.10 + 1.21.9(10) - More Weapon Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-weapon-variants/files/7996115">
+<a title="Download (Curseforge):&#10;1.6.0 + 1.21.9(10) - More Weapon Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-weapon-variants/files/8419101">
 <img width=26 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a>
 </sub></sub></h2>
 
