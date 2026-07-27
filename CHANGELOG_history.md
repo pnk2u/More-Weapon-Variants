@@ -1,3 +1,14 @@
+<a name="1.6.1"></a>
+### 1.6.1:
+- Fix _Golden Sword_ and _Copper Sword_ Variants not having the correct enchantability
+
+<h2><sub><sub><sup><ins>Download 1.6.1 + 1.20.1</ins>:</sup>&#x200A;
+<a title="Download (Modrinth):&#10;More Weapon Variants 1.6.1 + 1.20.1" href="https://www.modrinth.com/mod/TAu3MvxJ/version/o6EIm9Go">
+<img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;
+<a title="Download (Curseforge):&#10;1.6.1 + 1.20.1 - More Weapon Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-weapon-variants/files/8520328">
+<img width=26 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a>
+</sub></sub></h2>
+
 <a name="1.6.0"></a>
 ## 1.6.0:
 - Implement a way for other mods to add custom _Biomes_ and _Weapons_ for _Skeletons_, _Zombies_, etc. to spawn with
