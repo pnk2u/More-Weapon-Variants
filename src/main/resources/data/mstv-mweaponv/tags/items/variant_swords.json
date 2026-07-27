@@ -43,7 +43,11 @@
     "mstv-mweaponv:spruce_blackstone_sword",
     "mstv-mweaponv:warped_blackstone_sword",
     {
-      "id": "mstv-mweaponv:variant_golden_swords",
+      "id": "#mstv-mweaponv:variant_golden_swords",
+      "required": false
+    },
+    {
+      "id": "#mstv-mweaponv:variant_copper_swords",
       "required": false
     },
     "mstv-mweaponv:acacia_iron_sword",
