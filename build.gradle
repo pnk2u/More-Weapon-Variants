@@ -90,7 +90,7 @@ dependencies {
 	localRuntime "maven.modrinth:more-tool-variants:${project.m_tool_v_version_id}"
 
 	// NEA (Compatibility)
-	compileOnly "maven.modrinth:not-enough-animations:${project.nea_version_id}"
+	compileOnly "maven.modrinth:not-enough-animations:${project.not_enough_animations_version_id}"
 }
 
 static def version_reduced(String input) { // Reduces a version string by one minor version and sets patch to 0
