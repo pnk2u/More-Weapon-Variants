@@ -86,8 +86,8 @@ dependencies {
 	// MStV + mToolV
 	compileOnly "maven.modrinth:more-stick-variants:${project.mstv_version_id}"
 	localRuntime "maven.modrinth:more-stick-variants:${project.mstv_version_id}"
-	compileOnly "maven.modrinth:more-tool-variants:${project.mstv_mtoolv_version_id}"
-	localRuntime "maven.modrinth:more-tool-variants:${project.mstv_mtoolv_version_id}"
+	compileOnly "maven.modrinth:more-tool-variants:${project.m_tool_v_version_id}"
+	localRuntime "maven.modrinth:more-tool-variants:${project.m_tool_v_version_id}"
 
 	// NEA (Compatibility)
 	compileOnly "maven.modrinth:not-enough-animations:${project.nea_version_id}"
