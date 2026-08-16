@@ -67,14 +67,14 @@
 ### Versions
 <a name="most-recent-version"></a>
 <!--CHANGELOG:START-->
-<a name="1.6.1"></a>
-#### 1.6.1[*](#footnote-*):
-- Fix _Golden Sword_ and _Copper Sword_ Variants not having the correct enchantability
+<a name="1.6.2"></a>
+#### 1.6.2[*](#footnote-*):
+- `26.1(2)`: Fix advancements "**Arbalistic**" and "**Two Birds, One Arrow**" for version <ins>26.2</ins>
 
-<h2><sub><sub><sup><ins>Download 1.6.1 + 26.1(2)</ins>:</sup>&#x200A;
-<a title="Download (Modrinth):&#10;More Weapon Variants 1.6.1 + 26.1(2)" href="https://www.modrinth.com/mod/TAu3MvxJ/version/iZaZ1pMg">
+<h2><sub><sub><sup><ins>Download 1.6.2 + 26.1(2)</ins>:</sup>&#x200A;
+<a title="Download (Modrinth):&#10;More Weapon Variants 1.6.2 + 26.1(2)" href="https://www.modrinth.com/mod/TAu3MvxJ/version/2TSD1Gvz">
 <img width=26 src="https://img.shields.io/badge/-%20-%23032a?style=flat&logo=modrinth"></a>&#x200A;
-<a title="Download (Curseforge):&#10;1.6.1 + 26.1(2) - More Weapon Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-weapon-variants/files/8520440">
+<a title="Download (Curseforge):&#10;1.6.2 + 26.1(2) - More Weapon Variants" href="https://www.curseforge.com/minecraft/mc-mods/more-weapon-variants/files/8666340">
 <img width=26 src="https://img.shields.io/badge/--%23302a?style=flat&logo=curseforge"></a>
 </sub></sub></h2>
 
